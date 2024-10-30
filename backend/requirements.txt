@@ -1,0 +1,16 @@
+fastapi
+matplotlib
+pandas
+seaborn
+uvicorn
+requests==2.31.0
+httpx
+keyboard
+pillow
+mss
+opencv-python 
+easyocr
+fuzzywuzzy
+python-Levenshtein
+torch
+transformers

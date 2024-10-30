@@ -1,0 +1,3 @@
+class UEXCommoditiesModel {}
+
+class UEXVehicleModel {}
