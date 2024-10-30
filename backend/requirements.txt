@@ -3,7 +3,7 @@ matplotlib
 pandas
 seaborn
 uvicorn
-requests==2.31.0
+requests==2.32.2
 httpx
 keyboard
 pillow
