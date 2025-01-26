@@ -9,7 +9,7 @@ class CommodityRoutePage extends StatelessWidget {
     return Scaffold(
       appBar: SccAppBar(
         context: context,
-        title: "Trading Route for ",
+        username: "Trading Route for ",
       ),
       body: const Column(),
     );

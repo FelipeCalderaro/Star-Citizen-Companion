@@ -45,3 +45,6 @@ app.*.map.json
 # Python
 .venv
 .env
+
+# FVM Version Cache
+.fvm/

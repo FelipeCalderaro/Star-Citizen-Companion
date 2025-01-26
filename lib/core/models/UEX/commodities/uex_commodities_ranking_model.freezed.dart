@@ -27,9 +27,15 @@ mixin _$UexCommoditiesRankingModel {
   int get httpCode => throw _privateConstructorUsedError;
   @JsonKey(name: "data")
   List<UexCommodityRankData> get data => throw _privateConstructorUsedError;
+  @JsonKey(name: "message")
+  String get message => throw _privateConstructorUsedError;
 
+  /// Serializes this UexCommoditiesRankingModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexCommoditiesRankingModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexCommoditiesRankingModelCopyWith<UexCommoditiesRankingModel>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -44,7 +50,8 @@ abstract class $UexCommoditiesRankingModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "status") String status,
       @JsonKey(name: "http_code") int httpCode,
-      @JsonKey(name: "data") List<UexCommodityRankData> data});
+      @JsonKey(name: "data") List<UexCommodityRankData> data,
+      @JsonKey(name: "message") String message});
 }
 
 /// @nodoc
@@ -58,12 +65,15 @@ class _$UexCommoditiesRankingModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexCommoditiesRankingModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
     Object? httpCode = null,
     Object? data = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -78,6 +88,10 @@ class _$UexCommoditiesRankingModelCopyWithImpl<$Res,
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<UexCommodityRankData>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -94,7 +108,8 @@ abstract class _$$UexCommoditiesRankingModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "status") String status,
       @JsonKey(name: "http_code") int httpCode,
-      @JsonKey(name: "data") List<UexCommodityRankData> data});
+      @JsonKey(name: "data") List<UexCommodityRankData> data,
+      @JsonKey(name: "message") String message});
 }
 
 /// @nodoc
@@ -107,12 +122,15 @@ class __$$UexCommoditiesRankingModelImplCopyWithImpl<$Res>
       $Res Function(_$UexCommoditiesRankingModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexCommoditiesRankingModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
     Object? httpCode = null,
     Object? data = null,
+    Object? message = null,
   }) {
     return _then(_$UexCommoditiesRankingModelImpl(
       status: null == status
@@ -127,6 +145,10 @@ class __$$UexCommoditiesRankingModelImplCopyWithImpl<$Res>
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<UexCommodityRankData>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -137,7 +159,8 @@ class _$UexCommoditiesRankingModelImpl implements _UexCommoditiesRankingModel {
   const _$UexCommoditiesRankingModelImpl(
       {@JsonKey(name: "status") required this.status,
       @JsonKey(name: "http_code") required this.httpCode,
-      @JsonKey(name: "data") required final List<UexCommodityRankData> data})
+      @JsonKey(name: "data") required final List<UexCommodityRankData> data,
+      @JsonKey(name: "message") required this.message})
       : _data = data;
 
   factory _$UexCommoditiesRankingModelImpl.fromJson(
@@ -160,8 +183,12 @@ class _$UexCommoditiesRankingModelImpl implements _UexCommoditiesRankingModel {
   }
 
   @override
+  @JsonKey(name: "message")
+  final String message;
+
+  @override
   String toString() {
-    return 'UexCommoditiesRankingModel(status: $status, httpCode: $httpCode, data: $data)';
+    return 'UexCommoditiesRankingModel(status: $status, httpCode: $httpCode, data: $data, message: $message)';
   }
 
   @override
@@ -172,15 +199,18 @@ class _$UexCommoditiesRankingModelImpl implements _UexCommoditiesRankingModel {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.httpCode, httpCode) ||
                 other.httpCode == httpCode) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status, httpCode,
-      const DeepCollectionEquality().hash(_data));
+      const DeepCollectionEquality().hash(_data), message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexCommoditiesRankingModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexCommoditiesRankingModelImplCopyWith<_$UexCommoditiesRankingModelImpl>
@@ -200,8 +230,8 @@ abstract class _UexCommoditiesRankingModel
   const factory _UexCommoditiesRankingModel(
           {@JsonKey(name: "status") required final String status,
           @JsonKey(name: "http_code") required final int httpCode,
-          @JsonKey(name: "data")
-          required final List<UexCommodityRankData> data}) =
+          @JsonKey(name: "data") required final List<UexCommodityRankData> data,
+          @JsonKey(name: "message") required final String message}) =
       _$UexCommoditiesRankingModelImpl;
 
   factory _UexCommoditiesRankingModel.fromJson(Map<String, dynamic> json) =
@@ -217,7 +247,13 @@ abstract class _UexCommoditiesRankingModel
   @JsonKey(name: "data")
   List<UexCommodityRankData> get data;
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(name: "message")
+  String get message;
+
+  /// Create a copy of UexCommoditiesRankingModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexCommoditiesRankingModelImplCopyWith<_$UexCommoditiesRankingModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -237,26 +273,57 @@ mixin _$UexCommodityRankData {
   String get slug => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
+  @IntToBoolConverter()
   @JsonKey(name: "is_temporary")
-  int get isTemporary => throw _privateConstructorUsedError;
+  bool get isTemporary => throw _privateConstructorUsedError;
+  @IntToBoolConverter()
   @JsonKey(name: "is_illegal")
-  int get isIllegal => throw _privateConstructorUsedError;
+  bool get isIllegal => throw _privateConstructorUsedError;
   @JsonKey(name: "price_buy_avg")
   double get priceBuyAvg => throw _privateConstructorUsedError;
   @JsonKey(name: "price_sell_avg")
   double get priceSellAvg => throw _privateConstructorUsedError;
+  @JsonKey(name: "price_buy_min")
+  int get priceBuyMin => throw _privateConstructorUsedError;
+  @JsonKey(name: "price_sell_max")
+  int get priceSellMax => throw _privateConstructorUsedError;
+  @JsonKey(name: "price_buy_minimum")
+  int? get priceBuyMinimum => throw _privateConstructorUsedError;
+  @JsonKey(name: "terminal_id_price_buy_minimum")
+  int? get terminalIdPriceBuyMinimum => throw _privateConstructorUsedError;
+  @JsonKey(name: "terminal_slug_price_buy_minimum")
+  String? get terminalSlugPriceBuyMinimum => throw _privateConstructorUsedError;
+  @JsonKey(name: "price_sell_maximum")
+  int? get priceSellMaximum => throw _privateConstructorUsedError;
+  @JsonKey(name: "terminal_id_price_sell_maximum")
+  int? get terminalIdPriceSellMaximum => throw _privateConstructorUsedError;
+  @JsonKey(name: "terminal_slug_price_sell_maximum")
+  String? get terminalSlugPriceSellMaximum =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: "scu_buy_avg")
-  int get scuBuyAvg => throw _privateConstructorUsedError;
+  double get scuBuyAvg => throw _privateConstructorUsedError;
   @JsonKey(name: "scu_sell_avg")
-  int get scuSellAvg => throw _privateConstructorUsedError;
+  double get scuSellAvg => throw _privateConstructorUsedError;
+  @JsonKey(name: "scu_buy_users")
+  String? get scuBuyUsers => throw _privateConstructorUsedError;
+  @JsonKey(name: "scu_buy_users_rows")
+  int get scuBuyUsersRows => throw _privateConstructorUsedError;
+  @JsonKey(name: "scu_sell_users")
+  String? get scuSellUsers => throw _privateConstructorUsedError;
+  @JsonKey(name: "scu_sell_users_rows")
+  int get scuSellUsersRows => throw _privateConstructorUsedError;
   @JsonKey(name: "status_buy_avg")
   int get statusBuyAvg => throw _privateConstructorUsedError;
   @JsonKey(name: "status_sell_avg")
   int get statusSellAvg => throw _privateConstructorUsedError;
-  @JsonKey(name: "volatility_buy")
-  double get volatilityBuy => throw _privateConstructorUsedError;
-  @JsonKey(name: "volatility_sell")
-  double get volatilitySell => throw _privateConstructorUsedError;
+  @JsonKey(name: "volatility_price_buy")
+  double get volatilityPriceBuy => throw _privateConstructorUsedError;
+  @JsonKey(name: "volatility_price_sell")
+  double get volatilityPriceSell => throw _privateConstructorUsedError;
+  @JsonKey(name: "volatility_scu_buy")
+  double get volatilityScuBuy => throw _privateConstructorUsedError;
+  @JsonKey(name: "volatility_scu_sell")
+  double get volatilityScuSell => throw _privateConstructorUsedError;
   @JsonKey(name: "cax_score")
   int get caxScore => throw _privateConstructorUsedError;
   @JsonKey(name: "investment")
@@ -264,7 +331,15 @@ mixin _$UexCommodityRankData {
   @JsonKey(name: "investment_per_scu")
   double get investmentPerScu => throw _privateConstructorUsedError;
   @JsonKey(name: "is_average_trade_price_invalid")
-  int get isAverageTradePriceInvalid => throw _privateConstructorUsedError;
+  @IntToBoolConverter()
+  bool get isAverageTradePriceInvalid => throw _privateConstructorUsedError;
+  @JsonKey(name: "profitability_best")
+  double get profitabilityBest => throw _privateConstructorUsedError;
+  @JsonKey(name: "profitability_relative_percentage_best")
+  double get profitabilityRelativePercentageBest =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "profitability_per_scu_best")
+  int get profitabilityPerScuBest => throw _privateConstructorUsedError;
   @JsonKey(name: "profitability")
   double get profitability => throw _privateConstructorUsedError;
   @JsonKey(name: "profitability_relative_percentage")
@@ -276,21 +351,13 @@ mixin _$UexCommodityRankData {
   int get availabilityBuy => throw _privateConstructorUsedError;
   @JsonKey(name: "availability_sell")
   int get availabilitySell => throw _privateConstructorUsedError;
-  @JsonKey(name: "price_buy_minimum")
-  int get priceBuyMinimum => throw _privateConstructorUsedError;
-  @JsonKey(name: "terminal_id_price_buy_minimum")
-  int get terminalIdPriceBuyMinimum => throw _privateConstructorUsedError;
-  @JsonKey(name: "terminal_slug_price_buy_minimum")
-  String get terminalSlugPriceBuyMinimum => throw _privateConstructorUsedError;
-  @JsonKey(name: "price_sell_maximum")
-  int get priceSellMaximum => throw _privateConstructorUsedError;
-  @JsonKey(name: "terminal_id_price_sell_maximum")
-  int get terminalIdPriceSellMaximum => throw _privateConstructorUsedError;
-  @JsonKey(name: "terminal_slug_price_sell_maximum")
-  String get terminalSlugPriceSellMaximum => throw _privateConstructorUsedError;
 
+  /// Serializes this UexCommodityRankData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexCommodityRankData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexCommodityRankDataCopyWith<UexCommodityRankData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -307,37 +374,50 @@ abstract class $UexCommodityRankDataCopyWith<$Res> {
       @JsonKey(name: "code") String code,
       @JsonKey(name: "slug") String slug,
       @JsonKey(name: "name") String name,
-      @JsonKey(name: "is_temporary") int isTemporary,
-      @JsonKey(name: "is_illegal") int isIllegal,
+      @IntToBoolConverter() @JsonKey(name: "is_temporary") bool isTemporary,
+      @IntToBoolConverter() @JsonKey(name: "is_illegal") bool isIllegal,
       @JsonKey(name: "price_buy_avg") double priceBuyAvg,
       @JsonKey(name: "price_sell_avg") double priceSellAvg,
-      @JsonKey(name: "scu_buy_avg") int scuBuyAvg,
-      @JsonKey(name: "scu_sell_avg") int scuSellAvg,
+      @JsonKey(name: "price_buy_min") int priceBuyMin,
+      @JsonKey(name: "price_sell_max") int priceSellMax,
+      @JsonKey(name: "price_buy_minimum") int? priceBuyMinimum,
+      @JsonKey(name: "terminal_id_price_buy_minimum")
+      int? terminalIdPriceBuyMinimum,
+      @JsonKey(name: "terminal_slug_price_buy_minimum")
+      String? terminalSlugPriceBuyMinimum,
+      @JsonKey(name: "price_sell_maximum") int? priceSellMaximum,
+      @JsonKey(name: "terminal_id_price_sell_maximum")
+      int? terminalIdPriceSellMaximum,
+      @JsonKey(name: "terminal_slug_price_sell_maximum")
+      String? terminalSlugPriceSellMaximum,
+      @JsonKey(name: "scu_buy_avg") double scuBuyAvg,
+      @JsonKey(name: "scu_sell_avg") double scuSellAvg,
+      @JsonKey(name: "scu_buy_users") String? scuBuyUsers,
+      @JsonKey(name: "scu_buy_users_rows") int scuBuyUsersRows,
+      @JsonKey(name: "scu_sell_users") String? scuSellUsers,
+      @JsonKey(name: "scu_sell_users_rows") int scuSellUsersRows,
       @JsonKey(name: "status_buy_avg") int statusBuyAvg,
       @JsonKey(name: "status_sell_avg") int statusSellAvg,
-      @JsonKey(name: "volatility_buy") double volatilityBuy,
-      @JsonKey(name: "volatility_sell") double volatilitySell,
+      @JsonKey(name: "volatility_price_buy") double volatilityPriceBuy,
+      @JsonKey(name: "volatility_price_sell") double volatilityPriceSell,
+      @JsonKey(name: "volatility_scu_buy") double volatilityScuBuy,
+      @JsonKey(name: "volatility_scu_sell") double volatilityScuSell,
       @JsonKey(name: "cax_score") int caxScore,
       @JsonKey(name: "investment") double investment,
       @JsonKey(name: "investment_per_scu") double investmentPerScu,
       @JsonKey(name: "is_average_trade_price_invalid")
-      int isAverageTradePriceInvalid,
+      @IntToBoolConverter()
+      bool isAverageTradePriceInvalid,
+      @JsonKey(name: "profitability_best") double profitabilityBest,
+      @JsonKey(name: "profitability_relative_percentage_best")
+      double profitabilityRelativePercentageBest,
+      @JsonKey(name: "profitability_per_scu_best") int profitabilityPerScuBest,
       @JsonKey(name: "profitability") double profitability,
       @JsonKey(name: "profitability_relative_percentage")
       double profitabilityRelativePercentage,
       @JsonKey(name: "profitability_per_scu") double profitabilityPerScu,
       @JsonKey(name: "availability_buy") int availabilityBuy,
-      @JsonKey(name: "availability_sell") int availabilitySell,
-      @JsonKey(name: "price_buy_minimum") int priceBuyMinimum,
-      @JsonKey(name: "terminal_id_price_buy_minimum")
-      int terminalIdPriceBuyMinimum,
-      @JsonKey(name: "terminal_slug_price_buy_minimum")
-      String terminalSlugPriceBuyMinimum,
-      @JsonKey(name: "price_sell_maximum") int priceSellMaximum,
-      @JsonKey(name: "terminal_id_price_sell_maximum")
-      int terminalIdPriceSellMaximum,
-      @JsonKey(name: "terminal_slug_price_sell_maximum")
-      String terminalSlugPriceSellMaximum});
+      @JsonKey(name: "availability_sell") int availabilitySell});
 
   $UexCommodityDataCopyWith<$Res>? get info;
 }
@@ -353,6 +433,8 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexCommodityRankData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -365,27 +447,38 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
     Object? isIllegal = null,
     Object? priceBuyAvg = null,
     Object? priceSellAvg = null,
+    Object? priceBuyMin = null,
+    Object? priceSellMax = null,
+    Object? priceBuyMinimum = freezed,
+    Object? terminalIdPriceBuyMinimum = freezed,
+    Object? terminalSlugPriceBuyMinimum = freezed,
+    Object? priceSellMaximum = freezed,
+    Object? terminalIdPriceSellMaximum = freezed,
+    Object? terminalSlugPriceSellMaximum = freezed,
     Object? scuBuyAvg = null,
     Object? scuSellAvg = null,
+    Object? scuBuyUsers = freezed,
+    Object? scuBuyUsersRows = null,
+    Object? scuSellUsers = freezed,
+    Object? scuSellUsersRows = null,
     Object? statusBuyAvg = null,
     Object? statusSellAvg = null,
-    Object? volatilityBuy = null,
-    Object? volatilitySell = null,
+    Object? volatilityPriceBuy = null,
+    Object? volatilityPriceSell = null,
+    Object? volatilityScuBuy = null,
+    Object? volatilityScuSell = null,
     Object? caxScore = null,
     Object? investment = null,
     Object? investmentPerScu = null,
     Object? isAverageTradePriceInvalid = null,
+    Object? profitabilityBest = null,
+    Object? profitabilityRelativePercentageBest = null,
+    Object? profitabilityPerScuBest = null,
     Object? profitability = null,
     Object? profitabilityRelativePercentage = null,
     Object? profitabilityPerScu = null,
     Object? availabilityBuy = null,
     Object? availabilitySell = null,
-    Object? priceBuyMinimum = null,
-    Object? terminalIdPriceBuyMinimum = null,
-    Object? terminalSlugPriceBuyMinimum = null,
-    Object? priceSellMaximum = null,
-    Object? terminalIdPriceSellMaximum = null,
-    Object? terminalSlugPriceSellMaximum = null,
   }) {
     return _then(_value.copyWith(
       info: freezed == info
@@ -411,11 +504,11 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
       isTemporary: null == isTemporary
           ? _value.isTemporary
           : isTemporary // ignore: cast_nullable_to_non_nullable
-              as int,
+              as bool,
       isIllegal: null == isIllegal
           ? _value.isIllegal
           : isIllegal // ignore: cast_nullable_to_non_nullable
-              as int,
+              as bool,
       priceBuyAvg: null == priceBuyAvg
           ? _value.priceBuyAvg
           : priceBuyAvg // ignore: cast_nullable_to_non_nullable
@@ -424,13 +517,61 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
           ? _value.priceSellAvg
           : priceSellAvg // ignore: cast_nullable_to_non_nullable
               as double,
+      priceBuyMin: null == priceBuyMin
+          ? _value.priceBuyMin
+          : priceBuyMin // ignore: cast_nullable_to_non_nullable
+              as int,
+      priceSellMax: null == priceSellMax
+          ? _value.priceSellMax
+          : priceSellMax // ignore: cast_nullable_to_non_nullable
+              as int,
+      priceBuyMinimum: freezed == priceBuyMinimum
+          ? _value.priceBuyMinimum
+          : priceBuyMinimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalIdPriceBuyMinimum: freezed == terminalIdPriceBuyMinimum
+          ? _value.terminalIdPriceBuyMinimum
+          : terminalIdPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalSlugPriceBuyMinimum: freezed == terminalSlugPriceBuyMinimum
+          ? _value.terminalSlugPriceBuyMinimum
+          : terminalSlugPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priceSellMaximum: freezed == priceSellMaximum
+          ? _value.priceSellMaximum
+          : priceSellMaximum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalIdPriceSellMaximum: freezed == terminalIdPriceSellMaximum
+          ? _value.terminalIdPriceSellMaximum
+          : terminalIdPriceSellMaximum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalSlugPriceSellMaximum: freezed == terminalSlugPriceSellMaximum
+          ? _value.terminalSlugPriceSellMaximum
+          : terminalSlugPriceSellMaximum // ignore: cast_nullable_to_non_nullable
+              as String?,
       scuBuyAvg: null == scuBuyAvg
           ? _value.scuBuyAvg
           : scuBuyAvg // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       scuSellAvg: null == scuSellAvg
           ? _value.scuSellAvg
           : scuSellAvg // ignore: cast_nullable_to_non_nullable
+              as double,
+      scuBuyUsers: freezed == scuBuyUsers
+          ? _value.scuBuyUsers
+          : scuBuyUsers // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scuBuyUsersRows: null == scuBuyUsersRows
+          ? _value.scuBuyUsersRows
+          : scuBuyUsersRows // ignore: cast_nullable_to_non_nullable
+              as int,
+      scuSellUsers: freezed == scuSellUsers
+          ? _value.scuSellUsers
+          : scuSellUsers // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scuSellUsersRows: null == scuSellUsersRows
+          ? _value.scuSellUsersRows
+          : scuSellUsersRows // ignore: cast_nullable_to_non_nullable
               as int,
       statusBuyAvg: null == statusBuyAvg
           ? _value.statusBuyAvg
@@ -440,13 +581,21 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
           ? _value.statusSellAvg
           : statusSellAvg // ignore: cast_nullable_to_non_nullable
               as int,
-      volatilityBuy: null == volatilityBuy
-          ? _value.volatilityBuy
-          : volatilityBuy // ignore: cast_nullable_to_non_nullable
+      volatilityPriceBuy: null == volatilityPriceBuy
+          ? _value.volatilityPriceBuy
+          : volatilityPriceBuy // ignore: cast_nullable_to_non_nullable
               as double,
-      volatilitySell: null == volatilitySell
-          ? _value.volatilitySell
-          : volatilitySell // ignore: cast_nullable_to_non_nullable
+      volatilityPriceSell: null == volatilityPriceSell
+          ? _value.volatilityPriceSell
+          : volatilityPriceSell // ignore: cast_nullable_to_non_nullable
+              as double,
+      volatilityScuBuy: null == volatilityScuBuy
+          ? _value.volatilityScuBuy
+          : volatilityScuBuy // ignore: cast_nullable_to_non_nullable
+              as double,
+      volatilityScuSell: null == volatilityScuSell
+          ? _value.volatilityScuSell
+          : volatilityScuSell // ignore: cast_nullable_to_non_nullable
               as double,
       caxScore: null == caxScore
           ? _value.caxScore
@@ -463,6 +612,19 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
       isAverageTradePriceInvalid: null == isAverageTradePriceInvalid
           ? _value.isAverageTradePriceInvalid
           : isAverageTradePriceInvalid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      profitabilityBest: null == profitabilityBest
+          ? _value.profitabilityBest
+          : profitabilityBest // ignore: cast_nullable_to_non_nullable
+              as double,
+      profitabilityRelativePercentageBest: null ==
+              profitabilityRelativePercentageBest
+          ? _value.profitabilityRelativePercentageBest
+          : profitabilityRelativePercentageBest // ignore: cast_nullable_to_non_nullable
+              as double,
+      profitabilityPerScuBest: null == profitabilityPerScuBest
+          ? _value.profitabilityPerScuBest
+          : profitabilityPerScuBest // ignore: cast_nullable_to_non_nullable
               as int,
       profitability: null == profitability
           ? _value.profitability
@@ -484,33 +646,11 @@ class _$UexCommodityRankDataCopyWithImpl<$Res,
           ? _value.availabilitySell
           : availabilitySell // ignore: cast_nullable_to_non_nullable
               as int,
-      priceBuyMinimum: null == priceBuyMinimum
-          ? _value.priceBuyMinimum
-          : priceBuyMinimum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalIdPriceBuyMinimum: null == terminalIdPriceBuyMinimum
-          ? _value.terminalIdPriceBuyMinimum
-          : terminalIdPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalSlugPriceBuyMinimum: null == terminalSlugPriceBuyMinimum
-          ? _value.terminalSlugPriceBuyMinimum
-          : terminalSlugPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
-              as String,
-      priceSellMaximum: null == priceSellMaximum
-          ? _value.priceSellMaximum
-          : priceSellMaximum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalIdPriceSellMaximum: null == terminalIdPriceSellMaximum
-          ? _value.terminalIdPriceSellMaximum
-          : terminalIdPriceSellMaximum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalSlugPriceSellMaximum: null == terminalSlugPriceSellMaximum
-          ? _value.terminalSlugPriceSellMaximum
-          : terminalSlugPriceSellMaximum // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 
+  /// Create a copy of UexCommodityRankData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UexCommodityDataCopyWith<$Res>? get info {
@@ -538,37 +678,50 @@ abstract class _$$UexCommodityRankDataImplCopyWith<$Res>
       @JsonKey(name: "code") String code,
       @JsonKey(name: "slug") String slug,
       @JsonKey(name: "name") String name,
-      @JsonKey(name: "is_temporary") int isTemporary,
-      @JsonKey(name: "is_illegal") int isIllegal,
+      @IntToBoolConverter() @JsonKey(name: "is_temporary") bool isTemporary,
+      @IntToBoolConverter() @JsonKey(name: "is_illegal") bool isIllegal,
       @JsonKey(name: "price_buy_avg") double priceBuyAvg,
       @JsonKey(name: "price_sell_avg") double priceSellAvg,
-      @JsonKey(name: "scu_buy_avg") int scuBuyAvg,
-      @JsonKey(name: "scu_sell_avg") int scuSellAvg,
+      @JsonKey(name: "price_buy_min") int priceBuyMin,
+      @JsonKey(name: "price_sell_max") int priceSellMax,
+      @JsonKey(name: "price_buy_minimum") int? priceBuyMinimum,
+      @JsonKey(name: "terminal_id_price_buy_minimum")
+      int? terminalIdPriceBuyMinimum,
+      @JsonKey(name: "terminal_slug_price_buy_minimum")
+      String? terminalSlugPriceBuyMinimum,
+      @JsonKey(name: "price_sell_maximum") int? priceSellMaximum,
+      @JsonKey(name: "terminal_id_price_sell_maximum")
+      int? terminalIdPriceSellMaximum,
+      @JsonKey(name: "terminal_slug_price_sell_maximum")
+      String? terminalSlugPriceSellMaximum,
+      @JsonKey(name: "scu_buy_avg") double scuBuyAvg,
+      @JsonKey(name: "scu_sell_avg") double scuSellAvg,
+      @JsonKey(name: "scu_buy_users") String? scuBuyUsers,
+      @JsonKey(name: "scu_buy_users_rows") int scuBuyUsersRows,
+      @JsonKey(name: "scu_sell_users") String? scuSellUsers,
+      @JsonKey(name: "scu_sell_users_rows") int scuSellUsersRows,
       @JsonKey(name: "status_buy_avg") int statusBuyAvg,
       @JsonKey(name: "status_sell_avg") int statusSellAvg,
-      @JsonKey(name: "volatility_buy") double volatilityBuy,
-      @JsonKey(name: "volatility_sell") double volatilitySell,
+      @JsonKey(name: "volatility_price_buy") double volatilityPriceBuy,
+      @JsonKey(name: "volatility_price_sell") double volatilityPriceSell,
+      @JsonKey(name: "volatility_scu_buy") double volatilityScuBuy,
+      @JsonKey(name: "volatility_scu_sell") double volatilityScuSell,
       @JsonKey(name: "cax_score") int caxScore,
       @JsonKey(name: "investment") double investment,
       @JsonKey(name: "investment_per_scu") double investmentPerScu,
       @JsonKey(name: "is_average_trade_price_invalid")
-      int isAverageTradePriceInvalid,
+      @IntToBoolConverter()
+      bool isAverageTradePriceInvalid,
+      @JsonKey(name: "profitability_best") double profitabilityBest,
+      @JsonKey(name: "profitability_relative_percentage_best")
+      double profitabilityRelativePercentageBest,
+      @JsonKey(name: "profitability_per_scu_best") int profitabilityPerScuBest,
       @JsonKey(name: "profitability") double profitability,
       @JsonKey(name: "profitability_relative_percentage")
       double profitabilityRelativePercentage,
       @JsonKey(name: "profitability_per_scu") double profitabilityPerScu,
       @JsonKey(name: "availability_buy") int availabilityBuy,
-      @JsonKey(name: "availability_sell") int availabilitySell,
-      @JsonKey(name: "price_buy_minimum") int priceBuyMinimum,
-      @JsonKey(name: "terminal_id_price_buy_minimum")
-      int terminalIdPriceBuyMinimum,
-      @JsonKey(name: "terminal_slug_price_buy_minimum")
-      String terminalSlugPriceBuyMinimum,
-      @JsonKey(name: "price_sell_maximum") int priceSellMaximum,
-      @JsonKey(name: "terminal_id_price_sell_maximum")
-      int terminalIdPriceSellMaximum,
-      @JsonKey(name: "terminal_slug_price_sell_maximum")
-      String terminalSlugPriceSellMaximum});
+      @JsonKey(name: "availability_sell") int availabilitySell});
 
   @override
   $UexCommodityDataCopyWith<$Res>? get info;
@@ -582,6 +735,8 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
       $Res Function(_$UexCommodityRankDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexCommodityRankData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -594,27 +749,38 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
     Object? isIllegal = null,
     Object? priceBuyAvg = null,
     Object? priceSellAvg = null,
+    Object? priceBuyMin = null,
+    Object? priceSellMax = null,
+    Object? priceBuyMinimum = freezed,
+    Object? terminalIdPriceBuyMinimum = freezed,
+    Object? terminalSlugPriceBuyMinimum = freezed,
+    Object? priceSellMaximum = freezed,
+    Object? terminalIdPriceSellMaximum = freezed,
+    Object? terminalSlugPriceSellMaximum = freezed,
     Object? scuBuyAvg = null,
     Object? scuSellAvg = null,
+    Object? scuBuyUsers = freezed,
+    Object? scuBuyUsersRows = null,
+    Object? scuSellUsers = freezed,
+    Object? scuSellUsersRows = null,
     Object? statusBuyAvg = null,
     Object? statusSellAvg = null,
-    Object? volatilityBuy = null,
-    Object? volatilitySell = null,
+    Object? volatilityPriceBuy = null,
+    Object? volatilityPriceSell = null,
+    Object? volatilityScuBuy = null,
+    Object? volatilityScuSell = null,
     Object? caxScore = null,
     Object? investment = null,
     Object? investmentPerScu = null,
     Object? isAverageTradePriceInvalid = null,
+    Object? profitabilityBest = null,
+    Object? profitabilityRelativePercentageBest = null,
+    Object? profitabilityPerScuBest = null,
     Object? profitability = null,
     Object? profitabilityRelativePercentage = null,
     Object? profitabilityPerScu = null,
     Object? availabilityBuy = null,
     Object? availabilitySell = null,
-    Object? priceBuyMinimum = null,
-    Object? terminalIdPriceBuyMinimum = null,
-    Object? terminalSlugPriceBuyMinimum = null,
-    Object? priceSellMaximum = null,
-    Object? terminalIdPriceSellMaximum = null,
-    Object? terminalSlugPriceSellMaximum = null,
   }) {
     return _then(_$UexCommodityRankDataImpl(
       info: freezed == info
@@ -640,11 +806,11 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
       isTemporary: null == isTemporary
           ? _value.isTemporary
           : isTemporary // ignore: cast_nullable_to_non_nullable
-              as int,
+              as bool,
       isIllegal: null == isIllegal
           ? _value.isIllegal
           : isIllegal // ignore: cast_nullable_to_non_nullable
-              as int,
+              as bool,
       priceBuyAvg: null == priceBuyAvg
           ? _value.priceBuyAvg
           : priceBuyAvg // ignore: cast_nullable_to_non_nullable
@@ -653,13 +819,61 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
           ? _value.priceSellAvg
           : priceSellAvg // ignore: cast_nullable_to_non_nullable
               as double,
+      priceBuyMin: null == priceBuyMin
+          ? _value.priceBuyMin
+          : priceBuyMin // ignore: cast_nullable_to_non_nullable
+              as int,
+      priceSellMax: null == priceSellMax
+          ? _value.priceSellMax
+          : priceSellMax // ignore: cast_nullable_to_non_nullable
+              as int,
+      priceBuyMinimum: freezed == priceBuyMinimum
+          ? _value.priceBuyMinimum
+          : priceBuyMinimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalIdPriceBuyMinimum: freezed == terminalIdPriceBuyMinimum
+          ? _value.terminalIdPriceBuyMinimum
+          : terminalIdPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalSlugPriceBuyMinimum: freezed == terminalSlugPriceBuyMinimum
+          ? _value.terminalSlugPriceBuyMinimum
+          : terminalSlugPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priceSellMaximum: freezed == priceSellMaximum
+          ? _value.priceSellMaximum
+          : priceSellMaximum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalIdPriceSellMaximum: freezed == terminalIdPriceSellMaximum
+          ? _value.terminalIdPriceSellMaximum
+          : terminalIdPriceSellMaximum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      terminalSlugPriceSellMaximum: freezed == terminalSlugPriceSellMaximum
+          ? _value.terminalSlugPriceSellMaximum
+          : terminalSlugPriceSellMaximum // ignore: cast_nullable_to_non_nullable
+              as String?,
       scuBuyAvg: null == scuBuyAvg
           ? _value.scuBuyAvg
           : scuBuyAvg // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       scuSellAvg: null == scuSellAvg
           ? _value.scuSellAvg
           : scuSellAvg // ignore: cast_nullable_to_non_nullable
+              as double,
+      scuBuyUsers: freezed == scuBuyUsers
+          ? _value.scuBuyUsers
+          : scuBuyUsers // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scuBuyUsersRows: null == scuBuyUsersRows
+          ? _value.scuBuyUsersRows
+          : scuBuyUsersRows // ignore: cast_nullable_to_non_nullable
+              as int,
+      scuSellUsers: freezed == scuSellUsers
+          ? _value.scuSellUsers
+          : scuSellUsers // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scuSellUsersRows: null == scuSellUsersRows
+          ? _value.scuSellUsersRows
+          : scuSellUsersRows // ignore: cast_nullable_to_non_nullable
               as int,
       statusBuyAvg: null == statusBuyAvg
           ? _value.statusBuyAvg
@@ -669,13 +883,21 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
           ? _value.statusSellAvg
           : statusSellAvg // ignore: cast_nullable_to_non_nullable
               as int,
-      volatilityBuy: null == volatilityBuy
-          ? _value.volatilityBuy
-          : volatilityBuy // ignore: cast_nullable_to_non_nullable
+      volatilityPriceBuy: null == volatilityPriceBuy
+          ? _value.volatilityPriceBuy
+          : volatilityPriceBuy // ignore: cast_nullable_to_non_nullable
               as double,
-      volatilitySell: null == volatilitySell
-          ? _value.volatilitySell
-          : volatilitySell // ignore: cast_nullable_to_non_nullable
+      volatilityPriceSell: null == volatilityPriceSell
+          ? _value.volatilityPriceSell
+          : volatilityPriceSell // ignore: cast_nullable_to_non_nullable
+              as double,
+      volatilityScuBuy: null == volatilityScuBuy
+          ? _value.volatilityScuBuy
+          : volatilityScuBuy // ignore: cast_nullable_to_non_nullable
+              as double,
+      volatilityScuSell: null == volatilityScuSell
+          ? _value.volatilityScuSell
+          : volatilityScuSell // ignore: cast_nullable_to_non_nullable
               as double,
       caxScore: null == caxScore
           ? _value.caxScore
@@ -692,6 +914,19 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
       isAverageTradePriceInvalid: null == isAverageTradePriceInvalid
           ? _value.isAverageTradePriceInvalid
           : isAverageTradePriceInvalid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      profitabilityBest: null == profitabilityBest
+          ? _value.profitabilityBest
+          : profitabilityBest // ignore: cast_nullable_to_non_nullable
+              as double,
+      profitabilityRelativePercentageBest: null ==
+              profitabilityRelativePercentageBest
+          ? _value.profitabilityRelativePercentageBest
+          : profitabilityRelativePercentageBest // ignore: cast_nullable_to_non_nullable
+              as double,
+      profitabilityPerScuBest: null == profitabilityPerScuBest
+          ? _value.profitabilityPerScuBest
+          : profitabilityPerScuBest // ignore: cast_nullable_to_non_nullable
               as int,
       profitability: null == profitability
           ? _value.profitability
@@ -713,30 +948,6 @@ class __$$UexCommodityRankDataImplCopyWithImpl<$Res>
           ? _value.availabilitySell
           : availabilitySell // ignore: cast_nullable_to_non_nullable
               as int,
-      priceBuyMinimum: null == priceBuyMinimum
-          ? _value.priceBuyMinimum
-          : priceBuyMinimum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalIdPriceBuyMinimum: null == terminalIdPriceBuyMinimum
-          ? _value.terminalIdPriceBuyMinimum
-          : terminalIdPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalSlugPriceBuyMinimum: null == terminalSlugPriceBuyMinimum
-          ? _value.terminalSlugPriceBuyMinimum
-          : terminalSlugPriceBuyMinimum // ignore: cast_nullable_to_non_nullable
-              as String,
-      priceSellMaximum: null == priceSellMaximum
-          ? _value.priceSellMaximum
-          : priceSellMaximum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalIdPriceSellMaximum: null == terminalIdPriceSellMaximum
-          ? _value.terminalIdPriceSellMaximum
-          : terminalIdPriceSellMaximum // ignore: cast_nullable_to_non_nullable
-              as int,
-      terminalSlugPriceSellMaximum: null == terminalSlugPriceSellMaximum
-          ? _value.terminalSlugPriceSellMaximum
-          : terminalSlugPriceSellMaximum // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -750,27 +961,16 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
       @JsonKey(name: "code") required this.code,
       @JsonKey(name: "slug") required this.slug,
       @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "is_temporary") required this.isTemporary,
-      @JsonKey(name: "is_illegal") required this.isIllegal,
+      @IntToBoolConverter()
+      @JsonKey(name: "is_temporary")
+      required this.isTemporary,
+      @IntToBoolConverter()
+      @JsonKey(name: "is_illegal")
+      required this.isIllegal,
       @JsonKey(name: "price_buy_avg") required this.priceBuyAvg,
       @JsonKey(name: "price_sell_avg") required this.priceSellAvg,
-      @JsonKey(name: "scu_buy_avg") required this.scuBuyAvg,
-      @JsonKey(name: "scu_sell_avg") required this.scuSellAvg,
-      @JsonKey(name: "status_buy_avg") required this.statusBuyAvg,
-      @JsonKey(name: "status_sell_avg") required this.statusSellAvg,
-      @JsonKey(name: "volatility_buy") required this.volatilityBuy,
-      @JsonKey(name: "volatility_sell") required this.volatilitySell,
-      @JsonKey(name: "cax_score") required this.caxScore,
-      @JsonKey(name: "investment") required this.investment,
-      @JsonKey(name: "investment_per_scu") required this.investmentPerScu,
-      @JsonKey(name: "is_average_trade_price_invalid")
-      required this.isAverageTradePriceInvalid,
-      @JsonKey(name: "profitability") required this.profitability,
-      @JsonKey(name: "profitability_relative_percentage")
-      required this.profitabilityRelativePercentage,
-      @JsonKey(name: "profitability_per_scu") required this.profitabilityPerScu,
-      @JsonKey(name: "availability_buy") required this.availabilityBuy,
-      @JsonKey(name: "availability_sell") required this.availabilitySell,
+      @JsonKey(name: "price_buy_min") required this.priceBuyMin,
+      @JsonKey(name: "price_sell_max") required this.priceSellMax,
       @JsonKey(name: "price_buy_minimum") required this.priceBuyMinimum,
       @JsonKey(name: "terminal_id_price_buy_minimum")
       required this.terminalIdPriceBuyMinimum,
@@ -780,7 +980,36 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
       @JsonKey(name: "terminal_id_price_sell_maximum")
       required this.terminalIdPriceSellMaximum,
       @JsonKey(name: "terminal_slug_price_sell_maximum")
-      required this.terminalSlugPriceSellMaximum})
+      required this.terminalSlugPriceSellMaximum,
+      @JsonKey(name: "scu_buy_avg") required this.scuBuyAvg,
+      @JsonKey(name: "scu_sell_avg") required this.scuSellAvg,
+      @JsonKey(name: "scu_buy_users") required this.scuBuyUsers,
+      @JsonKey(name: "scu_buy_users_rows") required this.scuBuyUsersRows,
+      @JsonKey(name: "scu_sell_users") required this.scuSellUsers,
+      @JsonKey(name: "scu_sell_users_rows") required this.scuSellUsersRows,
+      @JsonKey(name: "status_buy_avg") required this.statusBuyAvg,
+      @JsonKey(name: "status_sell_avg") required this.statusSellAvg,
+      @JsonKey(name: "volatility_price_buy") required this.volatilityPriceBuy,
+      @JsonKey(name: "volatility_price_sell") required this.volatilityPriceSell,
+      @JsonKey(name: "volatility_scu_buy") required this.volatilityScuBuy,
+      @JsonKey(name: "volatility_scu_sell") required this.volatilityScuSell,
+      @JsonKey(name: "cax_score") required this.caxScore,
+      @JsonKey(name: "investment") required this.investment,
+      @JsonKey(name: "investment_per_scu") required this.investmentPerScu,
+      @JsonKey(name: "is_average_trade_price_invalid")
+      @IntToBoolConverter()
+      required this.isAverageTradePriceInvalid,
+      @JsonKey(name: "profitability_best") required this.profitabilityBest,
+      @JsonKey(name: "profitability_relative_percentage_best")
+      required this.profitabilityRelativePercentageBest,
+      @JsonKey(name: "profitability_per_scu_best")
+      required this.profitabilityPerScuBest,
+      @JsonKey(name: "profitability") required this.profitability,
+      @JsonKey(name: "profitability_relative_percentage")
+      required this.profitabilityRelativePercentage,
+      @JsonKey(name: "profitability_per_scu") required this.profitabilityPerScu,
+      @JsonKey(name: "availability_buy") required this.availabilityBuy,
+      @JsonKey(name: "availability_sell") required this.availabilitySell})
       : super._();
 
   factory _$UexCommodityRankDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -801,11 +1030,13 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
   @JsonKey(name: "name")
   final String name;
   @override
+  @IntToBoolConverter()
   @JsonKey(name: "is_temporary")
-  final int isTemporary;
+  final bool isTemporary;
   @override
+  @IntToBoolConverter()
   @JsonKey(name: "is_illegal")
-  final int isIllegal;
+  final bool isIllegal;
   @override
   @JsonKey(name: "price_buy_avg")
   final double priceBuyAvg;
@@ -813,11 +1044,47 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
   @JsonKey(name: "price_sell_avg")
   final double priceSellAvg;
   @override
+  @JsonKey(name: "price_buy_min")
+  final int priceBuyMin;
+  @override
+  @JsonKey(name: "price_sell_max")
+  final int priceSellMax;
+  @override
+  @JsonKey(name: "price_buy_minimum")
+  final int? priceBuyMinimum;
+  @override
+  @JsonKey(name: "terminal_id_price_buy_minimum")
+  final int? terminalIdPriceBuyMinimum;
+  @override
+  @JsonKey(name: "terminal_slug_price_buy_minimum")
+  final String? terminalSlugPriceBuyMinimum;
+  @override
+  @JsonKey(name: "price_sell_maximum")
+  final int? priceSellMaximum;
+  @override
+  @JsonKey(name: "terminal_id_price_sell_maximum")
+  final int? terminalIdPriceSellMaximum;
+  @override
+  @JsonKey(name: "terminal_slug_price_sell_maximum")
+  final String? terminalSlugPriceSellMaximum;
+  @override
   @JsonKey(name: "scu_buy_avg")
-  final int scuBuyAvg;
+  final double scuBuyAvg;
   @override
   @JsonKey(name: "scu_sell_avg")
-  final int scuSellAvg;
+  final double scuSellAvg;
+  @override
+  @JsonKey(name: "scu_buy_users")
+  final String? scuBuyUsers;
+  @override
+  @JsonKey(name: "scu_buy_users_rows")
+  final int scuBuyUsersRows;
+  @override
+  @JsonKey(name: "scu_sell_users")
+  final String? scuSellUsers;
+  @override
+  @JsonKey(name: "scu_sell_users_rows")
+  final int scuSellUsersRows;
   @override
   @JsonKey(name: "status_buy_avg")
   final int statusBuyAvg;
@@ -825,11 +1092,17 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
   @JsonKey(name: "status_sell_avg")
   final int statusSellAvg;
   @override
-  @JsonKey(name: "volatility_buy")
-  final double volatilityBuy;
+  @JsonKey(name: "volatility_price_buy")
+  final double volatilityPriceBuy;
   @override
-  @JsonKey(name: "volatility_sell")
-  final double volatilitySell;
+  @JsonKey(name: "volatility_price_sell")
+  final double volatilityPriceSell;
+  @override
+  @JsonKey(name: "volatility_scu_buy")
+  final double volatilityScuBuy;
+  @override
+  @JsonKey(name: "volatility_scu_sell")
+  final double volatilityScuSell;
   @override
   @JsonKey(name: "cax_score")
   final int caxScore;
@@ -841,7 +1114,17 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
   final double investmentPerScu;
   @override
   @JsonKey(name: "is_average_trade_price_invalid")
-  final int isAverageTradePriceInvalid;
+  @IntToBoolConverter()
+  final bool isAverageTradePriceInvalid;
+  @override
+  @JsonKey(name: "profitability_best")
+  final double profitabilityBest;
+  @override
+  @JsonKey(name: "profitability_relative_percentage_best")
+  final double profitabilityRelativePercentageBest;
+  @override
+  @JsonKey(name: "profitability_per_scu_best")
+  final int profitabilityPerScuBest;
   @override
   @JsonKey(name: "profitability")
   final double profitability;
@@ -857,28 +1140,10 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
   @override
   @JsonKey(name: "availability_sell")
   final int availabilitySell;
-  @override
-  @JsonKey(name: "price_buy_minimum")
-  final int priceBuyMinimum;
-  @override
-  @JsonKey(name: "terminal_id_price_buy_minimum")
-  final int terminalIdPriceBuyMinimum;
-  @override
-  @JsonKey(name: "terminal_slug_price_buy_minimum")
-  final String terminalSlugPriceBuyMinimum;
-  @override
-  @JsonKey(name: "price_sell_maximum")
-  final int priceSellMaximum;
-  @override
-  @JsonKey(name: "terminal_id_price_sell_maximum")
-  final int terminalIdPriceSellMaximum;
-  @override
-  @JsonKey(name: "terminal_slug_price_sell_maximum")
-  final String terminalSlugPriceSellMaximum;
 
   @override
   String toString() {
-    return 'UexCommodityRankData(info: $info, id: $id, code: $code, slug: $slug, name: $name, isTemporary: $isTemporary, isIllegal: $isIllegal, priceBuyAvg: $priceBuyAvg, priceSellAvg: $priceSellAvg, scuBuyAvg: $scuBuyAvg, scuSellAvg: $scuSellAvg, statusBuyAvg: $statusBuyAvg, statusSellAvg: $statusSellAvg, volatilityBuy: $volatilityBuy, volatilitySell: $volatilitySell, caxScore: $caxScore, investment: $investment, investmentPerScu: $investmentPerScu, isAverageTradePriceInvalid: $isAverageTradePriceInvalid, profitability: $profitability, profitabilityRelativePercentage: $profitabilityRelativePercentage, profitabilityPerScu: $profitabilityPerScu, availabilityBuy: $availabilityBuy, availabilitySell: $availabilitySell, priceBuyMinimum: $priceBuyMinimum, terminalIdPriceBuyMinimum: $terminalIdPriceBuyMinimum, terminalSlugPriceBuyMinimum: $terminalSlugPriceBuyMinimum, priceSellMaximum: $priceSellMaximum, terminalIdPriceSellMaximum: $terminalIdPriceSellMaximum, terminalSlugPriceSellMaximum: $terminalSlugPriceSellMaximum)';
+    return 'UexCommodityRankData(info: $info, id: $id, code: $code, slug: $slug, name: $name, isTemporary: $isTemporary, isIllegal: $isIllegal, priceBuyAvg: $priceBuyAvg, priceSellAvg: $priceSellAvg, priceBuyMin: $priceBuyMin, priceSellMax: $priceSellMax, priceBuyMinimum: $priceBuyMinimum, terminalIdPriceBuyMinimum: $terminalIdPriceBuyMinimum, terminalSlugPriceBuyMinimum: $terminalSlugPriceBuyMinimum, priceSellMaximum: $priceSellMaximum, terminalIdPriceSellMaximum: $terminalIdPriceSellMaximum, terminalSlugPriceSellMaximum: $terminalSlugPriceSellMaximum, scuBuyAvg: $scuBuyAvg, scuSellAvg: $scuSellAvg, scuBuyUsers: $scuBuyUsers, scuBuyUsersRows: $scuBuyUsersRows, scuSellUsers: $scuSellUsers, scuSellUsersRows: $scuSellUsersRows, statusBuyAvg: $statusBuyAvg, statusSellAvg: $statusSellAvg, volatilityPriceBuy: $volatilityPriceBuy, volatilityPriceSell: $volatilityPriceSell, volatilityScuBuy: $volatilityScuBuy, volatilityScuSell: $volatilityScuSell, caxScore: $caxScore, investment: $investment, investmentPerScu: $investmentPerScu, isAverageTradePriceInvalid: $isAverageTradePriceInvalid, profitabilityBest: $profitabilityBest, profitabilityRelativePercentageBest: $profitabilityRelativePercentageBest, profitabilityPerScuBest: $profitabilityPerScuBest, profitability: $profitability, profitabilityRelativePercentage: $profitabilityRelativePercentage, profitabilityPerScu: $profitabilityPerScu, availabilityBuy: $availabilityBuy, availabilitySell: $availabilitySell)';
   }
 
   @override
@@ -899,39 +1164,10 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
                 other.priceBuyAvg == priceBuyAvg) &&
             (identical(other.priceSellAvg, priceSellAvg) ||
                 other.priceSellAvg == priceSellAvg) &&
-            (identical(other.scuBuyAvg, scuBuyAvg) ||
-                other.scuBuyAvg == scuBuyAvg) &&
-            (identical(other.scuSellAvg, scuSellAvg) ||
-                other.scuSellAvg == scuSellAvg) &&
-            (identical(other.statusBuyAvg, statusBuyAvg) ||
-                other.statusBuyAvg == statusBuyAvg) &&
-            (identical(other.statusSellAvg, statusSellAvg) ||
-                other.statusSellAvg == statusSellAvg) &&
-            (identical(other.volatilityBuy, volatilityBuy) ||
-                other.volatilityBuy == volatilityBuy) &&
-            (identical(other.volatilitySell, volatilitySell) ||
-                other.volatilitySell == volatilitySell) &&
-            (identical(other.caxScore, caxScore) ||
-                other.caxScore == caxScore) &&
-            (identical(other.investment, investment) ||
-                other.investment == investment) &&
-            (identical(other.investmentPerScu, investmentPerScu) ||
-                other.investmentPerScu == investmentPerScu) &&
-            (identical(other.isAverageTradePriceInvalid, isAverageTradePriceInvalid) ||
-                other.isAverageTradePriceInvalid ==
-                    isAverageTradePriceInvalid) &&
-            (identical(other.profitability, profitability) ||
-                other.profitability == profitability) &&
-            (identical(other.profitabilityRelativePercentage,
-                    profitabilityRelativePercentage) ||
-                other.profitabilityRelativePercentage ==
-                    profitabilityRelativePercentage) &&
-            (identical(other.profitabilityPerScu, profitabilityPerScu) ||
-                other.profitabilityPerScu == profitabilityPerScu) &&
-            (identical(other.availabilityBuy, availabilityBuy) ||
-                other.availabilityBuy == availabilityBuy) &&
-            (identical(other.availabilitySell, availabilitySell) ||
-                other.availabilitySell == availabilitySell) &&
+            (identical(other.priceBuyMin, priceBuyMin) ||
+                other.priceBuyMin == priceBuyMin) &&
+            (identical(other.priceSellMax, priceSellMax) ||
+                other.priceSellMax == priceSellMax) &&
             (identical(other.priceBuyMinimum, priceBuyMinimum) ||
                 other.priceBuyMinimum == priceBuyMinimum) &&
             (identical(other.terminalIdPriceBuyMinimum, terminalIdPriceBuyMinimum) ||
@@ -944,12 +1180,48 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
             (identical(other.terminalIdPriceSellMaximum, terminalIdPriceSellMaximum) ||
                 other.terminalIdPriceSellMaximum ==
                     terminalIdPriceSellMaximum) &&
-            (identical(other.terminalSlugPriceSellMaximum,
-                    terminalSlugPriceSellMaximum) ||
-                other.terminalSlugPriceSellMaximum == terminalSlugPriceSellMaximum));
+            (identical(other.terminalSlugPriceSellMaximum, terminalSlugPriceSellMaximum) ||
+                other.terminalSlugPriceSellMaximum ==
+                    terminalSlugPriceSellMaximum) &&
+            (identical(other.scuBuyAvg, scuBuyAvg) ||
+                other.scuBuyAvg == scuBuyAvg) &&
+            (identical(other.scuSellAvg, scuSellAvg) ||
+                other.scuSellAvg == scuSellAvg) &&
+            (identical(other.scuBuyUsers, scuBuyUsers) ||
+                other.scuBuyUsers == scuBuyUsers) &&
+            (identical(other.scuBuyUsersRows, scuBuyUsersRows) ||
+                other.scuBuyUsersRows == scuBuyUsersRows) &&
+            (identical(other.scuSellUsers, scuSellUsers) ||
+                other.scuSellUsers == scuSellUsers) &&
+            (identical(other.scuSellUsersRows, scuSellUsersRows) ||
+                other.scuSellUsersRows == scuSellUsersRows) &&
+            (identical(other.statusBuyAvg, statusBuyAvg) ||
+                other.statusBuyAvg == statusBuyAvg) &&
+            (identical(other.statusSellAvg, statusSellAvg) ||
+                other.statusSellAvg == statusSellAvg) &&
+            (identical(other.volatilityPriceBuy, volatilityPriceBuy) ||
+                other.volatilityPriceBuy == volatilityPriceBuy) &&
+            (identical(other.volatilityPriceSell, volatilityPriceSell) ||
+                other.volatilityPriceSell == volatilityPriceSell) &&
+            (identical(other.volatilityScuBuy, volatilityScuBuy) ||
+                other.volatilityScuBuy == volatilityScuBuy) &&
+            (identical(other.volatilityScuSell, volatilityScuSell) ||
+                other.volatilityScuSell == volatilityScuSell) &&
+            (identical(other.caxScore, caxScore) || other.caxScore == caxScore) &&
+            (identical(other.investment, investment) || other.investment == investment) &&
+            (identical(other.investmentPerScu, investmentPerScu) || other.investmentPerScu == investmentPerScu) &&
+            (identical(other.isAverageTradePriceInvalid, isAverageTradePriceInvalid) || other.isAverageTradePriceInvalid == isAverageTradePriceInvalid) &&
+            (identical(other.profitabilityBest, profitabilityBest) || other.profitabilityBest == profitabilityBest) &&
+            (identical(other.profitabilityRelativePercentageBest, profitabilityRelativePercentageBest) || other.profitabilityRelativePercentageBest == profitabilityRelativePercentageBest) &&
+            (identical(other.profitabilityPerScuBest, profitabilityPerScuBest) || other.profitabilityPerScuBest == profitabilityPerScuBest) &&
+            (identical(other.profitability, profitability) || other.profitability == profitability) &&
+            (identical(other.profitabilityRelativePercentage, profitabilityRelativePercentage) || other.profitabilityRelativePercentage == profitabilityRelativePercentage) &&
+            (identical(other.profitabilityPerScu, profitabilityPerScu) || other.profitabilityPerScu == profitabilityPerScu) &&
+            (identical(other.availabilityBuy, availabilityBuy) || other.availabilityBuy == availabilityBuy) &&
+            (identical(other.availabilitySell, availabilitySell) || other.availabilitySell == availabilitySell));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -962,30 +1234,43 @@ class _$UexCommodityRankDataImpl extends _UexCommodityRankData {
         isIllegal,
         priceBuyAvg,
         priceSellAvg,
-        scuBuyAvg,
-        scuSellAvg,
-        statusBuyAvg,
-        statusSellAvg,
-        volatilityBuy,
-        volatilitySell,
-        caxScore,
-        investment,
-        investmentPerScu,
-        isAverageTradePriceInvalid,
-        profitability,
-        profitabilityRelativePercentage,
-        profitabilityPerScu,
-        availabilityBuy,
-        availabilitySell,
+        priceBuyMin,
+        priceSellMax,
         priceBuyMinimum,
         terminalIdPriceBuyMinimum,
         terminalSlugPriceBuyMinimum,
         priceSellMaximum,
         terminalIdPriceSellMaximum,
-        terminalSlugPriceSellMaximum
+        terminalSlugPriceSellMaximum,
+        scuBuyAvg,
+        scuSellAvg,
+        scuBuyUsers,
+        scuBuyUsersRows,
+        scuSellUsers,
+        scuSellUsersRows,
+        statusBuyAvg,
+        statusSellAvg,
+        volatilityPriceBuy,
+        volatilityPriceSell,
+        volatilityScuBuy,
+        volatilityScuSell,
+        caxScore,
+        investment,
+        investmentPerScu,
+        isAverageTradePriceInvalid,
+        profitabilityBest,
+        profitabilityRelativePercentageBest,
+        profitabilityPerScuBest,
+        profitability,
+        profitabilityRelativePercentage,
+        profitabilityPerScu,
+        availabilityBuy,
+        availabilitySell
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexCommodityRankData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexCommodityRankDataImplCopyWith<_$UexCommodityRankDataImpl>
@@ -1008,40 +1293,63 @@ abstract class _UexCommodityRankData extends UexCommodityRankData {
       @JsonKey(name: "code") required final String code,
       @JsonKey(name: "slug") required final String slug,
       @JsonKey(name: "name") required final String name,
-      @JsonKey(name: "is_temporary") required final int isTemporary,
-      @JsonKey(name: "is_illegal") required final int isIllegal,
+      @IntToBoolConverter()
+      @JsonKey(name: "is_temporary")
+      required final bool isTemporary,
+      @IntToBoolConverter()
+      @JsonKey(name: "is_illegal")
+      required final bool isIllegal,
       @JsonKey(name: "price_buy_avg") required final double priceBuyAvg,
       @JsonKey(name: "price_sell_avg") required final double priceSellAvg,
-      @JsonKey(name: "scu_buy_avg") required final int scuBuyAvg,
-      @JsonKey(name: "scu_sell_avg") required final int scuSellAvg,
+      @JsonKey(name: "price_buy_min") required final int priceBuyMin,
+      @JsonKey(name: "price_sell_max") required final int priceSellMax,
+      @JsonKey(name: "price_buy_minimum") required final int? priceBuyMinimum,
+      @JsonKey(name: "terminal_id_price_buy_minimum")
+      required final int? terminalIdPriceBuyMinimum,
+      @JsonKey(name: "terminal_slug_price_buy_minimum")
+      required final String? terminalSlugPriceBuyMinimum,
+      @JsonKey(name: "price_sell_maximum") required final int? priceSellMaximum,
+      @JsonKey(name: "terminal_id_price_sell_maximum")
+      required final int? terminalIdPriceSellMaximum,
+      @JsonKey(name: "terminal_slug_price_sell_maximum")
+      required final String? terminalSlugPriceSellMaximum,
+      @JsonKey(name: "scu_buy_avg") required final double scuBuyAvg,
+      @JsonKey(name: "scu_sell_avg") required final double scuSellAvg,
+      @JsonKey(name: "scu_buy_users") required final String? scuBuyUsers,
+      @JsonKey(name: "scu_buy_users_rows") required final int scuBuyUsersRows,
+      @JsonKey(name: "scu_sell_users") required final String? scuSellUsers,
+      @JsonKey(name: "scu_sell_users_rows") required final int scuSellUsersRows,
       @JsonKey(name: "status_buy_avg") required final int statusBuyAvg,
       @JsonKey(name: "status_sell_avg") required final int statusSellAvg,
-      @JsonKey(name: "volatility_buy") required final double volatilityBuy,
-      @JsonKey(name: "volatility_sell") required final double volatilitySell,
+      @JsonKey(name: "volatility_price_buy")
+      required final double volatilityPriceBuy,
+      @JsonKey(name: "volatility_price_sell")
+      required final double volatilityPriceSell,
+      @JsonKey(name: "volatility_scu_buy")
+      required final double volatilityScuBuy,
+      @JsonKey(name: "volatility_scu_sell")
+      required final double volatilityScuSell,
       @JsonKey(name: "cax_score") required final int caxScore,
       @JsonKey(name: "investment") required final double investment,
       @JsonKey(name: "investment_per_scu")
       required final double investmentPerScu,
       @JsonKey(name: "is_average_trade_price_invalid")
-      required final int isAverageTradePriceInvalid,
+      @IntToBoolConverter()
+      required final bool isAverageTradePriceInvalid,
+      @JsonKey(name: "profitability_best")
+      required final double profitabilityBest,
+      @JsonKey(name: "profitability_relative_percentage_best")
+      required final double profitabilityRelativePercentageBest,
+      @JsonKey(name: "profitability_per_scu_best")
+      required final int profitabilityPerScuBest,
       @JsonKey(name: "profitability") required final double profitability,
       @JsonKey(name: "profitability_relative_percentage")
       required final double profitabilityRelativePercentage,
       @JsonKey(name: "profitability_per_scu")
       required final double profitabilityPerScu,
       @JsonKey(name: "availability_buy") required final int availabilityBuy,
-      @JsonKey(name: "availability_sell") required final int availabilitySell,
-      @JsonKey(name: "price_buy_minimum") required final int priceBuyMinimum,
-      @JsonKey(name: "terminal_id_price_buy_minimum")
-      required final int terminalIdPriceBuyMinimum,
-      @JsonKey(name: "terminal_slug_price_buy_minimum")
-      required final String terminalSlugPriceBuyMinimum,
-      @JsonKey(name: "price_sell_maximum") required final int priceSellMaximum,
-      @JsonKey(name: "terminal_id_price_sell_maximum")
-      required final int terminalIdPriceSellMaximum,
-      @JsonKey(name: "terminal_slug_price_sell_maximum")
-      required final String
-          terminalSlugPriceSellMaximum}) = _$UexCommodityRankDataImpl;
+      @JsonKey(name: "availability_sell")
+      required final int availabilitySell}) = _$UexCommodityRankDataImpl;
   const _UexCommodityRankData._() : super._();
 
   factory _UexCommodityRankData.fromJson(Map<String, dynamic> json) =
@@ -1062,11 +1370,13 @@ abstract class _UexCommodityRankData extends UexCommodityRankData {
   @JsonKey(name: "name")
   String get name;
   @override
+  @IntToBoolConverter()
   @JsonKey(name: "is_temporary")
-  int get isTemporary;
+  bool get isTemporary;
   @override
+  @IntToBoolConverter()
   @JsonKey(name: "is_illegal")
-  int get isIllegal;
+  bool get isIllegal;
   @override
   @JsonKey(name: "price_buy_avg")
   double get priceBuyAvg;
@@ -1074,11 +1384,47 @@ abstract class _UexCommodityRankData extends UexCommodityRankData {
   @JsonKey(name: "price_sell_avg")
   double get priceSellAvg;
   @override
+  @JsonKey(name: "price_buy_min")
+  int get priceBuyMin;
+  @override
+  @JsonKey(name: "price_sell_max")
+  int get priceSellMax;
+  @override
+  @JsonKey(name: "price_buy_minimum")
+  int? get priceBuyMinimum;
+  @override
+  @JsonKey(name: "terminal_id_price_buy_minimum")
+  int? get terminalIdPriceBuyMinimum;
+  @override
+  @JsonKey(name: "terminal_slug_price_buy_minimum")
+  String? get terminalSlugPriceBuyMinimum;
+  @override
+  @JsonKey(name: "price_sell_maximum")
+  int? get priceSellMaximum;
+  @override
+  @JsonKey(name: "terminal_id_price_sell_maximum")
+  int? get terminalIdPriceSellMaximum;
+  @override
+  @JsonKey(name: "terminal_slug_price_sell_maximum")
+  String? get terminalSlugPriceSellMaximum;
+  @override
   @JsonKey(name: "scu_buy_avg")
-  int get scuBuyAvg;
+  double get scuBuyAvg;
   @override
   @JsonKey(name: "scu_sell_avg")
-  int get scuSellAvg;
+  double get scuSellAvg;
+  @override
+  @JsonKey(name: "scu_buy_users")
+  String? get scuBuyUsers;
+  @override
+  @JsonKey(name: "scu_buy_users_rows")
+  int get scuBuyUsersRows;
+  @override
+  @JsonKey(name: "scu_sell_users")
+  String? get scuSellUsers;
+  @override
+  @JsonKey(name: "scu_sell_users_rows")
+  int get scuSellUsersRows;
   @override
   @JsonKey(name: "status_buy_avg")
   int get statusBuyAvg;
@@ -1086,11 +1432,17 @@ abstract class _UexCommodityRankData extends UexCommodityRankData {
   @JsonKey(name: "status_sell_avg")
   int get statusSellAvg;
   @override
-  @JsonKey(name: "volatility_buy")
-  double get volatilityBuy;
+  @JsonKey(name: "volatility_price_buy")
+  double get volatilityPriceBuy;
   @override
-  @JsonKey(name: "volatility_sell")
-  double get volatilitySell;
+  @JsonKey(name: "volatility_price_sell")
+  double get volatilityPriceSell;
+  @override
+  @JsonKey(name: "volatility_scu_buy")
+  double get volatilityScuBuy;
+  @override
+  @JsonKey(name: "volatility_scu_sell")
+  double get volatilityScuSell;
   @override
   @JsonKey(name: "cax_score")
   int get caxScore;
@@ -1102,7 +1454,17 @@ abstract class _UexCommodityRankData extends UexCommodityRankData {
   double get investmentPerScu;
   @override
   @JsonKey(name: "is_average_trade_price_invalid")
-  int get isAverageTradePriceInvalid;
+  @IntToBoolConverter()
+  bool get isAverageTradePriceInvalid;
+  @override
+  @JsonKey(name: "profitability_best")
+  double get profitabilityBest;
+  @override
+  @JsonKey(name: "profitability_relative_percentage_best")
+  double get profitabilityRelativePercentageBest;
+  @override
+  @JsonKey(name: "profitability_per_scu_best")
+  int get profitabilityPerScuBest;
   @override
   @JsonKey(name: "profitability")
   double get profitability;
@@ -1118,26 +1480,11 @@ abstract class _UexCommodityRankData extends UexCommodityRankData {
   @override
   @JsonKey(name: "availability_sell")
   int get availabilitySell;
+
+  /// Create a copy of UexCommodityRankData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(name: "price_buy_minimum")
-  int get priceBuyMinimum;
-  @override
-  @JsonKey(name: "terminal_id_price_buy_minimum")
-  int get terminalIdPriceBuyMinimum;
-  @override
-  @JsonKey(name: "terminal_slug_price_buy_minimum")
-  String get terminalSlugPriceBuyMinimum;
-  @override
-  @JsonKey(name: "price_sell_maximum")
-  int get priceSellMaximum;
-  @override
-  @JsonKey(name: "terminal_id_price_sell_maximum")
-  int get terminalIdPriceSellMaximum;
-  @override
-  @JsonKey(name: "terminal_slug_price_sell_maximum")
-  String get terminalSlugPriceSellMaximum;
-  @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexCommodityRankDataImplCopyWith<_$UexCommodityRankDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

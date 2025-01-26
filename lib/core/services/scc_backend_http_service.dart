@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:overlay_test/core/constants/constants.dart';
 import 'package:overlay_test/core/interceptors/cache_interceptor.dart';
 
-class SCCBackendHttpService {
-  final String _baseUrl = "http://localhost:8000";
+class StarCitizenCompanionBackendHttpService {
+  final String _baseUrl = "http://127.0.0.1:${Constants.backendPort}";
 
   Dio get client => Dio(
         BaseOptions(
@@ -12,7 +13,7 @@ class SCCBackendHttpService {
           followRedirects: true,
           contentType: "application/json",
           headers: {
-            "Authorization": "Bearer 0229e01379c84fb465f3de2070f514c9bf41586d",
+            "Authorization": "Bearer ${Constants.uexToken}",
           },
         ),
       )..interceptors.add(DioCacheInterceptor(options: cacheOptions));

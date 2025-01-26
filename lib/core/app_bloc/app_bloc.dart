@@ -1,23 +1,26 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:collection/collection.dart';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:overlay_test/core/constants/constants.dart';
 import 'package:overlay_test/core/management/window_control.dart';
-import 'package:overlay_test/core/models/StarCitizenWiki/models.dart';
+import 'package:overlay_test/core/models/StarCitizenWiki/commodities/scw_commodities_detail.dart';
 import 'package:overlay_test/core/models/StarCitizenWiki/vehicles/scw_vehicles_model.dart';
 import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_model.dart';
 import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_ranking_model.dart';
-import 'package:overlay_test/core/models/UEX/models.dart';
 import 'package:overlay_test/core/models/UEX/vehicles/uex_vehicles_model.dart';
+import 'package:overlay_test/core/models/abstracts.dart';
+import 'package:overlay_test/core/repositories/StarCitizenWiki/scw_commodities_datasource.dart';
 import 'package:overlay_test/core/repositories/StarCitizenWiki/scw_vehicles_datasource.dart';
 import 'package:overlay_test/core/repositories/UEX/uex_commodities_datasource.dart';
 import 'package:overlay_test/core/repositories/UEX/uex_vehicles_datasource.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+part 'app_bloc.freezed.dart';
 part 'app_event.dart';
 part 'app_state.dart';
-part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(const _Initial()) {
@@ -26,6 +29,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<_StartHotkeyStream>(_onStartHotkeyStream);
     on<_SetActiveShip>(_onSetActiveShip);
     on<_Propagate>(_onPropagate);
+    on<_FetchCommoditiesDetails>(_onFetchCommoditiesDetails);
     //
     add(const AppEvent.fetchCommodities());
     add(const AppEvent.fetchVehicles());
@@ -35,7 +39,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   final UexCommoditiesDatasource _uexCommoditiesDatasource =
       UexCommoditiesDatasource();
   final UexVehiclesDatasource _uexVehiclesDatasource = UexVehiclesDatasource();
-  final SCWVehiclesDatasource _scwVehiclesDatasource = SCWVehiclesDatasource();
+  final ScwVehiclesDatasource _scwVehiclesDatasource = ScwVehiclesDatasource();
+  final ScwCommoditiesBackendDatasource _scwCommoditiesBackendDatasource =
+      ScwCommoditiesBackendDatasource();
+
   // Channels
   WebSocketChannel? _channel;
   final WindowControl _windowControl = WindowControl.instance;
@@ -43,6 +50,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   // Variables
   UexCommoditiesRankingModel? uexCommoditiesRanking;
   UexCommoditiesModel? uexCommodities;
+  List<ScwCommodityDetail> scwCommodityDetails = [];
 
   UexVehiclesModel? uexVehicles;
   ScwVehiclesModel? scwVehicles;
@@ -59,7 +67,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     _StartHotkeyStream event,
     Emitter<AppState> emit,
   ) async {
-    final wsUrl = Uri.parse('ws://127.0.0.1:8000/ws');
+    final wsUrl = Uri.parse('ws://127.0.0.1:${Constants.backendPort}/ws');
     _channel = WebSocketChannel.connect(wsUrl);
 
     await _channel!.ready;
@@ -104,6 +112,26 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     }
   }
 
+  Future<void> _onFetchCommoditiesDetails(
+    _FetchCommoditiesDetails event,
+    Emitter<AppState> emit,
+  ) async {
+    emit(const AppState.loadingCommodities());
+    try {
+      print("_onFetchCommoditiesDetails");
+      scwCommodityDetails =
+          await _scwCommoditiesBackendDatasource.getCommoditiesDetail(
+        event.commodities,
+      );
+      print("_onFetchCommoditiesDetails Called");
+      emit(AppState.loadedCommodities(uexCommodities!));
+    } on DioException catch (e, s) {
+      emit(AppState.httpError(e, message: e.message, stackTrace: s));
+    } catch (e, s) {
+      emit(AppState.error(e, s));
+    }
+  }
+
   Future<void> _onFetchCommodities(
     _FetchCommodities event,
     Emitter<AppState> emit,
@@ -115,6 +143,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
       uexCommoditiesRanking =
           await _uexCommoditiesDatasource.getCommoditiesRanking();
+
       uexCommoditiesRanking = uexCommoditiesRanking?.copyWith(
         data: uexCommoditiesRanking!.data
             .map((cr) => cr.copyWith(
@@ -124,6 +153,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
                 ))
             .toList(),
       );
+
+      uexCommoditiesRanking = uexCommoditiesRanking?.copyWith(
+        data: uexCommoditiesRanking!.data
+            .sorted((a, b) => b.caxScore.compareTo(a.caxScore)),
+      );
+
+      add(AppEvent.fetchCommoditiesDetails(uexCommodities!));
       emit(AppState.loadedCommoditiesRanking(uexCommoditiesRanking!));
     } on DioException catch (e, s) {
       emit(AppState.httpError(e, message: e.message, stackTrace: s));

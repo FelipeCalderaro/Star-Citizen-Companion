@@ -28,8 +28,12 @@ mixin _$UexCommoditiesRoutesModel {
   @JsonKey(name: "data")
   List<Datum> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this UexCommoditiesRoutesModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexCommoditiesRoutesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexCommoditiesRoutesModelCopyWith<UexCommoditiesRoutesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$UexCommoditiesRoutesModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexCommoditiesRoutesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class __$$UexCommoditiesRoutesModelImplCopyWithImpl<$Res>
       $Res Function(_$UexCommoditiesRoutesModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexCommoditiesRoutesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -173,12 +181,14 @@ class _$UexCommoditiesRoutesModelImpl implements _UexCommoditiesRoutesModel {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status, httpCode,
       const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexCommoditiesRoutesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexCommoditiesRoutesModelImplCopyWith<_$UexCommoditiesRoutesModelImpl>
@@ -212,8 +222,11 @@ abstract class _UexCommoditiesRoutesModel implements UexCommoditiesRoutesModel {
   @override
   @JsonKey(name: "data")
   List<Datum> get data;
+
+  /// Create a copy of UexCommoditiesRoutesModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexCommoditiesRoutesModelImplCopyWith<_$UexCommoditiesRoutesModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -363,8 +376,12 @@ mixin _$Datum {
   @JsonKey(name: "destination_faction_name")
   String get destinationFactionName => throw _privateConstructorUsedError;
 
+  /// Serializes this Datum to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Datum
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DatumCopyWith<Datum> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -487,6 +504,8 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Datum
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -915,6 +934,8 @@ class __$$DatumImplCopyWithImpl<$Res>
       _$DatumImpl _value, $Res Function(_$DatumImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Datum
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1641,7 +1662,7 @@ class _$DatumImpl implements _Datum {
             (identical(other.destinationFactionName, destinationFactionName) || other.destinationFactionName == destinationFactionName));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1707,7 +1728,9 @@ class _$DatumImpl implements _Datum {
         destinationFactionName
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Datum
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DatumImplCopyWith<_$DatumImpl> get copyWith =>
@@ -2039,8 +2062,11 @@ abstract class _Datum implements Datum {
   @override
   @JsonKey(name: "destination_faction_name")
   String get destinationFactionName;
+
+  /// Create a copy of Datum
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DatumImplCopyWith<_$DatumImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -24,10 +24,14 @@ mixin _$ScwVehicleDetailsModel {
   @JsonKey(name: "data")
   ScwVehicleDetailsData get data => throw _privateConstructorUsedError;
   @JsonKey(name: "meta")
-  Meta get meta => throw _privateConstructorUsedError;
+  Meta? get meta => throw _privateConstructorUsedError;
 
+  /// Serializes this ScwVehicleDetailsModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ScwVehicleDetailsModelCopyWith<ScwVehicleDetailsModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -40,10 +44,10 @@ abstract class $ScwVehicleDetailsModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "data") ScwVehicleDetailsData data,
-      @JsonKey(name: "meta") Meta meta});
+      @JsonKey(name: "meta") Meta? meta});
 
   $ScwVehicleDetailsDataCopyWith<$Res> get data;
-  $MetaCopyWith<$Res> get meta;
+  $MetaCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -57,24 +61,28 @@ class _$ScwVehicleDetailsModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = null,
-    Object? meta = null,
+    Object? meta = freezed,
   }) {
     return _then(_value.copyWith(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ScwVehicleDetailsData,
-      meta: null == meta
+      meta: freezed == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as Meta,
+              as Meta?,
     ) as $Val);
   }
 
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ScwVehicleDetailsDataCopyWith<$Res> get data {
@@ -83,10 +91,16 @@ class _$ScwVehicleDetailsModelCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MetaCopyWith<$Res> get meta {
-    return $MetaCopyWith<$Res>(_value.meta, (value) {
+  $MetaCopyWith<$Res>? get meta {
+    if (_value.meta == null) {
+      return null;
+    }
+
+    return $MetaCopyWith<$Res>(_value.meta!, (value) {
       return _then(_value.copyWith(meta: value) as $Val);
     });
   }
@@ -103,12 +117,12 @@ abstract class _$$ScwVehicleDetailsModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "data") ScwVehicleDetailsData data,
-      @JsonKey(name: "meta") Meta meta});
+      @JsonKey(name: "meta") Meta? meta});
 
   @override
   $ScwVehicleDetailsDataCopyWith<$Res> get data;
   @override
-  $MetaCopyWith<$Res> get meta;
+  $MetaCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -121,21 +135,23 @@ class __$$ScwVehicleDetailsModelImplCopyWithImpl<$Res>
       $Res Function(_$ScwVehicleDetailsModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = null,
-    Object? meta = null,
+    Object? meta = freezed,
   }) {
     return _then(_$ScwVehicleDetailsModelImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ScwVehicleDetailsData,
-      meta: null == meta
+      meta: freezed == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as Meta,
+              as Meta?,
     ));
   }
 }
@@ -145,7 +161,7 @@ class __$$ScwVehicleDetailsModelImplCopyWithImpl<$Res>
 class _$ScwVehicleDetailsModelImpl implements _ScwVehicleDetailsModel {
   const _$ScwVehicleDetailsModelImpl(
       {@JsonKey(name: "data") required this.data,
-      @JsonKey(name: "meta") required this.meta});
+      @JsonKey(name: "meta") this.meta});
 
   factory _$ScwVehicleDetailsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ScwVehicleDetailsModelImplFromJson(json);
@@ -155,7 +171,7 @@ class _$ScwVehicleDetailsModelImpl implements _ScwVehicleDetailsModel {
   final ScwVehicleDetailsData data;
   @override
   @JsonKey(name: "meta")
-  final Meta meta;
+  final Meta? meta;
 
   @override
   String toString() {
@@ -171,11 +187,13 @@ class _$ScwVehicleDetailsModelImpl implements _ScwVehicleDetailsModel {
             (identical(other.meta, meta) || other.meta == meta));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data, meta);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ScwVehicleDetailsModelImplCopyWith<_$ScwVehicleDetailsModelImpl>
@@ -192,9 +210,8 @@ class _$ScwVehicleDetailsModelImpl implements _ScwVehicleDetailsModel {
 
 abstract class _ScwVehicleDetailsModel implements ScwVehicleDetailsModel {
   const factory _ScwVehicleDetailsModel(
-          {@JsonKey(name: "data") required final ScwVehicleDetailsData data,
-          @JsonKey(name: "meta") required final Meta meta}) =
-      _$ScwVehicleDetailsModelImpl;
+      {@JsonKey(name: "data") required final ScwVehicleDetailsData data,
+      @JsonKey(name: "meta") final Meta? meta}) = _$ScwVehicleDetailsModelImpl;
 
   factory _ScwVehicleDetailsModel.fromJson(Map<String, dynamic> json) =
       _$ScwVehicleDetailsModelImpl.fromJson;
@@ -204,9 +221,12 @@ abstract class _ScwVehicleDetailsModel implements ScwVehicleDetailsModel {
   ScwVehicleDetailsData get data;
   @override
   @JsonKey(name: "meta")
-  Meta get meta;
+  Meta? get meta;
+
+  /// Create a copy of ScwVehicleDetailsModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScwVehicleDetailsModelImplCopyWith<_$ScwVehicleDetailsModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -219,7 +239,7 @@ ScwVehicleDetailsData _$ScwVehicleDetailsDataFromJson(
 /// @nodoc
 mixin _$ScwVehicleDetailsData {
   @JsonKey(name: "uuid")
-  String? get uuid => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "slug")
@@ -229,21 +249,21 @@ mixin _$ScwVehicleDetailsData {
   @JsonKey(name: "sizes")
   Sizes get sizes => throw _privateConstructorUsedError;
   @JsonKey(name: "emission")
-  Emission get emission => throw _privateConstructorUsedError;
+  Emission? get emission => throw _privateConstructorUsedError;
   @JsonKey(name: "mass")
-  int get mass => throw _privateConstructorUsedError;
+  num? get mass => throw _privateConstructorUsedError;
   @JsonKey(name: "cargo_capacity")
-  int get cargoCapacity => throw _privateConstructorUsedError;
+  int? get cargoCapacity => throw _privateConstructorUsedError;
   @JsonKey(name: "vehicle_inventory")
-  double get vehicleInventory => throw _privateConstructorUsedError;
+  num? get vehicleInventory => throw _privateConstructorUsedError;
   @JsonKey(name: "personal_inventory")
-  int get personalInventory => throw _privateConstructorUsedError;
+  num? get personalInventory => throw _privateConstructorUsedError;
   @JsonKey(name: "crew")
-  Crew get crew => throw _privateConstructorUsedError;
+  Crew? get crew => throw _privateConstructorUsedError;
   @JsonKey(name: "health")
-  int get health => throw _privateConstructorUsedError;
+  num? get health => throw _privateConstructorUsedError;
   @JsonKey(name: "shield_hp")
-  int? get shieldHp => throw _privateConstructorUsedError;
+  num? get shieldHp => throw _privateConstructorUsedError;
   @JsonKey(name: "speed")
   Speed get speed => throw _privateConstructorUsedError;
   @JsonKey(name: "fuel")
@@ -251,21 +271,21 @@ mixin _$ScwVehicleDetailsData {
   @JsonKey(name: "quantum")
   Quantum? get quantum => throw _privateConstructorUsedError;
   @JsonKey(name: "agility")
-  Agility get agility => throw _privateConstructorUsedError;
+  Agility? get agility => throw _privateConstructorUsedError;
   @JsonKey(name: "armor")
   Armor? get armor => throw _privateConstructorUsedError;
   @JsonKey(name: "foci")
-  List<String> get foci => throw _privateConstructorUsedError;
+  List<dynamic> get foci => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
   String get type => throw _privateConstructorUsedError;
   @JsonKey(name: "description")
-  String get description => throw _privateConstructorUsedError;
+  dynamic get description => throw _privateConstructorUsedError;
   @JsonKey(name: "size_class")
-  int get sizeClass => throw _privateConstructorUsedError;
+  int? get sizeClass => throw _privateConstructorUsedError;
   @JsonKey(name: "manufacturer")
-  DataManufacturer get manufacturer => throw _privateConstructorUsedError;
+  DataManufacturer? get manufacturer => throw _privateConstructorUsedError;
   @JsonKey(name: "insurance")
-  Insurance get insurance => throw _privateConstructorUsedError;
+  Insurance? get insurance => throw _privateConstructorUsedError;
   @JsonKey(name: "hardpoints")
   List<Hardpoint> get hardpoints => throw _privateConstructorUsedError;
   @JsonKey(name: "shops")
@@ -273,32 +293,36 @@ mixin _$ScwVehicleDetailsData {
   @JsonKey(name: "parts")
   List<Part> get parts => throw _privateConstructorUsedError;
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
   @JsonKey(name: "id")
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "chassis_id")
-  int get chassisId => throw _privateConstructorUsedError;
+  int? get chassisId => throw _privateConstructorUsedError;
   @JsonKey(name: "production_status")
-  String get productionStatus => throw _privateConstructorUsedError;
+  Description? get productionStatus => throw _privateConstructorUsedError;
   @JsonKey(name: "production_note")
-  String get productionNote => throw _privateConstructorUsedError;
+  Description? get productionNote => throw _privateConstructorUsedError;
   @JsonKey(name: "size")
-  String get size => throw _privateConstructorUsedError;
+  Description? get size => throw _privateConstructorUsedError;
   @JsonKey(name: "msrp")
   int? get msrp => throw _privateConstructorUsedError;
   @JsonKey(name: "pledge_url")
-  String get pledgeUrl => throw _privateConstructorUsedError;
+  String? get pledgeUrl => throw _privateConstructorUsedError;
   @JsonKey(name: "components")
-  List<Component> get components => throw _privateConstructorUsedError;
+  List<Component>? get components => throw _privateConstructorUsedError;
   @JsonKey(name: "loaner")
-  List<Loaner> get loaner => throw _privateConstructorUsedError;
+  List<Loaner>? get loaner => throw _privateConstructorUsedError;
   @JsonKey(name: "skus")
-  List<Skus> get skus => throw _privateConstructorUsedError;
+  List<Skus>? get skus => throw _privateConstructorUsedError;
 
+  /// Serializes this ScwVehicleDetailsData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ScwVehicleDetailsDataCopyWith<ScwVehicleDetailsData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -310,56 +334,59 @@ abstract class $ScwVehicleDetailsDataCopyWith<$Res> {
       _$ScwVehicleDetailsDataCopyWithImpl<$Res, ScwVehicleDetailsData>;
   @useResult
   $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
+      {@JsonKey(name: "uuid") String uuid,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "slug") String slug,
       @JsonKey(name: "class_name") String? className,
       @JsonKey(name: "sizes") Sizes sizes,
-      @JsonKey(name: "emission") Emission emission,
-      @JsonKey(name: "mass") int mass,
-      @JsonKey(name: "cargo_capacity") int cargoCapacity,
-      @JsonKey(name: "vehicle_inventory") double vehicleInventory,
-      @JsonKey(name: "personal_inventory") int personalInventory,
-      @JsonKey(name: "crew") Crew crew,
-      @JsonKey(name: "health") int health,
-      @JsonKey(name: "shield_hp") int? shieldHp,
+      @JsonKey(name: "emission") Emission? emission,
+      @JsonKey(name: "mass") num? mass,
+      @JsonKey(name: "cargo_capacity") int? cargoCapacity,
+      @JsonKey(name: "vehicle_inventory") num? vehicleInventory,
+      @JsonKey(name: "personal_inventory") num? personalInventory,
+      @JsonKey(name: "crew") Crew? crew,
+      @JsonKey(name: "health") num? health,
+      @JsonKey(name: "shield_hp") num? shieldHp,
       @JsonKey(name: "speed") Speed speed,
       @JsonKey(name: "fuel") Fuel fuel,
       @JsonKey(name: "quantum") Quantum? quantum,
-      @JsonKey(name: "agility") Agility agility,
+      @JsonKey(name: "agility") Agility? agility,
       @JsonKey(name: "armor") Armor? armor,
-      @JsonKey(name: "foci") List<String> foci,
+      @JsonKey(name: "foci") List<dynamic> foci,
       @JsonKey(name: "type") String type,
-      @JsonKey(name: "description") String description,
-      @JsonKey(name: "size_class") int sizeClass,
-      @JsonKey(name: "manufacturer") DataManufacturer manufacturer,
-      @JsonKey(name: "insurance") Insurance insurance,
+      @JsonKey(name: "description") dynamic description,
+      @JsonKey(name: "size_class") int? sizeClass,
+      @JsonKey(name: "manufacturer") DataManufacturer? manufacturer,
+      @JsonKey(name: "insurance") Insurance? insurance,
       @JsonKey(name: "hardpoints") List<Hardpoint> hardpoints,
       @JsonKey(name: "shops") List<Shop> shops,
       @JsonKey(name: "parts") List<Part> parts,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version,
-      @JsonKey(name: "id") int id,
-      @JsonKey(name: "chassis_id") int chassisId,
-      @JsonKey(name: "production_status") String productionStatus,
-      @JsonKey(name: "production_note") String productionNote,
-      @JsonKey(name: "size") String size,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version,
+      @JsonKey(name: "id") int? id,
+      @JsonKey(name: "chassis_id") int? chassisId,
+      @JsonKey(name: "production_status") Description? productionStatus,
+      @JsonKey(name: "production_note") Description? productionNote,
+      @JsonKey(name: "size") Description? size,
       @JsonKey(name: "msrp") int? msrp,
-      @JsonKey(name: "pledge_url") String pledgeUrl,
-      @JsonKey(name: "components") List<Component> components,
-      @JsonKey(name: "loaner") List<Loaner> loaner,
-      @JsonKey(name: "skus") List<Skus> skus});
+      @JsonKey(name: "pledge_url") String? pledgeUrl,
+      @JsonKey(name: "components") List<Component>? components,
+      @JsonKey(name: "loaner") List<Loaner>? loaner,
+      @JsonKey(name: "skus") List<Skus>? skus});
 
   $SizesCopyWith<$Res> get sizes;
-  $EmissionCopyWith<$Res> get emission;
-  $CrewCopyWith<$Res> get crew;
+  $EmissionCopyWith<$Res>? get emission;
+  $CrewCopyWith<$Res>? get crew;
   $SpeedCopyWith<$Res> get speed;
   $FuelCopyWith<$Res> get fuel;
   $QuantumCopyWith<$Res>? get quantum;
-  $AgilityCopyWith<$Res> get agility;
+  $AgilityCopyWith<$Res>? get agility;
   $ArmorCopyWith<$Res>? get armor;
-  $DataManufacturerCopyWith<$Res> get manufacturer;
-  $InsuranceCopyWith<$Res> get insurance;
+  $DataManufacturerCopyWith<$Res>? get manufacturer;
+  $InsuranceCopyWith<$Res>? get insurance;
+  $DescriptionCopyWith<$Res>? get productionStatus;
+  $DescriptionCopyWith<$Res>? get productionNote;
+  $DescriptionCopyWith<$Res>? get size;
 }
 
 /// @nodoc
@@ -373,54 +400,56 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
+    Object? uuid = null,
     Object? name = null,
     Object? slug = null,
     Object? className = freezed,
     Object? sizes = null,
-    Object? emission = null,
-    Object? mass = null,
-    Object? cargoCapacity = null,
-    Object? vehicleInventory = null,
-    Object? personalInventory = null,
-    Object? crew = null,
-    Object? health = null,
+    Object? emission = freezed,
+    Object? mass = freezed,
+    Object? cargoCapacity = freezed,
+    Object? vehicleInventory = freezed,
+    Object? personalInventory = freezed,
+    Object? crew = freezed,
+    Object? health = freezed,
     Object? shieldHp = freezed,
     Object? speed = null,
     Object? fuel = null,
     Object? quantum = freezed,
-    Object? agility = null,
+    Object? agility = freezed,
     Object? armor = freezed,
     Object? foci = null,
     Object? type = null,
-    Object? description = null,
-    Object? sizeClass = null,
-    Object? manufacturer = null,
-    Object? insurance = null,
+    Object? description = freezed,
+    Object? sizeClass = freezed,
+    Object? manufacturer = freezed,
+    Object? insurance = freezed,
     Object? hardpoints = null,
     Object? shops = null,
     Object? parts = null,
-    Object? updatedAt = null,
-    Object? version = null,
-    Object? id = null,
-    Object? chassisId = null,
-    Object? productionStatus = null,
-    Object? productionNote = null,
-    Object? size = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
+    Object? id = freezed,
+    Object? chassisId = freezed,
+    Object? productionStatus = freezed,
+    Object? productionNote = freezed,
+    Object? size = freezed,
     Object? msrp = freezed,
-    Object? pledgeUrl = null,
-    Object? components = null,
-    Object? loaner = null,
-    Object? skus = null,
+    Object? pledgeUrl = freezed,
+    Object? components = freezed,
+    Object? loaner = freezed,
+    Object? skus = freezed,
   }) {
     return _then(_value.copyWith(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -437,38 +466,38 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
           ? _value.sizes
           : sizes // ignore: cast_nullable_to_non_nullable
               as Sizes,
-      emission: null == emission
+      emission: freezed == emission
           ? _value.emission
           : emission // ignore: cast_nullable_to_non_nullable
-              as Emission,
-      mass: null == mass
+              as Emission?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
-      cargoCapacity: null == cargoCapacity
+              as num?,
+      cargoCapacity: freezed == cargoCapacity
           ? _value.cargoCapacity
           : cargoCapacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      vehicleInventory: null == vehicleInventory
+              as int?,
+      vehicleInventory: freezed == vehicleInventory
           ? _value.vehicleInventory
           : vehicleInventory // ignore: cast_nullable_to_non_nullable
-              as double,
-      personalInventory: null == personalInventory
+              as num?,
+      personalInventory: freezed == personalInventory
           ? _value.personalInventory
           : personalInventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      crew: null == crew
+              as num?,
+      crew: freezed == crew
           ? _value.crew
           : crew // ignore: cast_nullable_to_non_nullable
-              as Crew,
-      health: null == health
+              as Crew?,
+      health: freezed == health
           ? _value.health
           : health // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num?,
       shieldHp: freezed == shieldHp
           ? _value.shieldHp
           : shieldHp // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       speed: null == speed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
@@ -481,10 +510,10 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
           ? _value.quantum
           : quantum // ignore: cast_nullable_to_non_nullable
               as Quantum?,
-      agility: null == agility
+      agility: freezed == agility
           ? _value.agility
           : agility // ignore: cast_nullable_to_non_nullable
-              as Agility,
+              as Agility?,
       armor: freezed == armor
           ? _value.armor
           : armor // ignore: cast_nullable_to_non_nullable
@@ -492,27 +521,27 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
       foci: null == foci
           ? _value.foci
           : foci // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<dynamic>,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      sizeClass: null == sizeClass
+              as dynamic,
+      sizeClass: freezed == sizeClass
           ? _value.sizeClass
           : sizeClass // ignore: cast_nullable_to_non_nullable
-              as int,
-      manufacturer: null == manufacturer
+              as int?,
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as DataManufacturer,
-      insurance: null == insurance
+              as DataManufacturer?,
+      insurance: freezed == insurance
           ? _value.insurance
           : insurance // ignore: cast_nullable_to_non_nullable
-              as Insurance,
+              as Insurance?,
       hardpoints: null == hardpoints
           ? _value.hardpoints
           : hardpoints // ignore: cast_nullable_to_non_nullable
@@ -525,57 +554,59 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
           ? _value.parts
           : parts // ignore: cast_nullable_to_non_nullable
               as List<Part>,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
+              as String?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      chassisId: null == chassisId
+              as int?,
+      chassisId: freezed == chassisId
           ? _value.chassisId
           : chassisId // ignore: cast_nullable_to_non_nullable
-              as int,
-      productionStatus: null == productionStatus
+              as int?,
+      productionStatus: freezed == productionStatus
           ? _value.productionStatus
           : productionStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      productionNote: null == productionNote
+              as Description?,
+      productionNote: freezed == productionNote
           ? _value.productionNote
           : productionNote // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as Description?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Description?,
       msrp: freezed == msrp
           ? _value.msrp
           : msrp // ignore: cast_nullable_to_non_nullable
               as int?,
-      pledgeUrl: null == pledgeUrl
+      pledgeUrl: freezed == pledgeUrl
           ? _value.pledgeUrl
           : pledgeUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      components: null == components
+              as String?,
+      components: freezed == components
           ? _value.components
           : components // ignore: cast_nullable_to_non_nullable
-              as List<Component>,
-      loaner: null == loaner
+              as List<Component>?,
+      loaner: freezed == loaner
           ? _value.loaner
           : loaner // ignore: cast_nullable_to_non_nullable
-              as List<Loaner>,
-      skus: null == skus
+              as List<Loaner>?,
+      skus: freezed == skus
           ? _value.skus
           : skus // ignore: cast_nullable_to_non_nullable
-              as List<Skus>,
+              as List<Skus>?,
     ) as $Val);
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SizesCopyWith<$Res> get sizes {
@@ -584,22 +615,36 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $EmissionCopyWith<$Res> get emission {
-    return $EmissionCopyWith<$Res>(_value.emission, (value) {
+  $EmissionCopyWith<$Res>? get emission {
+    if (_value.emission == null) {
+      return null;
+    }
+
+    return $EmissionCopyWith<$Res>(_value.emission!, (value) {
       return _then(_value.copyWith(emission: value) as $Val);
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CrewCopyWith<$Res> get crew {
-    return $CrewCopyWith<$Res>(_value.crew, (value) {
+  $CrewCopyWith<$Res>? get crew {
+    if (_value.crew == null) {
+      return null;
+    }
+
+    return $CrewCopyWith<$Res>(_value.crew!, (value) {
       return _then(_value.copyWith(crew: value) as $Val);
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SpeedCopyWith<$Res> get speed {
@@ -608,6 +653,8 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FuelCopyWith<$Res> get fuel {
@@ -616,6 +663,8 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QuantumCopyWith<$Res>? get quantum {
@@ -628,14 +677,22 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AgilityCopyWith<$Res> get agility {
-    return $AgilityCopyWith<$Res>(_value.agility, (value) {
+  $AgilityCopyWith<$Res>? get agility {
+    if (_value.agility == null) {
+      return null;
+    }
+
+    return $AgilityCopyWith<$Res>(_value.agility!, (value) {
       return _then(_value.copyWith(agility: value) as $Val);
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ArmorCopyWith<$Res>? get armor {
@@ -648,19 +705,73 @@ class _$ScwVehicleDetailsDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DataManufacturerCopyWith<$Res> get manufacturer {
-    return $DataManufacturerCopyWith<$Res>(_value.manufacturer, (value) {
+  $DataManufacturerCopyWith<$Res>? get manufacturer {
+    if (_value.manufacturer == null) {
+      return null;
+    }
+
+    return $DataManufacturerCopyWith<$Res>(_value.manufacturer!, (value) {
       return _then(_value.copyWith(manufacturer: value) as $Val);
     });
   }
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $InsuranceCopyWith<$Res> get insurance {
-    return $InsuranceCopyWith<$Res>(_value.insurance, (value) {
+  $InsuranceCopyWith<$Res>? get insurance {
+    if (_value.insurance == null) {
+      return null;
+    }
+
+    return $InsuranceCopyWith<$Res>(_value.insurance!, (value) {
       return _then(_value.copyWith(insurance: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DescriptionCopyWith<$Res>? get productionStatus {
+    if (_value.productionStatus == null) {
+      return null;
+    }
+
+    return $DescriptionCopyWith<$Res>(_value.productionStatus!, (value) {
+      return _then(_value.copyWith(productionStatus: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DescriptionCopyWith<$Res>? get productionNote {
+    if (_value.productionNote == null) {
+      return null;
+    }
+
+    return $DescriptionCopyWith<$Res>(_value.productionNote!, (value) {
+      return _then(_value.copyWith(productionNote: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DescriptionCopyWith<$Res>? get size {
+    if (_value.size == null) {
+      return null;
+    }
+
+    return $DescriptionCopyWith<$Res>(_value.size!, (value) {
+      return _then(_value.copyWith(size: value) as $Val);
     });
   }
 }
@@ -675,52 +786,52 @@ abstract class _$$ScwVehicleDetailsDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
+      {@JsonKey(name: "uuid") String uuid,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "slug") String slug,
       @JsonKey(name: "class_name") String? className,
       @JsonKey(name: "sizes") Sizes sizes,
-      @JsonKey(name: "emission") Emission emission,
-      @JsonKey(name: "mass") int mass,
-      @JsonKey(name: "cargo_capacity") int cargoCapacity,
-      @JsonKey(name: "vehicle_inventory") double vehicleInventory,
-      @JsonKey(name: "personal_inventory") int personalInventory,
-      @JsonKey(name: "crew") Crew crew,
-      @JsonKey(name: "health") int health,
-      @JsonKey(name: "shield_hp") int? shieldHp,
+      @JsonKey(name: "emission") Emission? emission,
+      @JsonKey(name: "mass") num? mass,
+      @JsonKey(name: "cargo_capacity") int? cargoCapacity,
+      @JsonKey(name: "vehicle_inventory") num? vehicleInventory,
+      @JsonKey(name: "personal_inventory") num? personalInventory,
+      @JsonKey(name: "crew") Crew? crew,
+      @JsonKey(name: "health") num? health,
+      @JsonKey(name: "shield_hp") num? shieldHp,
       @JsonKey(name: "speed") Speed speed,
       @JsonKey(name: "fuel") Fuel fuel,
       @JsonKey(name: "quantum") Quantum? quantum,
-      @JsonKey(name: "agility") Agility agility,
+      @JsonKey(name: "agility") Agility? agility,
       @JsonKey(name: "armor") Armor? armor,
-      @JsonKey(name: "foci") List<String> foci,
+      @JsonKey(name: "foci") List<dynamic> foci,
       @JsonKey(name: "type") String type,
-      @JsonKey(name: "description") String description,
-      @JsonKey(name: "size_class") int sizeClass,
-      @JsonKey(name: "manufacturer") DataManufacturer manufacturer,
-      @JsonKey(name: "insurance") Insurance insurance,
+      @JsonKey(name: "description") dynamic description,
+      @JsonKey(name: "size_class") int? sizeClass,
+      @JsonKey(name: "manufacturer") DataManufacturer? manufacturer,
+      @JsonKey(name: "insurance") Insurance? insurance,
       @JsonKey(name: "hardpoints") List<Hardpoint> hardpoints,
       @JsonKey(name: "shops") List<Shop> shops,
       @JsonKey(name: "parts") List<Part> parts,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version,
-      @JsonKey(name: "id") int id,
-      @JsonKey(name: "chassis_id") int chassisId,
-      @JsonKey(name: "production_status") String productionStatus,
-      @JsonKey(name: "production_note") String productionNote,
-      @JsonKey(name: "size") String size,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version,
+      @JsonKey(name: "id") int? id,
+      @JsonKey(name: "chassis_id") int? chassisId,
+      @JsonKey(name: "production_status") Description? productionStatus,
+      @JsonKey(name: "production_note") Description? productionNote,
+      @JsonKey(name: "size") Description? size,
       @JsonKey(name: "msrp") int? msrp,
-      @JsonKey(name: "pledge_url") String pledgeUrl,
-      @JsonKey(name: "components") List<Component> components,
-      @JsonKey(name: "loaner") List<Loaner> loaner,
-      @JsonKey(name: "skus") List<Skus> skus});
+      @JsonKey(name: "pledge_url") String? pledgeUrl,
+      @JsonKey(name: "components") List<Component>? components,
+      @JsonKey(name: "loaner") List<Loaner>? loaner,
+      @JsonKey(name: "skus") List<Skus>? skus});
 
   @override
   $SizesCopyWith<$Res> get sizes;
   @override
-  $EmissionCopyWith<$Res> get emission;
+  $EmissionCopyWith<$Res>? get emission;
   @override
-  $CrewCopyWith<$Res> get crew;
+  $CrewCopyWith<$Res>? get crew;
   @override
   $SpeedCopyWith<$Res> get speed;
   @override
@@ -728,13 +839,19 @@ abstract class _$$ScwVehicleDetailsDataImplCopyWith<$Res>
   @override
   $QuantumCopyWith<$Res>? get quantum;
   @override
-  $AgilityCopyWith<$Res> get agility;
+  $AgilityCopyWith<$Res>? get agility;
   @override
   $ArmorCopyWith<$Res>? get armor;
   @override
-  $DataManufacturerCopyWith<$Res> get manufacturer;
+  $DataManufacturerCopyWith<$Res>? get manufacturer;
   @override
-  $InsuranceCopyWith<$Res> get insurance;
+  $InsuranceCopyWith<$Res>? get insurance;
+  @override
+  $DescriptionCopyWith<$Res>? get productionStatus;
+  @override
+  $DescriptionCopyWith<$Res>? get productionNote;
+  @override
+  $DescriptionCopyWith<$Res>? get size;
 }
 
 /// @nodoc
@@ -746,54 +863,56 @@ class __$$ScwVehicleDetailsDataImplCopyWithImpl<$Res>
       $Res Function(_$ScwVehicleDetailsDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
+    Object? uuid = null,
     Object? name = null,
     Object? slug = null,
     Object? className = freezed,
     Object? sizes = null,
-    Object? emission = null,
-    Object? mass = null,
-    Object? cargoCapacity = null,
-    Object? vehicleInventory = null,
-    Object? personalInventory = null,
-    Object? crew = null,
-    Object? health = null,
+    Object? emission = freezed,
+    Object? mass = freezed,
+    Object? cargoCapacity = freezed,
+    Object? vehicleInventory = freezed,
+    Object? personalInventory = freezed,
+    Object? crew = freezed,
+    Object? health = freezed,
     Object? shieldHp = freezed,
     Object? speed = null,
     Object? fuel = null,
     Object? quantum = freezed,
-    Object? agility = null,
+    Object? agility = freezed,
     Object? armor = freezed,
     Object? foci = null,
     Object? type = null,
-    Object? description = null,
-    Object? sizeClass = null,
-    Object? manufacturer = null,
-    Object? insurance = null,
+    Object? description = freezed,
+    Object? sizeClass = freezed,
+    Object? manufacturer = freezed,
+    Object? insurance = freezed,
     Object? hardpoints = null,
     Object? shops = null,
     Object? parts = null,
-    Object? updatedAt = null,
-    Object? version = null,
-    Object? id = null,
-    Object? chassisId = null,
-    Object? productionStatus = null,
-    Object? productionNote = null,
-    Object? size = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
+    Object? id = freezed,
+    Object? chassisId = freezed,
+    Object? productionStatus = freezed,
+    Object? productionNote = freezed,
+    Object? size = freezed,
     Object? msrp = freezed,
-    Object? pledgeUrl = null,
-    Object? components = null,
-    Object? loaner = null,
-    Object? skus = null,
+    Object? pledgeUrl = freezed,
+    Object? components = freezed,
+    Object? loaner = freezed,
+    Object? skus = freezed,
   }) {
     return _then(_$ScwVehicleDetailsDataImpl(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -810,38 +929,38 @@ class __$$ScwVehicleDetailsDataImplCopyWithImpl<$Res>
           ? _value.sizes
           : sizes // ignore: cast_nullable_to_non_nullable
               as Sizes,
-      emission: null == emission
+      emission: freezed == emission
           ? _value.emission
           : emission // ignore: cast_nullable_to_non_nullable
-              as Emission,
-      mass: null == mass
+              as Emission?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
-      cargoCapacity: null == cargoCapacity
+              as num?,
+      cargoCapacity: freezed == cargoCapacity
           ? _value.cargoCapacity
           : cargoCapacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      vehicleInventory: null == vehicleInventory
+              as int?,
+      vehicleInventory: freezed == vehicleInventory
           ? _value.vehicleInventory
           : vehicleInventory // ignore: cast_nullable_to_non_nullable
-              as double,
-      personalInventory: null == personalInventory
+              as num?,
+      personalInventory: freezed == personalInventory
           ? _value.personalInventory
           : personalInventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      crew: null == crew
+              as num?,
+      crew: freezed == crew
           ? _value.crew
           : crew // ignore: cast_nullable_to_non_nullable
-              as Crew,
-      health: null == health
+              as Crew?,
+      health: freezed == health
           ? _value.health
           : health // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num?,
       shieldHp: freezed == shieldHp
           ? _value.shieldHp
           : shieldHp // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       speed: null == speed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
@@ -854,10 +973,10 @@ class __$$ScwVehicleDetailsDataImplCopyWithImpl<$Res>
           ? _value.quantum
           : quantum // ignore: cast_nullable_to_non_nullable
               as Quantum?,
-      agility: null == agility
+      agility: freezed == agility
           ? _value.agility
           : agility // ignore: cast_nullable_to_non_nullable
-              as Agility,
+              as Agility?,
       armor: freezed == armor
           ? _value.armor
           : armor // ignore: cast_nullable_to_non_nullable
@@ -865,27 +984,27 @@ class __$$ScwVehicleDetailsDataImplCopyWithImpl<$Res>
       foci: null == foci
           ? _value._foci
           : foci // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<dynamic>,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      sizeClass: null == sizeClass
+              as dynamic,
+      sizeClass: freezed == sizeClass
           ? _value.sizeClass
           : sizeClass // ignore: cast_nullable_to_non_nullable
-              as int,
-      manufacturer: null == manufacturer
+              as int?,
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as DataManufacturer,
-      insurance: null == insurance
+              as DataManufacturer?,
+      insurance: freezed == insurance
           ? _value.insurance
           : insurance // ignore: cast_nullable_to_non_nullable
-              as Insurance,
+              as Insurance?,
       hardpoints: null == hardpoints
           ? _value._hardpoints
           : hardpoints // ignore: cast_nullable_to_non_nullable
@@ -898,54 +1017,54 @@ class __$$ScwVehicleDetailsDataImplCopyWithImpl<$Res>
           ? _value._parts
           : parts // ignore: cast_nullable_to_non_nullable
               as List<Part>,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
+              as String?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      chassisId: null == chassisId
+              as int?,
+      chassisId: freezed == chassisId
           ? _value.chassisId
           : chassisId // ignore: cast_nullable_to_non_nullable
-              as int,
-      productionStatus: null == productionStatus
+              as int?,
+      productionStatus: freezed == productionStatus
           ? _value.productionStatus
           : productionStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      productionNote: null == productionNote
+              as Description?,
+      productionNote: freezed == productionNote
           ? _value.productionNote
           : productionNote // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as Description?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Description?,
       msrp: freezed == msrp
           ? _value.msrp
           : msrp // ignore: cast_nullable_to_non_nullable
               as int?,
-      pledgeUrl: null == pledgeUrl
+      pledgeUrl: freezed == pledgeUrl
           ? _value.pledgeUrl
           : pledgeUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      components: null == components
+              as String?,
+      components: freezed == components
           ? _value._components
           : components // ignore: cast_nullable_to_non_nullable
-              as List<Component>,
-      loaner: null == loaner
+              as List<Component>?,
+      loaner: freezed == loaner
           ? _value._loaner
           : loaner // ignore: cast_nullable_to_non_nullable
-              as List<Loaner>,
-      skus: null == skus
+              as List<Loaner>?,
+      skus: freezed == skus
           ? _value._skus
           : skus // ignore: cast_nullable_to_non_nullable
-              as List<Skus>,
+              as List<Skus>?,
     ));
   }
 }
@@ -954,45 +1073,45 @@ class __$$ScwVehicleDetailsDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
   const _$ScwVehicleDetailsDataImpl(
-      {@JsonKey(name: "uuid") this.uuid,
+      {@JsonKey(name: "uuid") required this.uuid,
       @JsonKey(name: "name") required this.name,
       @JsonKey(name: "slug") required this.slug,
       @JsonKey(name: "class_name") this.className,
       @JsonKey(name: "sizes") required this.sizes,
-      @JsonKey(name: "emission") required this.emission,
-      @JsonKey(name: "mass") required this.mass,
-      @JsonKey(name: "cargo_capacity") required this.cargoCapacity,
-      @JsonKey(name: "vehicle_inventory") required this.vehicleInventory,
-      @JsonKey(name: "personal_inventory") required this.personalInventory,
-      @JsonKey(name: "crew") required this.crew,
-      @JsonKey(name: "health") required this.health,
+      @JsonKey(name: "emission") this.emission,
+      @JsonKey(name: "mass") this.mass,
+      @JsonKey(name: "cargo_capacity") this.cargoCapacity,
+      @JsonKey(name: "vehicle_inventory") this.vehicleInventory,
+      @JsonKey(name: "personal_inventory") this.personalInventory,
+      @JsonKey(name: "crew") this.crew,
+      @JsonKey(name: "health") this.health,
       @JsonKey(name: "shield_hp") this.shieldHp,
       @JsonKey(name: "speed") required this.speed,
       @JsonKey(name: "fuel") required this.fuel,
       @JsonKey(name: "quantum") this.quantum,
-      @JsonKey(name: "agility") required this.agility,
+      @JsonKey(name: "agility") this.agility,
       @JsonKey(name: "armor") this.armor,
-      @JsonKey(name: "foci") required final List<String> foci,
+      @JsonKey(name: "foci") required final List<dynamic> foci,
       @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "description") required this.description,
-      @JsonKey(name: "size_class") required this.sizeClass,
-      @JsonKey(name: "manufacturer") required this.manufacturer,
-      @JsonKey(name: "insurance") required this.insurance,
+      @JsonKey(name: "description") this.description,
+      @JsonKey(name: "size_class") this.sizeClass,
+      @JsonKey(name: "manufacturer") this.manufacturer,
+      @JsonKey(name: "insurance") this.insurance,
       @JsonKey(name: "hardpoints") required final List<Hardpoint> hardpoints,
       @JsonKey(name: "shops") required final List<Shop> shops,
       @JsonKey(name: "parts") required final List<Part> parts,
-      @JsonKey(name: "updated_at") required this.updatedAt,
-      @JsonKey(name: "version") required this.version,
-      @JsonKey(name: "id") required this.id,
-      @JsonKey(name: "chassis_id") required this.chassisId,
-      @JsonKey(name: "production_status") required this.productionStatus,
-      @JsonKey(name: "production_note") required this.productionNote,
-      @JsonKey(name: "size") required this.size,
+      @JsonKey(name: "updated_at") this.updatedAt,
+      @JsonKey(name: "version") this.version,
+      @JsonKey(name: "id") this.id,
+      @JsonKey(name: "chassis_id") this.chassisId,
+      @JsonKey(name: "production_status") this.productionStatus,
+      @JsonKey(name: "production_note") this.productionNote,
+      @JsonKey(name: "size") this.size,
       @JsonKey(name: "msrp") this.msrp,
-      @JsonKey(name: "pledge_url") required this.pledgeUrl,
-      @JsonKey(name: "components") required final List<Component> components,
-      @JsonKey(name: "loaner") required final List<Loaner> loaner,
-      @JsonKey(name: "skus") required final List<Skus> skus})
+      @JsonKey(name: "pledge_url") this.pledgeUrl,
+      @JsonKey(name: "components") final List<Component>? components,
+      @JsonKey(name: "loaner") final List<Loaner>? loaner,
+      @JsonKey(name: "skus") final List<Skus>? skus})
       : _foci = foci,
         _hardpoints = hardpoints,
         _shops = shops,
@@ -1006,7 +1125,7 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
 
   @override
   @JsonKey(name: "uuid")
-  final String? uuid;
+  final String uuid;
   @override
   @JsonKey(name: "name")
   final String name;
@@ -1021,28 +1140,28 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
   final Sizes sizes;
   @override
   @JsonKey(name: "emission")
-  final Emission emission;
+  final Emission? emission;
   @override
   @JsonKey(name: "mass")
-  final int mass;
+  final num? mass;
   @override
   @JsonKey(name: "cargo_capacity")
-  final int cargoCapacity;
+  final int? cargoCapacity;
   @override
   @JsonKey(name: "vehicle_inventory")
-  final double vehicleInventory;
+  final num? vehicleInventory;
   @override
   @JsonKey(name: "personal_inventory")
-  final int personalInventory;
+  final num? personalInventory;
   @override
   @JsonKey(name: "crew")
-  final Crew crew;
+  final Crew? crew;
   @override
   @JsonKey(name: "health")
-  final int health;
+  final num? health;
   @override
   @JsonKey(name: "shield_hp")
-  final int? shieldHp;
+  final num? shieldHp;
   @override
   @JsonKey(name: "speed")
   final Speed speed;
@@ -1054,14 +1173,14 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
   final Quantum? quantum;
   @override
   @JsonKey(name: "agility")
-  final Agility agility;
+  final Agility? agility;
   @override
   @JsonKey(name: "armor")
   final Armor? armor;
-  final List<String> _foci;
+  final List<dynamic> _foci;
   @override
   @JsonKey(name: "foci")
-  List<String> get foci {
+  List<dynamic> get foci {
     if (_foci is EqualUnmodifiableListView) return _foci;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_foci);
@@ -1072,16 +1191,16 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
   final String type;
   @override
   @JsonKey(name: "description")
-  final String description;
+  final dynamic description;
   @override
   @JsonKey(name: "size_class")
-  final int sizeClass;
+  final int? sizeClass;
   @override
   @JsonKey(name: "manufacturer")
-  final DataManufacturer manufacturer;
+  final DataManufacturer? manufacturer;
   @override
   @JsonKey(name: "insurance")
-  final Insurance insurance;
+  final Insurance? insurance;
   final List<Hardpoint> _hardpoints;
   @override
   @JsonKey(name: "hardpoints")
@@ -1111,56 +1230,62 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
 
   @override
   @JsonKey(name: "updated_at")
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   @override
   @JsonKey(name: "version")
-  final String version;
+  final String? version;
   @override
   @JsonKey(name: "id")
-  final int id;
+  final int? id;
   @override
   @JsonKey(name: "chassis_id")
-  final int chassisId;
+  final int? chassisId;
   @override
   @JsonKey(name: "production_status")
-  final String productionStatus;
+  final Description? productionStatus;
   @override
   @JsonKey(name: "production_note")
-  final String productionNote;
+  final Description? productionNote;
   @override
   @JsonKey(name: "size")
-  final String size;
+  final Description? size;
   @override
   @JsonKey(name: "msrp")
   final int? msrp;
   @override
   @JsonKey(name: "pledge_url")
-  final String pledgeUrl;
-  final List<Component> _components;
+  final String? pledgeUrl;
+  final List<Component>? _components;
   @override
   @JsonKey(name: "components")
-  List<Component> get components {
+  List<Component>? get components {
+    final value = _components;
+    if (value == null) return null;
     if (_components is EqualUnmodifiableListView) return _components;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_components);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<Loaner> _loaner;
+  final List<Loaner>? _loaner;
   @override
   @JsonKey(name: "loaner")
-  List<Loaner> get loaner {
+  List<Loaner>? get loaner {
+    final value = _loaner;
+    if (value == null) return null;
     if (_loaner is EqualUnmodifiableListView) return _loaner;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_loaner);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<Skus> _skus;
+  final List<Skus>? _skus;
   @override
   @JsonKey(name: "skus")
-  List<Skus> get skus {
+  List<Skus>? get skus {
+    final value = _skus;
+    if (value == null) return null;
     if (_skus is EqualUnmodifiableListView) return _skus;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_skus);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -1199,8 +1324,8 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
             (identical(other.armor, armor) || other.armor == armor) &&
             const DeepCollectionEquality().equals(other._foci, _foci) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             (identical(other.sizeClass, sizeClass) ||
                 other.sizeClass == sizeClass) &&
             (identical(other.manufacturer, manufacturer) ||
@@ -1231,7 +1356,7 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
             const DeepCollectionEquality().equals(other._skus, _skus));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1255,7 +1380,7 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
         armor,
         const DeepCollectionEquality().hash(_foci),
         type,
-        description,
+        const DeepCollectionEquality().hash(description),
         sizeClass,
         manufacturer,
         insurance,
@@ -1276,7 +1401,9 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
         const DeepCollectionEquality().hash(_skus)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ScwVehicleDetailsDataImplCopyWith<_$ScwVehicleDetailsDataImpl>
@@ -1293,56 +1420,53 @@ class _$ScwVehicleDetailsDataImpl implements _ScwVehicleDetailsData {
 
 abstract class _ScwVehicleDetailsData implements ScwVehicleDetailsData {
   const factory _ScwVehicleDetailsData(
-      {@JsonKey(name: "uuid") final String? uuid,
+      {@JsonKey(name: "uuid") required final String uuid,
       @JsonKey(name: "name") required final String name,
       @JsonKey(name: "slug") required final String slug,
       @JsonKey(name: "class_name") final String? className,
       @JsonKey(name: "sizes") required final Sizes sizes,
-      @JsonKey(name: "emission") required final Emission emission,
-      @JsonKey(name: "mass") required final int mass,
-      @JsonKey(name: "cargo_capacity") required final int cargoCapacity,
-      @JsonKey(name: "vehicle_inventory")
-      required final double vehicleInventory,
-      @JsonKey(name: "personal_inventory") required final int personalInventory,
-      @JsonKey(name: "crew") required final Crew crew,
-      @JsonKey(name: "health") required final int health,
-      @JsonKey(name: "shield_hp") final int? shieldHp,
+      @JsonKey(name: "emission") final Emission? emission,
+      @JsonKey(name: "mass") final num? mass,
+      @JsonKey(name: "cargo_capacity") final int? cargoCapacity,
+      @JsonKey(name: "vehicle_inventory") final num? vehicleInventory,
+      @JsonKey(name: "personal_inventory") final num? personalInventory,
+      @JsonKey(name: "crew") final Crew? crew,
+      @JsonKey(name: "health") final num? health,
+      @JsonKey(name: "shield_hp") final num? shieldHp,
       @JsonKey(name: "speed") required final Speed speed,
       @JsonKey(name: "fuel") required final Fuel fuel,
       @JsonKey(name: "quantum") final Quantum? quantum,
-      @JsonKey(name: "agility") required final Agility agility,
+      @JsonKey(name: "agility") final Agility? agility,
       @JsonKey(name: "armor") final Armor? armor,
-      @JsonKey(name: "foci") required final List<String> foci,
+      @JsonKey(name: "foci") required final List<dynamic> foci,
       @JsonKey(name: "type") required final String type,
-      @JsonKey(name: "description") required final String description,
-      @JsonKey(name: "size_class") required final int sizeClass,
-      @JsonKey(name: "manufacturer")
-      required final DataManufacturer manufacturer,
-      @JsonKey(name: "insurance") required final Insurance insurance,
+      @JsonKey(name: "description") final dynamic description,
+      @JsonKey(name: "size_class") final int? sizeClass,
+      @JsonKey(name: "manufacturer") final DataManufacturer? manufacturer,
+      @JsonKey(name: "insurance") final Insurance? insurance,
       @JsonKey(name: "hardpoints") required final List<Hardpoint> hardpoints,
       @JsonKey(name: "shops") required final List<Shop> shops,
       @JsonKey(name: "parts") required final List<Part> parts,
-      @JsonKey(name: "updated_at") required final DateTime updatedAt,
-      @JsonKey(name: "version") required final String version,
-      @JsonKey(name: "id") required final int id,
-      @JsonKey(name: "chassis_id") required final int chassisId,
-      @JsonKey(name: "production_status")
-      required final String productionStatus,
-      @JsonKey(name: "production_note") required final String productionNote,
-      @JsonKey(name: "size") required final String size,
+      @JsonKey(name: "updated_at") final DateTime? updatedAt,
+      @JsonKey(name: "version") final String? version,
+      @JsonKey(name: "id") final int? id,
+      @JsonKey(name: "chassis_id") final int? chassisId,
+      @JsonKey(name: "production_status") final Description? productionStatus,
+      @JsonKey(name: "production_note") final Description? productionNote,
+      @JsonKey(name: "size") final Description? size,
       @JsonKey(name: "msrp") final int? msrp,
-      @JsonKey(name: "pledge_url") required final String pledgeUrl,
-      @JsonKey(name: "components") required final List<Component> components,
-      @JsonKey(name: "loaner") required final List<Loaner> loaner,
+      @JsonKey(name: "pledge_url") final String? pledgeUrl,
+      @JsonKey(name: "components") final List<Component>? components,
+      @JsonKey(name: "loaner") final List<Loaner>? loaner,
       @JsonKey(name: "skus")
-      required final List<Skus> skus}) = _$ScwVehicleDetailsDataImpl;
+      final List<Skus>? skus}) = _$ScwVehicleDetailsDataImpl;
 
   factory _ScwVehicleDetailsData.fromJson(Map<String, dynamic> json) =
       _$ScwVehicleDetailsDataImpl.fromJson;
 
   @override
   @JsonKey(name: "uuid")
-  String? get uuid;
+  String get uuid;
   @override
   @JsonKey(name: "name")
   String get name;
@@ -1357,28 +1481,28 @@ abstract class _ScwVehicleDetailsData implements ScwVehicleDetailsData {
   Sizes get sizes;
   @override
   @JsonKey(name: "emission")
-  Emission get emission;
+  Emission? get emission;
   @override
   @JsonKey(name: "mass")
-  int get mass;
+  num? get mass;
   @override
   @JsonKey(name: "cargo_capacity")
-  int get cargoCapacity;
+  int? get cargoCapacity;
   @override
   @JsonKey(name: "vehicle_inventory")
-  double get vehicleInventory;
+  num? get vehicleInventory;
   @override
   @JsonKey(name: "personal_inventory")
-  int get personalInventory;
+  num? get personalInventory;
   @override
   @JsonKey(name: "crew")
-  Crew get crew;
+  Crew? get crew;
   @override
   @JsonKey(name: "health")
-  int get health;
+  num? get health;
   @override
   @JsonKey(name: "shield_hp")
-  int? get shieldHp;
+  num? get shieldHp;
   @override
   @JsonKey(name: "speed")
   Speed get speed;
@@ -1390,28 +1514,28 @@ abstract class _ScwVehicleDetailsData implements ScwVehicleDetailsData {
   Quantum? get quantum;
   @override
   @JsonKey(name: "agility")
-  Agility get agility;
+  Agility? get agility;
   @override
   @JsonKey(name: "armor")
   Armor? get armor;
   @override
   @JsonKey(name: "foci")
-  List<String> get foci;
+  List<dynamic> get foci;
   @override
   @JsonKey(name: "type")
   String get type;
   @override
   @JsonKey(name: "description")
-  String get description;
+  dynamic get description;
   @override
   @JsonKey(name: "size_class")
-  int get sizeClass;
+  int? get sizeClass;
   @override
   @JsonKey(name: "manufacturer")
-  DataManufacturer get manufacturer;
+  DataManufacturer? get manufacturer;
   @override
   @JsonKey(name: "insurance")
-  Insurance get insurance;
+  Insurance? get insurance;
   @override
   @JsonKey(name: "hardpoints")
   List<Hardpoint> get hardpoints;
@@ -1423,42 +1547,45 @@ abstract class _ScwVehicleDetailsData implements ScwVehicleDetailsData {
   List<Part> get parts;
   @override
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
   @override
   @JsonKey(name: "id")
-  int get id;
+  int? get id;
   @override
   @JsonKey(name: "chassis_id")
-  int get chassisId;
+  int? get chassisId;
   @override
   @JsonKey(name: "production_status")
-  String get productionStatus;
+  Description? get productionStatus;
   @override
   @JsonKey(name: "production_note")
-  String get productionNote;
+  Description? get productionNote;
   @override
   @JsonKey(name: "size")
-  String get size;
+  Description? get size;
   @override
   @JsonKey(name: "msrp")
   int? get msrp;
   @override
   @JsonKey(name: "pledge_url")
-  String get pledgeUrl;
+  String? get pledgeUrl;
   @override
   @JsonKey(name: "components")
-  List<Component> get components;
+  List<Component>? get components;
   @override
   @JsonKey(name: "loaner")
-  List<Loaner> get loaner;
+  List<Loaner>? get loaner;
   @override
   @JsonKey(name: "skus")
-  List<Skus> get skus;
+  List<Skus>? get skus;
+
+  /// Create a copy of ScwVehicleDetailsData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScwVehicleDetailsDataImplCopyWith<_$ScwVehicleDetailsDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1470,16 +1597,20 @@ Agility _$AgilityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Agility {
   @JsonKey(name: "pitch")
-  int get pitch => throw _privateConstructorUsedError;
+  int? get pitch => throw _privateConstructorUsedError;
   @JsonKey(name: "yaw")
-  double get yaw => throw _privateConstructorUsedError;
+  int? get yaw => throw _privateConstructorUsedError;
   @JsonKey(name: "roll")
-  int get roll => throw _privateConstructorUsedError;
+  int? get roll => throw _privateConstructorUsedError;
   @JsonKey(name: "acceleration")
-  Acceleration get acceleration => throw _privateConstructorUsedError;
+  Acceleration? get acceleration => throw _privateConstructorUsedError;
 
+  /// Serializes this Agility to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Agility
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AgilityCopyWith<Agility> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1489,12 +1620,12 @@ abstract class $AgilityCopyWith<$Res> {
       _$AgilityCopyWithImpl<$Res, Agility>;
   @useResult
   $Res call(
-      {@JsonKey(name: "pitch") int pitch,
-      @JsonKey(name: "yaw") double yaw,
-      @JsonKey(name: "roll") int roll,
-      @JsonKey(name: "acceleration") Acceleration acceleration});
+      {@JsonKey(name: "pitch") int? pitch,
+      @JsonKey(name: "yaw") int? yaw,
+      @JsonKey(name: "roll") int? roll,
+      @JsonKey(name: "acceleration") Acceleration? acceleration});
 
-  $AccelerationCopyWith<$Res> get acceleration;
+  $AccelerationCopyWith<$Res>? get acceleration;
 }
 
 /// @nodoc
@@ -1507,38 +1638,46 @@ class _$AgilityCopyWithImpl<$Res, $Val extends Agility>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Agility
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pitch = null,
-    Object? yaw = null,
-    Object? roll = null,
-    Object? acceleration = null,
+    Object? pitch = freezed,
+    Object? yaw = freezed,
+    Object? roll = freezed,
+    Object? acceleration = freezed,
   }) {
     return _then(_value.copyWith(
-      pitch: null == pitch
+      pitch: freezed == pitch
           ? _value.pitch
           : pitch // ignore: cast_nullable_to_non_nullable
-              as int,
-      yaw: null == yaw
+              as int?,
+      yaw: freezed == yaw
           ? _value.yaw
           : yaw // ignore: cast_nullable_to_non_nullable
-              as double,
-      roll: null == roll
+              as int?,
+      roll: freezed == roll
           ? _value.roll
           : roll // ignore: cast_nullable_to_non_nullable
-              as int,
-      acceleration: null == acceleration
+              as int?,
+      acceleration: freezed == acceleration
           ? _value.acceleration
           : acceleration // ignore: cast_nullable_to_non_nullable
-              as Acceleration,
+              as Acceleration?,
     ) as $Val);
   }
 
+  /// Create a copy of Agility
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AccelerationCopyWith<$Res> get acceleration {
-    return $AccelerationCopyWith<$Res>(_value.acceleration, (value) {
+  $AccelerationCopyWith<$Res>? get acceleration {
+    if (_value.acceleration == null) {
+      return null;
+    }
+
+    return $AccelerationCopyWith<$Res>(_value.acceleration!, (value) {
       return _then(_value.copyWith(acceleration: value) as $Val);
     });
   }
@@ -1552,13 +1691,13 @@ abstract class _$$AgilityImplCopyWith<$Res> implements $AgilityCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "pitch") int pitch,
-      @JsonKey(name: "yaw") double yaw,
-      @JsonKey(name: "roll") int roll,
-      @JsonKey(name: "acceleration") Acceleration acceleration});
+      {@JsonKey(name: "pitch") int? pitch,
+      @JsonKey(name: "yaw") int? yaw,
+      @JsonKey(name: "roll") int? roll,
+      @JsonKey(name: "acceleration") Acceleration? acceleration});
 
   @override
-  $AccelerationCopyWith<$Res> get acceleration;
+  $AccelerationCopyWith<$Res>? get acceleration;
 }
 
 /// @nodoc
@@ -1569,31 +1708,33 @@ class __$$AgilityImplCopyWithImpl<$Res>
       _$AgilityImpl _value, $Res Function(_$AgilityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Agility
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pitch = null,
-    Object? yaw = null,
-    Object? roll = null,
-    Object? acceleration = null,
+    Object? pitch = freezed,
+    Object? yaw = freezed,
+    Object? roll = freezed,
+    Object? acceleration = freezed,
   }) {
     return _then(_$AgilityImpl(
-      pitch: null == pitch
+      pitch: freezed == pitch
           ? _value.pitch
           : pitch // ignore: cast_nullable_to_non_nullable
-              as int,
-      yaw: null == yaw
+              as int?,
+      yaw: freezed == yaw
           ? _value.yaw
           : yaw // ignore: cast_nullable_to_non_nullable
-              as double,
-      roll: null == roll
+              as int?,
+      roll: freezed == roll
           ? _value.roll
           : roll // ignore: cast_nullable_to_non_nullable
-              as int,
-      acceleration: null == acceleration
+              as int?,
+      acceleration: freezed == acceleration
           ? _value.acceleration
           : acceleration // ignore: cast_nullable_to_non_nullable
-              as Acceleration,
+              as Acceleration?,
     ));
   }
 }
@@ -1602,26 +1743,26 @@ class __$$AgilityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AgilityImpl implements _Agility {
   const _$AgilityImpl(
-      {@JsonKey(name: "pitch") required this.pitch,
-      @JsonKey(name: "yaw") required this.yaw,
-      @JsonKey(name: "roll") required this.roll,
-      @JsonKey(name: "acceleration") required this.acceleration});
+      {@JsonKey(name: "pitch") this.pitch,
+      @JsonKey(name: "yaw") this.yaw,
+      @JsonKey(name: "roll") this.roll,
+      @JsonKey(name: "acceleration") this.acceleration});
 
   factory _$AgilityImpl.fromJson(Map<String, dynamic> json) =>
       _$$AgilityImplFromJson(json);
 
   @override
   @JsonKey(name: "pitch")
-  final int pitch;
+  final int? pitch;
   @override
   @JsonKey(name: "yaw")
-  final double yaw;
+  final int? yaw;
   @override
   @JsonKey(name: "roll")
-  final int roll;
+  final int? roll;
   @override
   @JsonKey(name: "acceleration")
-  final Acceleration acceleration;
+  final Acceleration? acceleration;
 
   @override
   String toString() {
@@ -1640,11 +1781,13 @@ class _$AgilityImpl implements _Agility {
                 other.acceleration == acceleration));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, pitch, yaw, roll, acceleration);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Agility
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AgilityImplCopyWith<_$AgilityImpl> get copyWith =>
@@ -1660,28 +1803,31 @@ class _$AgilityImpl implements _Agility {
 
 abstract class _Agility implements Agility {
   const factory _Agility(
-      {@JsonKey(name: "pitch") required final int pitch,
-      @JsonKey(name: "yaw") required final double yaw,
-      @JsonKey(name: "roll") required final int roll,
-      @JsonKey(name: "acceleration")
-      required final Acceleration acceleration}) = _$AgilityImpl;
+          {@JsonKey(name: "pitch") final int? pitch,
+          @JsonKey(name: "yaw") final int? yaw,
+          @JsonKey(name: "roll") final int? roll,
+          @JsonKey(name: "acceleration") final Acceleration? acceleration}) =
+      _$AgilityImpl;
 
   factory _Agility.fromJson(Map<String, dynamic> json) = _$AgilityImpl.fromJson;
 
   @override
   @JsonKey(name: "pitch")
-  int get pitch;
+  int? get pitch;
   @override
   @JsonKey(name: "yaw")
-  double get yaw;
+  int? get yaw;
   @override
   @JsonKey(name: "roll")
-  int get roll;
+  int? get roll;
   @override
   @JsonKey(name: "acceleration")
-  Acceleration get acceleration;
+  Acceleration? get acceleration;
+
+  /// Create a copy of Agility
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AgilityImplCopyWith<_$AgilityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1693,24 +1839,28 @@ Acceleration _$AccelerationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Acceleration {
   @JsonKey(name: "main")
-  double get main => throw _privateConstructorUsedError;
+  double? get main => throw _privateConstructorUsedError;
   @JsonKey(name: "retro")
-  double get retro => throw _privateConstructorUsedError;
+  double? get retro => throw _privateConstructorUsedError;
   @JsonKey(name: "vtol")
-  double get vtol => throw _privateConstructorUsedError;
+  int? get vtol => throw _privateConstructorUsedError;
   @JsonKey(name: "maneuvering")
-  double get maneuvering => throw _privateConstructorUsedError;
+  double? get maneuvering => throw _privateConstructorUsedError;
   @JsonKey(name: "main_g")
-  double get mainG => throw _privateConstructorUsedError;
+  double? get mainG => throw _privateConstructorUsedError;
   @JsonKey(name: "retro_g")
-  double get retroG => throw _privateConstructorUsedError;
+  double? get retroG => throw _privateConstructorUsedError;
   @JsonKey(name: "vtol_g")
-  double get vtolG => throw _privateConstructorUsedError;
+  int? get vtolG => throw _privateConstructorUsedError;
   @JsonKey(name: "maneuvering_g")
-  double get maneuveringG => throw _privateConstructorUsedError;
+  double? get maneuveringG => throw _privateConstructorUsedError;
 
+  /// Serializes this Acceleration to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Acceleration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccelerationCopyWith<Acceleration> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1722,14 +1872,14 @@ abstract class $AccelerationCopyWith<$Res> {
       _$AccelerationCopyWithImpl<$Res, Acceleration>;
   @useResult
   $Res call(
-      {@JsonKey(name: "main") double main,
-      @JsonKey(name: "retro") double retro,
-      @JsonKey(name: "vtol") double vtol,
-      @JsonKey(name: "maneuvering") double maneuvering,
-      @JsonKey(name: "main_g") double mainG,
-      @JsonKey(name: "retro_g") double retroG,
-      @JsonKey(name: "vtol_g") double vtolG,
-      @JsonKey(name: "maneuvering_g") double maneuveringG});
+      {@JsonKey(name: "main") double? main,
+      @JsonKey(name: "retro") double? retro,
+      @JsonKey(name: "vtol") int? vtol,
+      @JsonKey(name: "maneuvering") double? maneuvering,
+      @JsonKey(name: "main_g") double? mainG,
+      @JsonKey(name: "retro_g") double? retroG,
+      @JsonKey(name: "vtol_g") int? vtolG,
+      @JsonKey(name: "maneuvering_g") double? maneuveringG});
 }
 
 /// @nodoc
@@ -1742,51 +1892,53 @@ class _$AccelerationCopyWithImpl<$Res, $Val extends Acceleration>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Acceleration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? main = null,
-    Object? retro = null,
-    Object? vtol = null,
-    Object? maneuvering = null,
-    Object? mainG = null,
-    Object? retroG = null,
-    Object? vtolG = null,
-    Object? maneuveringG = null,
+    Object? main = freezed,
+    Object? retro = freezed,
+    Object? vtol = freezed,
+    Object? maneuvering = freezed,
+    Object? mainG = freezed,
+    Object? retroG = freezed,
+    Object? vtolG = freezed,
+    Object? maneuveringG = freezed,
   }) {
     return _then(_value.copyWith(
-      main: null == main
+      main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
-              as double,
-      retro: null == retro
+              as double?,
+      retro: freezed == retro
           ? _value.retro
           : retro // ignore: cast_nullable_to_non_nullable
-              as double,
-      vtol: null == vtol
+              as double?,
+      vtol: freezed == vtol
           ? _value.vtol
           : vtol // ignore: cast_nullable_to_non_nullable
-              as double,
-      maneuvering: null == maneuvering
+              as int?,
+      maneuvering: freezed == maneuvering
           ? _value.maneuvering
           : maneuvering // ignore: cast_nullable_to_non_nullable
-              as double,
-      mainG: null == mainG
+              as double?,
+      mainG: freezed == mainG
           ? _value.mainG
           : mainG // ignore: cast_nullable_to_non_nullable
-              as double,
-      retroG: null == retroG
+              as double?,
+      retroG: freezed == retroG
           ? _value.retroG
           : retroG // ignore: cast_nullable_to_non_nullable
-              as double,
-      vtolG: null == vtolG
+              as double?,
+      vtolG: freezed == vtolG
           ? _value.vtolG
           : vtolG // ignore: cast_nullable_to_non_nullable
-              as double,
-      maneuveringG: null == maneuveringG
+              as int?,
+      maneuveringG: freezed == maneuveringG
           ? _value.maneuveringG
           : maneuveringG // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -1800,14 +1952,14 @@ abstract class _$$AccelerationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "main") double main,
-      @JsonKey(name: "retro") double retro,
-      @JsonKey(name: "vtol") double vtol,
-      @JsonKey(name: "maneuvering") double maneuvering,
-      @JsonKey(name: "main_g") double mainG,
-      @JsonKey(name: "retro_g") double retroG,
-      @JsonKey(name: "vtol_g") double vtolG,
-      @JsonKey(name: "maneuvering_g") double maneuveringG});
+      {@JsonKey(name: "main") double? main,
+      @JsonKey(name: "retro") double? retro,
+      @JsonKey(name: "vtol") int? vtol,
+      @JsonKey(name: "maneuvering") double? maneuvering,
+      @JsonKey(name: "main_g") double? mainG,
+      @JsonKey(name: "retro_g") double? retroG,
+      @JsonKey(name: "vtol_g") int? vtolG,
+      @JsonKey(name: "maneuvering_g") double? maneuveringG});
 }
 
 /// @nodoc
@@ -1818,51 +1970,53 @@ class __$$AccelerationImplCopyWithImpl<$Res>
       _$AccelerationImpl _value, $Res Function(_$AccelerationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Acceleration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? main = null,
-    Object? retro = null,
-    Object? vtol = null,
-    Object? maneuvering = null,
-    Object? mainG = null,
-    Object? retroG = null,
-    Object? vtolG = null,
-    Object? maneuveringG = null,
+    Object? main = freezed,
+    Object? retro = freezed,
+    Object? vtol = freezed,
+    Object? maneuvering = freezed,
+    Object? mainG = freezed,
+    Object? retroG = freezed,
+    Object? vtolG = freezed,
+    Object? maneuveringG = freezed,
   }) {
     return _then(_$AccelerationImpl(
-      main: null == main
+      main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
-              as double,
-      retro: null == retro
+              as double?,
+      retro: freezed == retro
           ? _value.retro
           : retro // ignore: cast_nullable_to_non_nullable
-              as double,
-      vtol: null == vtol
+              as double?,
+      vtol: freezed == vtol
           ? _value.vtol
           : vtol // ignore: cast_nullable_to_non_nullable
-              as double,
-      maneuvering: null == maneuvering
+              as int?,
+      maneuvering: freezed == maneuvering
           ? _value.maneuvering
           : maneuvering // ignore: cast_nullable_to_non_nullable
-              as double,
-      mainG: null == mainG
+              as double?,
+      mainG: freezed == mainG
           ? _value.mainG
           : mainG // ignore: cast_nullable_to_non_nullable
-              as double,
-      retroG: null == retroG
+              as double?,
+      retroG: freezed == retroG
           ? _value.retroG
           : retroG // ignore: cast_nullable_to_non_nullable
-              as double,
-      vtolG: null == vtolG
+              as double?,
+      vtolG: freezed == vtolG
           ? _value.vtolG
           : vtolG // ignore: cast_nullable_to_non_nullable
-              as double,
-      maneuveringG: null == maneuveringG
+              as int?,
+      maneuveringG: freezed == maneuveringG
           ? _value.maneuveringG
           : maneuveringG // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -1871,42 +2025,42 @@ class __$$AccelerationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AccelerationImpl implements _Acceleration {
   const _$AccelerationImpl(
-      {@JsonKey(name: "main") required this.main,
-      @JsonKey(name: "retro") required this.retro,
-      @JsonKey(name: "vtol") required this.vtol,
-      @JsonKey(name: "maneuvering") required this.maneuvering,
-      @JsonKey(name: "main_g") required this.mainG,
-      @JsonKey(name: "retro_g") required this.retroG,
-      @JsonKey(name: "vtol_g") required this.vtolG,
-      @JsonKey(name: "maneuvering_g") required this.maneuveringG});
+      {@JsonKey(name: "main") this.main,
+      @JsonKey(name: "retro") this.retro,
+      @JsonKey(name: "vtol") this.vtol,
+      @JsonKey(name: "maneuvering") this.maneuvering,
+      @JsonKey(name: "main_g") this.mainG,
+      @JsonKey(name: "retro_g") this.retroG,
+      @JsonKey(name: "vtol_g") this.vtolG,
+      @JsonKey(name: "maneuvering_g") this.maneuveringG});
 
   factory _$AccelerationImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccelerationImplFromJson(json);
 
   @override
   @JsonKey(name: "main")
-  final double main;
+  final double? main;
   @override
   @JsonKey(name: "retro")
-  final double retro;
+  final double? retro;
   @override
   @JsonKey(name: "vtol")
-  final double vtol;
+  final int? vtol;
   @override
   @JsonKey(name: "maneuvering")
-  final double maneuvering;
+  final double? maneuvering;
   @override
   @JsonKey(name: "main_g")
-  final double mainG;
+  final double? mainG;
   @override
   @JsonKey(name: "retro_g")
-  final double retroG;
+  final double? retroG;
   @override
   @JsonKey(name: "vtol_g")
-  final double vtolG;
+  final int? vtolG;
   @override
   @JsonKey(name: "maneuvering_g")
-  final double maneuveringG;
+  final double? maneuveringG;
 
   @override
   String toString() {
@@ -1930,12 +2084,14 @@ class _$AccelerationImpl implements _Acceleration {
                 other.maneuveringG == maneuveringG));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, main, retro, vtol, maneuvering,
       mainG, retroG, vtolG, maneuveringG);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Acceleration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AccelerationImplCopyWith<_$AccelerationImpl> get copyWith =>
@@ -1951,14 +2107,14 @@ class _$AccelerationImpl implements _Acceleration {
 
 abstract class _Acceleration implements Acceleration {
   const factory _Acceleration(
-          {@JsonKey(name: "main") required final double main,
-          @JsonKey(name: "retro") required final double retro,
-          @JsonKey(name: "vtol") required final double vtol,
-          @JsonKey(name: "maneuvering") required final double maneuvering,
-          @JsonKey(name: "main_g") required final double mainG,
-          @JsonKey(name: "retro_g") required final double retroG,
-          @JsonKey(name: "vtol_g") required final double vtolG,
-          @JsonKey(name: "maneuvering_g") required final double maneuveringG}) =
+          {@JsonKey(name: "main") final double? main,
+          @JsonKey(name: "retro") final double? retro,
+          @JsonKey(name: "vtol") final int? vtol,
+          @JsonKey(name: "maneuvering") final double? maneuvering,
+          @JsonKey(name: "main_g") final double? mainG,
+          @JsonKey(name: "retro_g") final double? retroG,
+          @JsonKey(name: "vtol_g") final int? vtolG,
+          @JsonKey(name: "maneuvering_g") final double? maneuveringG}) =
       _$AccelerationImpl;
 
   factory _Acceleration.fromJson(Map<String, dynamic> json) =
@@ -1966,30 +2122,33 @@ abstract class _Acceleration implements Acceleration {
 
   @override
   @JsonKey(name: "main")
-  double get main;
+  double? get main;
   @override
   @JsonKey(name: "retro")
-  double get retro;
+  double? get retro;
   @override
   @JsonKey(name: "vtol")
-  double get vtol;
+  int? get vtol;
   @override
   @JsonKey(name: "maneuvering")
-  double get maneuvering;
+  double? get maneuvering;
   @override
   @JsonKey(name: "main_g")
-  double get mainG;
+  double? get mainG;
   @override
   @JsonKey(name: "retro_g")
-  double get retroG;
+  double? get retroG;
   @override
   @JsonKey(name: "vtol_g")
-  double get vtolG;
+  int? get vtolG;
   @override
   @JsonKey(name: "maneuvering_g")
-  double get maneuveringG;
+  double? get maneuveringG;
+
+  /// Create a copy of Acceleration
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AccelerationImplCopyWith<_$AccelerationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2001,26 +2160,30 @@ Armor _$ArmorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Armor {
   @JsonKey(name: "signal_infrared")
-  int get signalInfrared => throw _privateConstructorUsedError;
+  int? get signalInfrared => throw _privateConstructorUsedError;
   @JsonKey(name: "signal_electromagnetic")
-  int get signalElectromagnetic => throw _privateConstructorUsedError;
+  int? get signalElectromagnetic => throw _privateConstructorUsedError;
   @JsonKey(name: "signal_cross_section")
-  int get signalCrossSection => throw _privateConstructorUsedError;
+  int? get signalCrossSection => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_physical")
-  double get damagePhysical => throw _privateConstructorUsedError;
+  double? get damagePhysical => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_energy")
-  int get damageEnergy => throw _privateConstructorUsedError;
+  int? get damageEnergy => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_distortion")
-  int get damageDistortion => throw _privateConstructorUsedError;
+  int? get damageDistortion => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_thermal")
-  int get damageThermal => throw _privateConstructorUsedError;
+  int? get damageThermal => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_biochemical")
-  int get damageBiochemical => throw _privateConstructorUsedError;
+  int? get damageBiochemical => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_stun")
-  int get damageStun => throw _privateConstructorUsedError;
+  int? get damageStun => throw _privateConstructorUsedError;
 
+  /// Serializes this Armor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Armor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ArmorCopyWith<Armor> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2030,15 +2193,15 @@ abstract class $ArmorCopyWith<$Res> {
       _$ArmorCopyWithImpl<$Res, Armor>;
   @useResult
   $Res call(
-      {@JsonKey(name: "signal_infrared") int signalInfrared,
-      @JsonKey(name: "signal_electromagnetic") int signalElectromagnetic,
-      @JsonKey(name: "signal_cross_section") int signalCrossSection,
-      @JsonKey(name: "damage_physical") double damagePhysical,
-      @JsonKey(name: "damage_energy") int damageEnergy,
-      @JsonKey(name: "damage_distortion") int damageDistortion,
-      @JsonKey(name: "damage_thermal") int damageThermal,
-      @JsonKey(name: "damage_biochemical") int damageBiochemical,
-      @JsonKey(name: "damage_stun") int damageStun});
+      {@JsonKey(name: "signal_infrared") int? signalInfrared,
+      @JsonKey(name: "signal_electromagnetic") int? signalElectromagnetic,
+      @JsonKey(name: "signal_cross_section") int? signalCrossSection,
+      @JsonKey(name: "damage_physical") double? damagePhysical,
+      @JsonKey(name: "damage_energy") int? damageEnergy,
+      @JsonKey(name: "damage_distortion") int? damageDistortion,
+      @JsonKey(name: "damage_thermal") int? damageThermal,
+      @JsonKey(name: "damage_biochemical") int? damageBiochemical,
+      @JsonKey(name: "damage_stun") int? damageStun});
 }
 
 /// @nodoc
@@ -2051,56 +2214,58 @@ class _$ArmorCopyWithImpl<$Res, $Val extends Armor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Armor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signalInfrared = null,
-    Object? signalElectromagnetic = null,
-    Object? signalCrossSection = null,
-    Object? damagePhysical = null,
-    Object? damageEnergy = null,
-    Object? damageDistortion = null,
-    Object? damageThermal = null,
-    Object? damageBiochemical = null,
-    Object? damageStun = null,
+    Object? signalInfrared = freezed,
+    Object? signalElectromagnetic = freezed,
+    Object? signalCrossSection = freezed,
+    Object? damagePhysical = freezed,
+    Object? damageEnergy = freezed,
+    Object? damageDistortion = freezed,
+    Object? damageThermal = freezed,
+    Object? damageBiochemical = freezed,
+    Object? damageStun = freezed,
   }) {
     return _then(_value.copyWith(
-      signalInfrared: null == signalInfrared
+      signalInfrared: freezed == signalInfrared
           ? _value.signalInfrared
           : signalInfrared // ignore: cast_nullable_to_non_nullable
-              as int,
-      signalElectromagnetic: null == signalElectromagnetic
+              as int?,
+      signalElectromagnetic: freezed == signalElectromagnetic
           ? _value.signalElectromagnetic
           : signalElectromagnetic // ignore: cast_nullable_to_non_nullable
-              as int,
-      signalCrossSection: null == signalCrossSection
+              as int?,
+      signalCrossSection: freezed == signalCrossSection
           ? _value.signalCrossSection
           : signalCrossSection // ignore: cast_nullable_to_non_nullable
-              as int,
-      damagePhysical: null == damagePhysical
+              as int?,
+      damagePhysical: freezed == damagePhysical
           ? _value.damagePhysical
           : damagePhysical // ignore: cast_nullable_to_non_nullable
-              as double,
-      damageEnergy: null == damageEnergy
+              as double?,
+      damageEnergy: freezed == damageEnergy
           ? _value.damageEnergy
           : damageEnergy // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageDistortion: null == damageDistortion
+              as int?,
+      damageDistortion: freezed == damageDistortion
           ? _value.damageDistortion
           : damageDistortion // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageThermal: null == damageThermal
+              as int?,
+      damageThermal: freezed == damageThermal
           ? _value.damageThermal
           : damageThermal // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageBiochemical: null == damageBiochemical
+              as int?,
+      damageBiochemical: freezed == damageBiochemical
           ? _value.damageBiochemical
           : damageBiochemical // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageStun: null == damageStun
+              as int?,
+      damageStun: freezed == damageStun
           ? _value.damageStun
           : damageStun // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -2113,15 +2278,15 @@ abstract class _$$ArmorImplCopyWith<$Res> implements $ArmorCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "signal_infrared") int signalInfrared,
-      @JsonKey(name: "signal_electromagnetic") int signalElectromagnetic,
-      @JsonKey(name: "signal_cross_section") int signalCrossSection,
-      @JsonKey(name: "damage_physical") double damagePhysical,
-      @JsonKey(name: "damage_energy") int damageEnergy,
-      @JsonKey(name: "damage_distortion") int damageDistortion,
-      @JsonKey(name: "damage_thermal") int damageThermal,
-      @JsonKey(name: "damage_biochemical") int damageBiochemical,
-      @JsonKey(name: "damage_stun") int damageStun});
+      {@JsonKey(name: "signal_infrared") int? signalInfrared,
+      @JsonKey(name: "signal_electromagnetic") int? signalElectromagnetic,
+      @JsonKey(name: "signal_cross_section") int? signalCrossSection,
+      @JsonKey(name: "damage_physical") double? damagePhysical,
+      @JsonKey(name: "damage_energy") int? damageEnergy,
+      @JsonKey(name: "damage_distortion") int? damageDistortion,
+      @JsonKey(name: "damage_thermal") int? damageThermal,
+      @JsonKey(name: "damage_biochemical") int? damageBiochemical,
+      @JsonKey(name: "damage_stun") int? damageStun});
 }
 
 /// @nodoc
@@ -2132,56 +2297,58 @@ class __$$ArmorImplCopyWithImpl<$Res>
       _$ArmorImpl _value, $Res Function(_$ArmorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Armor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signalInfrared = null,
-    Object? signalElectromagnetic = null,
-    Object? signalCrossSection = null,
-    Object? damagePhysical = null,
-    Object? damageEnergy = null,
-    Object? damageDistortion = null,
-    Object? damageThermal = null,
-    Object? damageBiochemical = null,
-    Object? damageStun = null,
+    Object? signalInfrared = freezed,
+    Object? signalElectromagnetic = freezed,
+    Object? signalCrossSection = freezed,
+    Object? damagePhysical = freezed,
+    Object? damageEnergy = freezed,
+    Object? damageDistortion = freezed,
+    Object? damageThermal = freezed,
+    Object? damageBiochemical = freezed,
+    Object? damageStun = freezed,
   }) {
     return _then(_$ArmorImpl(
-      signalInfrared: null == signalInfrared
+      signalInfrared: freezed == signalInfrared
           ? _value.signalInfrared
           : signalInfrared // ignore: cast_nullable_to_non_nullable
-              as int,
-      signalElectromagnetic: null == signalElectromagnetic
+              as int?,
+      signalElectromagnetic: freezed == signalElectromagnetic
           ? _value.signalElectromagnetic
           : signalElectromagnetic // ignore: cast_nullable_to_non_nullable
-              as int,
-      signalCrossSection: null == signalCrossSection
+              as int?,
+      signalCrossSection: freezed == signalCrossSection
           ? _value.signalCrossSection
           : signalCrossSection // ignore: cast_nullable_to_non_nullable
-              as int,
-      damagePhysical: null == damagePhysical
+              as int?,
+      damagePhysical: freezed == damagePhysical
           ? _value.damagePhysical
           : damagePhysical // ignore: cast_nullable_to_non_nullable
-              as double,
-      damageEnergy: null == damageEnergy
+              as double?,
+      damageEnergy: freezed == damageEnergy
           ? _value.damageEnergy
           : damageEnergy // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageDistortion: null == damageDistortion
+              as int?,
+      damageDistortion: freezed == damageDistortion
           ? _value.damageDistortion
           : damageDistortion // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageThermal: null == damageThermal
+              as int?,
+      damageThermal: freezed == damageThermal
           ? _value.damageThermal
           : damageThermal // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageBiochemical: null == damageBiochemical
+              as int?,
+      damageBiochemical: freezed == damageBiochemical
           ? _value.damageBiochemical
           : damageBiochemical // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageStun: null == damageStun
+              as int?,
+      damageStun: freezed == damageStun
           ? _value.damageStun
           : damageStun // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -2190,47 +2357,46 @@ class __$$ArmorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArmorImpl implements _Armor {
   const _$ArmorImpl(
-      {@JsonKey(name: "signal_infrared") required this.signalInfrared,
-      @JsonKey(name: "signal_electromagnetic")
-      required this.signalElectromagnetic,
-      @JsonKey(name: "signal_cross_section") required this.signalCrossSection,
-      @JsonKey(name: "damage_physical") required this.damagePhysical,
-      @JsonKey(name: "damage_energy") required this.damageEnergy,
-      @JsonKey(name: "damage_distortion") required this.damageDistortion,
-      @JsonKey(name: "damage_thermal") required this.damageThermal,
-      @JsonKey(name: "damage_biochemical") required this.damageBiochemical,
-      @JsonKey(name: "damage_stun") required this.damageStun});
+      {@JsonKey(name: "signal_infrared") this.signalInfrared,
+      @JsonKey(name: "signal_electromagnetic") this.signalElectromagnetic,
+      @JsonKey(name: "signal_cross_section") this.signalCrossSection,
+      @JsonKey(name: "damage_physical") this.damagePhysical,
+      @JsonKey(name: "damage_energy") this.damageEnergy,
+      @JsonKey(name: "damage_distortion") this.damageDistortion,
+      @JsonKey(name: "damage_thermal") this.damageThermal,
+      @JsonKey(name: "damage_biochemical") this.damageBiochemical,
+      @JsonKey(name: "damage_stun") this.damageStun});
 
   factory _$ArmorImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArmorImplFromJson(json);
 
   @override
   @JsonKey(name: "signal_infrared")
-  final int signalInfrared;
+  final int? signalInfrared;
   @override
   @JsonKey(name: "signal_electromagnetic")
-  final int signalElectromagnetic;
+  final int? signalElectromagnetic;
   @override
   @JsonKey(name: "signal_cross_section")
-  final int signalCrossSection;
+  final int? signalCrossSection;
   @override
   @JsonKey(name: "damage_physical")
-  final double damagePhysical;
+  final double? damagePhysical;
   @override
   @JsonKey(name: "damage_energy")
-  final int damageEnergy;
+  final int? damageEnergy;
   @override
   @JsonKey(name: "damage_distortion")
-  final int damageDistortion;
+  final int? damageDistortion;
   @override
   @JsonKey(name: "damage_thermal")
-  final int damageThermal;
+  final int? damageThermal;
   @override
   @JsonKey(name: "damage_biochemical")
-  final int damageBiochemical;
+  final int? damageBiochemical;
   @override
   @JsonKey(name: "damage_stun")
-  final int damageStun;
+  final int? damageStun;
 
   @override
   String toString() {
@@ -2262,7 +2428,7 @@ class _$ArmorImpl implements _Armor {
                 other.damageStun == damageStun));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2276,7 +2442,9 @@ class _$ArmorImpl implements _Armor {
       damageBiochemical,
       damageStun);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Armor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ArmorImplCopyWith<_$ArmorImpl> get copyWith =>
@@ -2292,50 +2460,50 @@ class _$ArmorImpl implements _Armor {
 
 abstract class _Armor implements Armor {
   const factory _Armor(
-      {@JsonKey(name: "signal_infrared") required final int signalInfrared,
-      @JsonKey(name: "signal_electromagnetic")
-      required final int signalElectromagnetic,
-      @JsonKey(name: "signal_cross_section")
-      required final int signalCrossSection,
-      @JsonKey(name: "damage_physical") required final double damagePhysical,
-      @JsonKey(name: "damage_energy") required final int damageEnergy,
-      @JsonKey(name: "damage_distortion") required final int damageDistortion,
-      @JsonKey(name: "damage_thermal") required final int damageThermal,
-      @JsonKey(name: "damage_biochemical") required final int damageBiochemical,
-      @JsonKey(name: "damage_stun")
-      required final int damageStun}) = _$ArmorImpl;
+      {@JsonKey(name: "signal_infrared") final int? signalInfrared,
+      @JsonKey(name: "signal_electromagnetic") final int? signalElectromagnetic,
+      @JsonKey(name: "signal_cross_section") final int? signalCrossSection,
+      @JsonKey(name: "damage_physical") final double? damagePhysical,
+      @JsonKey(name: "damage_energy") final int? damageEnergy,
+      @JsonKey(name: "damage_distortion") final int? damageDistortion,
+      @JsonKey(name: "damage_thermal") final int? damageThermal,
+      @JsonKey(name: "damage_biochemical") final int? damageBiochemical,
+      @JsonKey(name: "damage_stun") final int? damageStun}) = _$ArmorImpl;
 
   factory _Armor.fromJson(Map<String, dynamic> json) = _$ArmorImpl.fromJson;
 
   @override
   @JsonKey(name: "signal_infrared")
-  int get signalInfrared;
+  int? get signalInfrared;
   @override
   @JsonKey(name: "signal_electromagnetic")
-  int get signalElectromagnetic;
+  int? get signalElectromagnetic;
   @override
   @JsonKey(name: "signal_cross_section")
-  int get signalCrossSection;
+  int? get signalCrossSection;
   @override
   @JsonKey(name: "damage_physical")
-  double get damagePhysical;
+  double? get damagePhysical;
   @override
   @JsonKey(name: "damage_energy")
-  int get damageEnergy;
+  int? get damageEnergy;
   @override
   @JsonKey(name: "damage_distortion")
-  int get damageDistortion;
+  int? get damageDistortion;
   @override
   @JsonKey(name: "damage_thermal")
-  int get damageThermal;
+  int? get damageThermal;
   @override
   @JsonKey(name: "damage_biochemical")
-  int get damageBiochemical;
+  int? get damageBiochemical;
   @override
   @JsonKey(name: "damage_stun")
-  int get damageStun;
+  int? get damageStun;
+
+  /// Create a copy of Armor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ArmorImplCopyWith<_$ArmorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2347,28 +2515,32 @@ Component _$ComponentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Component {
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "mounts")
-  int get mounts => throw _privateConstructorUsedError;
+  int? get mounts => throw _privateConstructorUsedError;
   @JsonKey(name: "component_size")
-  String get componentSize => throw _privateConstructorUsedError;
+  String? get componentSize => throw _privateConstructorUsedError;
   @JsonKey(name: "category")
-  String get category => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
   @JsonKey(name: "size")
-  String get size => throw _privateConstructorUsedError;
+  String? get size => throw _privateConstructorUsedError;
   @JsonKey(name: "details")
-  String get details => throw _privateConstructorUsedError;
+  String? get details => throw _privateConstructorUsedError;
   @JsonKey(name: "quantity")
-  int get quantity => throw _privateConstructorUsedError;
+  int? get quantity => throw _privateConstructorUsedError;
   @JsonKey(name: "manufacturer")
-  String get manufacturer => throw _privateConstructorUsedError;
+  String? get manufacturer => throw _privateConstructorUsedError;
   @JsonKey(name: "component_class")
-  String get componentClass => throw _privateConstructorUsedError;
+  String? get componentClass => throw _privateConstructorUsedError;
 
+  /// Serializes this Component to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Component
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ComponentCopyWith<Component> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2379,16 +2551,16 @@ abstract class $ComponentCopyWith<$Res> {
       _$ComponentCopyWithImpl<$Res, Component>;
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String type,
-      @JsonKey(name: "name") String name,
-      @JsonKey(name: "mounts") int mounts,
-      @JsonKey(name: "component_size") String componentSize,
-      @JsonKey(name: "category") String category,
-      @JsonKey(name: "size") String size,
-      @JsonKey(name: "details") String details,
-      @JsonKey(name: "quantity") int quantity,
-      @JsonKey(name: "manufacturer") String manufacturer,
-      @JsonKey(name: "component_class") String componentClass});
+      {@JsonKey(name: "type") String? type,
+      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "mounts") int? mounts,
+      @JsonKey(name: "component_size") String? componentSize,
+      @JsonKey(name: "category") String? category,
+      @JsonKey(name: "size") String? size,
+      @JsonKey(name: "details") String? details,
+      @JsonKey(name: "quantity") int? quantity,
+      @JsonKey(name: "manufacturer") String? manufacturer,
+      @JsonKey(name: "component_class") String? componentClass});
 }
 
 /// @nodoc
@@ -2401,61 +2573,63 @@ class _$ComponentCopyWithImpl<$Res, $Val extends Component>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Component
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? name = null,
-    Object? mounts = null,
-    Object? componentSize = null,
-    Object? category = null,
-    Object? size = null,
-    Object? details = null,
-    Object? quantity = null,
-    Object? manufacturer = null,
-    Object? componentClass = null,
+    Object? type = freezed,
+    Object? name = freezed,
+    Object? mounts = freezed,
+    Object? componentSize = freezed,
+    Object? category = freezed,
+    Object? size = freezed,
+    Object? details = freezed,
+    Object? quantity = freezed,
+    Object? manufacturer = freezed,
+    Object? componentClass = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      mounts: null == mounts
+              as String?,
+      mounts: freezed == mounts
           ? _value.mounts
           : mounts // ignore: cast_nullable_to_non_nullable
-              as int,
-      componentSize: null == componentSize
+              as int?,
+      componentSize: freezed == componentSize
           ? _value.componentSize
           : componentSize // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      details: null == details
+              as String?,
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
-              as String,
-      quantity: null == quantity
+              as String?,
+      quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
-      manufacturer: null == manufacturer
+              as int?,
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as String,
-      componentClass: null == componentClass
+              as String?,
+      componentClass: freezed == componentClass
           ? _value.componentClass
           : componentClass // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -2469,16 +2643,16 @@ abstract class _$$ComponentImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String type,
-      @JsonKey(name: "name") String name,
-      @JsonKey(name: "mounts") int mounts,
-      @JsonKey(name: "component_size") String componentSize,
-      @JsonKey(name: "category") String category,
-      @JsonKey(name: "size") String size,
-      @JsonKey(name: "details") String details,
-      @JsonKey(name: "quantity") int quantity,
-      @JsonKey(name: "manufacturer") String manufacturer,
-      @JsonKey(name: "component_class") String componentClass});
+      {@JsonKey(name: "type") String? type,
+      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "mounts") int? mounts,
+      @JsonKey(name: "component_size") String? componentSize,
+      @JsonKey(name: "category") String? category,
+      @JsonKey(name: "size") String? size,
+      @JsonKey(name: "details") String? details,
+      @JsonKey(name: "quantity") int? quantity,
+      @JsonKey(name: "manufacturer") String? manufacturer,
+      @JsonKey(name: "component_class") String? componentClass});
 }
 
 /// @nodoc
@@ -2489,61 +2663,63 @@ class __$$ComponentImplCopyWithImpl<$Res>
       _$ComponentImpl _value, $Res Function(_$ComponentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Component
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? name = null,
-    Object? mounts = null,
-    Object? componentSize = null,
-    Object? category = null,
-    Object? size = null,
-    Object? details = null,
-    Object? quantity = null,
-    Object? manufacturer = null,
-    Object? componentClass = null,
+    Object? type = freezed,
+    Object? name = freezed,
+    Object? mounts = freezed,
+    Object? componentSize = freezed,
+    Object? category = freezed,
+    Object? size = freezed,
+    Object? details = freezed,
+    Object? quantity = freezed,
+    Object? manufacturer = freezed,
+    Object? componentClass = freezed,
   }) {
     return _then(_$ComponentImpl(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      mounts: null == mounts
+              as String?,
+      mounts: freezed == mounts
           ? _value.mounts
           : mounts // ignore: cast_nullable_to_non_nullable
-              as int,
-      componentSize: null == componentSize
+              as int?,
+      componentSize: freezed == componentSize
           ? _value.componentSize
           : componentSize // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      details: null == details
+              as String?,
+      details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
-              as String,
-      quantity: null == quantity
+              as String?,
+      quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
-      manufacturer: null == manufacturer
+              as int?,
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as String,
-      componentClass: null == componentClass
+              as String?,
+      componentClass: freezed == componentClass
           ? _value.componentClass
           : componentClass // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -2552,50 +2728,50 @@ class __$$ComponentImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ComponentImpl implements _Component {
   const _$ComponentImpl(
-      {@JsonKey(name: "type") required this.type,
-      @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "mounts") required this.mounts,
-      @JsonKey(name: "component_size") required this.componentSize,
-      @JsonKey(name: "category") required this.category,
-      @JsonKey(name: "size") required this.size,
-      @JsonKey(name: "details") required this.details,
-      @JsonKey(name: "quantity") required this.quantity,
-      @JsonKey(name: "manufacturer") required this.manufacturer,
-      @JsonKey(name: "component_class") required this.componentClass});
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "name") this.name,
+      @JsonKey(name: "mounts") this.mounts,
+      @JsonKey(name: "component_size") this.componentSize,
+      @JsonKey(name: "category") this.category,
+      @JsonKey(name: "size") this.size,
+      @JsonKey(name: "details") this.details,
+      @JsonKey(name: "quantity") this.quantity,
+      @JsonKey(name: "manufacturer") this.manufacturer,
+      @JsonKey(name: "component_class") this.componentClass});
 
   factory _$ComponentImpl.fromJson(Map<String, dynamic> json) =>
       _$$ComponentImplFromJson(json);
 
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "mounts")
-  final int mounts;
+  final int? mounts;
   @override
   @JsonKey(name: "component_size")
-  final String componentSize;
+  final String? componentSize;
   @override
   @JsonKey(name: "category")
-  final String category;
+  final String? category;
   @override
   @JsonKey(name: "size")
-  final String size;
+  final String? size;
   @override
   @JsonKey(name: "details")
-  final String details;
+  final String? details;
   @override
   @JsonKey(name: "quantity")
-  final int quantity;
+  final int? quantity;
   @override
   @JsonKey(name: "manufacturer")
-  final String manufacturer;
+  final String? manufacturer;
   @override
   @JsonKey(name: "component_class")
-  final String componentClass;
+  final String? componentClass;
 
   @override
   String toString() {
@@ -2624,7 +2800,7 @@ class _$ComponentImpl implements _Component {
                 other.componentClass == componentClass));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2639,7 +2815,9 @@ class _$ComponentImpl implements _Component {
       manufacturer,
       componentClass);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Component
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ComponentImplCopyWith<_$ComponentImpl> get copyWith =>
@@ -2655,53 +2833,56 @@ class _$ComponentImpl implements _Component {
 
 abstract class _Component implements Component {
   const factory _Component(
-      {@JsonKey(name: "type") required final String type,
-      @JsonKey(name: "name") required final String name,
-      @JsonKey(name: "mounts") required final int mounts,
-      @JsonKey(name: "component_size") required final String componentSize,
-      @JsonKey(name: "category") required final String category,
-      @JsonKey(name: "size") required final String size,
-      @JsonKey(name: "details") required final String details,
-      @JsonKey(name: "quantity") required final int quantity,
-      @JsonKey(name: "manufacturer") required final String manufacturer,
-      @JsonKey(name: "component_class")
-      required final String componentClass}) = _$ComponentImpl;
+          {@JsonKey(name: "type") final String? type,
+          @JsonKey(name: "name") final String? name,
+          @JsonKey(name: "mounts") final int? mounts,
+          @JsonKey(name: "component_size") final String? componentSize,
+          @JsonKey(name: "category") final String? category,
+          @JsonKey(name: "size") final String? size,
+          @JsonKey(name: "details") final String? details,
+          @JsonKey(name: "quantity") final int? quantity,
+          @JsonKey(name: "manufacturer") final String? manufacturer,
+          @JsonKey(name: "component_class") final String? componentClass}) =
+      _$ComponentImpl;
 
   factory _Component.fromJson(Map<String, dynamic> json) =
       _$ComponentImpl.fromJson;
 
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "mounts")
-  int get mounts;
+  int? get mounts;
   @override
   @JsonKey(name: "component_size")
-  String get componentSize;
+  String? get componentSize;
   @override
   @JsonKey(name: "category")
-  String get category;
+  String? get category;
   @override
   @JsonKey(name: "size")
-  String get size;
+  String? get size;
   @override
   @JsonKey(name: "details")
-  String get details;
+  String? get details;
   @override
   @JsonKey(name: "quantity")
-  int get quantity;
+  int? get quantity;
   @override
   @JsonKey(name: "manufacturer")
-  String get manufacturer;
+  String? get manufacturer;
   @override
   @JsonKey(name: "component_class")
-  String get componentClass;
+  String? get componentClass;
+
+  /// Create a copy of Component
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ComponentImplCopyWith<_$ComponentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2713,16 +2894,20 @@ Crew _$CrewFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Crew {
   @JsonKey(name: "min")
-  int get min => throw _privateConstructorUsedError;
+  int? get min => throw _privateConstructorUsedError;
   @JsonKey(name: "max")
   dynamic get max => throw _privateConstructorUsedError;
   @JsonKey(name: "weapon")
-  int get weapon => throw _privateConstructorUsedError;
+  int? get weapon => throw _privateConstructorUsedError;
   @JsonKey(name: "operation")
   dynamic get operation => throw _privateConstructorUsedError;
 
+  /// Serializes this Crew to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Crew
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CrewCopyWith<Crew> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2732,9 +2917,9 @@ abstract class $CrewCopyWith<$Res> {
       _$CrewCopyWithImpl<$Res, Crew>;
   @useResult
   $Res call(
-      {@JsonKey(name: "min") int min,
+      {@JsonKey(name: "min") int? min,
       @JsonKey(name: "max") dynamic max,
-      @JsonKey(name: "weapon") int weapon,
+      @JsonKey(name: "weapon") int? weapon,
       @JsonKey(name: "operation") dynamic operation});
 }
 
@@ -2748,27 +2933,29 @@ class _$CrewCopyWithImpl<$Res, $Val extends Crew>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Crew
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? min = null,
+    Object? min = freezed,
     Object? max = freezed,
-    Object? weapon = null,
+    Object? weapon = freezed,
     Object? operation = freezed,
   }) {
     return _then(_value.copyWith(
-      min: null == min
+      min: freezed == min
           ? _value.min
           : min // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       max: freezed == max
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      weapon: null == weapon
+      weapon: freezed == weapon
           ? _value.weapon
           : weapon // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       operation: freezed == operation
           ? _value.operation
           : operation // ignore: cast_nullable_to_non_nullable
@@ -2785,9 +2972,9 @@ abstract class _$$CrewImplCopyWith<$Res> implements $CrewCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "min") int min,
+      {@JsonKey(name: "min") int? min,
       @JsonKey(name: "max") dynamic max,
-      @JsonKey(name: "weapon") int weapon,
+      @JsonKey(name: "weapon") int? weapon,
       @JsonKey(name: "operation") dynamic operation});
 }
 
@@ -2798,27 +2985,29 @@ class __$$CrewImplCopyWithImpl<$Res>
   __$$CrewImplCopyWithImpl(_$CrewImpl _value, $Res Function(_$CrewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Crew
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? min = null,
+    Object? min = freezed,
     Object? max = freezed,
-    Object? weapon = null,
+    Object? weapon = freezed,
     Object? operation = freezed,
   }) {
     return _then(_$CrewImpl(
-      min: null == min
+      min: freezed == min
           ? _value.min
           : min // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       max: freezed == max
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      weapon: null == weapon
+      weapon: freezed == weapon
           ? _value.weapon
           : weapon // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       operation: freezed == operation
           ? _value.operation
           : operation // ignore: cast_nullable_to_non_nullable
@@ -2831,23 +3020,23 @@ class __$$CrewImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CrewImpl implements _Crew {
   const _$CrewImpl(
-      {@JsonKey(name: "min") required this.min,
-      @JsonKey(name: "max") required this.max,
-      @JsonKey(name: "weapon") required this.weapon,
-      @JsonKey(name: "operation") required this.operation});
+      {@JsonKey(name: "min") this.min,
+      @JsonKey(name: "max") this.max,
+      @JsonKey(name: "weapon") this.weapon,
+      @JsonKey(name: "operation") this.operation});
 
   factory _$CrewImpl.fromJson(Map<String, dynamic> json) =>
       _$$CrewImplFromJson(json);
 
   @override
   @JsonKey(name: "min")
-  final int min;
+  final int? min;
   @override
   @JsonKey(name: "max")
   final dynamic max;
   @override
   @JsonKey(name: "weapon")
-  final int weapon;
+  final int? weapon;
   @override
   @JsonKey(name: "operation")
   final dynamic operation;
@@ -2868,7 +3057,7 @@ class _$CrewImpl implements _Crew {
             const DeepCollectionEquality().equals(other.operation, operation));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2877,7 +3066,9 @@ class _$CrewImpl implements _Crew {
       weapon,
       const DeepCollectionEquality().hash(operation));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Crew
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CrewImplCopyWith<_$CrewImpl> get copyWith =>
@@ -2893,29 +3084,233 @@ class _$CrewImpl implements _Crew {
 
 abstract class _Crew implements Crew {
   const factory _Crew(
-          {@JsonKey(name: "min") required final int min,
-          @JsonKey(name: "max") required final dynamic max,
-          @JsonKey(name: "weapon") required final int weapon,
-          @JsonKey(name: "operation") required final dynamic operation}) =
-      _$CrewImpl;
+      {@JsonKey(name: "min") final int? min,
+      @JsonKey(name: "max") final dynamic max,
+      @JsonKey(name: "weapon") final int? weapon,
+      @JsonKey(name: "operation") final dynamic operation}) = _$CrewImpl;
 
   factory _Crew.fromJson(Map<String, dynamic> json) = _$CrewImpl.fromJson;
 
   @override
   @JsonKey(name: "min")
-  int get min;
+  int? get min;
   @override
   @JsonKey(name: "max")
   dynamic get max;
   @override
   @JsonKey(name: "weapon")
-  int get weapon;
+  int? get weapon;
   @override
   @JsonKey(name: "operation")
   dynamic get operation;
+
+  /// Create a copy of Crew
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CrewImplCopyWith<_$CrewImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Description _$DescriptionFromJson(Map<String, dynamic> json) {
+  return _Description.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Description {
+  @JsonKey(name: "en_EN")
+  String? get enEn => throw _privateConstructorUsedError;
+  @JsonKey(name: "de_DE")
+  String? get deDe => throw _privateConstructorUsedError;
+  @JsonKey(name: "zh_CN")
+  String? get zhCn => throw _privateConstructorUsedError;
+
+  /// Serializes this Description to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Description
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DescriptionCopyWith<Description> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DescriptionCopyWith<$Res> {
+  factory $DescriptionCopyWith(
+          Description value, $Res Function(Description) then) =
+      _$DescriptionCopyWithImpl<$Res, Description>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "en_EN") String? enEn,
+      @JsonKey(name: "de_DE") String? deDe,
+      @JsonKey(name: "zh_CN") String? zhCn});
+}
+
+/// @nodoc
+class _$DescriptionCopyWithImpl<$Res, $Val extends Description>
+    implements $DescriptionCopyWith<$Res> {
+  _$DescriptionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Description
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? enEn = freezed,
+    Object? deDe = freezed,
+    Object? zhCn = freezed,
+  }) {
+    return _then(_value.copyWith(
+      enEn: freezed == enEn
+          ? _value.enEn
+          : enEn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deDe: freezed == deDe
+          ? _value.deDe
+          : deDe // ignore: cast_nullable_to_non_nullable
+              as String?,
+      zhCn: freezed == zhCn
+          ? _value.zhCn
+          : zhCn // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DescriptionImplCopyWith<$Res>
+    implements $DescriptionCopyWith<$Res> {
+  factory _$$DescriptionImplCopyWith(
+          _$DescriptionImpl value, $Res Function(_$DescriptionImpl) then) =
+      __$$DescriptionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "en_EN") String? enEn,
+      @JsonKey(name: "de_DE") String? deDe,
+      @JsonKey(name: "zh_CN") String? zhCn});
+}
+
+/// @nodoc
+class __$$DescriptionImplCopyWithImpl<$Res>
+    extends _$DescriptionCopyWithImpl<$Res, _$DescriptionImpl>
+    implements _$$DescriptionImplCopyWith<$Res> {
+  __$$DescriptionImplCopyWithImpl(
+      _$DescriptionImpl _value, $Res Function(_$DescriptionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Description
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? enEn = freezed,
+    Object? deDe = freezed,
+    Object? zhCn = freezed,
+  }) {
+    return _then(_$DescriptionImpl(
+      enEn: freezed == enEn
+          ? _value.enEn
+          : enEn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deDe: freezed == deDe
+          ? _value.deDe
+          : deDe // ignore: cast_nullable_to_non_nullable
+              as String?,
+      zhCn: freezed == zhCn
+          ? _value.zhCn
+          : zhCn // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DescriptionImpl implements _Description {
+  const _$DescriptionImpl(
+      {@JsonKey(name: "en_EN") this.enEn,
+      @JsonKey(name: "de_DE") this.deDe,
+      @JsonKey(name: "zh_CN") this.zhCn});
+
+  factory _$DescriptionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DescriptionImplFromJson(json);
+
+  @override
+  @JsonKey(name: "en_EN")
+  final String? enEn;
+  @override
+  @JsonKey(name: "de_DE")
+  final String? deDe;
+  @override
+  @JsonKey(name: "zh_CN")
+  final String? zhCn;
+
+  @override
+  String toString() {
+    return 'Description(enEn: $enEn, deDe: $deDe, zhCn: $zhCn)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DescriptionImpl &&
+            (identical(other.enEn, enEn) || other.enEn == enEn) &&
+            (identical(other.deDe, deDe) || other.deDe == deDe) &&
+            (identical(other.zhCn, zhCn) || other.zhCn == zhCn));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, enEn, deDe, zhCn);
+
+  /// Create a copy of Description
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DescriptionImplCopyWith<_$DescriptionImpl> get copyWith =>
+      __$$DescriptionImplCopyWithImpl<_$DescriptionImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DescriptionImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Description implements Description {
+  const factory _Description(
+      {@JsonKey(name: "en_EN") final String? enEn,
+      @JsonKey(name: "de_DE") final String? deDe,
+      @JsonKey(name: "zh_CN") final String? zhCn}) = _$DescriptionImpl;
+
+  factory _Description.fromJson(Map<String, dynamic> json) =
+      _$DescriptionImpl.fromJson;
+
+  @override
+  @JsonKey(name: "en_EN")
+  String? get enEn;
+  @override
+  @JsonKey(name: "de_DE")
+  String? get deDe;
+  @override
+  @JsonKey(name: "zh_CN")
+  String? get zhCn;
+
+  /// Create a copy of Description
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DescriptionImplCopyWith<_$DescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2926,14 +3321,18 @@ Emission _$EmissionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Emission {
   @JsonKey(name: "ir")
-  int get ir => throw _privateConstructorUsedError;
+  int? get ir => throw _privateConstructorUsedError;
   @JsonKey(name: "em_idle")
-  int get emIdle => throw _privateConstructorUsedError;
+  int? get emIdle => throw _privateConstructorUsedError;
   @JsonKey(name: "em_max")
-  int get emMax => throw _privateConstructorUsedError;
+  int? get emMax => throw _privateConstructorUsedError;
 
+  /// Serializes this Emission to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Emission
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmissionCopyWith<Emission> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2944,9 +3343,9 @@ abstract class $EmissionCopyWith<$Res> {
       _$EmissionCopyWithImpl<$Res, Emission>;
   @useResult
   $Res call(
-      {@JsonKey(name: "ir") int ir,
-      @JsonKey(name: "em_idle") int emIdle,
-      @JsonKey(name: "em_max") int emMax});
+      {@JsonKey(name: "ir") int? ir,
+      @JsonKey(name: "em_idle") int? emIdle,
+      @JsonKey(name: "em_max") int? emMax});
 }
 
 /// @nodoc
@@ -2959,26 +3358,28 @@ class _$EmissionCopyWithImpl<$Res, $Val extends Emission>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Emission
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ir = null,
-    Object? emIdle = null,
-    Object? emMax = null,
+    Object? ir = freezed,
+    Object? emIdle = freezed,
+    Object? emMax = freezed,
   }) {
     return _then(_value.copyWith(
-      ir: null == ir
+      ir: freezed == ir
           ? _value.ir
           : ir // ignore: cast_nullable_to_non_nullable
-              as int,
-      emIdle: null == emIdle
+              as int?,
+      emIdle: freezed == emIdle
           ? _value.emIdle
           : emIdle // ignore: cast_nullable_to_non_nullable
-              as int,
-      emMax: null == emMax
+              as int?,
+      emMax: freezed == emMax
           ? _value.emMax
           : emMax // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -2992,9 +3393,9 @@ abstract class _$$EmissionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "ir") int ir,
-      @JsonKey(name: "em_idle") int emIdle,
-      @JsonKey(name: "em_max") int emMax});
+      {@JsonKey(name: "ir") int? ir,
+      @JsonKey(name: "em_idle") int? emIdle,
+      @JsonKey(name: "em_max") int? emMax});
 }
 
 /// @nodoc
@@ -3005,26 +3406,28 @@ class __$$EmissionImplCopyWithImpl<$Res>
       _$EmissionImpl _value, $Res Function(_$EmissionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Emission
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ir = null,
-    Object? emIdle = null,
-    Object? emMax = null,
+    Object? ir = freezed,
+    Object? emIdle = freezed,
+    Object? emMax = freezed,
   }) {
     return _then(_$EmissionImpl(
-      ir: null == ir
+      ir: freezed == ir
           ? _value.ir
           : ir // ignore: cast_nullable_to_non_nullable
-              as int,
-      emIdle: null == emIdle
+              as int?,
+      emIdle: freezed == emIdle
           ? _value.emIdle
           : emIdle // ignore: cast_nullable_to_non_nullable
-              as int,
-      emMax: null == emMax
+              as int?,
+      emMax: freezed == emMax
           ? _value.emMax
           : emMax // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -3033,22 +3436,22 @@ class __$$EmissionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EmissionImpl implements _Emission {
   const _$EmissionImpl(
-      {@JsonKey(name: "ir") required this.ir,
-      @JsonKey(name: "em_idle") required this.emIdle,
-      @JsonKey(name: "em_max") required this.emMax});
+      {@JsonKey(name: "ir") this.ir,
+      @JsonKey(name: "em_idle") this.emIdle,
+      @JsonKey(name: "em_max") this.emMax});
 
   factory _$EmissionImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmissionImplFromJson(json);
 
   @override
   @JsonKey(name: "ir")
-  final int ir;
+  final int? ir;
   @override
   @JsonKey(name: "em_idle")
-  final int emIdle;
+  final int? emIdle;
   @override
   @JsonKey(name: "em_max")
-  final int emMax;
+  final int? emMax;
 
   @override
   String toString() {
@@ -3065,11 +3468,13 @@ class _$EmissionImpl implements _Emission {
             (identical(other.emMax, emMax) || other.emMax == emMax));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, ir, emIdle, emMax);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Emission
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmissionImplCopyWith<_$EmissionImpl> get copyWith =>
@@ -3085,24 +3490,27 @@ class _$EmissionImpl implements _Emission {
 
 abstract class _Emission implements Emission {
   const factory _Emission(
-      {@JsonKey(name: "ir") required final int ir,
-      @JsonKey(name: "em_idle") required final int emIdle,
-      @JsonKey(name: "em_max") required final int emMax}) = _$EmissionImpl;
+      {@JsonKey(name: "ir") final int? ir,
+      @JsonKey(name: "em_idle") final int? emIdle,
+      @JsonKey(name: "em_max") final int? emMax}) = _$EmissionImpl;
 
   factory _Emission.fromJson(Map<String, dynamic> json) =
       _$EmissionImpl.fromJson;
 
   @override
   @JsonKey(name: "ir")
-  int get ir;
+  int? get ir;
   @override
   @JsonKey(name: "em_idle")
-  int get emIdle;
+  int? get emIdle;
   @override
   @JsonKey(name: "em_max")
-  int get emMax;
+  int? get emMax;
+
+  /// Create a copy of Emission
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmissionImplCopyWith<_$EmissionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3114,14 +3522,18 @@ Fuel _$FuelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Fuel {
   @JsonKey(name: "capacity")
-  int get capacity => throw _privateConstructorUsedError;
+  int? get capacity => throw _privateConstructorUsedError;
   @JsonKey(name: "intake_rate")
-  int get intakeRate => throw _privateConstructorUsedError;
+  int? get intakeRate => throw _privateConstructorUsedError;
   @JsonKey(name: "usage")
-  Usage get usage => throw _privateConstructorUsedError;
+  Usage? get usage => throw _privateConstructorUsedError;
 
+  /// Serializes this Fuel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Fuel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FuelCopyWith<Fuel> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -3131,11 +3543,11 @@ abstract class $FuelCopyWith<$Res> {
       _$FuelCopyWithImpl<$Res, Fuel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "capacity") int capacity,
-      @JsonKey(name: "intake_rate") int intakeRate,
-      @JsonKey(name: "usage") Usage usage});
+      {@JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "intake_rate") int? intakeRate,
+      @JsonKey(name: "usage") Usage? usage});
 
-  $UsageCopyWith<$Res> get usage;
+  $UsageCopyWith<$Res>? get usage;
 }
 
 /// @nodoc
@@ -3148,33 +3560,41 @@ class _$FuelCopyWithImpl<$Res, $Val extends Fuel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Fuel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? capacity = null,
-    Object? intakeRate = null,
-    Object? usage = null,
+    Object? capacity = freezed,
+    Object? intakeRate = freezed,
+    Object? usage = freezed,
   }) {
     return _then(_value.copyWith(
-      capacity: null == capacity
+      capacity: freezed == capacity
           ? _value.capacity
           : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      intakeRate: null == intakeRate
+              as int?,
+      intakeRate: freezed == intakeRate
           ? _value.intakeRate
           : intakeRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      usage: null == usage
+              as int?,
+      usage: freezed == usage
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
-              as Usage,
+              as Usage?,
     ) as $Val);
   }
 
+  /// Create a copy of Fuel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UsageCopyWith<$Res> get usage {
-    return $UsageCopyWith<$Res>(_value.usage, (value) {
+  $UsageCopyWith<$Res>? get usage {
+    if (_value.usage == null) {
+      return null;
+    }
+
+    return $UsageCopyWith<$Res>(_value.usage!, (value) {
       return _then(_value.copyWith(usage: value) as $Val);
     });
   }
@@ -3188,12 +3608,12 @@ abstract class _$$FuelImplCopyWith<$Res> implements $FuelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "capacity") int capacity,
-      @JsonKey(name: "intake_rate") int intakeRate,
-      @JsonKey(name: "usage") Usage usage});
+      {@JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "intake_rate") int? intakeRate,
+      @JsonKey(name: "usage") Usage? usage});
 
   @override
-  $UsageCopyWith<$Res> get usage;
+  $UsageCopyWith<$Res>? get usage;
 }
 
 /// @nodoc
@@ -3203,26 +3623,28 @@ class __$$FuelImplCopyWithImpl<$Res>
   __$$FuelImplCopyWithImpl(_$FuelImpl _value, $Res Function(_$FuelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Fuel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? capacity = null,
-    Object? intakeRate = null,
-    Object? usage = null,
+    Object? capacity = freezed,
+    Object? intakeRate = freezed,
+    Object? usage = freezed,
   }) {
     return _then(_$FuelImpl(
-      capacity: null == capacity
+      capacity: freezed == capacity
           ? _value.capacity
           : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      intakeRate: null == intakeRate
+              as int?,
+      intakeRate: freezed == intakeRate
           ? _value.intakeRate
           : intakeRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      usage: null == usage
+              as int?,
+      usage: freezed == usage
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
-              as Usage,
+              as Usage?,
     ));
   }
 }
@@ -3231,22 +3653,22 @@ class __$$FuelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FuelImpl implements _Fuel {
   const _$FuelImpl(
-      {@JsonKey(name: "capacity") required this.capacity,
-      @JsonKey(name: "intake_rate") required this.intakeRate,
-      @JsonKey(name: "usage") required this.usage});
+      {@JsonKey(name: "capacity") this.capacity,
+      @JsonKey(name: "intake_rate") this.intakeRate,
+      @JsonKey(name: "usage") this.usage});
 
   factory _$FuelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FuelImplFromJson(json);
 
   @override
   @JsonKey(name: "capacity")
-  final int capacity;
+  final int? capacity;
   @override
   @JsonKey(name: "intake_rate")
-  final int intakeRate;
+  final int? intakeRate;
   @override
   @JsonKey(name: "usage")
-  final Usage usage;
+  final Usage? usage;
 
   @override
   String toString() {
@@ -3265,11 +3687,13 @@ class _$FuelImpl implements _Fuel {
             (identical(other.usage, usage) || other.usage == usage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, capacity, intakeRate, usage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Fuel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FuelImplCopyWith<_$FuelImpl> get copyWith =>
@@ -3285,23 +3709,26 @@ class _$FuelImpl implements _Fuel {
 
 abstract class _Fuel implements Fuel {
   const factory _Fuel(
-      {@JsonKey(name: "capacity") required final int capacity,
-      @JsonKey(name: "intake_rate") required final int intakeRate,
-      @JsonKey(name: "usage") required final Usage usage}) = _$FuelImpl;
+      {@JsonKey(name: "capacity") final int? capacity,
+      @JsonKey(name: "intake_rate") final int? intakeRate,
+      @JsonKey(name: "usage") final Usage? usage}) = _$FuelImpl;
 
   factory _Fuel.fromJson(Map<String, dynamic> json) = _$FuelImpl.fromJson;
 
   @override
   @JsonKey(name: "capacity")
-  int get capacity;
+  int? get capacity;
   @override
   @JsonKey(name: "intake_rate")
-  int get intakeRate;
+  int? get intakeRate;
   @override
   @JsonKey(name: "usage")
-  Usage get usage;
+  Usage? get usage;
+
+  /// Create a copy of Fuel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FuelImplCopyWith<_$FuelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3313,16 +3740,20 @@ Usage _$UsageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Usage {
   @JsonKey(name: "main")
-  int get main => throw _privateConstructorUsedError;
+  int? get main => throw _privateConstructorUsedError;
   @JsonKey(name: "maneuvering")
-  int get maneuvering => throw _privateConstructorUsedError;
+  int? get maneuvering => throw _privateConstructorUsedError;
   @JsonKey(name: "retro")
-  int get retro => throw _privateConstructorUsedError;
+  int? get retro => throw _privateConstructorUsedError;
   @JsonKey(name: "vtol")
-  int get vtol => throw _privateConstructorUsedError;
+  int? get vtol => throw _privateConstructorUsedError;
 
+  /// Serializes this Usage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Usage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UsageCopyWith<Usage> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -3332,10 +3763,10 @@ abstract class $UsageCopyWith<$Res> {
       _$UsageCopyWithImpl<$Res, Usage>;
   @useResult
   $Res call(
-      {@JsonKey(name: "main") int main,
-      @JsonKey(name: "maneuvering") int maneuvering,
-      @JsonKey(name: "retro") int retro,
-      @JsonKey(name: "vtol") int vtol});
+      {@JsonKey(name: "main") int? main,
+      @JsonKey(name: "maneuvering") int? maneuvering,
+      @JsonKey(name: "retro") int? retro,
+      @JsonKey(name: "vtol") int? vtol});
 }
 
 /// @nodoc
@@ -3348,31 +3779,33 @@ class _$UsageCopyWithImpl<$Res, $Val extends Usage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Usage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? main = null,
-    Object? maneuvering = null,
-    Object? retro = null,
-    Object? vtol = null,
+    Object? main = freezed,
+    Object? maneuvering = freezed,
+    Object? retro = freezed,
+    Object? vtol = freezed,
   }) {
     return _then(_value.copyWith(
-      main: null == main
+      main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
-              as int,
-      maneuvering: null == maneuvering
+              as int?,
+      maneuvering: freezed == maneuvering
           ? _value.maneuvering
           : maneuvering // ignore: cast_nullable_to_non_nullable
-              as int,
-      retro: null == retro
+              as int?,
+      retro: freezed == retro
           ? _value.retro
           : retro // ignore: cast_nullable_to_non_nullable
-              as int,
-      vtol: null == vtol
+              as int?,
+      vtol: freezed == vtol
           ? _value.vtol
           : vtol // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -3385,10 +3818,10 @@ abstract class _$$UsageImplCopyWith<$Res> implements $UsageCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "main") int main,
-      @JsonKey(name: "maneuvering") int maneuvering,
-      @JsonKey(name: "retro") int retro,
-      @JsonKey(name: "vtol") int vtol});
+      {@JsonKey(name: "main") int? main,
+      @JsonKey(name: "maneuvering") int? maneuvering,
+      @JsonKey(name: "retro") int? retro,
+      @JsonKey(name: "vtol") int? vtol});
 }
 
 /// @nodoc
@@ -3399,31 +3832,33 @@ class __$$UsageImplCopyWithImpl<$Res>
       _$UsageImpl _value, $Res Function(_$UsageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Usage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? main = null,
-    Object? maneuvering = null,
-    Object? retro = null,
-    Object? vtol = null,
+    Object? main = freezed,
+    Object? maneuvering = freezed,
+    Object? retro = freezed,
+    Object? vtol = freezed,
   }) {
     return _then(_$UsageImpl(
-      main: null == main
+      main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
-              as int,
-      maneuvering: null == maneuvering
+              as int?,
+      maneuvering: freezed == maneuvering
           ? _value.maneuvering
           : maneuvering // ignore: cast_nullable_to_non_nullable
-              as int,
-      retro: null == retro
+              as int?,
+      retro: freezed == retro
           ? _value.retro
           : retro // ignore: cast_nullable_to_non_nullable
-              as int,
-      vtol: null == vtol
+              as int?,
+      vtol: freezed == vtol
           ? _value.vtol
           : vtol // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -3432,26 +3867,26 @@ class __$$UsageImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UsageImpl implements _Usage {
   const _$UsageImpl(
-      {@JsonKey(name: "main") required this.main,
-      @JsonKey(name: "maneuvering") required this.maneuvering,
-      @JsonKey(name: "retro") required this.retro,
-      @JsonKey(name: "vtol") required this.vtol});
+      {@JsonKey(name: "main") this.main,
+      @JsonKey(name: "maneuvering") this.maneuvering,
+      @JsonKey(name: "retro") this.retro,
+      @JsonKey(name: "vtol") this.vtol});
 
   factory _$UsageImpl.fromJson(Map<String, dynamic> json) =>
       _$$UsageImplFromJson(json);
 
   @override
   @JsonKey(name: "main")
-  final int main;
+  final int? main;
   @override
   @JsonKey(name: "maneuvering")
-  final int maneuvering;
+  final int? maneuvering;
   @override
   @JsonKey(name: "retro")
-  final int retro;
+  final int? retro;
   @override
   @JsonKey(name: "vtol")
-  final int vtol;
+  final int? vtol;
 
   @override
   String toString() {
@@ -3470,11 +3905,13 @@ class _$UsageImpl implements _Usage {
             (identical(other.vtol, vtol) || other.vtol == vtol));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, main, maneuvering, retro, vtol);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Usage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UsageImplCopyWith<_$UsageImpl> get copyWith =>
@@ -3490,27 +3927,30 @@ class _$UsageImpl implements _Usage {
 
 abstract class _Usage implements Usage {
   const factory _Usage(
-      {@JsonKey(name: "main") required final int main,
-      @JsonKey(name: "maneuvering") required final int maneuvering,
-      @JsonKey(name: "retro") required final int retro,
-      @JsonKey(name: "vtol") required final int vtol}) = _$UsageImpl;
+      {@JsonKey(name: "main") final int? main,
+      @JsonKey(name: "maneuvering") final int? maneuvering,
+      @JsonKey(name: "retro") final int? retro,
+      @JsonKey(name: "vtol") final int? vtol}) = _$UsageImpl;
 
   factory _Usage.fromJson(Map<String, dynamic> json) = _$UsageImpl.fromJson;
 
   @override
   @JsonKey(name: "main")
-  int get main;
+  int? get main;
   @override
   @JsonKey(name: "maneuvering")
-  int get maneuvering;
+  int? get maneuvering;
   @override
   @JsonKey(name: "retro")
-  int get retro;
+  int? get retro;
   @override
   @JsonKey(name: "vtol")
-  int get vtol;
+  int? get vtol;
+
+  /// Create a copy of Usage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UsageImplCopyWith<_$UsageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3522,7 +3962,7 @@ Hardpoint _$HardpointFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Hardpoint {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "position")
   String? get position => throw _privateConstructorUsedError;
   @JsonKey(name: "min_size")
@@ -3542,8 +3982,12 @@ mixin _$Hardpoint {
   @JsonKey(name: "children")
   List<HardpointChild>? get children => throw _privateConstructorUsedError;
 
+  /// Serializes this Hardpoint to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Hardpoint
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HardpointCopyWith<Hardpoint> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3554,7 +3998,7 @@ abstract class $HardpointCopyWith<$Res> {
       _$HardpointCopyWithImpl<$Res, Hardpoint>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
+      {@JsonKey(name: "name") String? name,
       @JsonKey(name: "position") String? position,
       @JsonKey(name: "min_size") int? minSize,
       @JsonKey(name: "max_size") int? maxSize,
@@ -3578,10 +4022,12 @@ class _$HardpointCopyWithImpl<$Res, $Val extends Hardpoint>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Hardpoint
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? position = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
@@ -3593,10 +4039,10 @@ class _$HardpointCopyWithImpl<$Res, $Val extends Hardpoint>
     Object? children = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -3636,6 +4082,8 @@ class _$HardpointCopyWithImpl<$Res, $Val extends Hardpoint>
     ) as $Val);
   }
 
+  /// Create a copy of Hardpoint
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HardpointItemCopyWith<$Res>? get item {
@@ -3658,7 +4106,7 @@ abstract class _$$HardpointImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
+      {@JsonKey(name: "name") String? name,
       @JsonKey(name: "position") String? position,
       @JsonKey(name: "min_size") int? minSize,
       @JsonKey(name: "max_size") int? maxSize,
@@ -3681,10 +4129,12 @@ class __$$HardpointImplCopyWithImpl<$Res>
       _$HardpointImpl _value, $Res Function(_$HardpointImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Hardpoint
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? position = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
@@ -3696,10 +4146,10 @@ class __$$HardpointImplCopyWithImpl<$Res>
     Object? children = freezed,
   }) {
     return _then(_$HardpointImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -3744,14 +4194,14 @@ class __$$HardpointImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HardpointImpl implements _Hardpoint {
   const _$HardpointImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "position") required this.position,
-      @JsonKey(name: "min_size") required this.minSize,
-      @JsonKey(name: "max_size") required this.maxSize,
-      @JsonKey(name: "class_name") required this.className,
-      @JsonKey(name: "health") required this.health,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "position") this.position,
+      @JsonKey(name: "min_size") this.minSize,
+      @JsonKey(name: "max_size") this.maxSize,
+      @JsonKey(name: "class_name") this.className,
+      @JsonKey(name: "health") this.health,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_type") this.subType,
       @JsonKey(name: "item") this.item,
       @JsonKey(name: "children") final List<HardpointChild>? children})
       : _children = children;
@@ -3761,7 +4211,7 @@ class _$HardpointImpl implements _Hardpoint {
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "position")
   final String? position;
@@ -3821,7 +4271,7 @@ class _$HardpointImpl implements _Hardpoint {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -3836,7 +4286,9 @@ class _$HardpointImpl implements _Hardpoint {
       item,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Hardpoint
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HardpointImplCopyWith<_$HardpointImpl> get copyWith =>
@@ -3852,14 +4304,14 @@ class _$HardpointImpl implements _Hardpoint {
 
 abstract class _Hardpoint implements Hardpoint {
   const factory _Hardpoint(
-          {@JsonKey(name: "name") required final String name,
-          @JsonKey(name: "position") required final String? position,
-          @JsonKey(name: "min_size") required final int? minSize,
-          @JsonKey(name: "max_size") required final int? maxSize,
-          @JsonKey(name: "class_name") required final String? className,
-          @JsonKey(name: "health") required final int? health,
-          @JsonKey(name: "type") required final String? type,
-          @JsonKey(name: "sub_type") required final String? subType,
+          {@JsonKey(name: "name") final String? name,
+          @JsonKey(name: "position") final String? position,
+          @JsonKey(name: "min_size") final int? minSize,
+          @JsonKey(name: "max_size") final int? maxSize,
+          @JsonKey(name: "class_name") final String? className,
+          @JsonKey(name: "health") final int? health,
+          @JsonKey(name: "type") final String? type,
+          @JsonKey(name: "sub_type") final String? subType,
           @JsonKey(name: "item") final HardpointItem? item,
           @JsonKey(name: "children") final List<HardpointChild>? children}) =
       _$HardpointImpl;
@@ -3869,7 +4321,7 @@ abstract class _Hardpoint implements Hardpoint {
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "position")
   String? get position;
@@ -3897,8 +4349,11 @@ abstract class _Hardpoint implements Hardpoint {
   @override
   @JsonKey(name: "children")
   List<HardpointChild>? get children;
+
+  /// Create a copy of Hardpoint
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HardpointImplCopyWith<_$HardpointImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3910,13 +4365,13 @@ HardpointChild _$HardpointChildFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HardpointChild {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "position")
   String? get position => throw _privateConstructorUsedError;
   @JsonKey(name: "min_size")
-  int? get minSize => throw _privateConstructorUsedError;
+  dynamic get minSize => throw _privateConstructorUsedError;
   @JsonKey(name: "max_size")
-  int? get maxSize => throw _privateConstructorUsedError;
+  dynamic get maxSize => throw _privateConstructorUsedError;
   @JsonKey(name: "class_name")
   String? get className => throw _privateConstructorUsedError;
   @JsonKey(name: "health")
@@ -3928,10 +4383,14 @@ mixin _$HardpointChild {
   @JsonKey(name: "item")
   FluffyItem? get item => throw _privateConstructorUsedError;
   @JsonKey(name: "children")
-  List<ChildChild>? get children => throw _privateConstructorUsedError;
+  List<PurpleChild>? get children => throw _privateConstructorUsedError;
 
+  /// Serializes this HardpointChild to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HardpointChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HardpointChildCopyWith<HardpointChild> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3943,16 +4402,16 @@ abstract class $HardpointChildCopyWith<$Res> {
       _$HardpointChildCopyWithImpl<$Res, HardpointChild>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
+      {@JsonKey(name: "name") String? name,
       @JsonKey(name: "position") String? position,
-      @JsonKey(name: "min_size") int? minSize,
-      @JsonKey(name: "max_size") int? maxSize,
+      @JsonKey(name: "min_size") dynamic minSize,
+      @JsonKey(name: "max_size") dynamic maxSize,
       @JsonKey(name: "class_name") String? className,
       @JsonKey(name: "health") int? health,
       @JsonKey(name: "type") String? type,
       @JsonKey(name: "sub_type") String? subType,
       @JsonKey(name: "item") FluffyItem? item,
-      @JsonKey(name: "children") List<ChildChild>? children});
+      @JsonKey(name: "children") List<PurpleChild>? children});
 
   $FluffyItemCopyWith<$Res>? get item;
 }
@@ -3967,10 +4426,12 @@ class _$HardpointChildCopyWithImpl<$Res, $Val extends HardpointChild>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HardpointChild
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? position = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
@@ -3982,10 +4443,10 @@ class _$HardpointChildCopyWithImpl<$Res, $Val extends HardpointChild>
     Object? children = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -3993,11 +4454,11 @@ class _$HardpointChildCopyWithImpl<$Res, $Val extends HardpointChild>
       minSize: freezed == minSize
           ? _value.minSize
           : minSize // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       maxSize: freezed == maxSize
           ? _value.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
@@ -4021,10 +4482,12 @@ class _$HardpointChildCopyWithImpl<$Res, $Val extends HardpointChild>
       children: freezed == children
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
-              as List<ChildChild>?,
+              as List<PurpleChild>?,
     ) as $Val);
   }
 
+  /// Create a copy of HardpointChild
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FluffyItemCopyWith<$Res>? get item {
@@ -4047,16 +4510,16 @@ abstract class _$$HardpointChildImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
+      {@JsonKey(name: "name") String? name,
       @JsonKey(name: "position") String? position,
-      @JsonKey(name: "min_size") int? minSize,
-      @JsonKey(name: "max_size") int? maxSize,
+      @JsonKey(name: "min_size") dynamic minSize,
+      @JsonKey(name: "max_size") dynamic maxSize,
       @JsonKey(name: "class_name") String? className,
       @JsonKey(name: "health") int? health,
       @JsonKey(name: "type") String? type,
       @JsonKey(name: "sub_type") String? subType,
       @JsonKey(name: "item") FluffyItem? item,
-      @JsonKey(name: "children") List<ChildChild>? children});
+      @JsonKey(name: "children") List<PurpleChild>? children});
 
   @override
   $FluffyItemCopyWith<$Res>? get item;
@@ -4070,10 +4533,12 @@ class __$$HardpointChildImplCopyWithImpl<$Res>
       _$HardpointChildImpl _value, $Res Function(_$HardpointChildImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HardpointChild
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? position = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
@@ -4085,10 +4550,10 @@ class __$$HardpointChildImplCopyWithImpl<$Res>
     Object? children = freezed,
   }) {
     return _then(_$HardpointChildImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -4096,11 +4561,11 @@ class __$$HardpointChildImplCopyWithImpl<$Res>
       minSize: freezed == minSize
           ? _value.minSize
           : minSize // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       maxSize: freezed == maxSize
           ? _value.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
@@ -4124,7 +4589,7 @@ class __$$HardpointChildImplCopyWithImpl<$Res>
       children: freezed == children
           ? _value._children
           : children // ignore: cast_nullable_to_non_nullable
-              as List<ChildChild>?,
+              as List<PurpleChild>?,
     ));
   }
 }
@@ -4133,16 +4598,16 @@ class __$$HardpointChildImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HardpointChildImpl implements _HardpointChild {
   const _$HardpointChildImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "position") required this.position,
-      @JsonKey(name: "min_size") required this.minSize,
-      @JsonKey(name: "max_size") required this.maxSize,
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "position") this.position,
+      @JsonKey(name: "min_size") this.minSize,
+      @JsonKey(name: "max_size") this.maxSize,
       @JsonKey(name: "class_name") this.className,
-      @JsonKey(name: "health") required this.health,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
+      @JsonKey(name: "health") this.health,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_type") this.subType,
       @JsonKey(name: "item") this.item,
-      @JsonKey(name: "children") final List<ChildChild>? children})
+      @JsonKey(name: "children") final List<PurpleChild>? children})
       : _children = children;
 
   factory _$HardpointChildImpl.fromJson(Map<String, dynamic> json) =>
@@ -4150,16 +4615,16 @@ class _$HardpointChildImpl implements _HardpointChild {
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "position")
   final String? position;
   @override
   @JsonKey(name: "min_size")
-  final int? minSize;
+  final dynamic minSize;
   @override
   @JsonKey(name: "max_size")
-  final int? maxSize;
+  final dynamic maxSize;
   @override
   @JsonKey(name: "class_name")
   final String? className;
@@ -4175,10 +4640,10 @@ class _$HardpointChildImpl implements _HardpointChild {
   @override
   @JsonKey(name: "item")
   final FluffyItem? item;
-  final List<ChildChild>? _children;
+  final List<PurpleChild>? _children;
   @override
   @JsonKey(name: "children")
-  List<ChildChild>? get children {
+  List<PurpleChild>? get children {
     final value = _children;
     if (value == null) return null;
     if (_children is EqualUnmodifiableListView) return _children;
@@ -4199,8 +4664,8 @@ class _$HardpointChildImpl implements _HardpointChild {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.position, position) ||
                 other.position == position) &&
-            (identical(other.minSize, minSize) || other.minSize == minSize) &&
-            (identical(other.maxSize, maxSize) || other.maxSize == maxSize) &&
+            const DeepCollectionEquality().equals(other.minSize, minSize) &&
+            const DeepCollectionEquality().equals(other.maxSize, maxSize) &&
             (identical(other.className, className) ||
                 other.className == className) &&
             (identical(other.health, health) || other.health == health) &&
@@ -4210,14 +4675,14 @@ class _$HardpointChildImpl implements _HardpointChild {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       name,
       position,
-      minSize,
-      maxSize,
+      const DeepCollectionEquality().hash(minSize),
+      const DeepCollectionEquality().hash(maxSize),
       className,
       health,
       type,
@@ -4225,7 +4690,9 @@ class _$HardpointChildImpl implements _HardpointChild {
       item,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HardpointChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HardpointChildImplCopyWith<_$HardpointChildImpl> get copyWith =>
@@ -4242,16 +4709,16 @@ class _$HardpointChildImpl implements _HardpointChild {
 
 abstract class _HardpointChild implements HardpointChild {
   const factory _HardpointChild(
-          {@JsonKey(name: "name") required final String name,
-          @JsonKey(name: "position") required final String? position,
-          @JsonKey(name: "min_size") required final int? minSize,
-          @JsonKey(name: "max_size") required final int? maxSize,
+          {@JsonKey(name: "name") final String? name,
+          @JsonKey(name: "position") final String? position,
+          @JsonKey(name: "min_size") final dynamic minSize,
+          @JsonKey(name: "max_size") final dynamic maxSize,
           @JsonKey(name: "class_name") final String? className,
-          @JsonKey(name: "health") required final int? health,
-          @JsonKey(name: "type") required final String? type,
-          @JsonKey(name: "sub_type") required final String? subType,
+          @JsonKey(name: "health") final int? health,
+          @JsonKey(name: "type") final String? type,
+          @JsonKey(name: "sub_type") final String? subType,
           @JsonKey(name: "item") final FluffyItem? item,
-          @JsonKey(name: "children") final List<ChildChild>? children}) =
+          @JsonKey(name: "children") final List<PurpleChild>? children}) =
       _$HardpointChildImpl;
 
   factory _HardpointChild.fromJson(Map<String, dynamic> json) =
@@ -4259,16 +4726,16 @@ abstract class _HardpointChild implements HardpointChild {
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "position")
   String? get position;
   @override
   @JsonKey(name: "min_size")
-  int? get minSize;
+  dynamic get minSize;
   @override
   @JsonKey(name: "max_size")
-  int? get maxSize;
+  dynamic get maxSize;
   @override
   @JsonKey(name: "class_name")
   String? get className;
@@ -4286,21 +4753,24 @@ abstract class _HardpointChild implements HardpointChild {
   FluffyItem? get item;
   @override
   @JsonKey(name: "children")
-  List<ChildChild>? get children;
+  List<PurpleChild>? get children;
+
+  /// Create a copy of HardpointChild
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HardpointChildImplCopyWith<_$HardpointChildImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-ChildChild _$ChildChildFromJson(Map<String, dynamic> json) {
-  return _ChildChild.fromJson(json);
+PurpleChild _$PurpleChildFromJson(Map<String, dynamic> json) {
+  return _PurpleChild.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ChildChild {
+mixin _$PurpleChild {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "position")
   dynamic get position => throw _privateConstructorUsedError;
   @JsonKey(name: "min_size")
@@ -4310,68 +4780,74 @@ mixin _$ChildChild {
   @JsonKey(name: "class_name")
   String? get className => throw _privateConstructorUsedError;
   @JsonKey(name: "health")
-  int get health => throw _privateConstructorUsedError;
+  int? get health => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "sub_type")
-  String get subType => throw _privateConstructorUsedError;
+  String? get subType => throw _privateConstructorUsedError;
   @JsonKey(name: "item")
-  PurpleItem get item => throw _privateConstructorUsedError;
+  PurpleItem? get item => throw _privateConstructorUsedError;
 
+  /// Serializes this PurpleChild to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ChildChildCopyWith<ChildChild> get copyWith =>
+
+  /// Create a copy of PurpleChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PurpleChildCopyWith<PurpleChild> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChildChildCopyWith<$Res> {
-  factory $ChildChildCopyWith(
-          ChildChild value, $Res Function(ChildChild) then) =
-      _$ChildChildCopyWithImpl<$Res, ChildChild>;
+abstract class $PurpleChildCopyWith<$Res> {
+  factory $PurpleChildCopyWith(
+          PurpleChild value, $Res Function(PurpleChild) then) =
+      _$PurpleChildCopyWithImpl<$Res, PurpleChild>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
+      {@JsonKey(name: "name") String? name,
       @JsonKey(name: "position") dynamic position,
       @JsonKey(name: "min_size") dynamic minSize,
       @JsonKey(name: "max_size") dynamic maxSize,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "health") int health,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "item") PurpleItem item});
+      @JsonKey(name: "health") int? health,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "item") PurpleItem? item});
 
-  $PurpleItemCopyWith<$Res> get item;
+  $PurpleItemCopyWith<$Res>? get item;
 }
 
 /// @nodoc
-class _$ChildChildCopyWithImpl<$Res, $Val extends ChildChild>
-    implements $ChildChildCopyWith<$Res> {
-  _$ChildChildCopyWithImpl(this._value, this._then);
+class _$PurpleChildCopyWithImpl<$Res, $Val extends PurpleChild>
+    implements $PurpleChildCopyWith<$Res> {
+  _$PurpleChildCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PurpleChild
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? position = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
     Object? className = freezed,
-    Object? health = null,
-    Object? type = null,
-    Object? subType = null,
-    Object? item = null,
+    Object? health = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
+    Object? item = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -4388,83 +4864,91 @@ class _$ChildChildCopyWithImpl<$Res, $Val extends ChildChild>
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      health: null == health
+      health: freezed == health
           ? _value.health
           : health // ignore: cast_nullable_to_non_nullable
-              as int,
-      type: null == type
+              as int?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
-      item: null == item
+              as String?,
+      item: freezed == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
-              as PurpleItem,
+              as PurpleItem?,
     ) as $Val);
   }
 
+  /// Create a copy of PurpleChild
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PurpleItemCopyWith<$Res> get item {
-    return $PurpleItemCopyWith<$Res>(_value.item, (value) {
+  $PurpleItemCopyWith<$Res>? get item {
+    if (_value.item == null) {
+      return null;
+    }
+
+    return $PurpleItemCopyWith<$Res>(_value.item!, (value) {
       return _then(_value.copyWith(item: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ChildChildImplCopyWith<$Res>
-    implements $ChildChildCopyWith<$Res> {
-  factory _$$ChildChildImplCopyWith(
-          _$ChildChildImpl value, $Res Function(_$ChildChildImpl) then) =
-      __$$ChildChildImplCopyWithImpl<$Res>;
+abstract class _$$PurpleChildImplCopyWith<$Res>
+    implements $PurpleChildCopyWith<$Res> {
+  factory _$$PurpleChildImplCopyWith(
+          _$PurpleChildImpl value, $Res Function(_$PurpleChildImpl) then) =
+      __$$PurpleChildImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
+      {@JsonKey(name: "name") String? name,
       @JsonKey(name: "position") dynamic position,
       @JsonKey(name: "min_size") dynamic minSize,
       @JsonKey(name: "max_size") dynamic maxSize,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "health") int health,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "item") PurpleItem item});
+      @JsonKey(name: "health") int? health,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "item") PurpleItem? item});
 
   @override
-  $PurpleItemCopyWith<$Res> get item;
+  $PurpleItemCopyWith<$Res>? get item;
 }
 
 /// @nodoc
-class __$$ChildChildImplCopyWithImpl<$Res>
-    extends _$ChildChildCopyWithImpl<$Res, _$ChildChildImpl>
-    implements _$$ChildChildImplCopyWith<$Res> {
-  __$$ChildChildImplCopyWithImpl(
-      _$ChildChildImpl _value, $Res Function(_$ChildChildImpl) _then)
+class __$$PurpleChildImplCopyWithImpl<$Res>
+    extends _$PurpleChildCopyWithImpl<$Res, _$PurpleChildImpl>
+    implements _$$PurpleChildImplCopyWith<$Res> {
+  __$$PurpleChildImplCopyWithImpl(
+      _$PurpleChildImpl _value, $Res Function(_$PurpleChildImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PurpleChild
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? position = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
     Object? className = freezed,
-    Object? health = null,
-    Object? type = null,
-    Object? subType = null,
-    Object? item = null,
+    Object? health = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
+    Object? item = freezed,
   }) {
-    return _then(_$ChildChildImpl(
-      name: null == name
+    return _then(_$PurpleChildImpl(
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -4481,46 +4965,46 @@ class __$$ChildChildImplCopyWithImpl<$Res>
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      health: null == health
+      health: freezed == health
           ? _value.health
           : health // ignore: cast_nullable_to_non_nullable
-              as int,
-      type: null == type
+              as int?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
-      item: null == item
+              as String?,
+      item: freezed == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
-              as PurpleItem,
+              as PurpleItem?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ChildChildImpl implements _ChildChild {
-  const _$ChildChildImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "position") required this.position,
-      @JsonKey(name: "min_size") required this.minSize,
-      @JsonKey(name: "max_size") required this.maxSize,
+class _$PurpleChildImpl implements _PurpleChild {
+  const _$PurpleChildImpl(
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "position") this.position,
+      @JsonKey(name: "min_size") this.minSize,
+      @JsonKey(name: "max_size") this.maxSize,
       @JsonKey(name: "class_name") this.className,
-      @JsonKey(name: "health") required this.health,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
-      @JsonKey(name: "item") required this.item});
+      @JsonKey(name: "health") this.health,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_type") this.subType,
+      @JsonKey(name: "item") this.item});
 
-  factory _$ChildChildImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChildChildImplFromJson(json);
+  factory _$PurpleChildImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PurpleChildImplFromJson(json);
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "position")
   final dynamic position;
@@ -4535,27 +5019,27 @@ class _$ChildChildImpl implements _ChildChild {
   final String? className;
   @override
   @JsonKey(name: "health")
-  final int health;
+  final int? health;
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "sub_type")
-  final String subType;
+  final String? subType;
   @override
   @JsonKey(name: "item")
-  final PurpleItem item;
+  final PurpleItem? item;
 
   @override
   String toString() {
-    return 'ChildChild(name: $name, position: $position, minSize: $minSize, maxSize: $maxSize, className: $className, health: $health, type: $type, subType: $subType, item: $item)';
+    return 'PurpleChild(name: $name, position: $position, minSize: $minSize, maxSize: $maxSize, className: $className, health: $health, type: $type, subType: $subType, item: $item)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChildChildImpl &&
+            other is _$PurpleChildImpl &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other.position, position) &&
             const DeepCollectionEquality().equals(other.minSize, minSize) &&
@@ -4568,7 +5052,7 @@ class _$ChildChildImpl implements _ChildChild {
             (identical(other.item, item) || other.item == item));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -4582,39 +5066,40 @@ class _$ChildChildImpl implements _ChildChild {
       subType,
       item);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PurpleChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChildChildImplCopyWith<_$ChildChildImpl> get copyWith =>
-      __$$ChildChildImplCopyWithImpl<_$ChildChildImpl>(this, _$identity);
+  _$$PurpleChildImplCopyWith<_$PurpleChildImpl> get copyWith =>
+      __$$PurpleChildImplCopyWithImpl<_$PurpleChildImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChildChildImplToJson(
+    return _$$PurpleChildImplToJson(
       this,
     );
   }
 }
 
-abstract class _ChildChild implements ChildChild {
-  const factory _ChildChild(
-          {@JsonKey(name: "name") required final String name,
-          @JsonKey(name: "position") required final dynamic position,
-          @JsonKey(name: "min_size") required final dynamic minSize,
-          @JsonKey(name: "max_size") required final dynamic maxSize,
-          @JsonKey(name: "class_name") final String? className,
-          @JsonKey(name: "health") required final int health,
-          @JsonKey(name: "type") required final String type,
-          @JsonKey(name: "sub_type") required final String subType,
-          @JsonKey(name: "item") required final PurpleItem item}) =
-      _$ChildChildImpl;
+abstract class _PurpleChild implements PurpleChild {
+  const factory _PurpleChild(
+      {@JsonKey(name: "name") final String? name,
+      @JsonKey(name: "position") final dynamic position,
+      @JsonKey(name: "min_size") final dynamic minSize,
+      @JsonKey(name: "max_size") final dynamic maxSize,
+      @JsonKey(name: "class_name") final String? className,
+      @JsonKey(name: "health") final int? health,
+      @JsonKey(name: "type") final String? type,
+      @JsonKey(name: "sub_type") final String? subType,
+      @JsonKey(name: "item") final PurpleItem? item}) = _$PurpleChildImpl;
 
-  factory _ChildChild.fromJson(Map<String, dynamic> json) =
-      _$ChildChildImpl.fromJson;
+  factory _PurpleChild.fromJson(Map<String, dynamic> json) =
+      _$PurpleChildImpl.fromJson;
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "position")
   dynamic get position;
@@ -4629,19 +5114,22 @@ abstract class _ChildChild implements ChildChild {
   String? get className;
   @override
   @JsonKey(name: "health")
-  int get health;
+  int? get health;
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "sub_type")
-  String get subType;
+  String? get subType;
   @override
   @JsonKey(name: "item")
-  PurpleItem get item;
+  PurpleItem? get item;
+
+  /// Create a copy of PurpleChild
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$ChildChildImplCopyWith<_$ChildChildImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PurpleChildImplCopyWith<_$PurpleChildImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -4654,36 +5142,38 @@ mixin _$PurpleItem {
   @JsonKey(name: "uuid")
   String? get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "class_name")
   String? get className => throw _privateConstructorUsedError;
   @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: "size")
-  int get size => throw _privateConstructorUsedError;
+  int? get size => throw _privateConstructorUsedError;
   @JsonKey(name: "mass")
-  int get mass => throw _privateConstructorUsedError;
+  int? get mass => throw _privateConstructorUsedError;
   @JsonKey(name: "grade")
   dynamic get grade => throw _privateConstructorUsedError;
   @JsonKey(name: "class")
   dynamic get itemClass => throw _privateConstructorUsedError;
   @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer => throw _privateConstructorUsedError;
+  ItemManufacturer? get manufacturer => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "sub_type")
-  String get subType => throw _privateConstructorUsedError;
+  String? get subType => throw _privateConstructorUsedError;
   @JsonKey(name: "vehicle_weapon")
-  CounterMeasure? get vehicleWeapon => throw _privateConstructorUsedError;
-  @JsonKey(name: "ports")
-  List<Port> get ports => throw _privateConstructorUsedError;
+  PurpleVehicleWeapon? get vehicleWeapon => throw _privateConstructorUsedError;
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
 
+  /// Serializes this PurpleItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PurpleItemCopyWith<PurpleItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -4696,23 +5186,22 @@ abstract class $PurpleItemCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "mass") int mass,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "mass") int? mass,
       @JsonKey(name: "grade") dynamic grade,
       @JsonKey(name: "class") dynamic itemClass,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "vehicle_weapon") CounterMeasure? vehicleWeapon,
-      @JsonKey(name: "ports") List<Port> ports,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version});
+      @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "vehicle_weapon") PurpleVehicleWeapon? vehicleWeapon,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version});
 
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
-  $CounterMeasureCopyWith<$Res>? get vehicleWeapon;
+  $ItemManufacturerCopyWith<$Res>? get manufacturer;
+  $PurpleVehicleWeaponCopyWith<$Res>? get vehicleWeapon;
 }
 
 /// @nodoc
@@ -4725,50 +5214,51 @@ class _$PurpleItemCopyWithImpl<$Res, $Val extends PurpleItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? name = null,
+    Object? name = freezed,
     Object? className = freezed,
-    Object? link = null,
-    Object? size = null,
-    Object? mass = null,
+    Object? link = freezed,
+    Object? size = freezed,
+    Object? mass = freezed,
     Object? grade = freezed,
     Object? itemClass = freezed,
-    Object? manufacturer = null,
-    Object? type = null,
-    Object? subType = null,
+    Object? manufacturer = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
     Object? vehicleWeapon = freezed,
-    Object? ports = null,
-    Object? updatedAt = null,
-    Object? version = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      mass: null == mass
+              as int?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
@@ -4777,53 +5267,57 @@ class _$PurpleItemCopyWithImpl<$Res, $Val extends PurpleItem>
           ? _value.itemClass
           : itemClass // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      manufacturer: null == manufacturer
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      type: null == type
+              as ItemManufacturer?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleWeapon: freezed == vehicleWeapon
           ? _value.vehicleWeapon
           : vehicleWeapon // ignore: cast_nullable_to_non_nullable
-              as CounterMeasure?,
-      ports: null == ports
-          ? _value.ports
-          : ports // ignore: cast_nullable_to_non_nullable
-              as List<Port>,
-      updatedAt: null == updatedAt
+              as PurpleVehicleWeapon?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ItemManufacturerCopyWith<$Res> get manufacturer {
-    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer, (value) {
+  $ItemManufacturerCopyWith<$Res>? get manufacturer {
+    if (_value.manufacturer == null) {
+      return null;
+    }
+
+    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer!, (value) {
       return _then(_value.copyWith(manufacturer: value) as $Val);
     });
   }
 
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CounterMeasureCopyWith<$Res>? get vehicleWeapon {
+  $PurpleVehicleWeaponCopyWith<$Res>? get vehicleWeapon {
     if (_value.vehicleWeapon == null) {
       return null;
     }
 
-    return $CounterMeasureCopyWith<$Res>(_value.vehicleWeapon!, (value) {
+    return $PurpleVehicleWeaponCopyWith<$Res>(_value.vehicleWeapon!, (value) {
       return _then(_value.copyWith(vehicleWeapon: value) as $Val);
     });
   }
@@ -4839,25 +5333,24 @@ abstract class _$$PurpleItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "mass") int mass,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "mass") int? mass,
       @JsonKey(name: "grade") dynamic grade,
       @JsonKey(name: "class") dynamic itemClass,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "vehicle_weapon") CounterMeasure? vehicleWeapon,
-      @JsonKey(name: "ports") List<Port> ports,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version});
+      @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "vehicle_weapon") PurpleVehicleWeapon? vehicleWeapon,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version});
 
   @override
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
+  $ItemManufacturerCopyWith<$Res>? get manufacturer;
   @override
-  $CounterMeasureCopyWith<$Res>? get vehicleWeapon;
+  $PurpleVehicleWeaponCopyWith<$Res>? get vehicleWeapon;
 }
 
 /// @nodoc
@@ -4868,50 +5361,51 @@ class __$$PurpleItemImplCopyWithImpl<$Res>
       _$PurpleItemImpl _value, $Res Function(_$PurpleItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? name = null,
+    Object? name = freezed,
     Object? className = freezed,
-    Object? link = null,
-    Object? size = null,
-    Object? mass = null,
+    Object? link = freezed,
+    Object? size = freezed,
+    Object? mass = freezed,
     Object? grade = freezed,
     Object? itemClass = freezed,
-    Object? manufacturer = null,
-    Object? type = null,
-    Object? subType = null,
+    Object? manufacturer = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
     Object? vehicleWeapon = freezed,
-    Object? ports = null,
-    Object? updatedAt = null,
-    Object? version = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
   }) {
     return _then(_$PurpleItemImpl(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      mass: null == mass
+              as int?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
@@ -4920,34 +5414,30 @@ class __$$PurpleItemImplCopyWithImpl<$Res>
           ? _value.itemClass
           : itemClass // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      manufacturer: null == manufacturer
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      type: null == type
+              as ItemManufacturer?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleWeapon: freezed == vehicleWeapon
           ? _value.vehicleWeapon
           : vehicleWeapon // ignore: cast_nullable_to_non_nullable
-              as CounterMeasure?,
-      ports: null == ports
-          ? _value._ports
-          : ports // ignore: cast_nullable_to_non_nullable
-              as List<Port>,
-      updatedAt: null == updatedAt
+              as PurpleVehicleWeapon?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -4957,21 +5447,19 @@ class __$$PurpleItemImplCopyWithImpl<$Res>
 class _$PurpleItemImpl implements _PurpleItem {
   const _$PurpleItemImpl(
       {@JsonKey(name: "uuid") this.uuid,
-      @JsonKey(name: "name") required this.name,
+      @JsonKey(name: "name") this.name,
       @JsonKey(name: "class_name") this.className,
-      @JsonKey(name: "link") required this.link,
-      @JsonKey(name: "size") required this.size,
-      @JsonKey(name: "mass") required this.mass,
-      @JsonKey(name: "grade") required this.grade,
-      @JsonKey(name: "class") required this.itemClass,
-      @JsonKey(name: "manufacturer") required this.manufacturer,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
+      @JsonKey(name: "link") this.link,
+      @JsonKey(name: "size") this.size,
+      @JsonKey(name: "mass") this.mass,
+      @JsonKey(name: "grade") this.grade,
+      @JsonKey(name: "class") this.itemClass,
+      @JsonKey(name: "manufacturer") this.manufacturer,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_type") this.subType,
       @JsonKey(name: "vehicle_weapon") this.vehicleWeapon,
-      @JsonKey(name: "ports") required final List<Port> ports,
-      @JsonKey(name: "updated_at") required this.updatedAt,
-      @JsonKey(name: "version") required this.version})
-      : _ports = ports;
+      @JsonKey(name: "updated_at") this.updatedAt,
+      @JsonKey(name: "version") this.version});
 
   factory _$PurpleItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$PurpleItemImplFromJson(json);
@@ -4981,19 +5469,19 @@ class _$PurpleItemImpl implements _PurpleItem {
   final String? uuid;
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "class_name")
   final String? className;
   @override
   @JsonKey(name: "link")
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: "size")
-  final int size;
+  final int? size;
   @override
   @JsonKey(name: "mass")
-  final int mass;
+  final int? mass;
   @override
   @JsonKey(name: "grade")
   final dynamic grade;
@@ -5002,35 +5490,26 @@ class _$PurpleItemImpl implements _PurpleItem {
   final dynamic itemClass;
   @override
   @JsonKey(name: "manufacturer")
-  final ItemManufacturer manufacturer;
+  final ItemManufacturer? manufacturer;
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "sub_type")
-  final String subType;
+  final String? subType;
   @override
   @JsonKey(name: "vehicle_weapon")
-  final CounterMeasure? vehicleWeapon;
-  final List<Port> _ports;
-  @override
-  @JsonKey(name: "ports")
-  List<Port> get ports {
-    if (_ports is EqualUnmodifiableListView) return _ports;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ports);
-  }
-
+  final PurpleVehicleWeapon? vehicleWeapon;
   @override
   @JsonKey(name: "updated_at")
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   @override
   @JsonKey(name: "version")
-  final String version;
+  final String? version;
 
   @override
   String toString() {
-    return 'PurpleItem(uuid: $uuid, name: $name, className: $className, link: $link, size: $size, mass: $mass, grade: $grade, itemClass: $itemClass, manufacturer: $manufacturer, type: $type, subType: $subType, vehicleWeapon: $vehicleWeapon, ports: $ports, updatedAt: $updatedAt, version: $version)';
+    return 'PurpleItem(uuid: $uuid, name: $name, className: $className, link: $link, size: $size, mass: $mass, grade: $grade, itemClass: $itemClass, manufacturer: $manufacturer, type: $type, subType: $subType, vehicleWeapon: $vehicleWeapon, updatedAt: $updatedAt, version: $version)';
   }
 
   @override
@@ -5053,13 +5532,12 @@ class _$PurpleItemImpl implements _PurpleItem {
             (identical(other.subType, subType) || other.subType == subType) &&
             (identical(other.vehicleWeapon, vehicleWeapon) ||
                 other.vehicleWeapon == vehicleWeapon) &&
-            const DeepCollectionEquality().equals(other._ports, _ports) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -5075,11 +5553,12 @@ class _$PurpleItemImpl implements _PurpleItem {
       type,
       subType,
       vehicleWeapon,
-      const DeepCollectionEquality().hash(_ports),
       updatedAt,
       version);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PurpleItemImplCopyWith<_$PurpleItemImpl> get copyWith =>
@@ -5095,23 +5574,20 @@ class _$PurpleItemImpl implements _PurpleItem {
 
 abstract class _PurpleItem implements PurpleItem {
   const factory _PurpleItem(
-          {@JsonKey(name: "uuid") final String? uuid,
-          @JsonKey(name: "name") required final String name,
-          @JsonKey(name: "class_name") final String? className,
-          @JsonKey(name: "link") required final String link,
-          @JsonKey(name: "size") required final int size,
-          @JsonKey(name: "mass") required final int mass,
-          @JsonKey(name: "grade") required final dynamic grade,
-          @JsonKey(name: "class") required final dynamic itemClass,
-          @JsonKey(name: "manufacturer")
-          required final ItemManufacturer manufacturer,
-          @JsonKey(name: "type") required final String type,
-          @JsonKey(name: "sub_type") required final String subType,
-          @JsonKey(name: "vehicle_weapon") final CounterMeasure? vehicleWeapon,
-          @JsonKey(name: "ports") required final List<Port> ports,
-          @JsonKey(name: "updated_at") required final DateTime updatedAt,
-          @JsonKey(name: "version") required final String version}) =
-      _$PurpleItemImpl;
+      {@JsonKey(name: "uuid") final String? uuid,
+      @JsonKey(name: "name") final String? name,
+      @JsonKey(name: "class_name") final String? className,
+      @JsonKey(name: "link") final String? link,
+      @JsonKey(name: "size") final int? size,
+      @JsonKey(name: "mass") final int? mass,
+      @JsonKey(name: "grade") final dynamic grade,
+      @JsonKey(name: "class") final dynamic itemClass,
+      @JsonKey(name: "manufacturer") final ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") final String? type,
+      @JsonKey(name: "sub_type") final String? subType,
+      @JsonKey(name: "vehicle_weapon") final PurpleVehicleWeapon? vehicleWeapon,
+      @JsonKey(name: "updated_at") final DateTime? updatedAt,
+      @JsonKey(name: "version") final String? version}) = _$PurpleItemImpl;
 
   factory _PurpleItem.fromJson(Map<String, dynamic> json) =
       _$PurpleItemImpl.fromJson;
@@ -5121,19 +5597,19 @@ abstract class _PurpleItem implements PurpleItem {
   String? get uuid;
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "class_name")
   String? get className;
   @override
   @JsonKey(name: "link")
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: "size")
-  int get size;
+  int? get size;
   @override
   @JsonKey(name: "mass")
-  int get mass;
+  int? get mass;
   @override
   @JsonKey(name: "grade")
   dynamic get grade;
@@ -5142,27 +5618,27 @@ abstract class _PurpleItem implements PurpleItem {
   dynamic get itemClass;
   @override
   @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer;
+  ItemManufacturer? get manufacturer;
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "sub_type")
-  String get subType;
+  String? get subType;
   @override
   @JsonKey(name: "vehicle_weapon")
-  CounterMeasure? get vehicleWeapon;
-  @override
-  @JsonKey(name: "ports")
-  List<Port> get ports;
+  PurpleVehicleWeapon? get vehicleWeapon;
   @override
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
+
+  /// Create a copy of PurpleItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PurpleItemImplCopyWith<_$PurpleItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -5174,14 +5650,18 @@ ItemManufacturer _$ItemManufacturerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ItemManufacturer {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "code")
-  String get code => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
   @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
 
+  /// Serializes this ItemManufacturer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ItemManufacturer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ItemManufacturerCopyWith<ItemManufacturer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -5193,9 +5673,9 @@ abstract class $ItemManufacturerCopyWith<$Res> {
       _$ItemManufacturerCopyWithImpl<$Res, ItemManufacturer>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "code") String code,
-      @JsonKey(name: "link") String link});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "code") String? code,
+      @JsonKey(name: "link") String? link});
 }
 
 /// @nodoc
@@ -5208,26 +5688,28 @@ class _$ItemManufacturerCopyWithImpl<$Res, $Val extends ItemManufacturer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ItemManufacturer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? code = null,
-    Object? link = null,
+    Object? name = freezed,
+    Object? code = freezed,
+    Object? link = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
+              as String?,
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -5241,9 +5723,9 @@ abstract class _$$ItemManufacturerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "code") String code,
-      @JsonKey(name: "link") String link});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "code") String? code,
+      @JsonKey(name: "link") String? link});
 }
 
 /// @nodoc
@@ -5254,26 +5736,28 @@ class __$$ItemManufacturerImplCopyWithImpl<$Res>
       $Res Function(_$ItemManufacturerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ItemManufacturer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? code = null,
-    Object? link = null,
+    Object? name = freezed,
+    Object? code = freezed,
+    Object? link = freezed,
   }) {
     return _then(_$ItemManufacturerImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
+              as String?,
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -5282,22 +5766,22 @@ class __$$ItemManufacturerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ItemManufacturerImpl implements _ItemManufacturer {
   const _$ItemManufacturerImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "code") required this.code,
-      @JsonKey(name: "link") required this.link});
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "code") this.code,
+      @JsonKey(name: "link") this.link});
 
   factory _$ItemManufacturerImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItemManufacturerImplFromJson(json);
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "code")
-  final String code;
+  final String? code;
   @override
   @JsonKey(name: "link")
-  final String link;
+  final String? link;
 
   @override
   String toString() {
@@ -5314,11 +5798,13 @@ class _$ItemManufacturerImpl implements _ItemManufacturer {
             (identical(other.link, link) || other.link == link));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, code, link);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ItemManufacturer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ItemManufacturerImplCopyWith<_$ItemManufacturerImpl> get copyWith =>
@@ -5335,1372 +5821,345 @@ class _$ItemManufacturerImpl implements _ItemManufacturer {
 
 abstract class _ItemManufacturer implements ItemManufacturer {
   const factory _ItemManufacturer(
-          {@JsonKey(name: "name") required final String name,
-          @JsonKey(name: "code") required final String code,
-          @JsonKey(name: "link") required final String link}) =
-      _$ItemManufacturerImpl;
+      {@JsonKey(name: "name") final String? name,
+      @JsonKey(name: "code") final String? code,
+      @JsonKey(name: "link") final String? link}) = _$ItemManufacturerImpl;
 
   factory _ItemManufacturer.fromJson(Map<String, dynamic> json) =
       _$ItemManufacturerImpl.fromJson;
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "code")
-  String get code;
+  String? get code;
   @override
   @JsonKey(name: "link")
-  String get link;
+  String? get link;
+
+  /// Create a copy of ItemManufacturer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ItemManufacturerImplCopyWith<_$ItemManufacturerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Port _$PortFromJson(Map<String, dynamic> json) {
-  return _Port.fromJson(json);
+PurpleVehicleWeapon _$PurpleVehicleWeaponFromJson(Map<String, dynamic> json) {
+  return _PurpleVehicleWeapon.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Port {
-  @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "display_name")
-  String get displayName => throw _privateConstructorUsedError;
-  @JsonKey(name: "position")
-  String get position => throw _privateConstructorUsedError;
-  @JsonKey(name: "sizes")
-  PriceRange get sizes => throw _privateConstructorUsedError;
-  @JsonKey(name: "compatible_types")
-  List<CompatibleType> get compatibleTypes =>
-      throw _privateConstructorUsedError;
-  @JsonKey(name: "tags")
-  List<String> get tags => throw _privateConstructorUsedError;
-  @JsonKey(name: "required_tags")
-  List<String> get requiredTags => throw _privateConstructorUsedError;
-  @JsonKey(name: "equipped_item")
-  EquippedItem? get equippedItem => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PortCopyWith<Port> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PortCopyWith<$Res> {
-  factory $PortCopyWith(Port value, $Res Function(Port) then) =
-      _$PortCopyWithImpl<$Res, Port>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "display_name") String displayName,
-      @JsonKey(name: "position") String position,
-      @JsonKey(name: "sizes") PriceRange sizes,
-      @JsonKey(name: "compatible_types") List<CompatibleType> compatibleTypes,
-      @JsonKey(name: "tags") List<String> tags,
-      @JsonKey(name: "required_tags") List<String> requiredTags,
-      @JsonKey(name: "equipped_item") EquippedItem? equippedItem});
-
-  $PriceRangeCopyWith<$Res> get sizes;
-  $EquippedItemCopyWith<$Res>? get equippedItem;
-}
-
-/// @nodoc
-class _$PortCopyWithImpl<$Res, $Val extends Port>
-    implements $PortCopyWith<$Res> {
-  _$PortCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? displayName = null,
-    Object? position = null,
-    Object? sizes = null,
-    Object? compatibleTypes = null,
-    Object? tags = null,
-    Object? requiredTags = null,
-    Object? equippedItem = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      sizes: null == sizes
-          ? _value.sizes
-          : sizes // ignore: cast_nullable_to_non_nullable
-              as PriceRange,
-      compatibleTypes: null == compatibleTypes
-          ? _value.compatibleTypes
-          : compatibleTypes // ignore: cast_nullable_to_non_nullable
-              as List<CompatibleType>,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      requiredTags: null == requiredTags
-          ? _value.requiredTags
-          : requiredTags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      equippedItem: freezed == equippedItem
-          ? _value.equippedItem
-          : equippedItem // ignore: cast_nullable_to_non_nullable
-              as EquippedItem?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceRangeCopyWith<$Res> get sizes {
-    return $PriceRangeCopyWith<$Res>(_value.sizes, (value) {
-      return _then(_value.copyWith(sizes: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $EquippedItemCopyWith<$Res>? get equippedItem {
-    if (_value.equippedItem == null) {
-      return null;
-    }
-
-    return $EquippedItemCopyWith<$Res>(_value.equippedItem!, (value) {
-      return _then(_value.copyWith(equippedItem: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PortImplCopyWith<$Res> implements $PortCopyWith<$Res> {
-  factory _$$PortImplCopyWith(
-          _$PortImpl value, $Res Function(_$PortImpl) then) =
-      __$$PortImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "display_name") String displayName,
-      @JsonKey(name: "position") String position,
-      @JsonKey(name: "sizes") PriceRange sizes,
-      @JsonKey(name: "compatible_types") List<CompatibleType> compatibleTypes,
-      @JsonKey(name: "tags") List<String> tags,
-      @JsonKey(name: "required_tags") List<String> requiredTags,
-      @JsonKey(name: "equipped_item") EquippedItem? equippedItem});
-
-  @override
-  $PriceRangeCopyWith<$Res> get sizes;
-  @override
-  $EquippedItemCopyWith<$Res>? get equippedItem;
-}
-
-/// @nodoc
-class __$$PortImplCopyWithImpl<$Res>
-    extends _$PortCopyWithImpl<$Res, _$PortImpl>
-    implements _$$PortImplCopyWith<$Res> {
-  __$$PortImplCopyWithImpl(_$PortImpl _value, $Res Function(_$PortImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? displayName = null,
-    Object? position = null,
-    Object? sizes = null,
-    Object? compatibleTypes = null,
-    Object? tags = null,
-    Object? requiredTags = null,
-    Object? equippedItem = freezed,
-  }) {
-    return _then(_$PortImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      sizes: null == sizes
-          ? _value.sizes
-          : sizes // ignore: cast_nullable_to_non_nullable
-              as PriceRange,
-      compatibleTypes: null == compatibleTypes
-          ? _value._compatibleTypes
-          : compatibleTypes // ignore: cast_nullable_to_non_nullable
-              as List<CompatibleType>,
-      tags: null == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      requiredTags: null == requiredTags
-          ? _value._requiredTags
-          : requiredTags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      equippedItem: freezed == equippedItem
-          ? _value.equippedItem
-          : equippedItem // ignore: cast_nullable_to_non_nullable
-              as EquippedItem?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PortImpl implements _Port {
-  const _$PortImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "display_name") required this.displayName,
-      @JsonKey(name: "position") required this.position,
-      @JsonKey(name: "sizes") required this.sizes,
-      @JsonKey(name: "compatible_types")
-      required final List<CompatibleType> compatibleTypes,
-      @JsonKey(name: "tags") required final List<String> tags,
-      @JsonKey(name: "required_tags") required final List<String> requiredTags,
-      @JsonKey(name: "equipped_item") required this.equippedItem})
-      : _compatibleTypes = compatibleTypes,
-        _tags = tags,
-        _requiredTags = requiredTags;
-
-  factory _$PortImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PortImplFromJson(json);
-
-  @override
-  @JsonKey(name: "name")
-  final String name;
-  @override
-  @JsonKey(name: "display_name")
-  final String displayName;
-  @override
-  @JsonKey(name: "position")
-  final String position;
-  @override
-  @JsonKey(name: "sizes")
-  final PriceRange sizes;
-  final List<CompatibleType> _compatibleTypes;
-  @override
-  @JsonKey(name: "compatible_types")
-  List<CompatibleType> get compatibleTypes {
-    if (_compatibleTypes is EqualUnmodifiableListView) return _compatibleTypes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_compatibleTypes);
-  }
-
-  final List<String> _tags;
-  @override
-  @JsonKey(name: "tags")
-  List<String> get tags {
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tags);
-  }
-
-  final List<String> _requiredTags;
-  @override
-  @JsonKey(name: "required_tags")
-  List<String> get requiredTags {
-    if (_requiredTags is EqualUnmodifiableListView) return _requiredTags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_requiredTags);
-  }
-
-  @override
-  @JsonKey(name: "equipped_item")
-  final EquippedItem? equippedItem;
-
-  @override
-  String toString() {
-    return 'Port(name: $name, displayName: $displayName, position: $position, sizes: $sizes, compatibleTypes: $compatibleTypes, tags: $tags, requiredTags: $requiredTags, equippedItem: $equippedItem)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PortImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.displayName, displayName) ||
-                other.displayName == displayName) &&
-            (identical(other.position, position) ||
-                other.position == position) &&
-            (identical(other.sizes, sizes) || other.sizes == sizes) &&
-            const DeepCollectionEquality()
-                .equals(other._compatibleTypes, _compatibleTypes) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
-            const DeepCollectionEquality()
-                .equals(other._requiredTags, _requiredTags) &&
-            (identical(other.equippedItem, equippedItem) ||
-                other.equippedItem == equippedItem));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      name,
-      displayName,
-      position,
-      sizes,
-      const DeepCollectionEquality().hash(_compatibleTypes),
-      const DeepCollectionEquality().hash(_tags),
-      const DeepCollectionEquality().hash(_requiredTags),
-      equippedItem);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PortImplCopyWith<_$PortImpl> get copyWith =>
-      __$$PortImplCopyWithImpl<_$PortImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PortImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Port implements Port {
-  const factory _Port(
-      {@JsonKey(name: "name") required final String name,
-      @JsonKey(name: "display_name") required final String displayName,
-      @JsonKey(name: "position") required final String position,
-      @JsonKey(name: "sizes") required final PriceRange sizes,
-      @JsonKey(name: "compatible_types")
-      required final List<CompatibleType> compatibleTypes,
-      @JsonKey(name: "tags") required final List<String> tags,
-      @JsonKey(name: "required_tags") required final List<String> requiredTags,
-      @JsonKey(name: "equipped_item")
-      required final EquippedItem? equippedItem}) = _$PortImpl;
-
-  factory _Port.fromJson(Map<String, dynamic> json) = _$PortImpl.fromJson;
-
-  @override
-  @JsonKey(name: "name")
-  String get name;
-  @override
-  @JsonKey(name: "display_name")
-  String get displayName;
-  @override
-  @JsonKey(name: "position")
-  String get position;
-  @override
-  @JsonKey(name: "sizes")
-  PriceRange get sizes;
-  @override
-  @JsonKey(name: "compatible_types")
-  List<CompatibleType> get compatibleTypes;
-  @override
-  @JsonKey(name: "tags")
-  List<String> get tags;
-  @override
-  @JsonKey(name: "required_tags")
-  List<String> get requiredTags;
-  @override
-  @JsonKey(name: "equipped_item")
-  EquippedItem? get equippedItem;
-  @override
-  @JsonKey(ignore: true)
-  _$$PortImplCopyWith<_$PortImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-CompatibleType _$CompatibleTypeFromJson(Map<String, dynamic> json) {
-  return _CompatibleType.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CompatibleType {
-  @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
-  @JsonKey(name: "sub_types")
-  List<String> get subTypes => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CompatibleTypeCopyWith<CompatibleType> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CompatibleTypeCopyWith<$Res> {
-  factory $CompatibleTypeCopyWith(
-          CompatibleType value, $Res Function(CompatibleType) then) =
-      _$CompatibleTypeCopyWithImpl<$Res, CompatibleType>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_types") List<String> subTypes});
-}
-
-/// @nodoc
-class _$CompatibleTypeCopyWithImpl<$Res, $Val extends CompatibleType>
-    implements $CompatibleTypeCopyWith<$Res> {
-  _$CompatibleTypeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? subTypes = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subTypes: null == subTypes
-          ? _value.subTypes
-          : subTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CompatibleTypeImplCopyWith<$Res>
-    implements $CompatibleTypeCopyWith<$Res> {
-  factory _$$CompatibleTypeImplCopyWith(_$CompatibleTypeImpl value,
-          $Res Function(_$CompatibleTypeImpl) then) =
-      __$$CompatibleTypeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_types") List<String> subTypes});
-}
-
-/// @nodoc
-class __$$CompatibleTypeImplCopyWithImpl<$Res>
-    extends _$CompatibleTypeCopyWithImpl<$Res, _$CompatibleTypeImpl>
-    implements _$$CompatibleTypeImplCopyWith<$Res> {
-  __$$CompatibleTypeImplCopyWithImpl(
-      _$CompatibleTypeImpl _value, $Res Function(_$CompatibleTypeImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? subTypes = null,
-  }) {
-    return _then(_$CompatibleTypeImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subTypes: null == subTypes
-          ? _value._subTypes
-          : subTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CompatibleTypeImpl implements _CompatibleType {
-  const _$CompatibleTypeImpl(
-      {@JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_types") required final List<String> subTypes})
-      : _subTypes = subTypes;
-
-  factory _$CompatibleTypeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CompatibleTypeImplFromJson(json);
-
-  @override
-  @JsonKey(name: "type")
-  final String type;
-  final List<String> _subTypes;
-  @override
-  @JsonKey(name: "sub_types")
-  List<String> get subTypes {
-    if (_subTypes is EqualUnmodifiableListView) return _subTypes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subTypes);
-  }
-
-  @override
-  String toString() {
-    return 'CompatibleType(type: $type, subTypes: $subTypes)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CompatibleTypeImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other._subTypes, _subTypes));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(_subTypes));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CompatibleTypeImplCopyWith<_$CompatibleTypeImpl> get copyWith =>
-      __$$CompatibleTypeImplCopyWithImpl<_$CompatibleTypeImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CompatibleTypeImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _CompatibleType implements CompatibleType {
-  const factory _CompatibleType(
-          {@JsonKey(name: "type") required final String type,
-          @JsonKey(name: "sub_types") required final List<String> subTypes}) =
-      _$CompatibleTypeImpl;
-
-  factory _CompatibleType.fromJson(Map<String, dynamic> json) =
-      _$CompatibleTypeImpl.fromJson;
-
-  @override
-  @JsonKey(name: "type")
-  String get type;
-  @override
-  @JsonKey(name: "sub_types")
-  List<String> get subTypes;
-  @override
-  @JsonKey(ignore: true)
-  _$$CompatibleTypeImplCopyWith<_$CompatibleTypeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-EquippedItem _$EquippedItemFromJson(Map<String, dynamic> json) {
-  return _EquippedItem.fromJson(json);
-}
-
-/// @nodoc
-mixin _$EquippedItem {
-  @JsonKey(name: "uuid")
-  String? get uuid => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
-  @JsonKey(name: "sub_type")
-  String get subType => throw _privateConstructorUsedError;
-  @JsonKey(name: "is_base_variant")
-  bool get isBaseVariant => throw _privateConstructorUsedError;
-  @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer => throw _privateConstructorUsedError;
-  @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
-  @JsonKey(name: "updated_at")
-  DateTime get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EquippedItemCopyWith<EquippedItem> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $EquippedItemCopyWith<$Res> {
-  factory $EquippedItemCopyWith(
-          EquippedItem value, $Res Function(EquippedItem) then) =
-      _$EquippedItemCopyWithImpl<$Res, EquippedItem>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "is_base_variant") bool isBaseVariant,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version});
-
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
-}
-
-/// @nodoc
-class _$EquippedItemCopyWithImpl<$Res, $Val extends EquippedItem>
-    implements $EquippedItemCopyWith<$Res> {
-  _$EquippedItemCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = freezed,
-    Object? name = null,
-    Object? type = null,
-    Object? subType = null,
-    Object? isBaseVariant = null,
-    Object? manufacturer = null,
-    Object? link = null,
-    Object? updatedAt = null,
-    Object? version = null,
-  }) {
-    return _then(_value.copyWith(
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
-          ? _value.subType
-          : subType // ignore: cast_nullable_to_non_nullable
-              as String,
-      isBaseVariant: null == isBaseVariant
-          ? _value.isBaseVariant
-          : isBaseVariant // ignore: cast_nullable_to_non_nullable
-              as bool,
-      manufacturer: null == manufacturer
-          ? _value.manufacturer
-          : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ItemManufacturerCopyWith<$Res> get manufacturer {
-    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer, (value) {
-      return _then(_value.copyWith(manufacturer: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$EquippedItemImplCopyWith<$Res>
-    implements $EquippedItemCopyWith<$Res> {
-  factory _$$EquippedItemImplCopyWith(
-          _$EquippedItemImpl value, $Res Function(_$EquippedItemImpl) then) =
-      __$$EquippedItemImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "is_base_variant") bool isBaseVariant,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version});
-
-  @override
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
-}
-
-/// @nodoc
-class __$$EquippedItemImplCopyWithImpl<$Res>
-    extends _$EquippedItemCopyWithImpl<$Res, _$EquippedItemImpl>
-    implements _$$EquippedItemImplCopyWith<$Res> {
-  __$$EquippedItemImplCopyWithImpl(
-      _$EquippedItemImpl _value, $Res Function(_$EquippedItemImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = freezed,
-    Object? name = null,
-    Object? type = null,
-    Object? subType = null,
-    Object? isBaseVariant = null,
-    Object? manufacturer = null,
-    Object? link = null,
-    Object? updatedAt = null,
-    Object? version = null,
-  }) {
-    return _then(_$EquippedItemImpl(
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
-          ? _value.subType
-          : subType // ignore: cast_nullable_to_non_nullable
-              as String,
-      isBaseVariant: null == isBaseVariant
-          ? _value.isBaseVariant
-          : isBaseVariant // ignore: cast_nullable_to_non_nullable
-              as bool,
-      manufacturer: null == manufacturer
-          ? _value.manufacturer
-          : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      link: null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$EquippedItemImpl implements _EquippedItem {
-  const _$EquippedItemImpl(
-      {@JsonKey(name: "uuid") this.uuid,
-      @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
-      @JsonKey(name: "is_base_variant") required this.isBaseVariant,
-      @JsonKey(name: "manufacturer") required this.manufacturer,
-      @JsonKey(name: "link") required this.link,
-      @JsonKey(name: "updated_at") required this.updatedAt,
-      @JsonKey(name: "version") required this.version});
-
-  factory _$EquippedItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EquippedItemImplFromJson(json);
-
-  @override
-  @JsonKey(name: "uuid")
-  final String? uuid;
-  @override
-  @JsonKey(name: "name")
-  final String name;
-  @override
-  @JsonKey(name: "type")
-  final String type;
-  @override
-  @JsonKey(name: "sub_type")
-  final String subType;
-  @override
-  @JsonKey(name: "is_base_variant")
-  final bool isBaseVariant;
-  @override
-  @JsonKey(name: "manufacturer")
-  final ItemManufacturer manufacturer;
-  @override
-  @JsonKey(name: "link")
-  final String link;
-  @override
-  @JsonKey(name: "updated_at")
-  final DateTime updatedAt;
-  @override
-  @JsonKey(name: "version")
-  final String version;
-
-  @override
-  String toString() {
-    return 'EquippedItem(uuid: $uuid, name: $name, type: $type, subType: $subType, isBaseVariant: $isBaseVariant, manufacturer: $manufacturer, link: $link, updatedAt: $updatedAt, version: $version)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EquippedItemImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.subType, subType) || other.subType == subType) &&
-            (identical(other.isBaseVariant, isBaseVariant) ||
-                other.isBaseVariant == isBaseVariant) &&
-            (identical(other.manufacturer, manufacturer) ||
-                other.manufacturer == manufacturer) &&
-            (identical(other.link, link) || other.link == link) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.version, version) || other.version == version));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, uuid, name, type, subType,
-      isBaseVariant, manufacturer, link, updatedAt, version);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$EquippedItemImplCopyWith<_$EquippedItemImpl> get copyWith =>
-      __$$EquippedItemImplCopyWithImpl<_$EquippedItemImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EquippedItemImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _EquippedItem implements EquippedItem {
-  const factory _EquippedItem(
-          {@JsonKey(name: "uuid") final String? uuid,
-          @JsonKey(name: "name") required final String name,
-          @JsonKey(name: "type") required final String type,
-          @JsonKey(name: "sub_type") required final String subType,
-          @JsonKey(name: "is_base_variant") required final bool isBaseVariant,
-          @JsonKey(name: "manufacturer")
-          required final ItemManufacturer manufacturer,
-          @JsonKey(name: "link") required final String link,
-          @JsonKey(name: "updated_at") required final DateTime updatedAt,
-          @JsonKey(name: "version") required final String version}) =
-      _$EquippedItemImpl;
-
-  factory _EquippedItem.fromJson(Map<String, dynamic> json) =
-      _$EquippedItemImpl.fromJson;
-
-  @override
-  @JsonKey(name: "uuid")
-  String? get uuid;
-  @override
-  @JsonKey(name: "name")
-  String get name;
-  @override
-  @JsonKey(name: "type")
-  String get type;
-  @override
-  @JsonKey(name: "sub_type")
-  String get subType;
-  @override
-  @JsonKey(name: "is_base_variant")
-  bool get isBaseVariant;
-  @override
-  @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer;
-  @override
-  @JsonKey(name: "link")
-  String get link;
-  @override
-  @JsonKey(name: "updated_at")
-  DateTime get updatedAt;
-  @override
-  @JsonKey(name: "version")
-  String get version;
-  @override
-  @JsonKey(ignore: true)
-  _$$EquippedItemImplCopyWith<_$EquippedItemImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PriceRange _$PriceRangeFromJson(Map<String, dynamic> json) {
-  return _PriceRange.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PriceRange {
-  @JsonKey(name: "min")
-  int get min => throw _privateConstructorUsedError;
-  @JsonKey(name: "max")
-  int get max => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PriceRangeCopyWith<PriceRange> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PriceRangeCopyWith<$Res> {
-  factory $PriceRangeCopyWith(
-          PriceRange value, $Res Function(PriceRange) then) =
-      _$PriceRangeCopyWithImpl<$Res, PriceRange>;
-  @useResult
-  $Res call({@JsonKey(name: "min") int min, @JsonKey(name: "max") int max});
-}
-
-/// @nodoc
-class _$PriceRangeCopyWithImpl<$Res, $Val extends PriceRange>
-    implements $PriceRangeCopyWith<$Res> {
-  _$PriceRangeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? min = null,
-    Object? max = null,
-  }) {
-    return _then(_value.copyWith(
-      min: null == min
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as int,
-      max: null == max
-          ? _value.max
-          : max // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$PriceRangeImplCopyWith<$Res>
-    implements $PriceRangeCopyWith<$Res> {
-  factory _$$PriceRangeImplCopyWith(
-          _$PriceRangeImpl value, $Res Function(_$PriceRangeImpl) then) =
-      __$$PriceRangeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: "min") int min, @JsonKey(name: "max") int max});
-}
-
-/// @nodoc
-class __$$PriceRangeImplCopyWithImpl<$Res>
-    extends _$PriceRangeCopyWithImpl<$Res, _$PriceRangeImpl>
-    implements _$$PriceRangeImplCopyWith<$Res> {
-  __$$PriceRangeImplCopyWithImpl(
-      _$PriceRangeImpl _value, $Res Function(_$PriceRangeImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? min = null,
-    Object? max = null,
-  }) {
-    return _then(_$PriceRangeImpl(
-      min: null == min
-          ? _value.min
-          : min // ignore: cast_nullable_to_non_nullable
-              as int,
-      max: null == max
-          ? _value.max
-          : max // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PriceRangeImpl implements _PriceRange {
-  const _$PriceRangeImpl(
-      {@JsonKey(name: "min") required this.min,
-      @JsonKey(name: "max") required this.max});
-
-  factory _$PriceRangeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PriceRangeImplFromJson(json);
-
-  @override
-  @JsonKey(name: "min")
-  final int min;
-  @override
-  @JsonKey(name: "max")
-  final int max;
-
-  @override
-  String toString() {
-    return 'PriceRange(min: $min, max: $max)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PriceRangeImpl &&
-            (identical(other.min, min) || other.min == min) &&
-            (identical(other.max, max) || other.max == max));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, min, max);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PriceRangeImplCopyWith<_$PriceRangeImpl> get copyWith =>
-      __$$PriceRangeImplCopyWithImpl<_$PriceRangeImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PriceRangeImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PriceRange implements PriceRange {
-  const factory _PriceRange(
-      {@JsonKey(name: "min") required final int min,
-      @JsonKey(name: "max") required final int max}) = _$PriceRangeImpl;
-
-  factory _PriceRange.fromJson(Map<String, dynamic> json) =
-      _$PriceRangeImpl.fromJson;
-
-  @override
-  @JsonKey(name: "min")
-  int get min;
-  @override
-  @JsonKey(name: "max")
-  int get max;
-  @override
-  @JsonKey(ignore: true)
-  _$$PriceRangeImplCopyWith<_$PriceRangeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-CounterMeasure _$CounterMeasureFromJson(Map<String, dynamic> json) {
-  return _CounterMeasure.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CounterMeasure {
+mixin _$PurpleVehicleWeapon {
   @JsonKey(name: "class")
-  dynamic get counterMeasureClass => throw _privateConstructorUsedError;
+  dynamic get vehicleWeaponClass => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "capacity")
-  int get capacity => throw _privateConstructorUsedError;
+  int? get capacity => throw _privateConstructorUsedError;
   @JsonKey(name: "range")
-  int get range => throw _privateConstructorUsedError;
+  int? get range => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_per_shot")
-  double get damagePerShot => throw _privateConstructorUsedError;
+  double? get damagePerShot => throw _privateConstructorUsedError;
   @JsonKey(name: "modes")
-  List<CounterMeasureMode> get modes => throw _privateConstructorUsedError;
+  List<VehicleWeaponMode>? get modes => throw _privateConstructorUsedError;
   @JsonKey(name: "damages")
-  List<Damage> get damages => throw _privateConstructorUsedError;
+  List<VehicleWeaponDamage>? get damages => throw _privateConstructorUsedError;
   @JsonKey(name: "regeneration")
-  Regeneration? get regeneration => throw _privateConstructorUsedError;
+  PurpleRegeneration? get regeneration => throw _privateConstructorUsedError;
   @JsonKey(name: "ammunition")
-  Ammunition get ammunition => throw _privateConstructorUsedError;
+  VehicleWeaponAmmunition? get ammunition => throw _privateConstructorUsedError;
 
+  /// Serializes this PurpleVehicleWeapon to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CounterMeasureCopyWith<CounterMeasure> get copyWith =>
+
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PurpleVehicleWeaponCopyWith<PurpleVehicleWeapon> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CounterMeasureCopyWith<$Res> {
-  factory $CounterMeasureCopyWith(
-          CounterMeasure value, $Res Function(CounterMeasure) then) =
-      _$CounterMeasureCopyWithImpl<$Res, CounterMeasure>;
+abstract class $PurpleVehicleWeaponCopyWith<$Res> {
+  factory $PurpleVehicleWeaponCopyWith(
+          PurpleVehicleWeapon value, $Res Function(PurpleVehicleWeapon) then) =
+      _$PurpleVehicleWeaponCopyWithImpl<$Res, PurpleVehicleWeapon>;
   @useResult
   $Res call(
-      {@JsonKey(name: "class") dynamic counterMeasureClass,
+      {@JsonKey(name: "class") dynamic vehicleWeaponClass,
       @JsonKey(name: "type") String? type,
-      @JsonKey(name: "capacity") int capacity,
-      @JsonKey(name: "range") int range,
-      @JsonKey(name: "damage_per_shot") double damagePerShot,
-      @JsonKey(name: "modes") List<CounterMeasureMode> modes,
-      @JsonKey(name: "damages") List<Damage> damages,
-      @JsonKey(name: "regeneration") Regeneration? regeneration,
-      @JsonKey(name: "ammunition") Ammunition ammunition});
+      @JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "damage_per_shot") double? damagePerShot,
+      @JsonKey(name: "modes") List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") PurpleRegeneration? regeneration,
+      @JsonKey(name: "ammunition") VehicleWeaponAmmunition? ammunition});
 
-  $RegenerationCopyWith<$Res>? get regeneration;
-  $AmmunitionCopyWith<$Res> get ammunition;
+  $PurpleRegenerationCopyWith<$Res>? get regeneration;
+  $VehicleWeaponAmmunitionCopyWith<$Res>? get ammunition;
 }
 
 /// @nodoc
-class _$CounterMeasureCopyWithImpl<$Res, $Val extends CounterMeasure>
-    implements $CounterMeasureCopyWith<$Res> {
-  _$CounterMeasureCopyWithImpl(this._value, this._then);
+class _$PurpleVehicleWeaponCopyWithImpl<$Res, $Val extends PurpleVehicleWeapon>
+    implements $PurpleVehicleWeaponCopyWith<$Res> {
+  _$PurpleVehicleWeaponCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counterMeasureClass = freezed,
+    Object? vehicleWeaponClass = freezed,
     Object? type = freezed,
-    Object? capacity = null,
-    Object? range = null,
-    Object? damagePerShot = null,
-    Object? modes = null,
-    Object? damages = null,
+    Object? capacity = freezed,
+    Object? range = freezed,
+    Object? damagePerShot = freezed,
+    Object? modes = freezed,
+    Object? damages = freezed,
     Object? regeneration = freezed,
-    Object? ammunition = null,
+    Object? ammunition = freezed,
   }) {
     return _then(_value.copyWith(
-      counterMeasureClass: freezed == counterMeasureClass
-          ? _value.counterMeasureClass
-          : counterMeasureClass // ignore: cast_nullable_to_non_nullable
+      vehicleWeaponClass: freezed == vehicleWeaponClass
+          ? _value.vehicleWeaponClass
+          : vehicleWeaponClass // ignore: cast_nullable_to_non_nullable
               as dynamic,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      capacity: null == capacity
+      capacity: freezed == capacity
           ? _value.capacity
           : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      range: null == range
+              as int?,
+      range: freezed == range
           ? _value.range
           : range // ignore: cast_nullable_to_non_nullable
-              as int,
-      damagePerShot: null == damagePerShot
+              as int?,
+      damagePerShot: freezed == damagePerShot
           ? _value.damagePerShot
           : damagePerShot // ignore: cast_nullable_to_non_nullable
-              as double,
-      modes: null == modes
+              as double?,
+      modes: freezed == modes
           ? _value.modes
           : modes // ignore: cast_nullable_to_non_nullable
-              as List<CounterMeasureMode>,
-      damages: null == damages
+              as List<VehicleWeaponMode>?,
+      damages: freezed == damages
           ? _value.damages
           : damages // ignore: cast_nullable_to_non_nullable
-              as List<Damage>,
+              as List<VehicleWeaponDamage>?,
       regeneration: freezed == regeneration
           ? _value.regeneration
           : regeneration // ignore: cast_nullable_to_non_nullable
-              as Regeneration?,
-      ammunition: null == ammunition
+              as PurpleRegeneration?,
+      ammunition: freezed == ammunition
           ? _value.ammunition
           : ammunition // ignore: cast_nullable_to_non_nullable
-              as Ammunition,
+              as VehicleWeaponAmmunition?,
     ) as $Val);
   }
 
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RegenerationCopyWith<$Res>? get regeneration {
+  $PurpleRegenerationCopyWith<$Res>? get regeneration {
     if (_value.regeneration == null) {
       return null;
     }
 
-    return $RegenerationCopyWith<$Res>(_value.regeneration!, (value) {
+    return $PurpleRegenerationCopyWith<$Res>(_value.regeneration!, (value) {
       return _then(_value.copyWith(regeneration: value) as $Val);
     });
   }
 
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AmmunitionCopyWith<$Res> get ammunition {
-    return $AmmunitionCopyWith<$Res>(_value.ammunition, (value) {
+  $VehicleWeaponAmmunitionCopyWith<$Res>? get ammunition {
+    if (_value.ammunition == null) {
+      return null;
+    }
+
+    return $VehicleWeaponAmmunitionCopyWith<$Res>(_value.ammunition!, (value) {
       return _then(_value.copyWith(ammunition: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$CounterMeasureImplCopyWith<$Res>
-    implements $CounterMeasureCopyWith<$Res> {
-  factory _$$CounterMeasureImplCopyWith(_$CounterMeasureImpl value,
-          $Res Function(_$CounterMeasureImpl) then) =
-      __$$CounterMeasureImplCopyWithImpl<$Res>;
+abstract class _$$PurpleVehicleWeaponImplCopyWith<$Res>
+    implements $PurpleVehicleWeaponCopyWith<$Res> {
+  factory _$$PurpleVehicleWeaponImplCopyWith(_$PurpleVehicleWeaponImpl value,
+          $Res Function(_$PurpleVehicleWeaponImpl) then) =
+      __$$PurpleVehicleWeaponImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "class") dynamic counterMeasureClass,
+      {@JsonKey(name: "class") dynamic vehicleWeaponClass,
       @JsonKey(name: "type") String? type,
-      @JsonKey(name: "capacity") int capacity,
-      @JsonKey(name: "range") int range,
-      @JsonKey(name: "damage_per_shot") double damagePerShot,
-      @JsonKey(name: "modes") List<CounterMeasureMode> modes,
-      @JsonKey(name: "damages") List<Damage> damages,
-      @JsonKey(name: "regeneration") Regeneration? regeneration,
-      @JsonKey(name: "ammunition") Ammunition ammunition});
+      @JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "damage_per_shot") double? damagePerShot,
+      @JsonKey(name: "modes") List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") PurpleRegeneration? regeneration,
+      @JsonKey(name: "ammunition") VehicleWeaponAmmunition? ammunition});
 
   @override
-  $RegenerationCopyWith<$Res>? get regeneration;
+  $PurpleRegenerationCopyWith<$Res>? get regeneration;
   @override
-  $AmmunitionCopyWith<$Res> get ammunition;
+  $VehicleWeaponAmmunitionCopyWith<$Res>? get ammunition;
 }
 
 /// @nodoc
-class __$$CounterMeasureImplCopyWithImpl<$Res>
-    extends _$CounterMeasureCopyWithImpl<$Res, _$CounterMeasureImpl>
-    implements _$$CounterMeasureImplCopyWith<$Res> {
-  __$$CounterMeasureImplCopyWithImpl(
-      _$CounterMeasureImpl _value, $Res Function(_$CounterMeasureImpl) _then)
+class __$$PurpleVehicleWeaponImplCopyWithImpl<$Res>
+    extends _$PurpleVehicleWeaponCopyWithImpl<$Res, _$PurpleVehicleWeaponImpl>
+    implements _$$PurpleVehicleWeaponImplCopyWith<$Res> {
+  __$$PurpleVehicleWeaponImplCopyWithImpl(_$PurpleVehicleWeaponImpl _value,
+      $Res Function(_$PurpleVehicleWeaponImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counterMeasureClass = freezed,
+    Object? vehicleWeaponClass = freezed,
     Object? type = freezed,
-    Object? capacity = null,
-    Object? range = null,
-    Object? damagePerShot = null,
-    Object? modes = null,
-    Object? damages = null,
+    Object? capacity = freezed,
+    Object? range = freezed,
+    Object? damagePerShot = freezed,
+    Object? modes = freezed,
+    Object? damages = freezed,
     Object? regeneration = freezed,
-    Object? ammunition = null,
+    Object? ammunition = freezed,
   }) {
-    return _then(_$CounterMeasureImpl(
-      counterMeasureClass: freezed == counterMeasureClass
-          ? _value.counterMeasureClass
-          : counterMeasureClass // ignore: cast_nullable_to_non_nullable
+    return _then(_$PurpleVehicleWeaponImpl(
+      vehicleWeaponClass: freezed == vehicleWeaponClass
+          ? _value.vehicleWeaponClass
+          : vehicleWeaponClass // ignore: cast_nullable_to_non_nullable
               as dynamic,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      capacity: null == capacity
+      capacity: freezed == capacity
           ? _value.capacity
           : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      range: null == range
+              as int?,
+      range: freezed == range
           ? _value.range
           : range // ignore: cast_nullable_to_non_nullable
-              as int,
-      damagePerShot: null == damagePerShot
+              as int?,
+      damagePerShot: freezed == damagePerShot
           ? _value.damagePerShot
           : damagePerShot // ignore: cast_nullable_to_non_nullable
-              as double,
-      modes: null == modes
+              as double?,
+      modes: freezed == modes
           ? _value._modes
           : modes // ignore: cast_nullable_to_non_nullable
-              as List<CounterMeasureMode>,
-      damages: null == damages
+              as List<VehicleWeaponMode>?,
+      damages: freezed == damages
           ? _value._damages
           : damages // ignore: cast_nullable_to_non_nullable
-              as List<Damage>,
+              as List<VehicleWeaponDamage>?,
       regeneration: freezed == regeneration
           ? _value.regeneration
           : regeneration // ignore: cast_nullable_to_non_nullable
-              as Regeneration?,
-      ammunition: null == ammunition
+              as PurpleRegeneration?,
+      ammunition: freezed == ammunition
           ? _value.ammunition
           : ammunition // ignore: cast_nullable_to_non_nullable
-              as Ammunition,
+              as VehicleWeaponAmmunition?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$CounterMeasureImpl implements _CounterMeasure {
-  const _$CounterMeasureImpl(
-      {@JsonKey(name: "class") required this.counterMeasureClass,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "capacity") required this.capacity,
-      @JsonKey(name: "range") required this.range,
-      @JsonKey(name: "damage_per_shot") required this.damagePerShot,
-      @JsonKey(name: "modes") required final List<CounterMeasureMode> modes,
-      @JsonKey(name: "damages") required final List<Damage> damages,
-      @JsonKey(name: "regeneration") required this.regeneration,
-      @JsonKey(name: "ammunition") required this.ammunition})
+class _$PurpleVehicleWeaponImpl implements _PurpleVehicleWeapon {
+  const _$PurpleVehicleWeaponImpl(
+      {@JsonKey(name: "class") this.vehicleWeaponClass,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "capacity") this.capacity,
+      @JsonKey(name: "range") this.range,
+      @JsonKey(name: "damage_per_shot") this.damagePerShot,
+      @JsonKey(name: "modes") final List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") final List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") this.regeneration,
+      @JsonKey(name: "ammunition") this.ammunition})
       : _modes = modes,
         _damages = damages;
 
-  factory _$CounterMeasureImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CounterMeasureImplFromJson(json);
+  factory _$PurpleVehicleWeaponImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PurpleVehicleWeaponImplFromJson(json);
 
   @override
   @JsonKey(name: "class")
-  final dynamic counterMeasureClass;
+  final dynamic vehicleWeaponClass;
   @override
   @JsonKey(name: "type")
   final String? type;
   @override
   @JsonKey(name: "capacity")
-  final int capacity;
+  final int? capacity;
   @override
   @JsonKey(name: "range")
-  final int range;
+  final int? range;
   @override
   @JsonKey(name: "damage_per_shot")
-  final double damagePerShot;
-  final List<CounterMeasureMode> _modes;
+  final double? damagePerShot;
+  final List<VehicleWeaponMode>? _modes;
   @override
   @JsonKey(name: "modes")
-  List<CounterMeasureMode> get modes {
+  List<VehicleWeaponMode>? get modes {
+    final value = _modes;
+    if (value == null) return null;
     if (_modes is EqualUnmodifiableListView) return _modes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_modes);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<Damage> _damages;
+  final List<VehicleWeaponDamage>? _damages;
   @override
   @JsonKey(name: "damages")
-  List<Damage> get damages {
+  List<VehicleWeaponDamage>? get damages {
+    final value = _damages;
+    if (value == null) return null;
     if (_damages is EqualUnmodifiableListView) return _damages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_damages);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   @JsonKey(name: "regeneration")
-  final Regeneration? regeneration;
+  final PurpleRegeneration? regeneration;
   @override
   @JsonKey(name: "ammunition")
-  final Ammunition ammunition;
+  final VehicleWeaponAmmunition? ammunition;
 
   @override
   String toString() {
-    return 'CounterMeasure(counterMeasureClass: $counterMeasureClass, type: $type, capacity: $capacity, range: $range, damagePerShot: $damagePerShot, modes: $modes, damages: $damages, regeneration: $regeneration, ammunition: $ammunition)';
+    return 'PurpleVehicleWeapon(vehicleWeaponClass: $vehicleWeaponClass, type: $type, capacity: $capacity, range: $range, damagePerShot: $damagePerShot, modes: $modes, damages: $damages, regeneration: $regeneration, ammunition: $ammunition)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CounterMeasureImpl &&
+            other is _$PurpleVehicleWeaponImpl &&
             const DeepCollectionEquality()
-                .equals(other.counterMeasureClass, counterMeasureClass) &&
+                .equals(other.vehicleWeaponClass, vehicleWeaponClass) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.capacity, capacity) ||
                 other.capacity == capacity) &&
@@ -6715,11 +6174,11 @@ class _$CounterMeasureImpl implements _CounterMeasure {
                 other.ammunition == ammunition));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(counterMeasureClass),
+      const DeepCollectionEquality().hash(vehicleWeaponClass),
       type,
       capacity,
       range,
@@ -6729,308 +6188,338 @@ class _$CounterMeasureImpl implements _CounterMeasure {
       regeneration,
       ammunition);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CounterMeasureImplCopyWith<_$CounterMeasureImpl> get copyWith =>
-      __$$CounterMeasureImplCopyWithImpl<_$CounterMeasureImpl>(
+  _$$PurpleVehicleWeaponImplCopyWith<_$PurpleVehicleWeaponImpl> get copyWith =>
+      __$$PurpleVehicleWeaponImplCopyWithImpl<_$PurpleVehicleWeaponImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CounterMeasureImplToJson(
+    return _$$PurpleVehicleWeaponImplToJson(
       this,
     );
   }
 }
 
-abstract class _CounterMeasure implements CounterMeasure {
-  const factory _CounterMeasure(
-      {@JsonKey(name: "class") required final dynamic counterMeasureClass,
-      @JsonKey(name: "type") required final String? type,
-      @JsonKey(name: "capacity") required final int capacity,
-      @JsonKey(name: "range") required final int range,
-      @JsonKey(name: "damage_per_shot") required final double damagePerShot,
-      @JsonKey(name: "modes") required final List<CounterMeasureMode> modes,
-      @JsonKey(name: "damages") required final List<Damage> damages,
-      @JsonKey(name: "regeneration") required final Regeneration? regeneration,
+abstract class _PurpleVehicleWeapon implements PurpleVehicleWeapon {
+  const factory _PurpleVehicleWeapon(
+      {@JsonKey(name: "class") final dynamic vehicleWeaponClass,
+      @JsonKey(name: "type") final String? type,
+      @JsonKey(name: "capacity") final int? capacity,
+      @JsonKey(name: "range") final int? range,
+      @JsonKey(name: "damage_per_shot") final double? damagePerShot,
+      @JsonKey(name: "modes") final List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") final List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") final PurpleRegeneration? regeneration,
       @JsonKey(name: "ammunition")
-      required final Ammunition ammunition}) = _$CounterMeasureImpl;
+      final VehicleWeaponAmmunition? ammunition}) = _$PurpleVehicleWeaponImpl;
 
-  factory _CounterMeasure.fromJson(Map<String, dynamic> json) =
-      _$CounterMeasureImpl.fromJson;
+  factory _PurpleVehicleWeapon.fromJson(Map<String, dynamic> json) =
+      _$PurpleVehicleWeaponImpl.fromJson;
 
   @override
   @JsonKey(name: "class")
-  dynamic get counterMeasureClass;
+  dynamic get vehicleWeaponClass;
   @override
   @JsonKey(name: "type")
   String? get type;
   @override
   @JsonKey(name: "capacity")
-  int get capacity;
+  int? get capacity;
   @override
   @JsonKey(name: "range")
-  int get range;
+  int? get range;
   @override
   @JsonKey(name: "damage_per_shot")
-  double get damagePerShot;
+  double? get damagePerShot;
   @override
   @JsonKey(name: "modes")
-  List<CounterMeasureMode> get modes;
+  List<VehicleWeaponMode>? get modes;
   @override
   @JsonKey(name: "damages")
-  List<Damage> get damages;
+  List<VehicleWeaponDamage>? get damages;
   @override
   @JsonKey(name: "regeneration")
-  Regeneration? get regeneration;
+  PurpleRegeneration? get regeneration;
   @override
   @JsonKey(name: "ammunition")
-  Ammunition get ammunition;
+  VehicleWeaponAmmunition? get ammunition;
+
+  /// Create a copy of PurpleVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$CounterMeasureImplCopyWith<_$CounterMeasureImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PurpleVehicleWeaponImplCopyWith<_$PurpleVehicleWeaponImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Ammunition _$AmmunitionFromJson(Map<String, dynamic> json) {
-  return _Ammunition.fromJson(json);
+VehicleWeaponAmmunition _$VehicleWeaponAmmunitionFromJson(
+    Map<String, dynamic> json) {
+  return _VehicleWeaponAmmunition.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Ammunition {
+mixin _$VehicleWeaponAmmunition {
   @JsonKey(name: "uuid")
   String? get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "size")
-  int get size => throw _privateConstructorUsedError;
+  int? get size => throw _privateConstructorUsedError;
   @JsonKey(name: "lifetime")
-  double get lifetime => throw _privateConstructorUsedError;
+  double? get lifetime => throw _privateConstructorUsedError;
   @JsonKey(name: "speed")
-  int get speed => throw _privateConstructorUsedError;
+  int? get speed => throw _privateConstructorUsedError;
   @JsonKey(name: "range")
-  int get range => throw _privateConstructorUsedError;
+  int? get range => throw _privateConstructorUsedError;
   @JsonKey(name: "piercability")
-  Piercability get piercability => throw _privateConstructorUsedError;
+  PurplePiercability? get piercability => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_falloffs")
-  DamageFalloffs get damageFalloffs => throw _privateConstructorUsedError;
+  DamageFalloffs? get damageFalloffs => throw _privateConstructorUsedError;
 
+  /// Serializes this VehicleWeaponAmmunition to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AmmunitionCopyWith<Ammunition> get copyWith =>
+
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $VehicleWeaponAmmunitionCopyWith<VehicleWeaponAmmunition> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AmmunitionCopyWith<$Res> {
-  factory $AmmunitionCopyWith(
-          Ammunition value, $Res Function(Ammunition) then) =
-      _$AmmunitionCopyWithImpl<$Res, Ammunition>;
+abstract class $VehicleWeaponAmmunitionCopyWith<$Res> {
+  factory $VehicleWeaponAmmunitionCopyWith(VehicleWeaponAmmunition value,
+          $Res Function(VehicleWeaponAmmunition) then) =
+      _$VehicleWeaponAmmunitionCopyWithImpl<$Res, VehicleWeaponAmmunition>;
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "lifetime") double lifetime,
-      @JsonKey(name: "speed") int speed,
-      @JsonKey(name: "range") int range,
-      @JsonKey(name: "piercability") Piercability piercability,
-      @JsonKey(name: "damage_falloffs") DamageFalloffs damageFalloffs});
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "lifetime") double? lifetime,
+      @JsonKey(name: "speed") int? speed,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "piercability") PurplePiercability? piercability,
+      @JsonKey(name: "damage_falloffs") DamageFalloffs? damageFalloffs});
 
-  $PiercabilityCopyWith<$Res> get piercability;
-  $DamageFalloffsCopyWith<$Res> get damageFalloffs;
+  $PurplePiercabilityCopyWith<$Res>? get piercability;
+  $DamageFalloffsCopyWith<$Res>? get damageFalloffs;
 }
 
 /// @nodoc
-class _$AmmunitionCopyWithImpl<$Res, $Val extends Ammunition>
-    implements $AmmunitionCopyWith<$Res> {
-  _$AmmunitionCopyWithImpl(this._value, this._then);
+class _$VehicleWeaponAmmunitionCopyWithImpl<$Res,
+        $Val extends VehicleWeaponAmmunition>
+    implements $VehicleWeaponAmmunitionCopyWith<$Res> {
+  _$VehicleWeaponAmmunitionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? size = null,
-    Object? lifetime = null,
-    Object? speed = null,
-    Object? range = null,
-    Object? piercability = null,
-    Object? damageFalloffs = null,
+    Object? size = freezed,
+    Object? lifetime = freezed,
+    Object? speed = freezed,
+    Object? range = freezed,
+    Object? piercability = freezed,
+    Object? damageFalloffs = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      size: null == size
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      lifetime: null == lifetime
+              as int?,
+      lifetime: freezed == lifetime
           ? _value.lifetime
           : lifetime // ignore: cast_nullable_to_non_nullable
-              as double,
-      speed: null == speed
+              as double?,
+      speed: freezed == speed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as int,
-      range: null == range
+              as int?,
+      range: freezed == range
           ? _value.range
           : range // ignore: cast_nullable_to_non_nullable
-              as int,
-      piercability: null == piercability
+              as int?,
+      piercability: freezed == piercability
           ? _value.piercability
           : piercability // ignore: cast_nullable_to_non_nullable
-              as Piercability,
-      damageFalloffs: null == damageFalloffs
+              as PurplePiercability?,
+      damageFalloffs: freezed == damageFalloffs
           ? _value.damageFalloffs
           : damageFalloffs // ignore: cast_nullable_to_non_nullable
-              as DamageFalloffs,
+              as DamageFalloffs?,
     ) as $Val);
   }
 
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PiercabilityCopyWith<$Res> get piercability {
-    return $PiercabilityCopyWith<$Res>(_value.piercability, (value) {
+  $PurplePiercabilityCopyWith<$Res>? get piercability {
+    if (_value.piercability == null) {
+      return null;
+    }
+
+    return $PurplePiercabilityCopyWith<$Res>(_value.piercability!, (value) {
       return _then(_value.copyWith(piercability: value) as $Val);
     });
   }
 
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DamageFalloffsCopyWith<$Res> get damageFalloffs {
-    return $DamageFalloffsCopyWith<$Res>(_value.damageFalloffs, (value) {
+  $DamageFalloffsCopyWith<$Res>? get damageFalloffs {
+    if (_value.damageFalloffs == null) {
+      return null;
+    }
+
+    return $DamageFalloffsCopyWith<$Res>(_value.damageFalloffs!, (value) {
       return _then(_value.copyWith(damageFalloffs: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$AmmunitionImplCopyWith<$Res>
-    implements $AmmunitionCopyWith<$Res> {
-  factory _$$AmmunitionImplCopyWith(
-          _$AmmunitionImpl value, $Res Function(_$AmmunitionImpl) then) =
-      __$$AmmunitionImplCopyWithImpl<$Res>;
+abstract class _$$VehicleWeaponAmmunitionImplCopyWith<$Res>
+    implements $VehicleWeaponAmmunitionCopyWith<$Res> {
+  factory _$$VehicleWeaponAmmunitionImplCopyWith(
+          _$VehicleWeaponAmmunitionImpl value,
+          $Res Function(_$VehicleWeaponAmmunitionImpl) then) =
+      __$$VehicleWeaponAmmunitionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "lifetime") double lifetime,
-      @JsonKey(name: "speed") int speed,
-      @JsonKey(name: "range") int range,
-      @JsonKey(name: "piercability") Piercability piercability,
-      @JsonKey(name: "damage_falloffs") DamageFalloffs damageFalloffs});
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "lifetime") double? lifetime,
+      @JsonKey(name: "speed") int? speed,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "piercability") PurplePiercability? piercability,
+      @JsonKey(name: "damage_falloffs") DamageFalloffs? damageFalloffs});
 
   @override
-  $PiercabilityCopyWith<$Res> get piercability;
+  $PurplePiercabilityCopyWith<$Res>? get piercability;
   @override
-  $DamageFalloffsCopyWith<$Res> get damageFalloffs;
+  $DamageFalloffsCopyWith<$Res>? get damageFalloffs;
 }
 
 /// @nodoc
-class __$$AmmunitionImplCopyWithImpl<$Res>
-    extends _$AmmunitionCopyWithImpl<$Res, _$AmmunitionImpl>
-    implements _$$AmmunitionImplCopyWith<$Res> {
-  __$$AmmunitionImplCopyWithImpl(
-      _$AmmunitionImpl _value, $Res Function(_$AmmunitionImpl) _then)
+class __$$VehicleWeaponAmmunitionImplCopyWithImpl<$Res>
+    extends _$VehicleWeaponAmmunitionCopyWithImpl<$Res,
+        _$VehicleWeaponAmmunitionImpl>
+    implements _$$VehicleWeaponAmmunitionImplCopyWith<$Res> {
+  __$$VehicleWeaponAmmunitionImplCopyWithImpl(
+      _$VehicleWeaponAmmunitionImpl _value,
+      $Res Function(_$VehicleWeaponAmmunitionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? size = null,
-    Object? lifetime = null,
-    Object? speed = null,
-    Object? range = null,
-    Object? piercability = null,
-    Object? damageFalloffs = null,
+    Object? size = freezed,
+    Object? lifetime = freezed,
+    Object? speed = freezed,
+    Object? range = freezed,
+    Object? piercability = freezed,
+    Object? damageFalloffs = freezed,
   }) {
-    return _then(_$AmmunitionImpl(
+    return _then(_$VehicleWeaponAmmunitionImpl(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      size: null == size
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      lifetime: null == lifetime
+              as int?,
+      lifetime: freezed == lifetime
           ? _value.lifetime
           : lifetime // ignore: cast_nullable_to_non_nullable
-              as double,
-      speed: null == speed
+              as double?,
+      speed: freezed == speed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as int,
-      range: null == range
+              as int?,
+      range: freezed == range
           ? _value.range
           : range // ignore: cast_nullable_to_non_nullable
-              as int,
-      piercability: null == piercability
+              as int?,
+      piercability: freezed == piercability
           ? _value.piercability
           : piercability // ignore: cast_nullable_to_non_nullable
-              as Piercability,
-      damageFalloffs: null == damageFalloffs
+              as PurplePiercability?,
+      damageFalloffs: freezed == damageFalloffs
           ? _value.damageFalloffs
           : damageFalloffs // ignore: cast_nullable_to_non_nullable
-              as DamageFalloffs,
+              as DamageFalloffs?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AmmunitionImpl implements _Ammunition {
-  const _$AmmunitionImpl(
+class _$VehicleWeaponAmmunitionImpl implements _VehicleWeaponAmmunition {
+  const _$VehicleWeaponAmmunitionImpl(
       {@JsonKey(name: "uuid") this.uuid,
-      @JsonKey(name: "size") required this.size,
-      @JsonKey(name: "lifetime") required this.lifetime,
-      @JsonKey(name: "speed") required this.speed,
-      @JsonKey(name: "range") required this.range,
-      @JsonKey(name: "piercability") required this.piercability,
-      @JsonKey(name: "damage_falloffs") required this.damageFalloffs});
+      @JsonKey(name: "size") this.size,
+      @JsonKey(name: "lifetime") this.lifetime,
+      @JsonKey(name: "speed") this.speed,
+      @JsonKey(name: "range") this.range,
+      @JsonKey(name: "piercability") this.piercability,
+      @JsonKey(name: "damage_falloffs") this.damageFalloffs});
 
-  factory _$AmmunitionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AmmunitionImplFromJson(json);
+  factory _$VehicleWeaponAmmunitionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VehicleWeaponAmmunitionImplFromJson(json);
 
   @override
   @JsonKey(name: "uuid")
   final String? uuid;
   @override
   @JsonKey(name: "size")
-  final int size;
+  final int? size;
   @override
   @JsonKey(name: "lifetime")
-  final double lifetime;
+  final double? lifetime;
   @override
   @JsonKey(name: "speed")
-  final int speed;
+  final int? speed;
   @override
   @JsonKey(name: "range")
-  final int range;
+  final int? range;
   @override
   @JsonKey(name: "piercability")
-  final Piercability piercability;
+  final PurplePiercability? piercability;
   @override
   @JsonKey(name: "damage_falloffs")
-  final DamageFalloffs damageFalloffs;
+  final DamageFalloffs? damageFalloffs;
 
   @override
   String toString() {
-    return 'Ammunition(uuid: $uuid, size: $size, lifetime: $lifetime, speed: $speed, range: $range, piercability: $piercability, damageFalloffs: $damageFalloffs)';
+    return 'VehicleWeaponAmmunition(uuid: $uuid, size: $size, lifetime: $lifetime, speed: $speed, range: $range, piercability: $piercability, damageFalloffs: $damageFalloffs)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AmmunitionImpl &&
+            other is _$VehicleWeaponAmmunitionImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.size, size) || other.size == size) &&
             (identical(other.lifetime, lifetime) ||
@@ -7043,64 +6532,70 @@ class _$AmmunitionImpl implements _Ammunition {
                 other.damageFalloffs == damageFalloffs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, uuid, size, lifetime, speed,
       range, piercability, damageFalloffs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AmmunitionImplCopyWith<_$AmmunitionImpl> get copyWith =>
-      __$$AmmunitionImplCopyWithImpl<_$AmmunitionImpl>(this, _$identity);
+  _$$VehicleWeaponAmmunitionImplCopyWith<_$VehicleWeaponAmmunitionImpl>
+      get copyWith => __$$VehicleWeaponAmmunitionImplCopyWithImpl<
+          _$VehicleWeaponAmmunitionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AmmunitionImplToJson(
+    return _$$VehicleWeaponAmmunitionImplToJson(
       this,
     );
   }
 }
 
-abstract class _Ammunition implements Ammunition {
-  const factory _Ammunition(
+abstract class _VehicleWeaponAmmunition implements VehicleWeaponAmmunition {
+  const factory _VehicleWeaponAmmunition(
       {@JsonKey(name: "uuid") final String? uuid,
-      @JsonKey(name: "size") required final int size,
-      @JsonKey(name: "lifetime") required final double lifetime,
-      @JsonKey(name: "speed") required final int speed,
-      @JsonKey(name: "range") required final int range,
-      @JsonKey(name: "piercability") required final Piercability piercability,
+      @JsonKey(name: "size") final int? size,
+      @JsonKey(name: "lifetime") final double? lifetime,
+      @JsonKey(name: "speed") final int? speed,
+      @JsonKey(name: "range") final int? range,
+      @JsonKey(name: "piercability") final PurplePiercability? piercability,
       @JsonKey(name: "damage_falloffs")
-      required final DamageFalloffs damageFalloffs}) = _$AmmunitionImpl;
+      final DamageFalloffs? damageFalloffs}) = _$VehicleWeaponAmmunitionImpl;
 
-  factory _Ammunition.fromJson(Map<String, dynamic> json) =
-      _$AmmunitionImpl.fromJson;
+  factory _VehicleWeaponAmmunition.fromJson(Map<String, dynamic> json) =
+      _$VehicleWeaponAmmunitionImpl.fromJson;
 
   @override
   @JsonKey(name: "uuid")
   String? get uuid;
   @override
   @JsonKey(name: "size")
-  int get size;
+  int? get size;
   @override
   @JsonKey(name: "lifetime")
-  double get lifetime;
+  double? get lifetime;
   @override
   @JsonKey(name: "speed")
-  int get speed;
+  int? get speed;
   @override
   @JsonKey(name: "range")
-  int get range;
+  int? get range;
   @override
   @JsonKey(name: "piercability")
-  Piercability get piercability;
+  PurplePiercability? get piercability;
   @override
   @JsonKey(name: "damage_falloffs")
-  DamageFalloffs get damageFalloffs;
+  DamageFalloffs? get damageFalloffs;
+
+  /// Create a copy of VehicleWeaponAmmunition
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$AmmunitionImplCopyWith<_$AmmunitionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VehicleWeaponAmmunitionImplCopyWith<_$VehicleWeaponAmmunitionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 DamageFalloffs _$DamageFalloffsFromJson(Map<String, dynamic> json) {
@@ -7110,14 +6605,18 @@ DamageFalloffs _$DamageFalloffsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DamageFalloffs {
   @JsonKey(name: "min_distance")
-  MinDamage get minDistance => throw _privateConstructorUsedError;
+  MinDamage? get minDistance => throw _privateConstructorUsedError;
   @JsonKey(name: "per_meter")
-  MinDamage get perMeter => throw _privateConstructorUsedError;
+  MinDamage? get perMeter => throw _privateConstructorUsedError;
   @JsonKey(name: "min_damage")
-  MinDamage get minDamage => throw _privateConstructorUsedError;
+  MinDamage? get minDamage => throw _privateConstructorUsedError;
 
+  /// Serializes this DamageFalloffs to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DamageFalloffsCopyWith<DamageFalloffs> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -7129,13 +6628,13 @@ abstract class $DamageFalloffsCopyWith<$Res> {
       _$DamageFalloffsCopyWithImpl<$Res, DamageFalloffs>;
   @useResult
   $Res call(
-      {@JsonKey(name: "min_distance") MinDamage minDistance,
-      @JsonKey(name: "per_meter") MinDamage perMeter,
-      @JsonKey(name: "min_damage") MinDamage minDamage});
+      {@JsonKey(name: "min_distance") MinDamage? minDistance,
+      @JsonKey(name: "per_meter") MinDamage? perMeter,
+      @JsonKey(name: "min_damage") MinDamage? minDamage});
 
-  $MinDamageCopyWith<$Res> get minDistance;
-  $MinDamageCopyWith<$Res> get perMeter;
-  $MinDamageCopyWith<$Res> get minDamage;
+  $MinDamageCopyWith<$Res>? get minDistance;
+  $MinDamageCopyWith<$Res>? get perMeter;
+  $MinDamageCopyWith<$Res>? get minDamage;
 }
 
 /// @nodoc
@@ -7148,49 +6647,69 @@ class _$DamageFalloffsCopyWithImpl<$Res, $Val extends DamageFalloffs>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minDistance = null,
-    Object? perMeter = null,
-    Object? minDamage = null,
+    Object? minDistance = freezed,
+    Object? perMeter = freezed,
+    Object? minDamage = freezed,
   }) {
     return _then(_value.copyWith(
-      minDistance: null == minDistance
+      minDistance: freezed == minDistance
           ? _value.minDistance
           : minDistance // ignore: cast_nullable_to_non_nullable
-              as MinDamage,
-      perMeter: null == perMeter
+              as MinDamage?,
+      perMeter: freezed == perMeter
           ? _value.perMeter
           : perMeter // ignore: cast_nullable_to_non_nullable
-              as MinDamage,
-      minDamage: null == minDamage
+              as MinDamage?,
+      minDamage: freezed == minDamage
           ? _value.minDamage
           : minDamage // ignore: cast_nullable_to_non_nullable
-              as MinDamage,
+              as MinDamage?,
     ) as $Val);
   }
 
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MinDamageCopyWith<$Res> get minDistance {
-    return $MinDamageCopyWith<$Res>(_value.minDistance, (value) {
+  $MinDamageCopyWith<$Res>? get minDistance {
+    if (_value.minDistance == null) {
+      return null;
+    }
+
+    return $MinDamageCopyWith<$Res>(_value.minDistance!, (value) {
       return _then(_value.copyWith(minDistance: value) as $Val);
     });
   }
 
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MinDamageCopyWith<$Res> get perMeter {
-    return $MinDamageCopyWith<$Res>(_value.perMeter, (value) {
+  $MinDamageCopyWith<$Res>? get perMeter {
+    if (_value.perMeter == null) {
+      return null;
+    }
+
+    return $MinDamageCopyWith<$Res>(_value.perMeter!, (value) {
       return _then(_value.copyWith(perMeter: value) as $Val);
     });
   }
 
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MinDamageCopyWith<$Res> get minDamage {
-    return $MinDamageCopyWith<$Res>(_value.minDamage, (value) {
+  $MinDamageCopyWith<$Res>? get minDamage {
+    if (_value.minDamage == null) {
+      return null;
+    }
+
+    return $MinDamageCopyWith<$Res>(_value.minDamage!, (value) {
       return _then(_value.copyWith(minDamage: value) as $Val);
     });
   }
@@ -7205,16 +6724,16 @@ abstract class _$$DamageFalloffsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "min_distance") MinDamage minDistance,
-      @JsonKey(name: "per_meter") MinDamage perMeter,
-      @JsonKey(name: "min_damage") MinDamage minDamage});
+      {@JsonKey(name: "min_distance") MinDamage? minDistance,
+      @JsonKey(name: "per_meter") MinDamage? perMeter,
+      @JsonKey(name: "min_damage") MinDamage? minDamage});
 
   @override
-  $MinDamageCopyWith<$Res> get minDistance;
+  $MinDamageCopyWith<$Res>? get minDistance;
   @override
-  $MinDamageCopyWith<$Res> get perMeter;
+  $MinDamageCopyWith<$Res>? get perMeter;
   @override
-  $MinDamageCopyWith<$Res> get minDamage;
+  $MinDamageCopyWith<$Res>? get minDamage;
 }
 
 /// @nodoc
@@ -7225,26 +6744,28 @@ class __$$DamageFalloffsImplCopyWithImpl<$Res>
       _$DamageFalloffsImpl _value, $Res Function(_$DamageFalloffsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minDistance = null,
-    Object? perMeter = null,
-    Object? minDamage = null,
+    Object? minDistance = freezed,
+    Object? perMeter = freezed,
+    Object? minDamage = freezed,
   }) {
     return _then(_$DamageFalloffsImpl(
-      minDistance: null == minDistance
+      minDistance: freezed == minDistance
           ? _value.minDistance
           : minDistance // ignore: cast_nullable_to_non_nullable
-              as MinDamage,
-      perMeter: null == perMeter
+              as MinDamage?,
+      perMeter: freezed == perMeter
           ? _value.perMeter
           : perMeter // ignore: cast_nullable_to_non_nullable
-              as MinDamage,
-      minDamage: null == minDamage
+              as MinDamage?,
+      minDamage: freezed == minDamage
           ? _value.minDamage
           : minDamage // ignore: cast_nullable_to_non_nullable
-              as MinDamage,
+              as MinDamage?,
     ));
   }
 }
@@ -7253,22 +6774,22 @@ class __$$DamageFalloffsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DamageFalloffsImpl implements _DamageFalloffs {
   const _$DamageFalloffsImpl(
-      {@JsonKey(name: "min_distance") required this.minDistance,
-      @JsonKey(name: "per_meter") required this.perMeter,
-      @JsonKey(name: "min_damage") required this.minDamage});
+      {@JsonKey(name: "min_distance") this.minDistance,
+      @JsonKey(name: "per_meter") this.perMeter,
+      @JsonKey(name: "min_damage") this.minDamage});
 
   factory _$DamageFalloffsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DamageFalloffsImplFromJson(json);
 
   @override
   @JsonKey(name: "min_distance")
-  final MinDamage minDistance;
+  final MinDamage? minDistance;
   @override
   @JsonKey(name: "per_meter")
-  final MinDamage perMeter;
+  final MinDamage? perMeter;
   @override
   @JsonKey(name: "min_damage")
-  final MinDamage minDamage;
+  final MinDamage? minDamage;
 
   @override
   String toString() {
@@ -7288,12 +6809,14 @@ class _$DamageFalloffsImpl implements _DamageFalloffs {
                 other.minDamage == minDamage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, minDistance, perMeter, minDamage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DamageFalloffsImplCopyWith<_$DamageFalloffsImpl> get copyWith =>
@@ -7310,9 +6833,9 @@ class _$DamageFalloffsImpl implements _DamageFalloffs {
 
 abstract class _DamageFalloffs implements DamageFalloffs {
   const factory _DamageFalloffs(
-          {@JsonKey(name: "min_distance") required final MinDamage minDistance,
-          @JsonKey(name: "per_meter") required final MinDamage perMeter,
-          @JsonKey(name: "min_damage") required final MinDamage minDamage}) =
+          {@JsonKey(name: "min_distance") final MinDamage? minDistance,
+          @JsonKey(name: "per_meter") final MinDamage? perMeter,
+          @JsonKey(name: "min_damage") final MinDamage? minDamage}) =
       _$DamageFalloffsImpl;
 
   factory _DamageFalloffs.fromJson(Map<String, dynamic> json) =
@@ -7320,15 +6843,18 @@ abstract class _DamageFalloffs implements DamageFalloffs {
 
   @override
   @JsonKey(name: "min_distance")
-  MinDamage get minDistance;
+  MinDamage? get minDistance;
   @override
   @JsonKey(name: "per_meter")
-  MinDamage get perMeter;
+  MinDamage? get perMeter;
   @override
   @JsonKey(name: "min_damage")
-  MinDamage get minDamage;
+  MinDamage? get minDamage;
+
+  /// Create a copy of DamageFalloffs
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DamageFalloffsImplCopyWith<_$DamageFalloffsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -7340,20 +6866,24 @@ MinDamage _$MinDamageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MinDamage {
   @JsonKey(name: "physical")
-  int get physical => throw _privateConstructorUsedError;
+  int? get physical => throw _privateConstructorUsedError;
   @JsonKey(name: "energy")
-  int get energy => throw _privateConstructorUsedError;
+  int? get energy => throw _privateConstructorUsedError;
   @JsonKey(name: "distortion")
-  int get distortion => throw _privateConstructorUsedError;
+  int? get distortion => throw _privateConstructorUsedError;
   @JsonKey(name: "thermal")
-  int get thermal => throw _privateConstructorUsedError;
+  int? get thermal => throw _privateConstructorUsedError;
   @JsonKey(name: "biochemical")
-  int get biochemical => throw _privateConstructorUsedError;
+  int? get biochemical => throw _privateConstructorUsedError;
   @JsonKey(name: "stun")
-  int get stun => throw _privateConstructorUsedError;
+  int? get stun => throw _privateConstructorUsedError;
 
+  /// Serializes this MinDamage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MinDamage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MinDamageCopyWith<MinDamage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -7364,12 +6894,12 @@ abstract class $MinDamageCopyWith<$Res> {
       _$MinDamageCopyWithImpl<$Res, MinDamage>;
   @useResult
   $Res call(
-      {@JsonKey(name: "physical") int physical,
-      @JsonKey(name: "energy") int energy,
-      @JsonKey(name: "distortion") int distortion,
-      @JsonKey(name: "thermal") int thermal,
-      @JsonKey(name: "biochemical") int biochemical,
-      @JsonKey(name: "stun") int stun});
+      {@JsonKey(name: "physical") int? physical,
+      @JsonKey(name: "energy") int? energy,
+      @JsonKey(name: "distortion") int? distortion,
+      @JsonKey(name: "thermal") int? thermal,
+      @JsonKey(name: "biochemical") int? biochemical,
+      @JsonKey(name: "stun") int? stun});
 }
 
 /// @nodoc
@@ -7382,41 +6912,43 @@ class _$MinDamageCopyWithImpl<$Res, $Val extends MinDamage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MinDamage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? physical = null,
-    Object? energy = null,
-    Object? distortion = null,
-    Object? thermal = null,
-    Object? biochemical = null,
-    Object? stun = null,
+    Object? physical = freezed,
+    Object? energy = freezed,
+    Object? distortion = freezed,
+    Object? thermal = freezed,
+    Object? biochemical = freezed,
+    Object? stun = freezed,
   }) {
     return _then(_value.copyWith(
-      physical: null == physical
+      physical: freezed == physical
           ? _value.physical
           : physical // ignore: cast_nullable_to_non_nullable
-              as int,
-      energy: null == energy
+              as int?,
+      energy: freezed == energy
           ? _value.energy
           : energy // ignore: cast_nullable_to_non_nullable
-              as int,
-      distortion: null == distortion
+              as int?,
+      distortion: freezed == distortion
           ? _value.distortion
           : distortion // ignore: cast_nullable_to_non_nullable
-              as int,
-      thermal: null == thermal
+              as int?,
+      thermal: freezed == thermal
           ? _value.thermal
           : thermal // ignore: cast_nullable_to_non_nullable
-              as int,
-      biochemical: null == biochemical
+              as int?,
+      biochemical: freezed == biochemical
           ? _value.biochemical
           : biochemical // ignore: cast_nullable_to_non_nullable
-              as int,
-      stun: null == stun
+              as int?,
+      stun: freezed == stun
           ? _value.stun
           : stun // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -7430,12 +6962,12 @@ abstract class _$$MinDamageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "physical") int physical,
-      @JsonKey(name: "energy") int energy,
-      @JsonKey(name: "distortion") int distortion,
-      @JsonKey(name: "thermal") int thermal,
-      @JsonKey(name: "biochemical") int biochemical,
-      @JsonKey(name: "stun") int stun});
+      {@JsonKey(name: "physical") int? physical,
+      @JsonKey(name: "energy") int? energy,
+      @JsonKey(name: "distortion") int? distortion,
+      @JsonKey(name: "thermal") int? thermal,
+      @JsonKey(name: "biochemical") int? biochemical,
+      @JsonKey(name: "stun") int? stun});
 }
 
 /// @nodoc
@@ -7446,41 +6978,43 @@ class __$$MinDamageImplCopyWithImpl<$Res>
       _$MinDamageImpl _value, $Res Function(_$MinDamageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MinDamage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? physical = null,
-    Object? energy = null,
-    Object? distortion = null,
-    Object? thermal = null,
-    Object? biochemical = null,
-    Object? stun = null,
+    Object? physical = freezed,
+    Object? energy = freezed,
+    Object? distortion = freezed,
+    Object? thermal = freezed,
+    Object? biochemical = freezed,
+    Object? stun = freezed,
   }) {
     return _then(_$MinDamageImpl(
-      physical: null == physical
+      physical: freezed == physical
           ? _value.physical
           : physical // ignore: cast_nullable_to_non_nullable
-              as int,
-      energy: null == energy
+              as int?,
+      energy: freezed == energy
           ? _value.energy
           : energy // ignore: cast_nullable_to_non_nullable
-              as int,
-      distortion: null == distortion
+              as int?,
+      distortion: freezed == distortion
           ? _value.distortion
           : distortion // ignore: cast_nullable_to_non_nullable
-              as int,
-      thermal: null == thermal
+              as int?,
+      thermal: freezed == thermal
           ? _value.thermal
           : thermal // ignore: cast_nullable_to_non_nullable
-              as int,
-      biochemical: null == biochemical
+              as int?,
+      biochemical: freezed == biochemical
           ? _value.biochemical
           : biochemical // ignore: cast_nullable_to_non_nullable
-              as int,
-      stun: null == stun
+              as int?,
+      stun: freezed == stun
           ? _value.stun
           : stun // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -7489,34 +7023,34 @@ class __$$MinDamageImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MinDamageImpl implements _MinDamage {
   const _$MinDamageImpl(
-      {@JsonKey(name: "physical") required this.physical,
-      @JsonKey(name: "energy") required this.energy,
-      @JsonKey(name: "distortion") required this.distortion,
-      @JsonKey(name: "thermal") required this.thermal,
-      @JsonKey(name: "biochemical") required this.biochemical,
-      @JsonKey(name: "stun") required this.stun});
+      {@JsonKey(name: "physical") this.physical,
+      @JsonKey(name: "energy") this.energy,
+      @JsonKey(name: "distortion") this.distortion,
+      @JsonKey(name: "thermal") this.thermal,
+      @JsonKey(name: "biochemical") this.biochemical,
+      @JsonKey(name: "stun") this.stun});
 
   factory _$MinDamageImpl.fromJson(Map<String, dynamic> json) =>
       _$$MinDamageImplFromJson(json);
 
   @override
   @JsonKey(name: "physical")
-  final int physical;
+  final int? physical;
   @override
   @JsonKey(name: "energy")
-  final int energy;
+  final int? energy;
   @override
   @JsonKey(name: "distortion")
-  final int distortion;
+  final int? distortion;
   @override
   @JsonKey(name: "thermal")
-  final int thermal;
+  final int? thermal;
   @override
   @JsonKey(name: "biochemical")
-  final int biochemical;
+  final int? biochemical;
   @override
   @JsonKey(name: "stun")
-  final int stun;
+  final int? stun;
 
   @override
   String toString() {
@@ -7539,12 +7073,14 @@ class _$MinDamageImpl implements _MinDamage {
             (identical(other.stun, stun) || other.stun == stun));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, physical, energy, distortion, thermal, biochemical, stun);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MinDamage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MinDamageImplCopyWith<_$MinDamageImpl> get copyWith =>
@@ -7560,206 +7096,214 @@ class _$MinDamageImpl implements _MinDamage {
 
 abstract class _MinDamage implements MinDamage {
   const factory _MinDamage(
-      {@JsonKey(name: "physical") required final int physical,
-      @JsonKey(name: "energy") required final int energy,
-      @JsonKey(name: "distortion") required final int distortion,
-      @JsonKey(name: "thermal") required final int thermal,
-      @JsonKey(name: "biochemical") required final int biochemical,
-      @JsonKey(name: "stun") required final int stun}) = _$MinDamageImpl;
+      {@JsonKey(name: "physical") final int? physical,
+      @JsonKey(name: "energy") final int? energy,
+      @JsonKey(name: "distortion") final int? distortion,
+      @JsonKey(name: "thermal") final int? thermal,
+      @JsonKey(name: "biochemical") final int? biochemical,
+      @JsonKey(name: "stun") final int? stun}) = _$MinDamageImpl;
 
   factory _MinDamage.fromJson(Map<String, dynamic> json) =
       _$MinDamageImpl.fromJson;
 
   @override
   @JsonKey(name: "physical")
-  int get physical;
+  int? get physical;
   @override
   @JsonKey(name: "energy")
-  int get energy;
+  int? get energy;
   @override
   @JsonKey(name: "distortion")
-  int get distortion;
+  int? get distortion;
   @override
   @JsonKey(name: "thermal")
-  int get thermal;
+  int? get thermal;
   @override
   @JsonKey(name: "biochemical")
-  int get biochemical;
+  int? get biochemical;
   @override
   @JsonKey(name: "stun")
-  int get stun;
+  int? get stun;
+
+  /// Create a copy of MinDamage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MinDamageImplCopyWith<_$MinDamageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Piercability _$PiercabilityFromJson(Map<String, dynamic> json) {
-  return _Piercability.fromJson(json);
+PurplePiercability _$PurplePiercabilityFromJson(Map<String, dynamic> json) {
+  return _PurplePiercability.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Piercability {
+mixin _$PurplePiercability {
   @JsonKey(name: "damage_falloff_level_1")
-  int get damageFalloffLevel1 => throw _privateConstructorUsedError;
+  int? get damageFalloffLevel1 => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_falloff_level_2")
-  int get damageFalloffLevel2 => throw _privateConstructorUsedError;
+  int? get damageFalloffLevel2 => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_falloff_level_3")
-  int get damageFalloffLevel3 => throw _privateConstructorUsedError;
+  int? get damageFalloffLevel3 => throw _privateConstructorUsedError;
   @JsonKey(name: "max_penetration_thickness")
-  double get maxPenetrationThickness => throw _privateConstructorUsedError;
+  double? get maxPenetrationThickness => throw _privateConstructorUsedError;
 
+  /// Serializes this PurplePiercability to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PiercabilityCopyWith<Piercability> get copyWith =>
+
+  /// Create a copy of PurplePiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PurplePiercabilityCopyWith<PurplePiercability> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PiercabilityCopyWith<$Res> {
-  factory $PiercabilityCopyWith(
-          Piercability value, $Res Function(Piercability) then) =
-      _$PiercabilityCopyWithImpl<$Res, Piercability>;
+abstract class $PurplePiercabilityCopyWith<$Res> {
+  factory $PurplePiercabilityCopyWith(
+          PurplePiercability value, $Res Function(PurplePiercability) then) =
+      _$PurplePiercabilityCopyWithImpl<$Res, PurplePiercability>;
   @useResult
   $Res call(
-      {@JsonKey(name: "damage_falloff_level_1") int damageFalloffLevel1,
-      @JsonKey(name: "damage_falloff_level_2") int damageFalloffLevel2,
-      @JsonKey(name: "damage_falloff_level_3") int damageFalloffLevel3,
+      {@JsonKey(name: "damage_falloff_level_1") int? damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") int? damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") int? damageFalloffLevel3,
       @JsonKey(name: "max_penetration_thickness")
-      double maxPenetrationThickness});
+      double? maxPenetrationThickness});
 }
 
 /// @nodoc
-class _$PiercabilityCopyWithImpl<$Res, $Val extends Piercability>
-    implements $PiercabilityCopyWith<$Res> {
-  _$PiercabilityCopyWithImpl(this._value, this._then);
+class _$PurplePiercabilityCopyWithImpl<$Res, $Val extends PurplePiercability>
+    implements $PurplePiercabilityCopyWith<$Res> {
+  _$PurplePiercabilityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PurplePiercability
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? damageFalloffLevel1 = null,
-    Object? damageFalloffLevel2 = null,
-    Object? damageFalloffLevel3 = null,
-    Object? maxPenetrationThickness = null,
+    Object? damageFalloffLevel1 = freezed,
+    Object? damageFalloffLevel2 = freezed,
+    Object? damageFalloffLevel3 = freezed,
+    Object? maxPenetrationThickness = freezed,
   }) {
     return _then(_value.copyWith(
-      damageFalloffLevel1: null == damageFalloffLevel1
+      damageFalloffLevel1: freezed == damageFalloffLevel1
           ? _value.damageFalloffLevel1
           : damageFalloffLevel1 // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageFalloffLevel2: null == damageFalloffLevel2
+              as int?,
+      damageFalloffLevel2: freezed == damageFalloffLevel2
           ? _value.damageFalloffLevel2
           : damageFalloffLevel2 // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageFalloffLevel3: null == damageFalloffLevel3
+              as int?,
+      damageFalloffLevel3: freezed == damageFalloffLevel3
           ? _value.damageFalloffLevel3
           : damageFalloffLevel3 // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxPenetrationThickness: null == maxPenetrationThickness
+              as int?,
+      maxPenetrationThickness: freezed == maxPenetrationThickness
           ? _value.maxPenetrationThickness
           : maxPenetrationThickness // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$PiercabilityImplCopyWith<$Res>
-    implements $PiercabilityCopyWith<$Res> {
-  factory _$$PiercabilityImplCopyWith(
-          _$PiercabilityImpl value, $Res Function(_$PiercabilityImpl) then) =
-      __$$PiercabilityImplCopyWithImpl<$Res>;
+abstract class _$$PurplePiercabilityImplCopyWith<$Res>
+    implements $PurplePiercabilityCopyWith<$Res> {
+  factory _$$PurplePiercabilityImplCopyWith(_$PurplePiercabilityImpl value,
+          $Res Function(_$PurplePiercabilityImpl) then) =
+      __$$PurplePiercabilityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "damage_falloff_level_1") int damageFalloffLevel1,
-      @JsonKey(name: "damage_falloff_level_2") int damageFalloffLevel2,
-      @JsonKey(name: "damage_falloff_level_3") int damageFalloffLevel3,
+      {@JsonKey(name: "damage_falloff_level_1") int? damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") int? damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") int? damageFalloffLevel3,
       @JsonKey(name: "max_penetration_thickness")
-      double maxPenetrationThickness});
+      double? maxPenetrationThickness});
 }
 
 /// @nodoc
-class __$$PiercabilityImplCopyWithImpl<$Res>
-    extends _$PiercabilityCopyWithImpl<$Res, _$PiercabilityImpl>
-    implements _$$PiercabilityImplCopyWith<$Res> {
-  __$$PiercabilityImplCopyWithImpl(
-      _$PiercabilityImpl _value, $Res Function(_$PiercabilityImpl) _then)
+class __$$PurplePiercabilityImplCopyWithImpl<$Res>
+    extends _$PurplePiercabilityCopyWithImpl<$Res, _$PurplePiercabilityImpl>
+    implements _$$PurplePiercabilityImplCopyWith<$Res> {
+  __$$PurplePiercabilityImplCopyWithImpl(_$PurplePiercabilityImpl _value,
+      $Res Function(_$PurplePiercabilityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PurplePiercability
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? damageFalloffLevel1 = null,
-    Object? damageFalloffLevel2 = null,
-    Object? damageFalloffLevel3 = null,
-    Object? maxPenetrationThickness = null,
+    Object? damageFalloffLevel1 = freezed,
+    Object? damageFalloffLevel2 = freezed,
+    Object? damageFalloffLevel3 = freezed,
+    Object? maxPenetrationThickness = freezed,
   }) {
-    return _then(_$PiercabilityImpl(
-      damageFalloffLevel1: null == damageFalloffLevel1
+    return _then(_$PurplePiercabilityImpl(
+      damageFalloffLevel1: freezed == damageFalloffLevel1
           ? _value.damageFalloffLevel1
           : damageFalloffLevel1 // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageFalloffLevel2: null == damageFalloffLevel2
+              as int?,
+      damageFalloffLevel2: freezed == damageFalloffLevel2
           ? _value.damageFalloffLevel2
           : damageFalloffLevel2 // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageFalloffLevel3: null == damageFalloffLevel3
+              as int?,
+      damageFalloffLevel3: freezed == damageFalloffLevel3
           ? _value.damageFalloffLevel3
           : damageFalloffLevel3 // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxPenetrationThickness: null == maxPenetrationThickness
+              as int?,
+      maxPenetrationThickness: freezed == maxPenetrationThickness
           ? _value.maxPenetrationThickness
           : maxPenetrationThickness // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PiercabilityImpl implements _Piercability {
-  const _$PiercabilityImpl(
-      {@JsonKey(name: "damage_falloff_level_1")
-      required this.damageFalloffLevel1,
-      @JsonKey(name: "damage_falloff_level_2")
-      required this.damageFalloffLevel2,
-      @JsonKey(name: "damage_falloff_level_3")
-      required this.damageFalloffLevel3,
+class _$PurplePiercabilityImpl implements _PurplePiercability {
+  const _$PurplePiercabilityImpl(
+      {@JsonKey(name: "damage_falloff_level_1") this.damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") this.damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") this.damageFalloffLevel3,
       @JsonKey(name: "max_penetration_thickness")
-      required this.maxPenetrationThickness});
+      this.maxPenetrationThickness});
 
-  factory _$PiercabilityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PiercabilityImplFromJson(json);
+  factory _$PurplePiercabilityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PurplePiercabilityImplFromJson(json);
 
   @override
   @JsonKey(name: "damage_falloff_level_1")
-  final int damageFalloffLevel1;
+  final int? damageFalloffLevel1;
   @override
   @JsonKey(name: "damage_falloff_level_2")
-  final int damageFalloffLevel2;
+  final int? damageFalloffLevel2;
   @override
   @JsonKey(name: "damage_falloff_level_3")
-  final int damageFalloffLevel3;
+  final int? damageFalloffLevel3;
   @override
   @JsonKey(name: "max_penetration_thickness")
-  final double maxPenetrationThickness;
+  final double? maxPenetrationThickness;
 
   @override
   String toString() {
-    return 'Piercability(damageFalloffLevel1: $damageFalloffLevel1, damageFalloffLevel2: $damageFalloffLevel2, damageFalloffLevel3: $damageFalloffLevel3, maxPenetrationThickness: $maxPenetrationThickness)';
+    return 'PurplePiercability(damageFalloffLevel1: $damageFalloffLevel1, damageFalloffLevel2: $damageFalloffLevel2, damageFalloffLevel3: $damageFalloffLevel3, maxPenetrationThickness: $maxPenetrationThickness)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PiercabilityImpl &&
+            other is _$PurplePiercabilityImpl &&
             (identical(other.damageFalloffLevel1, damageFalloffLevel1) ||
                 other.damageFalloffLevel1 == damageFalloffLevel1) &&
             (identical(other.damageFalloffLevel2, damageFalloffLevel2) ||
@@ -7771,438 +7315,468 @@ class _$PiercabilityImpl implements _Piercability {
                 other.maxPenetrationThickness == maxPenetrationThickness));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, damageFalloffLevel1,
       damageFalloffLevel2, damageFalloffLevel3, maxPenetrationThickness);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PurplePiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PiercabilityImplCopyWith<_$PiercabilityImpl> get copyWith =>
-      __$$PiercabilityImplCopyWithImpl<_$PiercabilityImpl>(this, _$identity);
+  _$$PurplePiercabilityImplCopyWith<_$PurplePiercabilityImpl> get copyWith =>
+      __$$PurplePiercabilityImplCopyWithImpl<_$PurplePiercabilityImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PiercabilityImplToJson(
+    return _$$PurplePiercabilityImplToJson(
       this,
     );
   }
 }
 
-abstract class _Piercability implements Piercability {
-  const factory _Piercability(
-      {@JsonKey(name: "damage_falloff_level_1")
-      required final int damageFalloffLevel1,
-      @JsonKey(name: "damage_falloff_level_2")
-      required final int damageFalloffLevel2,
-      @JsonKey(name: "damage_falloff_level_3")
-      required final int damageFalloffLevel3,
+abstract class _PurplePiercability implements PurplePiercability {
+  const factory _PurplePiercability(
+      {@JsonKey(name: "damage_falloff_level_1") final int? damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") final int? damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") final int? damageFalloffLevel3,
       @JsonKey(name: "max_penetration_thickness")
-      required final double maxPenetrationThickness}) = _$PiercabilityImpl;
+      final double? maxPenetrationThickness}) = _$PurplePiercabilityImpl;
 
-  factory _Piercability.fromJson(Map<String, dynamic> json) =
-      _$PiercabilityImpl.fromJson;
+  factory _PurplePiercability.fromJson(Map<String, dynamic> json) =
+      _$PurplePiercabilityImpl.fromJson;
 
   @override
   @JsonKey(name: "damage_falloff_level_1")
-  int get damageFalloffLevel1;
+  int? get damageFalloffLevel1;
   @override
   @JsonKey(name: "damage_falloff_level_2")
-  int get damageFalloffLevel2;
+  int? get damageFalloffLevel2;
   @override
   @JsonKey(name: "damage_falloff_level_3")
-  int get damageFalloffLevel3;
+  int? get damageFalloffLevel3;
   @override
   @JsonKey(name: "max_penetration_thickness")
-  double get maxPenetrationThickness;
+  double? get maxPenetrationThickness;
+
+  /// Create a copy of PurplePiercability
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$PiercabilityImplCopyWith<_$PiercabilityImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PurplePiercabilityImplCopyWith<_$PurplePiercabilityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Damage _$DamageFromJson(Map<String, dynamic> json) {
-  return _Damage.fromJson(json);
+VehicleWeaponDamage _$VehicleWeaponDamageFromJson(Map<String, dynamic> json) {
+  return _VehicleWeaponDamage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Damage {
+mixin _$VehicleWeaponDamage {
   @JsonKey(name: "type")
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "damage")
-  double get damage => throw _privateConstructorUsedError;
+  double? get damage => throw _privateConstructorUsedError;
 
+  /// Serializes this VehicleWeaponDamage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DamageCopyWith<Damage> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of VehicleWeaponDamage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $VehicleWeaponDamageCopyWith<VehicleWeaponDamage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DamageCopyWith<$Res> {
-  factory $DamageCopyWith(Damage value, $Res Function(Damage) then) =
-      _$DamageCopyWithImpl<$Res, Damage>;
+abstract class $VehicleWeaponDamageCopyWith<$Res> {
+  factory $VehicleWeaponDamageCopyWith(
+          VehicleWeaponDamage value, $Res Function(VehicleWeaponDamage) then) =
+      _$VehicleWeaponDamageCopyWithImpl<$Res, VehicleWeaponDamage>;
   @useResult
   $Res call(
       {@JsonKey(name: "type") String? type,
-      @JsonKey(name: "name") String name,
-      @JsonKey(name: "damage") double damage});
+      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "damage") double? damage});
 }
 
 /// @nodoc
-class _$DamageCopyWithImpl<$Res, $Val extends Damage>
-    implements $DamageCopyWith<$Res> {
-  _$DamageCopyWithImpl(this._value, this._then);
+class _$VehicleWeaponDamageCopyWithImpl<$Res, $Val extends VehicleWeaponDamage>
+    implements $VehicleWeaponDamageCopyWith<$Res> {
+  _$VehicleWeaponDamageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VehicleWeaponDamage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = freezed,
-    Object? name = null,
-    Object? damage = null,
+    Object? name = freezed,
+    Object? damage = freezed,
   }) {
     return _then(_value.copyWith(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      damage: null == damage
+              as String?,
+      damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$DamageImplCopyWith<$Res> implements $DamageCopyWith<$Res> {
-  factory _$$DamageImplCopyWith(
-          _$DamageImpl value, $Res Function(_$DamageImpl) then) =
-      __$$DamageImplCopyWithImpl<$Res>;
+abstract class _$$VehicleWeaponDamageImplCopyWith<$Res>
+    implements $VehicleWeaponDamageCopyWith<$Res> {
+  factory _$$VehicleWeaponDamageImplCopyWith(_$VehicleWeaponDamageImpl value,
+          $Res Function(_$VehicleWeaponDamageImpl) then) =
+      __$$VehicleWeaponDamageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@JsonKey(name: "type") String? type,
-      @JsonKey(name: "name") String name,
-      @JsonKey(name: "damage") double damage});
+      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "damage") double? damage});
 }
 
 /// @nodoc
-class __$$DamageImplCopyWithImpl<$Res>
-    extends _$DamageCopyWithImpl<$Res, _$DamageImpl>
-    implements _$$DamageImplCopyWith<$Res> {
-  __$$DamageImplCopyWithImpl(
-      _$DamageImpl _value, $Res Function(_$DamageImpl) _then)
+class __$$VehicleWeaponDamageImplCopyWithImpl<$Res>
+    extends _$VehicleWeaponDamageCopyWithImpl<$Res, _$VehicleWeaponDamageImpl>
+    implements _$$VehicleWeaponDamageImplCopyWith<$Res> {
+  __$$VehicleWeaponDamageImplCopyWithImpl(_$VehicleWeaponDamageImpl _value,
+      $Res Function(_$VehicleWeaponDamageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VehicleWeaponDamage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = freezed,
-    Object? name = null,
-    Object? damage = null,
+    Object? name = freezed,
+    Object? damage = freezed,
   }) {
-    return _then(_$DamageImpl(
+    return _then(_$VehicleWeaponDamageImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      damage: null == damage
+              as String?,
+      damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DamageImpl implements _Damage {
-  const _$DamageImpl(
-      {@JsonKey(name: "type") required this.type,
-      @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "damage") required this.damage});
+class _$VehicleWeaponDamageImpl implements _VehicleWeaponDamage {
+  const _$VehicleWeaponDamageImpl(
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "name") this.name,
+      @JsonKey(name: "damage") this.damage});
 
-  factory _$DamageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DamageImplFromJson(json);
+  factory _$VehicleWeaponDamageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VehicleWeaponDamageImplFromJson(json);
 
   @override
   @JsonKey(name: "type")
   final String? type;
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "damage")
-  final double damage;
+  final double? damage;
 
   @override
   String toString() {
-    return 'Damage(type: $type, name: $name, damage: $damage)';
+    return 'VehicleWeaponDamage(type: $type, name: $name, damage: $damage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DamageImpl &&
+            other is _$VehicleWeaponDamageImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.damage, damage) || other.damage == damage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, name, damage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VehicleWeaponDamage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DamageImplCopyWith<_$DamageImpl> get copyWith =>
-      __$$DamageImplCopyWithImpl<_$DamageImpl>(this, _$identity);
+  _$$VehicleWeaponDamageImplCopyWith<_$VehicleWeaponDamageImpl> get copyWith =>
+      __$$VehicleWeaponDamageImplCopyWithImpl<_$VehicleWeaponDamageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DamageImplToJson(
+    return _$$VehicleWeaponDamageImplToJson(
       this,
     );
   }
 }
 
-abstract class _Damage implements Damage {
-  const factory _Damage(
-      {@JsonKey(name: "type") required final String? type,
-      @JsonKey(name: "name") required final String name,
-      @JsonKey(name: "damage") required final double damage}) = _$DamageImpl;
+abstract class _VehicleWeaponDamage implements VehicleWeaponDamage {
+  const factory _VehicleWeaponDamage(
+          {@JsonKey(name: "type") final String? type,
+          @JsonKey(name: "name") final String? name,
+          @JsonKey(name: "damage") final double? damage}) =
+      _$VehicleWeaponDamageImpl;
 
-  factory _Damage.fromJson(Map<String, dynamic> json) = _$DamageImpl.fromJson;
+  factory _VehicleWeaponDamage.fromJson(Map<String, dynamic> json) =
+      _$VehicleWeaponDamageImpl.fromJson;
 
   @override
   @JsonKey(name: "type")
   String? get type;
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "damage")
-  double get damage;
+  double? get damage;
+
+  /// Create a copy of VehicleWeaponDamage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$DamageImplCopyWith<_$DamageImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VehicleWeaponDamageImplCopyWith<_$VehicleWeaponDamageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-CounterMeasureMode _$CounterMeasureModeFromJson(Map<String, dynamic> json) {
-  return _CounterMeasureMode.fromJson(json);
+VehicleWeaponMode _$VehicleWeaponModeFromJson(Map<String, dynamic> json) {
+  return _VehicleWeaponMode.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CounterMeasureMode {
+mixin _$VehicleWeaponMode {
   @JsonKey(name: "mode")
-  String get mode => throw _privateConstructorUsedError;
+  String? get mode => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "rpm")
-  int get rpm => throw _privateConstructorUsedError;
+  int? get rpm => throw _privateConstructorUsedError;
   @JsonKey(name: "ammo_per_shot")
-  int get ammoPerShot => throw _privateConstructorUsedError;
+  int? get ammoPerShot => throw _privateConstructorUsedError;
   @JsonKey(name: "pellets_per_shot")
-  int get pelletsPerShot => throw _privateConstructorUsedError;
+  int? get pelletsPerShot => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_per_second")
-  double get damagePerSecond => throw _privateConstructorUsedError;
+  double? get damagePerSecond => throw _privateConstructorUsedError;
 
+  /// Serializes this VehicleWeaponMode to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CounterMeasureModeCopyWith<CounterMeasureMode> get copyWith =>
+
+  /// Create a copy of VehicleWeaponMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $VehicleWeaponModeCopyWith<VehicleWeaponMode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CounterMeasureModeCopyWith<$Res> {
-  factory $CounterMeasureModeCopyWith(
-          CounterMeasureMode value, $Res Function(CounterMeasureMode) then) =
-      _$CounterMeasureModeCopyWithImpl<$Res, CounterMeasureMode>;
+abstract class $VehicleWeaponModeCopyWith<$Res> {
+  factory $VehicleWeaponModeCopyWith(
+          VehicleWeaponMode value, $Res Function(VehicleWeaponMode) then) =
+      _$VehicleWeaponModeCopyWithImpl<$Res, VehicleWeaponMode>;
   @useResult
   $Res call(
-      {@JsonKey(name: "mode") String mode,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "rpm") int rpm,
-      @JsonKey(name: "ammo_per_shot") int ammoPerShot,
-      @JsonKey(name: "pellets_per_shot") int pelletsPerShot,
-      @JsonKey(name: "damage_per_second") double damagePerSecond});
+      {@JsonKey(name: "mode") String? mode,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "rpm") int? rpm,
+      @JsonKey(name: "ammo_per_shot") int? ammoPerShot,
+      @JsonKey(name: "pellets_per_shot") int? pelletsPerShot,
+      @JsonKey(name: "damage_per_second") double? damagePerSecond});
 }
 
 /// @nodoc
-class _$CounterMeasureModeCopyWithImpl<$Res, $Val extends CounterMeasureMode>
-    implements $CounterMeasureModeCopyWith<$Res> {
-  _$CounterMeasureModeCopyWithImpl(this._value, this._then);
+class _$VehicleWeaponModeCopyWithImpl<$Res, $Val extends VehicleWeaponMode>
+    implements $VehicleWeaponModeCopyWith<$Res> {
+  _$VehicleWeaponModeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VehicleWeaponMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mode = null,
-    Object? type = null,
-    Object? rpm = null,
-    Object? ammoPerShot = null,
-    Object? pelletsPerShot = null,
-    Object? damagePerSecond = null,
+    Object? mode = freezed,
+    Object? type = freezed,
+    Object? rpm = freezed,
+    Object? ammoPerShot = freezed,
+    Object? pelletsPerShot = freezed,
+    Object? damagePerSecond = freezed,
   }) {
     return _then(_value.copyWith(
-      mode: null == mode
+      mode: freezed == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      rpm: null == rpm
+              as String?,
+      rpm: freezed == rpm
           ? _value.rpm
           : rpm // ignore: cast_nullable_to_non_nullable
-              as int,
-      ammoPerShot: null == ammoPerShot
+              as int?,
+      ammoPerShot: freezed == ammoPerShot
           ? _value.ammoPerShot
           : ammoPerShot // ignore: cast_nullable_to_non_nullable
-              as int,
-      pelletsPerShot: null == pelletsPerShot
+              as int?,
+      pelletsPerShot: freezed == pelletsPerShot
           ? _value.pelletsPerShot
           : pelletsPerShot // ignore: cast_nullable_to_non_nullable
-              as int,
-      damagePerSecond: null == damagePerSecond
+              as int?,
+      damagePerSecond: freezed == damagePerSecond
           ? _value.damagePerSecond
           : damagePerSecond // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CounterMeasureModeImplCopyWith<$Res>
-    implements $CounterMeasureModeCopyWith<$Res> {
-  factory _$$CounterMeasureModeImplCopyWith(_$CounterMeasureModeImpl value,
-          $Res Function(_$CounterMeasureModeImpl) then) =
-      __$$CounterMeasureModeImplCopyWithImpl<$Res>;
+abstract class _$$VehicleWeaponModeImplCopyWith<$Res>
+    implements $VehicleWeaponModeCopyWith<$Res> {
+  factory _$$VehicleWeaponModeImplCopyWith(_$VehicleWeaponModeImpl value,
+          $Res Function(_$VehicleWeaponModeImpl) then) =
+      __$$VehicleWeaponModeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "mode") String mode,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "rpm") int rpm,
-      @JsonKey(name: "ammo_per_shot") int ammoPerShot,
-      @JsonKey(name: "pellets_per_shot") int pelletsPerShot,
-      @JsonKey(name: "damage_per_second") double damagePerSecond});
+      {@JsonKey(name: "mode") String? mode,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "rpm") int? rpm,
+      @JsonKey(name: "ammo_per_shot") int? ammoPerShot,
+      @JsonKey(name: "pellets_per_shot") int? pelletsPerShot,
+      @JsonKey(name: "damage_per_second") double? damagePerSecond});
 }
 
 /// @nodoc
-class __$$CounterMeasureModeImplCopyWithImpl<$Res>
-    extends _$CounterMeasureModeCopyWithImpl<$Res, _$CounterMeasureModeImpl>
-    implements _$$CounterMeasureModeImplCopyWith<$Res> {
-  __$$CounterMeasureModeImplCopyWithImpl(_$CounterMeasureModeImpl _value,
-      $Res Function(_$CounterMeasureModeImpl) _then)
+class __$$VehicleWeaponModeImplCopyWithImpl<$Res>
+    extends _$VehicleWeaponModeCopyWithImpl<$Res, _$VehicleWeaponModeImpl>
+    implements _$$VehicleWeaponModeImplCopyWith<$Res> {
+  __$$VehicleWeaponModeImplCopyWithImpl(_$VehicleWeaponModeImpl _value,
+      $Res Function(_$VehicleWeaponModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VehicleWeaponMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mode = null,
-    Object? type = null,
-    Object? rpm = null,
-    Object? ammoPerShot = null,
-    Object? pelletsPerShot = null,
-    Object? damagePerSecond = null,
+    Object? mode = freezed,
+    Object? type = freezed,
+    Object? rpm = freezed,
+    Object? ammoPerShot = freezed,
+    Object? pelletsPerShot = freezed,
+    Object? damagePerSecond = freezed,
   }) {
-    return _then(_$CounterMeasureModeImpl(
-      mode: null == mode
+    return _then(_$VehicleWeaponModeImpl(
+      mode: freezed == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      rpm: null == rpm
+              as String?,
+      rpm: freezed == rpm
           ? _value.rpm
           : rpm // ignore: cast_nullable_to_non_nullable
-              as int,
-      ammoPerShot: null == ammoPerShot
+              as int?,
+      ammoPerShot: freezed == ammoPerShot
           ? _value.ammoPerShot
           : ammoPerShot // ignore: cast_nullable_to_non_nullable
-              as int,
-      pelletsPerShot: null == pelletsPerShot
+              as int?,
+      pelletsPerShot: freezed == pelletsPerShot
           ? _value.pelletsPerShot
           : pelletsPerShot // ignore: cast_nullable_to_non_nullable
-              as int,
-      damagePerSecond: null == damagePerSecond
+              as int?,
+      damagePerSecond: freezed == damagePerSecond
           ? _value.damagePerSecond
           : damagePerSecond // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$CounterMeasureModeImpl implements _CounterMeasureMode {
-  const _$CounterMeasureModeImpl(
-      {@JsonKey(name: "mode") required this.mode,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "rpm") required this.rpm,
-      @JsonKey(name: "ammo_per_shot") required this.ammoPerShot,
-      @JsonKey(name: "pellets_per_shot") required this.pelletsPerShot,
-      @JsonKey(name: "damage_per_second") required this.damagePerSecond});
+class _$VehicleWeaponModeImpl implements _VehicleWeaponMode {
+  const _$VehicleWeaponModeImpl(
+      {@JsonKey(name: "mode") this.mode,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "rpm") this.rpm,
+      @JsonKey(name: "ammo_per_shot") this.ammoPerShot,
+      @JsonKey(name: "pellets_per_shot") this.pelletsPerShot,
+      @JsonKey(name: "damage_per_second") this.damagePerSecond});
 
-  factory _$CounterMeasureModeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CounterMeasureModeImplFromJson(json);
+  factory _$VehicleWeaponModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VehicleWeaponModeImplFromJson(json);
 
   @override
   @JsonKey(name: "mode")
-  final String mode;
+  final String? mode;
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "rpm")
-  final int rpm;
+  final int? rpm;
   @override
   @JsonKey(name: "ammo_per_shot")
-  final int ammoPerShot;
+  final int? ammoPerShot;
   @override
   @JsonKey(name: "pellets_per_shot")
-  final int pelletsPerShot;
+  final int? pelletsPerShot;
   @override
   @JsonKey(name: "damage_per_second")
-  final double damagePerSecond;
+  final double? damagePerSecond;
 
   @override
   String toString() {
-    return 'CounterMeasureMode(mode: $mode, type: $type, rpm: $rpm, ammoPerShot: $ammoPerShot, pelletsPerShot: $pelletsPerShot, damagePerSecond: $damagePerSecond)';
+    return 'VehicleWeaponMode(mode: $mode, type: $type, rpm: $rpm, ammoPerShot: $ammoPerShot, pelletsPerShot: $pelletsPerShot, damagePerSecond: $damagePerSecond)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CounterMeasureModeImpl &&
+            other is _$VehicleWeaponModeImpl &&
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.rpm, rpm) || other.rpm == rpm) &&
@@ -8214,224 +7788,236 @@ class _$CounterMeasureModeImpl implements _CounterMeasureMode {
                 other.damagePerSecond == damagePerSecond));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, mode, type, rpm, ammoPerShot,
       pelletsPerShot, damagePerSecond);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VehicleWeaponMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CounterMeasureModeImplCopyWith<_$CounterMeasureModeImpl> get copyWith =>
-      __$$CounterMeasureModeImplCopyWithImpl<_$CounterMeasureModeImpl>(
+  _$$VehicleWeaponModeImplCopyWith<_$VehicleWeaponModeImpl> get copyWith =>
+      __$$VehicleWeaponModeImplCopyWithImpl<_$VehicleWeaponModeImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CounterMeasureModeImplToJson(
+    return _$$VehicleWeaponModeImplToJson(
       this,
     );
   }
 }
 
-abstract class _CounterMeasureMode implements CounterMeasureMode {
-  const factory _CounterMeasureMode(
-      {@JsonKey(name: "mode") required final String mode,
-      @JsonKey(name: "type") required final String type,
-      @JsonKey(name: "rpm") required final int rpm,
-      @JsonKey(name: "ammo_per_shot") required final int ammoPerShot,
-      @JsonKey(name: "pellets_per_shot") required final int pelletsPerShot,
-      @JsonKey(name: "damage_per_second")
-      required final double damagePerSecond}) = _$CounterMeasureModeImpl;
+abstract class _VehicleWeaponMode implements VehicleWeaponMode {
+  const factory _VehicleWeaponMode(
+          {@JsonKey(name: "mode") final String? mode,
+          @JsonKey(name: "type") final String? type,
+          @JsonKey(name: "rpm") final int? rpm,
+          @JsonKey(name: "ammo_per_shot") final int? ammoPerShot,
+          @JsonKey(name: "pellets_per_shot") final int? pelletsPerShot,
+          @JsonKey(name: "damage_per_second") final double? damagePerSecond}) =
+      _$VehicleWeaponModeImpl;
 
-  factory _CounterMeasureMode.fromJson(Map<String, dynamic> json) =
-      _$CounterMeasureModeImpl.fromJson;
+  factory _VehicleWeaponMode.fromJson(Map<String, dynamic> json) =
+      _$VehicleWeaponModeImpl.fromJson;
 
   @override
   @JsonKey(name: "mode")
-  String get mode;
+  String? get mode;
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "rpm")
-  int get rpm;
+  int? get rpm;
   @override
   @JsonKey(name: "ammo_per_shot")
-  int get ammoPerShot;
+  int? get ammoPerShot;
   @override
   @JsonKey(name: "pellets_per_shot")
-  int get pelletsPerShot;
+  int? get pelletsPerShot;
   @override
   @JsonKey(name: "damage_per_second")
-  double get damagePerSecond;
+  double? get damagePerSecond;
+
+  /// Create a copy of VehicleWeaponMode
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$CounterMeasureModeImplCopyWith<_$CounterMeasureModeImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VehicleWeaponModeImplCopyWith<_$VehicleWeaponModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Regeneration _$RegenerationFromJson(Map<String, dynamic> json) {
-  return _Regeneration.fromJson(json);
+PurpleRegeneration _$PurpleRegenerationFromJson(Map<String, dynamic> json) {
+  return _PurpleRegeneration.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Regeneration {
+mixin _$PurpleRegeneration {
   @JsonKey(name: "requested_regen_per_sec")
-  int get requestedRegenPerSec => throw _privateConstructorUsedError;
+  int? get requestedRegenPerSec => throw _privateConstructorUsedError;
   @JsonKey(name: "requested_ammo_load")
-  int get requestedAmmoLoad => throw _privateConstructorUsedError;
+  int? get requestedAmmoLoad => throw _privateConstructorUsedError;
   @JsonKey(name: "cooldown")
-  double get cooldown => throw _privateConstructorUsedError;
+  double? get cooldown => throw _privateConstructorUsedError;
   @JsonKey(name: "cost_per_bullet")
-  double get costPerBullet => throw _privateConstructorUsedError;
+  double? get costPerBullet => throw _privateConstructorUsedError;
 
+  /// Serializes this PurpleRegeneration to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RegenerationCopyWith<Regeneration> get copyWith =>
+
+  /// Create a copy of PurpleRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PurpleRegenerationCopyWith<PurpleRegeneration> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RegenerationCopyWith<$Res> {
-  factory $RegenerationCopyWith(
-          Regeneration value, $Res Function(Regeneration) then) =
-      _$RegenerationCopyWithImpl<$Res, Regeneration>;
+abstract class $PurpleRegenerationCopyWith<$Res> {
+  factory $PurpleRegenerationCopyWith(
+          PurpleRegeneration value, $Res Function(PurpleRegeneration) then) =
+      _$PurpleRegenerationCopyWithImpl<$Res, PurpleRegeneration>;
   @useResult
   $Res call(
-      {@JsonKey(name: "requested_regen_per_sec") int requestedRegenPerSec,
-      @JsonKey(name: "requested_ammo_load") int requestedAmmoLoad,
-      @JsonKey(name: "cooldown") double cooldown,
-      @JsonKey(name: "cost_per_bullet") double costPerBullet});
+      {@JsonKey(name: "requested_regen_per_sec") int? requestedRegenPerSec,
+      @JsonKey(name: "requested_ammo_load") int? requestedAmmoLoad,
+      @JsonKey(name: "cooldown") double? cooldown,
+      @JsonKey(name: "cost_per_bullet") double? costPerBullet});
 }
 
 /// @nodoc
-class _$RegenerationCopyWithImpl<$Res, $Val extends Regeneration>
-    implements $RegenerationCopyWith<$Res> {
-  _$RegenerationCopyWithImpl(this._value, this._then);
+class _$PurpleRegenerationCopyWithImpl<$Res, $Val extends PurpleRegeneration>
+    implements $PurpleRegenerationCopyWith<$Res> {
+  _$PurpleRegenerationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PurpleRegeneration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requestedRegenPerSec = null,
-    Object? requestedAmmoLoad = null,
-    Object? cooldown = null,
-    Object? costPerBullet = null,
+    Object? requestedRegenPerSec = freezed,
+    Object? requestedAmmoLoad = freezed,
+    Object? cooldown = freezed,
+    Object? costPerBullet = freezed,
   }) {
     return _then(_value.copyWith(
-      requestedRegenPerSec: null == requestedRegenPerSec
+      requestedRegenPerSec: freezed == requestedRegenPerSec
           ? _value.requestedRegenPerSec
           : requestedRegenPerSec // ignore: cast_nullable_to_non_nullable
-              as int,
-      requestedAmmoLoad: null == requestedAmmoLoad
+              as int?,
+      requestedAmmoLoad: freezed == requestedAmmoLoad
           ? _value.requestedAmmoLoad
           : requestedAmmoLoad // ignore: cast_nullable_to_non_nullable
-              as int,
-      cooldown: null == cooldown
+              as int?,
+      cooldown: freezed == cooldown
           ? _value.cooldown
           : cooldown // ignore: cast_nullable_to_non_nullable
-              as double,
-      costPerBullet: null == costPerBullet
+              as double?,
+      costPerBullet: freezed == costPerBullet
           ? _value.costPerBullet
           : costPerBullet // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$RegenerationImplCopyWith<$Res>
-    implements $RegenerationCopyWith<$Res> {
-  factory _$$RegenerationImplCopyWith(
-          _$RegenerationImpl value, $Res Function(_$RegenerationImpl) then) =
-      __$$RegenerationImplCopyWithImpl<$Res>;
+abstract class _$$PurpleRegenerationImplCopyWith<$Res>
+    implements $PurpleRegenerationCopyWith<$Res> {
+  factory _$$PurpleRegenerationImplCopyWith(_$PurpleRegenerationImpl value,
+          $Res Function(_$PurpleRegenerationImpl) then) =
+      __$$PurpleRegenerationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "requested_regen_per_sec") int requestedRegenPerSec,
-      @JsonKey(name: "requested_ammo_load") int requestedAmmoLoad,
-      @JsonKey(name: "cooldown") double cooldown,
-      @JsonKey(name: "cost_per_bullet") double costPerBullet});
+      {@JsonKey(name: "requested_regen_per_sec") int? requestedRegenPerSec,
+      @JsonKey(name: "requested_ammo_load") int? requestedAmmoLoad,
+      @JsonKey(name: "cooldown") double? cooldown,
+      @JsonKey(name: "cost_per_bullet") double? costPerBullet});
 }
 
 /// @nodoc
-class __$$RegenerationImplCopyWithImpl<$Res>
-    extends _$RegenerationCopyWithImpl<$Res, _$RegenerationImpl>
-    implements _$$RegenerationImplCopyWith<$Res> {
-  __$$RegenerationImplCopyWithImpl(
-      _$RegenerationImpl _value, $Res Function(_$RegenerationImpl) _then)
+class __$$PurpleRegenerationImplCopyWithImpl<$Res>
+    extends _$PurpleRegenerationCopyWithImpl<$Res, _$PurpleRegenerationImpl>
+    implements _$$PurpleRegenerationImplCopyWith<$Res> {
+  __$$PurpleRegenerationImplCopyWithImpl(_$PurpleRegenerationImpl _value,
+      $Res Function(_$PurpleRegenerationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PurpleRegeneration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requestedRegenPerSec = null,
-    Object? requestedAmmoLoad = null,
-    Object? cooldown = null,
-    Object? costPerBullet = null,
+    Object? requestedRegenPerSec = freezed,
+    Object? requestedAmmoLoad = freezed,
+    Object? cooldown = freezed,
+    Object? costPerBullet = freezed,
   }) {
-    return _then(_$RegenerationImpl(
-      requestedRegenPerSec: null == requestedRegenPerSec
+    return _then(_$PurpleRegenerationImpl(
+      requestedRegenPerSec: freezed == requestedRegenPerSec
           ? _value.requestedRegenPerSec
           : requestedRegenPerSec // ignore: cast_nullable_to_non_nullable
-              as int,
-      requestedAmmoLoad: null == requestedAmmoLoad
+              as int?,
+      requestedAmmoLoad: freezed == requestedAmmoLoad
           ? _value.requestedAmmoLoad
           : requestedAmmoLoad // ignore: cast_nullable_to_non_nullable
-              as int,
-      cooldown: null == cooldown
+              as int?,
+      cooldown: freezed == cooldown
           ? _value.cooldown
           : cooldown // ignore: cast_nullable_to_non_nullable
-              as double,
-      costPerBullet: null == costPerBullet
+              as double?,
+      costPerBullet: freezed == costPerBullet
           ? _value.costPerBullet
           : costPerBullet // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$RegenerationImpl implements _Regeneration {
-  const _$RegenerationImpl(
-      {@JsonKey(name: "requested_regen_per_sec")
-      required this.requestedRegenPerSec,
-      @JsonKey(name: "requested_ammo_load") required this.requestedAmmoLoad,
-      @JsonKey(name: "cooldown") required this.cooldown,
-      @JsonKey(name: "cost_per_bullet") required this.costPerBullet});
+class _$PurpleRegenerationImpl implements _PurpleRegeneration {
+  const _$PurpleRegenerationImpl(
+      {@JsonKey(name: "requested_regen_per_sec") this.requestedRegenPerSec,
+      @JsonKey(name: "requested_ammo_load") this.requestedAmmoLoad,
+      @JsonKey(name: "cooldown") this.cooldown,
+      @JsonKey(name: "cost_per_bullet") this.costPerBullet});
 
-  factory _$RegenerationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RegenerationImplFromJson(json);
+  factory _$PurpleRegenerationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PurpleRegenerationImplFromJson(json);
 
   @override
   @JsonKey(name: "requested_regen_per_sec")
-  final int requestedRegenPerSec;
+  final int? requestedRegenPerSec;
   @override
   @JsonKey(name: "requested_ammo_load")
-  final int requestedAmmoLoad;
+  final int? requestedAmmoLoad;
   @override
   @JsonKey(name: "cooldown")
-  final double cooldown;
+  final double? cooldown;
   @override
   @JsonKey(name: "cost_per_bullet")
-  final double costPerBullet;
+  final double? costPerBullet;
 
   @override
   String toString() {
-    return 'Regeneration(requestedRegenPerSec: $requestedRegenPerSec, requestedAmmoLoad: $requestedAmmoLoad, cooldown: $cooldown, costPerBullet: $costPerBullet)';
+    return 'PurpleRegeneration(requestedRegenPerSec: $requestedRegenPerSec, requestedAmmoLoad: $requestedAmmoLoad, cooldown: $cooldown, costPerBullet: $costPerBullet)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegenerationImpl &&
+            other is _$PurpleRegenerationImpl &&
             (identical(other.requestedRegenPerSec, requestedRegenPerSec) ||
                 other.requestedRegenPerSec == requestedRegenPerSec) &&
             (identical(other.requestedAmmoLoad, requestedAmmoLoad) ||
@@ -8442,53 +8028,58 @@ class _$RegenerationImpl implements _Regeneration {
                 other.costPerBullet == costPerBullet));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, requestedRegenPerSec,
       requestedAmmoLoad, cooldown, costPerBullet);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PurpleRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegenerationImplCopyWith<_$RegenerationImpl> get copyWith =>
-      __$$RegenerationImplCopyWithImpl<_$RegenerationImpl>(this, _$identity);
+  _$$PurpleRegenerationImplCopyWith<_$PurpleRegenerationImpl> get copyWith =>
+      __$$PurpleRegenerationImplCopyWithImpl<_$PurpleRegenerationImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RegenerationImplToJson(
+    return _$$PurpleRegenerationImplToJson(
       this,
     );
   }
 }
 
-abstract class _Regeneration implements Regeneration {
-  const factory _Regeneration(
-      {@JsonKey(name: "requested_regen_per_sec")
-      required final int requestedRegenPerSec,
-      @JsonKey(name: "requested_ammo_load")
-      required final int requestedAmmoLoad,
-      @JsonKey(name: "cooldown") required final double cooldown,
-      @JsonKey(name: "cost_per_bullet")
-      required final double costPerBullet}) = _$RegenerationImpl;
+abstract class _PurpleRegeneration implements PurpleRegeneration {
+  const factory _PurpleRegeneration(
+          {@JsonKey(name: "requested_regen_per_sec")
+          final int? requestedRegenPerSec,
+          @JsonKey(name: "requested_ammo_load") final int? requestedAmmoLoad,
+          @JsonKey(name: "cooldown") final double? cooldown,
+          @JsonKey(name: "cost_per_bullet") final double? costPerBullet}) =
+      _$PurpleRegenerationImpl;
 
-  factory _Regeneration.fromJson(Map<String, dynamic> json) =
-      _$RegenerationImpl.fromJson;
+  factory _PurpleRegeneration.fromJson(Map<String, dynamic> json) =
+      _$PurpleRegenerationImpl.fromJson;
 
   @override
   @JsonKey(name: "requested_regen_per_sec")
-  int get requestedRegenPerSec;
+  int? get requestedRegenPerSec;
   @override
   @JsonKey(name: "requested_ammo_load")
-  int get requestedAmmoLoad;
+  int? get requestedAmmoLoad;
   @override
   @JsonKey(name: "cooldown")
-  double get cooldown;
+  double? get cooldown;
   @override
   @JsonKey(name: "cost_per_bullet")
-  double get costPerBullet;
+  double? get costPerBullet;
+
+  /// Create a copy of PurpleRegeneration
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$RegenerationImplCopyWith<_$RegenerationImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PurpleRegenerationImplCopyWith<_$PurpleRegenerationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -8501,48 +8092,48 @@ mixin _$FluffyItem {
   @JsonKey(name: "uuid")
   String? get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "class_name")
   String? get className => throw _privateConstructorUsedError;
   @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: "size")
-  int get size => throw _privateConstructorUsedError;
+  int? get size => throw _privateConstructorUsedError;
   @JsonKey(name: "mass")
-  int get mass => throw _privateConstructorUsedError;
+  int? get mass => throw _privateConstructorUsedError;
   @JsonKey(name: "grade")
   dynamic get grade => throw _privateConstructorUsedError;
   @JsonKey(name: "class")
   dynamic get itemClass => throw _privateConstructorUsedError;
   @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer => throw _privateConstructorUsedError;
+  ItemManufacturer? get manufacturer => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "sub_type")
-  String get subType => throw _privateConstructorUsedError;
+  String? get subType => throw _privateConstructorUsedError;
   @JsonKey(name: "vehicle_weapon")
-  CounterMeasure? get vehicleWeapon => throw _privateConstructorUsedError;
-  @JsonKey(name: "ports")
-  List<Port> get ports => throw _privateConstructorUsedError;
+  FluffyVehicleWeapon? get vehicleWeapon => throw _privateConstructorUsedError;
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
   @JsonKey(name: "max_mounts")
   int? get maxMounts => throw _privateConstructorUsedError;
   @JsonKey(name: "min_size")
   int? get minSize => throw _privateConstructorUsedError;
   @JsonKey(name: "max_size")
   int? get maxSize => throw _privateConstructorUsedError;
+  @JsonKey(name: "ports")
+  List<Port>? get ports => throw _privateConstructorUsedError;
   @JsonKey(name: "missile")
   Missile? get missile => throw _privateConstructorUsedError;
-  @JsonKey(name: "inventory")
-  Inventory? get inventory => throw _privateConstructorUsedError;
-  @JsonKey(name: "tractor_beam")
-  TractorBeam? get tractorBeam => throw _privateConstructorUsedError;
 
+  /// Serializes this FluffyItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FluffyItemCopyWith<FluffyItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -8555,32 +8146,28 @@ abstract class $FluffyItemCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "mass") int mass,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "mass") int? mass,
       @JsonKey(name: "grade") dynamic grade,
       @JsonKey(name: "class") dynamic itemClass,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "vehicle_weapon") CounterMeasure? vehicleWeapon,
-      @JsonKey(name: "ports") List<Port> ports,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version,
+      @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "vehicle_weapon") FluffyVehicleWeapon? vehicleWeapon,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version,
       @JsonKey(name: "max_mounts") int? maxMounts,
       @JsonKey(name: "min_size") int? minSize,
       @JsonKey(name: "max_size") int? maxSize,
-      @JsonKey(name: "missile") Missile? missile,
-      @JsonKey(name: "inventory") Inventory? inventory,
-      @JsonKey(name: "tractor_beam") TractorBeam? tractorBeam});
+      @JsonKey(name: "ports") List<Port>? ports,
+      @JsonKey(name: "missile") Missile? missile});
 
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
-  $CounterMeasureCopyWith<$Res>? get vehicleWeapon;
+  $ItemManufacturerCopyWith<$Res>? get manufacturer;
+  $FluffyVehicleWeaponCopyWith<$Res>? get vehicleWeapon;
   $MissileCopyWith<$Res>? get missile;
-  $InventoryCopyWith<$Res>? get inventory;
-  $TractorBeamCopyWith<$Res>? get tractorBeam;
 }
 
 /// @nodoc
@@ -8593,56 +8180,56 @@ class _$FluffyItemCopyWithImpl<$Res, $Val extends FluffyItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? name = null,
+    Object? name = freezed,
     Object? className = freezed,
-    Object? link = null,
-    Object? size = null,
-    Object? mass = null,
+    Object? link = freezed,
+    Object? size = freezed,
+    Object? mass = freezed,
     Object? grade = freezed,
     Object? itemClass = freezed,
-    Object? manufacturer = null,
-    Object? type = null,
-    Object? subType = null,
+    Object? manufacturer = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
     Object? vehicleWeapon = freezed,
-    Object? ports = null,
-    Object? updatedAt = null,
-    Object? version = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
     Object? maxMounts = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
+    Object? ports = freezed,
     Object? missile = freezed,
-    Object? inventory = freezed,
-    Object? tractorBeam = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      mass: null == mass
+              as int?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
@@ -8651,34 +8238,30 @@ class _$FluffyItemCopyWithImpl<$Res, $Val extends FluffyItem>
           ? _value.itemClass
           : itemClass // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      manufacturer: null == manufacturer
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      type: null == type
+              as ItemManufacturer?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleWeapon: freezed == vehicleWeapon
           ? _value.vehicleWeapon
           : vehicleWeapon // ignore: cast_nullable_to_non_nullable
-              as CounterMeasure?,
-      ports: null == ports
-          ? _value.ports
-          : ports // ignore: cast_nullable_to_non_nullable
-              as List<Port>,
-      updatedAt: null == updatedAt
+              as FluffyVehicleWeapon?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       maxMounts: freezed == maxMounts
           ? _value.maxMounts
           : maxMounts // ignore: cast_nullable_to_non_nullable
@@ -8691,41 +8274,47 @@ class _$FluffyItemCopyWithImpl<$Res, $Val extends FluffyItem>
           ? _value.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      ports: freezed == ports
+          ? _value.ports
+          : ports // ignore: cast_nullable_to_non_nullable
+              as List<Port>?,
       missile: freezed == missile
           ? _value.missile
           : missile // ignore: cast_nullable_to_non_nullable
               as Missile?,
-      inventory: freezed == inventory
-          ? _value.inventory
-          : inventory // ignore: cast_nullable_to_non_nullable
-              as Inventory?,
-      tractorBeam: freezed == tractorBeam
-          ? _value.tractorBeam
-          : tractorBeam // ignore: cast_nullable_to_non_nullable
-              as TractorBeam?,
     ) as $Val);
   }
 
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ItemManufacturerCopyWith<$Res> get manufacturer {
-    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer, (value) {
+  $ItemManufacturerCopyWith<$Res>? get manufacturer {
+    if (_value.manufacturer == null) {
+      return null;
+    }
+
+    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer!, (value) {
       return _then(_value.copyWith(manufacturer: value) as $Val);
     });
   }
 
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CounterMeasureCopyWith<$Res>? get vehicleWeapon {
+  $FluffyVehicleWeaponCopyWith<$Res>? get vehicleWeapon {
     if (_value.vehicleWeapon == null) {
       return null;
     }
 
-    return $CounterMeasureCopyWith<$Res>(_value.vehicleWeapon!, (value) {
+    return $FluffyVehicleWeaponCopyWith<$Res>(_value.vehicleWeapon!, (value) {
       return _then(_value.copyWith(vehicleWeapon: value) as $Val);
     });
   }
 
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MissileCopyWith<$Res>? get missile {
@@ -8735,30 +8324,6 @@ class _$FluffyItemCopyWithImpl<$Res, $Val extends FluffyItem>
 
     return $MissileCopyWith<$Res>(_value.missile!, (value) {
       return _then(_value.copyWith(missile: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $InventoryCopyWith<$Res>? get inventory {
-    if (_value.inventory == null) {
-      return null;
-    }
-
-    return $InventoryCopyWith<$Res>(_value.inventory!, (value) {
-      return _then(_value.copyWith(inventory: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TractorBeamCopyWith<$Res>? get tractorBeam {
-    if (_value.tractorBeam == null) {
-      return null;
-    }
-
-    return $TractorBeamCopyWith<$Res>(_value.tractorBeam!, (value) {
-      return _then(_value.copyWith(tractorBeam: value) as $Val);
     });
   }
 }
@@ -8773,37 +8338,31 @@ abstract class _$$FluffyItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "mass") int mass,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "mass") int? mass,
       @JsonKey(name: "grade") dynamic grade,
       @JsonKey(name: "class") dynamic itemClass,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "vehicle_weapon") CounterMeasure? vehicleWeapon,
-      @JsonKey(name: "ports") List<Port> ports,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version,
+      @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "vehicle_weapon") FluffyVehicleWeapon? vehicleWeapon,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version,
       @JsonKey(name: "max_mounts") int? maxMounts,
       @JsonKey(name: "min_size") int? minSize,
       @JsonKey(name: "max_size") int? maxSize,
-      @JsonKey(name: "missile") Missile? missile,
-      @JsonKey(name: "inventory") Inventory? inventory,
-      @JsonKey(name: "tractor_beam") TractorBeam? tractorBeam});
+      @JsonKey(name: "ports") List<Port>? ports,
+      @JsonKey(name: "missile") Missile? missile});
 
   @override
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
+  $ItemManufacturerCopyWith<$Res>? get manufacturer;
   @override
-  $CounterMeasureCopyWith<$Res>? get vehicleWeapon;
+  $FluffyVehicleWeaponCopyWith<$Res>? get vehicleWeapon;
   @override
   $MissileCopyWith<$Res>? get missile;
-  @override
-  $InventoryCopyWith<$Res>? get inventory;
-  @override
-  $TractorBeamCopyWith<$Res>? get tractorBeam;
 }
 
 /// @nodoc
@@ -8814,56 +8373,56 @@ class __$$FluffyItemImplCopyWithImpl<$Res>
       _$FluffyItemImpl _value, $Res Function(_$FluffyItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? name = null,
+    Object? name = freezed,
     Object? className = freezed,
-    Object? link = null,
-    Object? size = null,
-    Object? mass = null,
+    Object? link = freezed,
+    Object? size = freezed,
+    Object? mass = freezed,
     Object? grade = freezed,
     Object? itemClass = freezed,
-    Object? manufacturer = null,
-    Object? type = null,
-    Object? subType = null,
+    Object? manufacturer = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
     Object? vehicleWeapon = freezed,
-    Object? ports = null,
-    Object? updatedAt = null,
-    Object? version = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
     Object? maxMounts = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
+    Object? ports = freezed,
     Object? missile = freezed,
-    Object? inventory = freezed,
-    Object? tractorBeam = freezed,
   }) {
     return _then(_$FluffyItemImpl(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      mass: null == mass
+              as int?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
@@ -8872,34 +8431,30 @@ class __$$FluffyItemImplCopyWithImpl<$Res>
           ? _value.itemClass
           : itemClass // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      manufacturer: null == manufacturer
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      type: null == type
+              as ItemManufacturer?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleWeapon: freezed == vehicleWeapon
           ? _value.vehicleWeapon
           : vehicleWeapon // ignore: cast_nullable_to_non_nullable
-              as CounterMeasure?,
-      ports: null == ports
-          ? _value._ports
-          : ports // ignore: cast_nullable_to_non_nullable
-              as List<Port>,
-      updatedAt: null == updatedAt
+              as FluffyVehicleWeapon?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       maxMounts: freezed == maxMounts
           ? _value.maxMounts
           : maxMounts // ignore: cast_nullable_to_non_nullable
@@ -8912,18 +8467,14 @@ class __$$FluffyItemImplCopyWithImpl<$Res>
           ? _value.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      ports: freezed == ports
+          ? _value._ports
+          : ports // ignore: cast_nullable_to_non_nullable
+              as List<Port>?,
       missile: freezed == missile
           ? _value.missile
           : missile // ignore: cast_nullable_to_non_nullable
               as Missile?,
-      inventory: freezed == inventory
-          ? _value.inventory
-          : inventory // ignore: cast_nullable_to_non_nullable
-              as Inventory?,
-      tractorBeam: freezed == tractorBeam
-          ? _value.tractorBeam
-          : tractorBeam // ignore: cast_nullable_to_non_nullable
-              as TractorBeam?,
     ));
   }
 }
@@ -8933,26 +8484,24 @@ class __$$FluffyItemImplCopyWithImpl<$Res>
 class _$FluffyItemImpl implements _FluffyItem {
   const _$FluffyItemImpl(
       {@JsonKey(name: "uuid") this.uuid,
-      @JsonKey(name: "name") required this.name,
+      @JsonKey(name: "name") this.name,
       @JsonKey(name: "class_name") this.className,
-      @JsonKey(name: "link") required this.link,
-      @JsonKey(name: "size") required this.size,
-      @JsonKey(name: "mass") required this.mass,
-      @JsonKey(name: "grade") required this.grade,
-      @JsonKey(name: "class") required this.itemClass,
-      @JsonKey(name: "manufacturer") required this.manufacturer,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
+      @JsonKey(name: "link") this.link,
+      @JsonKey(name: "size") this.size,
+      @JsonKey(name: "mass") this.mass,
+      @JsonKey(name: "grade") this.grade,
+      @JsonKey(name: "class") this.itemClass,
+      @JsonKey(name: "manufacturer") this.manufacturer,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_type") this.subType,
       @JsonKey(name: "vehicle_weapon") this.vehicleWeapon,
-      @JsonKey(name: "ports") required final List<Port> ports,
-      @JsonKey(name: "updated_at") required this.updatedAt,
-      @JsonKey(name: "version") required this.version,
+      @JsonKey(name: "updated_at") this.updatedAt,
+      @JsonKey(name: "version") this.version,
       @JsonKey(name: "max_mounts") this.maxMounts,
       @JsonKey(name: "min_size") this.minSize,
       @JsonKey(name: "max_size") this.maxSize,
-      @JsonKey(name: "missile") this.missile,
-      @JsonKey(name: "inventory") this.inventory,
-      @JsonKey(name: "tractor_beam") this.tractorBeam})
+      @JsonKey(name: "ports") final List<Port>? ports,
+      @JsonKey(name: "missile") this.missile})
       : _ports = ports;
 
   factory _$FluffyItemImpl.fromJson(Map<String, dynamic> json) =>
@@ -8963,19 +8512,19 @@ class _$FluffyItemImpl implements _FluffyItem {
   final String? uuid;
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "class_name")
   final String? className;
   @override
   @JsonKey(name: "link")
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: "size")
-  final int size;
+  final int? size;
   @override
   @JsonKey(name: "mass")
-  final int mass;
+  final int? mass;
   @override
   @JsonKey(name: "grade")
   final dynamic grade;
@@ -8984,31 +8533,22 @@ class _$FluffyItemImpl implements _FluffyItem {
   final dynamic itemClass;
   @override
   @JsonKey(name: "manufacturer")
-  final ItemManufacturer manufacturer;
+  final ItemManufacturer? manufacturer;
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "sub_type")
-  final String subType;
+  final String? subType;
   @override
   @JsonKey(name: "vehicle_weapon")
-  final CounterMeasure? vehicleWeapon;
-  final List<Port> _ports;
-  @override
-  @JsonKey(name: "ports")
-  List<Port> get ports {
-    if (_ports is EqualUnmodifiableListView) return _ports;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ports);
-  }
-
+  final FluffyVehicleWeapon? vehicleWeapon;
   @override
   @JsonKey(name: "updated_at")
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   @override
   @JsonKey(name: "version")
-  final String version;
+  final String? version;
   @override
   @JsonKey(name: "max_mounts")
   final int? maxMounts;
@@ -9018,19 +8558,24 @@ class _$FluffyItemImpl implements _FluffyItem {
   @override
   @JsonKey(name: "max_size")
   final int? maxSize;
+  final List<Port>? _ports;
+  @override
+  @JsonKey(name: "ports")
+  List<Port>? get ports {
+    final value = _ports;
+    if (value == null) return null;
+    if (_ports is EqualUnmodifiableListView) return _ports;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: "missile")
   final Missile? missile;
-  @override
-  @JsonKey(name: "inventory")
-  final Inventory? inventory;
-  @override
-  @JsonKey(name: "tractor_beam")
-  final TractorBeam? tractorBeam;
 
   @override
   String toString() {
-    return 'FluffyItem(uuid: $uuid, name: $name, className: $className, link: $link, size: $size, mass: $mass, grade: $grade, itemClass: $itemClass, manufacturer: $manufacturer, type: $type, subType: $subType, vehicleWeapon: $vehicleWeapon, ports: $ports, updatedAt: $updatedAt, version: $version, maxMounts: $maxMounts, minSize: $minSize, maxSize: $maxSize, missile: $missile, inventory: $inventory, tractorBeam: $tractorBeam)';
+    return 'FluffyItem(uuid: $uuid, name: $name, className: $className, link: $link, size: $size, mass: $mass, grade: $grade, itemClass: $itemClass, manufacturer: $manufacturer, type: $type, subType: $subType, vehicleWeapon: $vehicleWeapon, updatedAt: $updatedAt, version: $version, maxMounts: $maxMounts, minSize: $minSize, maxSize: $maxSize, ports: $ports, missile: $missile)';
   }
 
   @override
@@ -9053,7 +8598,6 @@ class _$FluffyItemImpl implements _FluffyItem {
             (identical(other.subType, subType) || other.subType == subType) &&
             (identical(other.vehicleWeapon, vehicleWeapon) ||
                 other.vehicleWeapon == vehicleWeapon) &&
-            const DeepCollectionEquality().equals(other._ports, _ports) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.version, version) || other.version == version) &&
@@ -9061,14 +8605,11 @@ class _$FluffyItemImpl implements _FluffyItem {
                 other.maxMounts == maxMounts) &&
             (identical(other.minSize, minSize) || other.minSize == minSize) &&
             (identical(other.maxSize, maxSize) || other.maxSize == maxSize) &&
-            (identical(other.missile, missile) || other.missile == missile) &&
-            (identical(other.inventory, inventory) ||
-                other.inventory == inventory) &&
-            (identical(other.tractorBeam, tractorBeam) ||
-                other.tractorBeam == tractorBeam));
+            const DeepCollectionEquality().equals(other._ports, _ports) &&
+            (identical(other.missile, missile) || other.missile == missile));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -9084,18 +8625,18 @@ class _$FluffyItemImpl implements _FluffyItem {
         type,
         subType,
         vehicleWeapon,
-        const DeepCollectionEquality().hash(_ports),
         updatedAt,
         version,
         maxMounts,
         minSize,
         maxSize,
-        missile,
-        inventory,
-        tractorBeam
+        const DeepCollectionEquality().hash(_ports),
+        missile
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FluffyItemImplCopyWith<_$FluffyItemImpl> get copyWith =>
@@ -9111,29 +8652,25 @@ class _$FluffyItemImpl implements _FluffyItem {
 
 abstract class _FluffyItem implements FluffyItem {
   const factory _FluffyItem(
-          {@JsonKey(name: "uuid") final String? uuid,
-          @JsonKey(name: "name") required final String name,
-          @JsonKey(name: "class_name") final String? className,
-          @JsonKey(name: "link") required final String link,
-          @JsonKey(name: "size") required final int size,
-          @JsonKey(name: "mass") required final int mass,
-          @JsonKey(name: "grade") required final dynamic grade,
-          @JsonKey(name: "class") required final dynamic itemClass,
-          @JsonKey(name: "manufacturer")
-          required final ItemManufacturer manufacturer,
-          @JsonKey(name: "type") required final String type,
-          @JsonKey(name: "sub_type") required final String subType,
-          @JsonKey(name: "vehicle_weapon") final CounterMeasure? vehicleWeapon,
-          @JsonKey(name: "ports") required final List<Port> ports,
-          @JsonKey(name: "updated_at") required final DateTime updatedAt,
-          @JsonKey(name: "version") required final String version,
-          @JsonKey(name: "max_mounts") final int? maxMounts,
-          @JsonKey(name: "min_size") final int? minSize,
-          @JsonKey(name: "max_size") final int? maxSize,
-          @JsonKey(name: "missile") final Missile? missile,
-          @JsonKey(name: "inventory") final Inventory? inventory,
-          @JsonKey(name: "tractor_beam") final TractorBeam? tractorBeam}) =
-      _$FluffyItemImpl;
+      {@JsonKey(name: "uuid") final String? uuid,
+      @JsonKey(name: "name") final String? name,
+      @JsonKey(name: "class_name") final String? className,
+      @JsonKey(name: "link") final String? link,
+      @JsonKey(name: "size") final int? size,
+      @JsonKey(name: "mass") final int? mass,
+      @JsonKey(name: "grade") final dynamic grade,
+      @JsonKey(name: "class") final dynamic itemClass,
+      @JsonKey(name: "manufacturer") final ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") final String? type,
+      @JsonKey(name: "sub_type") final String? subType,
+      @JsonKey(name: "vehicle_weapon") final FluffyVehicleWeapon? vehicleWeapon,
+      @JsonKey(name: "updated_at") final DateTime? updatedAt,
+      @JsonKey(name: "version") final String? version,
+      @JsonKey(name: "max_mounts") final int? maxMounts,
+      @JsonKey(name: "min_size") final int? minSize,
+      @JsonKey(name: "max_size") final int? maxSize,
+      @JsonKey(name: "ports") final List<Port>? ports,
+      @JsonKey(name: "missile") final Missile? missile}) = _$FluffyItemImpl;
 
   factory _FluffyItem.fromJson(Map<String, dynamic> json) =
       _$FluffyItemImpl.fromJson;
@@ -9143,19 +8680,19 @@ abstract class _FluffyItem implements FluffyItem {
   String? get uuid;
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "class_name")
   String? get className;
   @override
   @JsonKey(name: "link")
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: "size")
-  int get size;
+  int? get size;
   @override
   @JsonKey(name: "mass")
-  int get mass;
+  int? get mass;
   @override
   @JsonKey(name: "grade")
   dynamic get grade;
@@ -9164,25 +8701,22 @@ abstract class _FluffyItem implements FluffyItem {
   dynamic get itemClass;
   @override
   @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer;
+  ItemManufacturer? get manufacturer;
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "sub_type")
-  String get subType;
+  String? get subType;
   @override
   @JsonKey(name: "vehicle_weapon")
-  CounterMeasure? get vehicleWeapon;
-  @override
-  @JsonKey(name: "ports")
-  List<Port> get ports;
+  FluffyVehicleWeapon? get vehicleWeapon;
   @override
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
   @override
   @JsonKey(name: "max_mounts")
   int? get maxMounts;
@@ -9193,300 +8727,17 @@ abstract class _FluffyItem implements FluffyItem {
   @JsonKey(name: "max_size")
   int? get maxSize;
   @override
+  @JsonKey(name: "ports")
+  List<Port>? get ports;
+  @override
   @JsonKey(name: "missile")
   Missile? get missile;
+
+  /// Create a copy of FluffyItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(name: "inventory")
-  Inventory? get inventory;
-  @override
-  @JsonKey(name: "tractor_beam")
-  TractorBeam? get tractorBeam;
-  @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FluffyItemImplCopyWith<_$FluffyItemImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Inventory _$InventoryFromJson(Map<String, dynamic> json) {
-  return _Inventory.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Inventory {
-  @JsonKey(name: "width")
-  double get width => throw _privateConstructorUsedError;
-  @JsonKey(name: "height")
-  double get height => throw _privateConstructorUsedError;
-  @JsonKey(name: "length")
-  double get length => throw _privateConstructorUsedError;
-  @JsonKey(name: "dimension")
-  double get dimension => throw _privateConstructorUsedError;
-  @JsonKey(name: "scu")
-  double get scu => throw _privateConstructorUsedError;
-  @JsonKey(name: "scu_converted")
-  double get scuConverted => throw _privateConstructorUsedError;
-  @JsonKey(name: "unit")
-  String get unit => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $InventoryCopyWith<Inventory> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $InventoryCopyWith<$Res> {
-  factory $InventoryCopyWith(Inventory value, $Res Function(Inventory) then) =
-      _$InventoryCopyWithImpl<$Res, Inventory>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "width") double width,
-      @JsonKey(name: "height") double height,
-      @JsonKey(name: "length") double length,
-      @JsonKey(name: "dimension") double dimension,
-      @JsonKey(name: "scu") double scu,
-      @JsonKey(name: "scu_converted") double scuConverted,
-      @JsonKey(name: "unit") String unit});
-}
-
-/// @nodoc
-class _$InventoryCopyWithImpl<$Res, $Val extends Inventory>
-    implements $InventoryCopyWith<$Res> {
-  _$InventoryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? width = null,
-    Object? height = null,
-    Object? length = null,
-    Object? dimension = null,
-    Object? scu = null,
-    Object? scuConverted = null,
-    Object? unit = null,
-  }) {
-    return _then(_value.copyWith(
-      width: null == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double,
-      height: null == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as double,
-      length: null == length
-          ? _value.length
-          : length // ignore: cast_nullable_to_non_nullable
-              as double,
-      dimension: null == dimension
-          ? _value.dimension
-          : dimension // ignore: cast_nullable_to_non_nullable
-              as double,
-      scu: null == scu
-          ? _value.scu
-          : scu // ignore: cast_nullable_to_non_nullable
-              as double,
-      scuConverted: null == scuConverted
-          ? _value.scuConverted
-          : scuConverted // ignore: cast_nullable_to_non_nullable
-              as double,
-      unit: null == unit
-          ? _value.unit
-          : unit // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$InventoryImplCopyWith<$Res>
-    implements $InventoryCopyWith<$Res> {
-  factory _$$InventoryImplCopyWith(
-          _$InventoryImpl value, $Res Function(_$InventoryImpl) then) =
-      __$$InventoryImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "width") double width,
-      @JsonKey(name: "height") double height,
-      @JsonKey(name: "length") double length,
-      @JsonKey(name: "dimension") double dimension,
-      @JsonKey(name: "scu") double scu,
-      @JsonKey(name: "scu_converted") double scuConverted,
-      @JsonKey(name: "unit") String unit});
-}
-
-/// @nodoc
-class __$$InventoryImplCopyWithImpl<$Res>
-    extends _$InventoryCopyWithImpl<$Res, _$InventoryImpl>
-    implements _$$InventoryImplCopyWith<$Res> {
-  __$$InventoryImplCopyWithImpl(
-      _$InventoryImpl _value, $Res Function(_$InventoryImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? width = null,
-    Object? height = null,
-    Object? length = null,
-    Object? dimension = null,
-    Object? scu = null,
-    Object? scuConverted = null,
-    Object? unit = null,
-  }) {
-    return _then(_$InventoryImpl(
-      width: null == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double,
-      height: null == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as double,
-      length: null == length
-          ? _value.length
-          : length // ignore: cast_nullable_to_non_nullable
-              as double,
-      dimension: null == dimension
-          ? _value.dimension
-          : dimension // ignore: cast_nullable_to_non_nullable
-              as double,
-      scu: null == scu
-          ? _value.scu
-          : scu // ignore: cast_nullable_to_non_nullable
-              as double,
-      scuConverted: null == scuConverted
-          ? _value.scuConverted
-          : scuConverted // ignore: cast_nullable_to_non_nullable
-              as double,
-      unit: null == unit
-          ? _value.unit
-          : unit // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$InventoryImpl implements _Inventory {
-  const _$InventoryImpl(
-      {@JsonKey(name: "width") required this.width,
-      @JsonKey(name: "height") required this.height,
-      @JsonKey(name: "length") required this.length,
-      @JsonKey(name: "dimension") required this.dimension,
-      @JsonKey(name: "scu") required this.scu,
-      @JsonKey(name: "scu_converted") required this.scuConverted,
-      @JsonKey(name: "unit") required this.unit});
-
-  factory _$InventoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InventoryImplFromJson(json);
-
-  @override
-  @JsonKey(name: "width")
-  final double width;
-  @override
-  @JsonKey(name: "height")
-  final double height;
-  @override
-  @JsonKey(name: "length")
-  final double length;
-  @override
-  @JsonKey(name: "dimension")
-  final double dimension;
-  @override
-  @JsonKey(name: "scu")
-  final double scu;
-  @override
-  @JsonKey(name: "scu_converted")
-  final double scuConverted;
-  @override
-  @JsonKey(name: "unit")
-  final String unit;
-
-  @override
-  String toString() {
-    return 'Inventory(width: $width, height: $height, length: $length, dimension: $dimension, scu: $scu, scuConverted: $scuConverted, unit: $unit)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InventoryImpl &&
-            (identical(other.width, width) || other.width == width) &&
-            (identical(other.height, height) || other.height == height) &&
-            (identical(other.length, length) || other.length == length) &&
-            (identical(other.dimension, dimension) ||
-                other.dimension == dimension) &&
-            (identical(other.scu, scu) || other.scu == scu) &&
-            (identical(other.scuConverted, scuConverted) ||
-                other.scuConverted == scuConverted) &&
-            (identical(other.unit, unit) || other.unit == unit));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, width, height, length, dimension, scu, scuConverted, unit);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InventoryImplCopyWith<_$InventoryImpl> get copyWith =>
-      __$$InventoryImplCopyWithImpl<_$InventoryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InventoryImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Inventory implements Inventory {
-  const factory _Inventory(
-      {@JsonKey(name: "width") required final double width,
-      @JsonKey(name: "height") required final double height,
-      @JsonKey(name: "length") required final double length,
-      @JsonKey(name: "dimension") required final double dimension,
-      @JsonKey(name: "scu") required final double scu,
-      @JsonKey(name: "scu_converted") required final double scuConverted,
-      @JsonKey(name: "unit") required final String unit}) = _$InventoryImpl;
-
-  factory _Inventory.fromJson(Map<String, dynamic> json) =
-      _$InventoryImpl.fromJson;
-
-  @override
-  @JsonKey(name: "width")
-  double get width;
-  @override
-  @JsonKey(name: "height")
-  double get height;
-  @override
-  @JsonKey(name: "length")
-  double get length;
-  @override
-  @JsonKey(name: "dimension")
-  double get dimension;
-  @override
-  @JsonKey(name: "scu")
-  double get scu;
-  @override
-  @JsonKey(name: "scu_converted")
-  double get scuConverted;
-  @override
-  @JsonKey(name: "unit")
-  String get unit;
-  @override
-  @JsonKey(ignore: true)
-  _$$InventoryImplCopyWith<_$InventoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -9497,34 +8748,38 @@ Missile _$MissileFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Missile {
   @JsonKey(name: "cluster_size")
-  int get clusterSize => throw _privateConstructorUsedError;
+  int? get clusterSize => throw _privateConstructorUsedError;
   @JsonKey(name: "signal_type")
-  String get signalType => throw _privateConstructorUsedError;
+  String? get signalType => throw _privateConstructorUsedError;
   @JsonKey(name: "lock_time")
-  double get lockTime => throw _privateConstructorUsedError;
+  int? get lockTime => throw _privateConstructorUsedError;
   @JsonKey(name: "lock_range_max")
-  int get lockRangeMax => throw _privateConstructorUsedError;
+  int? get lockRangeMax => throw _privateConstructorUsedError;
   @JsonKey(name: "lock_range_min")
-  int get lockRangeMin => throw _privateConstructorUsedError;
+  int? get lockRangeMin => throw _privateConstructorUsedError;
   @JsonKey(name: "lock_angle")
-  int get lockAngle => throw _privateConstructorUsedError;
+  int? get lockAngle => throw _privateConstructorUsedError;
   @JsonKey(name: "tracking_signal_min")
-  double get trackingSignalMin => throw _privateConstructorUsedError;
+  int? get trackingSignalMin => throw _privateConstructorUsedError;
   @JsonKey(name: "speed")
-  int get speed => throw _privateConstructorUsedError;
+  double? get speed => throw _privateConstructorUsedError;
   @JsonKey(name: "fuel_tank_size")
-  int get fuelTankSize => throw _privateConstructorUsedError;
+  int? get fuelTankSize => throw _privateConstructorUsedError;
   @JsonKey(name: "explosion_radius_min")
-  int get explosionRadiusMin => throw _privateConstructorUsedError;
+  int? get explosionRadiusMin => throw _privateConstructorUsedError;
   @JsonKey(name: "explosion_radius_max")
-  int get explosionRadiusMax => throw _privateConstructorUsedError;
+  int? get explosionRadiusMax => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_total")
-  double get damageTotal => throw _privateConstructorUsedError;
+  double? get damageTotal => throw _privateConstructorUsedError;
   @JsonKey(name: "damages")
-  List<Damage> get damages => throw _privateConstructorUsedError;
+  List<MissileDamage>? get damages => throw _privateConstructorUsedError;
 
+  /// Serializes this Missile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Missile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MissileCopyWith<Missile> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -9534,19 +8789,19 @@ abstract class $MissileCopyWith<$Res> {
       _$MissileCopyWithImpl<$Res, Missile>;
   @useResult
   $Res call(
-      {@JsonKey(name: "cluster_size") int clusterSize,
-      @JsonKey(name: "signal_type") String signalType,
-      @JsonKey(name: "lock_time") double lockTime,
-      @JsonKey(name: "lock_range_max") int lockRangeMax,
-      @JsonKey(name: "lock_range_min") int lockRangeMin,
-      @JsonKey(name: "lock_angle") int lockAngle,
-      @JsonKey(name: "tracking_signal_min") double trackingSignalMin,
-      @JsonKey(name: "speed") int speed,
-      @JsonKey(name: "fuel_tank_size") int fuelTankSize,
-      @JsonKey(name: "explosion_radius_min") int explosionRadiusMin,
-      @JsonKey(name: "explosion_radius_max") int explosionRadiusMax,
-      @JsonKey(name: "damage_total") double damageTotal,
-      @JsonKey(name: "damages") List<Damage> damages});
+      {@JsonKey(name: "cluster_size") int? clusterSize,
+      @JsonKey(name: "signal_type") String? signalType,
+      @JsonKey(name: "lock_time") int? lockTime,
+      @JsonKey(name: "lock_range_max") int? lockRangeMax,
+      @JsonKey(name: "lock_range_min") int? lockRangeMin,
+      @JsonKey(name: "lock_angle") int? lockAngle,
+      @JsonKey(name: "tracking_signal_min") int? trackingSignalMin,
+      @JsonKey(name: "speed") double? speed,
+      @JsonKey(name: "fuel_tank_size") int? fuelTankSize,
+      @JsonKey(name: "explosion_radius_min") int? explosionRadiusMin,
+      @JsonKey(name: "explosion_radius_max") int? explosionRadiusMax,
+      @JsonKey(name: "damage_total") double? damageTotal,
+      @JsonKey(name: "damages") List<MissileDamage>? damages});
 }
 
 /// @nodoc
@@ -9559,76 +8814,78 @@ class _$MissileCopyWithImpl<$Res, $Val extends Missile>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Missile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? clusterSize = null,
-    Object? signalType = null,
-    Object? lockTime = null,
-    Object? lockRangeMax = null,
-    Object? lockRangeMin = null,
-    Object? lockAngle = null,
-    Object? trackingSignalMin = null,
-    Object? speed = null,
-    Object? fuelTankSize = null,
-    Object? explosionRadiusMin = null,
-    Object? explosionRadiusMax = null,
-    Object? damageTotal = null,
-    Object? damages = null,
+    Object? clusterSize = freezed,
+    Object? signalType = freezed,
+    Object? lockTime = freezed,
+    Object? lockRangeMax = freezed,
+    Object? lockRangeMin = freezed,
+    Object? lockAngle = freezed,
+    Object? trackingSignalMin = freezed,
+    Object? speed = freezed,
+    Object? fuelTankSize = freezed,
+    Object? explosionRadiusMin = freezed,
+    Object? explosionRadiusMax = freezed,
+    Object? damageTotal = freezed,
+    Object? damages = freezed,
   }) {
     return _then(_value.copyWith(
-      clusterSize: null == clusterSize
+      clusterSize: freezed == clusterSize
           ? _value.clusterSize
           : clusterSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      signalType: null == signalType
+              as int?,
+      signalType: freezed == signalType
           ? _value.signalType
           : signalType // ignore: cast_nullable_to_non_nullable
-              as String,
-      lockTime: null == lockTime
+              as String?,
+      lockTime: freezed == lockTime
           ? _value.lockTime
           : lockTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      lockRangeMax: null == lockRangeMax
+              as int?,
+      lockRangeMax: freezed == lockRangeMax
           ? _value.lockRangeMax
           : lockRangeMax // ignore: cast_nullable_to_non_nullable
-              as int,
-      lockRangeMin: null == lockRangeMin
+              as int?,
+      lockRangeMin: freezed == lockRangeMin
           ? _value.lockRangeMin
           : lockRangeMin // ignore: cast_nullable_to_non_nullable
-              as int,
-      lockAngle: null == lockAngle
+              as int?,
+      lockAngle: freezed == lockAngle
           ? _value.lockAngle
           : lockAngle // ignore: cast_nullable_to_non_nullable
-              as int,
-      trackingSignalMin: null == trackingSignalMin
+              as int?,
+      trackingSignalMin: freezed == trackingSignalMin
           ? _value.trackingSignalMin
           : trackingSignalMin // ignore: cast_nullable_to_non_nullable
-              as double,
-      speed: null == speed
+              as int?,
+      speed: freezed == speed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as int,
-      fuelTankSize: null == fuelTankSize
+              as double?,
+      fuelTankSize: freezed == fuelTankSize
           ? _value.fuelTankSize
           : fuelTankSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      explosionRadiusMin: null == explosionRadiusMin
+              as int?,
+      explosionRadiusMin: freezed == explosionRadiusMin
           ? _value.explosionRadiusMin
           : explosionRadiusMin // ignore: cast_nullable_to_non_nullable
-              as int,
-      explosionRadiusMax: null == explosionRadiusMax
+              as int?,
+      explosionRadiusMax: freezed == explosionRadiusMax
           ? _value.explosionRadiusMax
           : explosionRadiusMax // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageTotal: null == damageTotal
+              as int?,
+      damageTotal: freezed == damageTotal
           ? _value.damageTotal
           : damageTotal // ignore: cast_nullable_to_non_nullable
-              as double,
-      damages: null == damages
+              as double?,
+      damages: freezed == damages
           ? _value.damages
           : damages // ignore: cast_nullable_to_non_nullable
-              as List<Damage>,
+              as List<MissileDamage>?,
     ) as $Val);
   }
 }
@@ -9641,19 +8898,19 @@ abstract class _$$MissileImplCopyWith<$Res> implements $MissileCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "cluster_size") int clusterSize,
-      @JsonKey(name: "signal_type") String signalType,
-      @JsonKey(name: "lock_time") double lockTime,
-      @JsonKey(name: "lock_range_max") int lockRangeMax,
-      @JsonKey(name: "lock_range_min") int lockRangeMin,
-      @JsonKey(name: "lock_angle") int lockAngle,
-      @JsonKey(name: "tracking_signal_min") double trackingSignalMin,
-      @JsonKey(name: "speed") int speed,
-      @JsonKey(name: "fuel_tank_size") int fuelTankSize,
-      @JsonKey(name: "explosion_radius_min") int explosionRadiusMin,
-      @JsonKey(name: "explosion_radius_max") int explosionRadiusMax,
-      @JsonKey(name: "damage_total") double damageTotal,
-      @JsonKey(name: "damages") List<Damage> damages});
+      {@JsonKey(name: "cluster_size") int? clusterSize,
+      @JsonKey(name: "signal_type") String? signalType,
+      @JsonKey(name: "lock_time") int? lockTime,
+      @JsonKey(name: "lock_range_max") int? lockRangeMax,
+      @JsonKey(name: "lock_range_min") int? lockRangeMin,
+      @JsonKey(name: "lock_angle") int? lockAngle,
+      @JsonKey(name: "tracking_signal_min") int? trackingSignalMin,
+      @JsonKey(name: "speed") double? speed,
+      @JsonKey(name: "fuel_tank_size") int? fuelTankSize,
+      @JsonKey(name: "explosion_radius_min") int? explosionRadiusMin,
+      @JsonKey(name: "explosion_radius_max") int? explosionRadiusMax,
+      @JsonKey(name: "damage_total") double? damageTotal,
+      @JsonKey(name: "damages") List<MissileDamage>? damages});
 }
 
 /// @nodoc
@@ -9664,76 +8921,78 @@ class __$$MissileImplCopyWithImpl<$Res>
       _$MissileImpl _value, $Res Function(_$MissileImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Missile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? clusterSize = null,
-    Object? signalType = null,
-    Object? lockTime = null,
-    Object? lockRangeMax = null,
-    Object? lockRangeMin = null,
-    Object? lockAngle = null,
-    Object? trackingSignalMin = null,
-    Object? speed = null,
-    Object? fuelTankSize = null,
-    Object? explosionRadiusMin = null,
-    Object? explosionRadiusMax = null,
-    Object? damageTotal = null,
-    Object? damages = null,
+    Object? clusterSize = freezed,
+    Object? signalType = freezed,
+    Object? lockTime = freezed,
+    Object? lockRangeMax = freezed,
+    Object? lockRangeMin = freezed,
+    Object? lockAngle = freezed,
+    Object? trackingSignalMin = freezed,
+    Object? speed = freezed,
+    Object? fuelTankSize = freezed,
+    Object? explosionRadiusMin = freezed,
+    Object? explosionRadiusMax = freezed,
+    Object? damageTotal = freezed,
+    Object? damages = freezed,
   }) {
     return _then(_$MissileImpl(
-      clusterSize: null == clusterSize
+      clusterSize: freezed == clusterSize
           ? _value.clusterSize
           : clusterSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      signalType: null == signalType
+              as int?,
+      signalType: freezed == signalType
           ? _value.signalType
           : signalType // ignore: cast_nullable_to_non_nullable
-              as String,
-      lockTime: null == lockTime
+              as String?,
+      lockTime: freezed == lockTime
           ? _value.lockTime
           : lockTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      lockRangeMax: null == lockRangeMax
+              as int?,
+      lockRangeMax: freezed == lockRangeMax
           ? _value.lockRangeMax
           : lockRangeMax // ignore: cast_nullable_to_non_nullable
-              as int,
-      lockRangeMin: null == lockRangeMin
+              as int?,
+      lockRangeMin: freezed == lockRangeMin
           ? _value.lockRangeMin
           : lockRangeMin // ignore: cast_nullable_to_non_nullable
-              as int,
-      lockAngle: null == lockAngle
+              as int?,
+      lockAngle: freezed == lockAngle
           ? _value.lockAngle
           : lockAngle // ignore: cast_nullable_to_non_nullable
-              as int,
-      trackingSignalMin: null == trackingSignalMin
+              as int?,
+      trackingSignalMin: freezed == trackingSignalMin
           ? _value.trackingSignalMin
           : trackingSignalMin // ignore: cast_nullable_to_non_nullable
-              as double,
-      speed: null == speed
+              as int?,
+      speed: freezed == speed
           ? _value.speed
           : speed // ignore: cast_nullable_to_non_nullable
-              as int,
-      fuelTankSize: null == fuelTankSize
+              as double?,
+      fuelTankSize: freezed == fuelTankSize
           ? _value.fuelTankSize
           : fuelTankSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      explosionRadiusMin: null == explosionRadiusMin
+              as int?,
+      explosionRadiusMin: freezed == explosionRadiusMin
           ? _value.explosionRadiusMin
           : explosionRadiusMin // ignore: cast_nullable_to_non_nullable
-              as int,
-      explosionRadiusMax: null == explosionRadiusMax
+              as int?,
+      explosionRadiusMax: freezed == explosionRadiusMax
           ? _value.explosionRadiusMax
           : explosionRadiusMax // ignore: cast_nullable_to_non_nullable
-              as int,
-      damageTotal: null == damageTotal
+              as int?,
+      damageTotal: freezed == damageTotal
           ? _value.damageTotal
           : damageTotal // ignore: cast_nullable_to_non_nullable
-              as double,
-      damages: null == damages
+              as double?,
+      damages: freezed == damages
           ? _value._damages
           : damages // ignore: cast_nullable_to_non_nullable
-              as List<Damage>,
+              as List<MissileDamage>?,
     ));
   }
 }
@@ -9742,19 +9001,19 @@ class __$$MissileImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MissileImpl implements _Missile {
   const _$MissileImpl(
-      {@JsonKey(name: "cluster_size") required this.clusterSize,
-      @JsonKey(name: "signal_type") required this.signalType,
-      @JsonKey(name: "lock_time") required this.lockTime,
-      @JsonKey(name: "lock_range_max") required this.lockRangeMax,
-      @JsonKey(name: "lock_range_min") required this.lockRangeMin,
-      @JsonKey(name: "lock_angle") required this.lockAngle,
-      @JsonKey(name: "tracking_signal_min") required this.trackingSignalMin,
-      @JsonKey(name: "speed") required this.speed,
-      @JsonKey(name: "fuel_tank_size") required this.fuelTankSize,
-      @JsonKey(name: "explosion_radius_min") required this.explosionRadiusMin,
-      @JsonKey(name: "explosion_radius_max") required this.explosionRadiusMax,
-      @JsonKey(name: "damage_total") required this.damageTotal,
-      @JsonKey(name: "damages") required final List<Damage> damages})
+      {@JsonKey(name: "cluster_size") this.clusterSize,
+      @JsonKey(name: "signal_type") this.signalType,
+      @JsonKey(name: "lock_time") this.lockTime,
+      @JsonKey(name: "lock_range_max") this.lockRangeMax,
+      @JsonKey(name: "lock_range_min") this.lockRangeMin,
+      @JsonKey(name: "lock_angle") this.lockAngle,
+      @JsonKey(name: "tracking_signal_min") this.trackingSignalMin,
+      @JsonKey(name: "speed") this.speed,
+      @JsonKey(name: "fuel_tank_size") this.fuelTankSize,
+      @JsonKey(name: "explosion_radius_min") this.explosionRadiusMin,
+      @JsonKey(name: "explosion_radius_max") this.explosionRadiusMax,
+      @JsonKey(name: "damage_total") this.damageTotal,
+      @JsonKey(name: "damages") final List<MissileDamage>? damages})
       : _damages = damages;
 
   factory _$MissileImpl.fromJson(Map<String, dynamic> json) =>
@@ -9762,47 +9021,49 @@ class _$MissileImpl implements _Missile {
 
   @override
   @JsonKey(name: "cluster_size")
-  final int clusterSize;
+  final int? clusterSize;
   @override
   @JsonKey(name: "signal_type")
-  final String signalType;
+  final String? signalType;
   @override
   @JsonKey(name: "lock_time")
-  final double lockTime;
+  final int? lockTime;
   @override
   @JsonKey(name: "lock_range_max")
-  final int lockRangeMax;
+  final int? lockRangeMax;
   @override
   @JsonKey(name: "lock_range_min")
-  final int lockRangeMin;
+  final int? lockRangeMin;
   @override
   @JsonKey(name: "lock_angle")
-  final int lockAngle;
+  final int? lockAngle;
   @override
   @JsonKey(name: "tracking_signal_min")
-  final double trackingSignalMin;
+  final int? trackingSignalMin;
   @override
   @JsonKey(name: "speed")
-  final int speed;
+  final double? speed;
   @override
   @JsonKey(name: "fuel_tank_size")
-  final int fuelTankSize;
+  final int? fuelTankSize;
   @override
   @JsonKey(name: "explosion_radius_min")
-  final int explosionRadiusMin;
+  final int? explosionRadiusMin;
   @override
   @JsonKey(name: "explosion_radius_max")
-  final int explosionRadiusMax;
+  final int? explosionRadiusMax;
   @override
   @JsonKey(name: "damage_total")
-  final double damageTotal;
-  final List<Damage> _damages;
+  final double? damageTotal;
+  final List<MissileDamage>? _damages;
   @override
   @JsonKey(name: "damages")
-  List<Damage> get damages {
+  List<MissileDamage>? get damages {
+    final value = _damages;
+    if (value == null) return null;
     if (_damages is EqualUnmodifiableListView) return _damages;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_damages);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -9841,7 +9102,7 @@ class _$MissileImpl implements _Missile {
             const DeepCollectionEquality().equals(other._damages, _damages));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -9859,7 +9120,9 @@ class _$MissileImpl implements _Missile {
       damageTotal,
       const DeepCollectionEquality().hash(_damages));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Missile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MissileImplCopyWith<_$MissileImpl> get copyWith =>
@@ -9875,445 +9138,1654 @@ class _$MissileImpl implements _Missile {
 
 abstract class _Missile implements Missile {
   const factory _Missile(
-          {@JsonKey(name: "cluster_size") required final int clusterSize,
-          @JsonKey(name: "signal_type") required final String signalType,
-          @JsonKey(name: "lock_time") required final double lockTime,
-          @JsonKey(name: "lock_range_max") required final int lockRangeMax,
-          @JsonKey(name: "lock_range_min") required final int lockRangeMin,
-          @JsonKey(name: "lock_angle") required final int lockAngle,
-          @JsonKey(name: "tracking_signal_min")
-          required final double trackingSignalMin,
-          @JsonKey(name: "speed") required final int speed,
-          @JsonKey(name: "fuel_tank_size") required final int fuelTankSize,
-          @JsonKey(name: "explosion_radius_min")
-          required final int explosionRadiusMin,
-          @JsonKey(name: "explosion_radius_max")
-          required final int explosionRadiusMax,
-          @JsonKey(name: "damage_total") required final double damageTotal,
-          @JsonKey(name: "damages") required final List<Damage> damages}) =
+          {@JsonKey(name: "cluster_size") final int? clusterSize,
+          @JsonKey(name: "signal_type") final String? signalType,
+          @JsonKey(name: "lock_time") final int? lockTime,
+          @JsonKey(name: "lock_range_max") final int? lockRangeMax,
+          @JsonKey(name: "lock_range_min") final int? lockRangeMin,
+          @JsonKey(name: "lock_angle") final int? lockAngle,
+          @JsonKey(name: "tracking_signal_min") final int? trackingSignalMin,
+          @JsonKey(name: "speed") final double? speed,
+          @JsonKey(name: "fuel_tank_size") final int? fuelTankSize,
+          @JsonKey(name: "explosion_radius_min") final int? explosionRadiusMin,
+          @JsonKey(name: "explosion_radius_max") final int? explosionRadiusMax,
+          @JsonKey(name: "damage_total") final double? damageTotal,
+          @JsonKey(name: "damages") final List<MissileDamage>? damages}) =
       _$MissileImpl;
 
   factory _Missile.fromJson(Map<String, dynamic> json) = _$MissileImpl.fromJson;
 
   @override
   @JsonKey(name: "cluster_size")
-  int get clusterSize;
+  int? get clusterSize;
   @override
   @JsonKey(name: "signal_type")
-  String get signalType;
+  String? get signalType;
   @override
   @JsonKey(name: "lock_time")
-  double get lockTime;
+  int? get lockTime;
   @override
   @JsonKey(name: "lock_range_max")
-  int get lockRangeMax;
+  int? get lockRangeMax;
   @override
   @JsonKey(name: "lock_range_min")
-  int get lockRangeMin;
+  int? get lockRangeMin;
   @override
   @JsonKey(name: "lock_angle")
-  int get lockAngle;
+  int? get lockAngle;
   @override
   @JsonKey(name: "tracking_signal_min")
-  double get trackingSignalMin;
+  int? get trackingSignalMin;
   @override
   @JsonKey(name: "speed")
-  int get speed;
+  double? get speed;
   @override
   @JsonKey(name: "fuel_tank_size")
-  int get fuelTankSize;
+  int? get fuelTankSize;
   @override
   @JsonKey(name: "explosion_radius_min")
-  int get explosionRadiusMin;
+  int? get explosionRadiusMin;
   @override
   @JsonKey(name: "explosion_radius_max")
-  int get explosionRadiusMax;
+  int? get explosionRadiusMax;
   @override
   @JsonKey(name: "damage_total")
-  double get damageTotal;
+  double? get damageTotal;
   @override
   @JsonKey(name: "damages")
-  List<Damage> get damages;
+  List<MissileDamage>? get damages;
+
+  /// Create a copy of Missile
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MissileImplCopyWith<_$MissileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-TractorBeam _$TractorBeamFromJson(Map<String, dynamic> json) {
-  return _TractorBeam.fromJson(json);
+MissileDamage _$MissileDamageFromJson(Map<String, dynamic> json) {
+  return _MissileDamage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$TractorBeam {
-  @JsonKey(name: "min_force")
-  int get minForce => throw _privateConstructorUsedError;
-  @JsonKey(name: "max_force")
-  int get maxForce => throw _privateConstructorUsedError;
-  @JsonKey(name: "min_distance")
-  int get minDistance => throw _privateConstructorUsedError;
-  @JsonKey(name: "max_distance")
-  int get maxDistance => throw _privateConstructorUsedError;
-  @JsonKey(name: "full_strength_distance")
-  int get fullStrengthDistance => throw _privateConstructorUsedError;
-  @JsonKey(name: "max_angle")
-  int get maxAngle => throw _privateConstructorUsedError;
-  @JsonKey(name: "max_volume")
-  int get maxVolume => throw _privateConstructorUsedError;
-  @JsonKey(name: "volume_force_coefficient")
-  double get volumeForceCoefficient => throw _privateConstructorUsedError;
-  @JsonKey(name: "tether_break_time")
-  double get tetherBreakTime => throw _privateConstructorUsedError;
-  @JsonKey(name: "safe_range_value_factor")
-  double get safeRangeValueFactor => throw _privateConstructorUsedError;
+mixin _$MissileDamage {
+  @JsonKey(name: "type")
+  dynamic get type => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage")
+  double? get damage => throw _privateConstructorUsedError;
 
+  /// Serializes this MissileDamage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TractorBeamCopyWith<TractorBeam> get copyWith =>
+
+  /// Create a copy of MissileDamage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MissileDamageCopyWith<MissileDamage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TractorBeamCopyWith<$Res> {
-  factory $TractorBeamCopyWith(
-          TractorBeam value, $Res Function(TractorBeam) then) =
-      _$TractorBeamCopyWithImpl<$Res, TractorBeam>;
+abstract class $MissileDamageCopyWith<$Res> {
+  factory $MissileDamageCopyWith(
+          MissileDamage value, $Res Function(MissileDamage) then) =
+      _$MissileDamageCopyWithImpl<$Res, MissileDamage>;
   @useResult
   $Res call(
-      {@JsonKey(name: "min_force") int minForce,
-      @JsonKey(name: "max_force") int maxForce,
-      @JsonKey(name: "min_distance") int minDistance,
-      @JsonKey(name: "max_distance") int maxDistance,
-      @JsonKey(name: "full_strength_distance") int fullStrengthDistance,
-      @JsonKey(name: "max_angle") int maxAngle,
-      @JsonKey(name: "max_volume") int maxVolume,
-      @JsonKey(name: "volume_force_coefficient") double volumeForceCoefficient,
-      @JsonKey(name: "tether_break_time") double tetherBreakTime,
-      @JsonKey(name: "safe_range_value_factor") double safeRangeValueFactor});
+      {@JsonKey(name: "type") dynamic type,
+      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "damage") double? damage});
 }
 
 /// @nodoc
-class _$TractorBeamCopyWithImpl<$Res, $Val extends TractorBeam>
-    implements $TractorBeamCopyWith<$Res> {
-  _$TractorBeamCopyWithImpl(this._value, this._then);
+class _$MissileDamageCopyWithImpl<$Res, $Val extends MissileDamage>
+    implements $MissileDamageCopyWith<$Res> {
+  _$MissileDamageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MissileDamage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minForce = null,
-    Object? maxForce = null,
-    Object? minDistance = null,
-    Object? maxDistance = null,
-    Object? fullStrengthDistance = null,
-    Object? maxAngle = null,
-    Object? maxVolume = null,
-    Object? volumeForceCoefficient = null,
-    Object? tetherBreakTime = null,
-    Object? safeRangeValueFactor = null,
+    Object? type = freezed,
+    Object? name = freezed,
+    Object? damage = freezed,
   }) {
     return _then(_value.copyWith(
-      minForce: null == minForce
-          ? _value.minForce
-          : minForce // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxForce: null == maxForce
-          ? _value.maxForce
-          : maxForce // ignore: cast_nullable_to_non_nullable
-              as int,
-      minDistance: null == minDistance
-          ? _value.minDistance
-          : minDistance // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxDistance: null == maxDistance
-          ? _value.maxDistance
-          : maxDistance // ignore: cast_nullable_to_non_nullable
-              as int,
-      fullStrengthDistance: null == fullStrengthDistance
-          ? _value.fullStrengthDistance
-          : fullStrengthDistance // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxAngle: null == maxAngle
-          ? _value.maxAngle
-          : maxAngle // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxVolume: null == maxVolume
-          ? _value.maxVolume
-          : maxVolume // ignore: cast_nullable_to_non_nullable
-              as int,
-      volumeForceCoefficient: null == volumeForceCoefficient
-          ? _value.volumeForceCoefficient
-          : volumeForceCoefficient // ignore: cast_nullable_to_non_nullable
-              as double,
-      tetherBreakTime: null == tetherBreakTime
-          ? _value.tetherBreakTime
-          : tetherBreakTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      safeRangeValueFactor: null == safeRangeValueFactor
-          ? _value.safeRangeValueFactor
-          : safeRangeValueFactor // ignore: cast_nullable_to_non_nullable
-              as double,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      damage: freezed == damage
+          ? _value.damage
+          : damage // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$TractorBeamImplCopyWith<$Res>
-    implements $TractorBeamCopyWith<$Res> {
-  factory _$$TractorBeamImplCopyWith(
-          _$TractorBeamImpl value, $Res Function(_$TractorBeamImpl) then) =
-      __$$TractorBeamImplCopyWithImpl<$Res>;
+abstract class _$$MissileDamageImplCopyWith<$Res>
+    implements $MissileDamageCopyWith<$Res> {
+  factory _$$MissileDamageImplCopyWith(
+          _$MissileDamageImpl value, $Res Function(_$MissileDamageImpl) then) =
+      __$$MissileDamageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "min_force") int minForce,
-      @JsonKey(name: "max_force") int maxForce,
-      @JsonKey(name: "min_distance") int minDistance,
-      @JsonKey(name: "max_distance") int maxDistance,
-      @JsonKey(name: "full_strength_distance") int fullStrengthDistance,
-      @JsonKey(name: "max_angle") int maxAngle,
-      @JsonKey(name: "max_volume") int maxVolume,
-      @JsonKey(name: "volume_force_coefficient") double volumeForceCoefficient,
-      @JsonKey(name: "tether_break_time") double tetherBreakTime,
-      @JsonKey(name: "safe_range_value_factor") double safeRangeValueFactor});
+      {@JsonKey(name: "type") dynamic type,
+      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "damage") double? damage});
 }
 
 /// @nodoc
-class __$$TractorBeamImplCopyWithImpl<$Res>
-    extends _$TractorBeamCopyWithImpl<$Res, _$TractorBeamImpl>
-    implements _$$TractorBeamImplCopyWith<$Res> {
-  __$$TractorBeamImplCopyWithImpl(
-      _$TractorBeamImpl _value, $Res Function(_$TractorBeamImpl) _then)
+class __$$MissileDamageImplCopyWithImpl<$Res>
+    extends _$MissileDamageCopyWithImpl<$Res, _$MissileDamageImpl>
+    implements _$$MissileDamageImplCopyWith<$Res> {
+  __$$MissileDamageImplCopyWithImpl(
+      _$MissileDamageImpl _value, $Res Function(_$MissileDamageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MissileDamage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minForce = null,
-    Object? maxForce = null,
-    Object? minDistance = null,
-    Object? maxDistance = null,
-    Object? fullStrengthDistance = null,
-    Object? maxAngle = null,
-    Object? maxVolume = null,
-    Object? volumeForceCoefficient = null,
-    Object? tetherBreakTime = null,
-    Object? safeRangeValueFactor = null,
+    Object? type = freezed,
+    Object? name = freezed,
+    Object? damage = freezed,
   }) {
-    return _then(_$TractorBeamImpl(
-      minForce: null == minForce
-          ? _value.minForce
-          : minForce // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxForce: null == maxForce
-          ? _value.maxForce
-          : maxForce // ignore: cast_nullable_to_non_nullable
-              as int,
-      minDistance: null == minDistance
-          ? _value.minDistance
-          : minDistance // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxDistance: null == maxDistance
-          ? _value.maxDistance
-          : maxDistance // ignore: cast_nullable_to_non_nullable
-              as int,
-      fullStrengthDistance: null == fullStrengthDistance
-          ? _value.fullStrengthDistance
-          : fullStrengthDistance // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxAngle: null == maxAngle
-          ? _value.maxAngle
-          : maxAngle // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxVolume: null == maxVolume
-          ? _value.maxVolume
-          : maxVolume // ignore: cast_nullable_to_non_nullable
-              as int,
-      volumeForceCoefficient: null == volumeForceCoefficient
-          ? _value.volumeForceCoefficient
-          : volumeForceCoefficient // ignore: cast_nullable_to_non_nullable
-              as double,
-      tetherBreakTime: null == tetherBreakTime
-          ? _value.tetherBreakTime
-          : tetherBreakTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      safeRangeValueFactor: null == safeRangeValueFactor
-          ? _value.safeRangeValueFactor
-          : safeRangeValueFactor // ignore: cast_nullable_to_non_nullable
-              as double,
+    return _then(_$MissileDamageImpl(
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      damage: freezed == damage
+          ? _value.damage
+          : damage // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TractorBeamImpl implements _TractorBeam {
-  const _$TractorBeamImpl(
-      {@JsonKey(name: "min_force") required this.minForce,
-      @JsonKey(name: "max_force") required this.maxForce,
-      @JsonKey(name: "min_distance") required this.minDistance,
-      @JsonKey(name: "max_distance") required this.maxDistance,
-      @JsonKey(name: "full_strength_distance")
-      required this.fullStrengthDistance,
-      @JsonKey(name: "max_angle") required this.maxAngle,
-      @JsonKey(name: "max_volume") required this.maxVolume,
-      @JsonKey(name: "volume_force_coefficient")
-      required this.volumeForceCoefficient,
-      @JsonKey(name: "tether_break_time") required this.tetherBreakTime,
-      @JsonKey(name: "safe_range_value_factor")
-      required this.safeRangeValueFactor});
+class _$MissileDamageImpl implements _MissileDamage {
+  const _$MissileDamageImpl(
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "name") this.name,
+      @JsonKey(name: "damage") this.damage});
 
-  factory _$TractorBeamImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TractorBeamImplFromJson(json);
+  factory _$MissileDamageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MissileDamageImplFromJson(json);
 
   @override
-  @JsonKey(name: "min_force")
-  final int minForce;
+  @JsonKey(name: "type")
+  final dynamic type;
   @override
-  @JsonKey(name: "max_force")
-  final int maxForce;
+  @JsonKey(name: "name")
+  final String? name;
   @override
-  @JsonKey(name: "min_distance")
-  final int minDistance;
-  @override
-  @JsonKey(name: "max_distance")
-  final int maxDistance;
-  @override
-  @JsonKey(name: "full_strength_distance")
-  final int fullStrengthDistance;
-  @override
-  @JsonKey(name: "max_angle")
-  final int maxAngle;
-  @override
-  @JsonKey(name: "max_volume")
-  final int maxVolume;
-  @override
-  @JsonKey(name: "volume_force_coefficient")
-  final double volumeForceCoefficient;
-  @override
-  @JsonKey(name: "tether_break_time")
-  final double tetherBreakTime;
-  @override
-  @JsonKey(name: "safe_range_value_factor")
-  final double safeRangeValueFactor;
+  @JsonKey(name: "damage")
+  final double? damage;
 
   @override
   String toString() {
-    return 'TractorBeam(minForce: $minForce, maxForce: $maxForce, minDistance: $minDistance, maxDistance: $maxDistance, fullStrengthDistance: $fullStrengthDistance, maxAngle: $maxAngle, maxVolume: $maxVolume, volumeForceCoefficient: $volumeForceCoefficient, tetherBreakTime: $tetherBreakTime, safeRangeValueFactor: $safeRangeValueFactor)';
+    return 'MissileDamage(type: $type, name: $name, damage: $damage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TractorBeamImpl &&
-            (identical(other.minForce, minForce) ||
-                other.minForce == minForce) &&
-            (identical(other.maxForce, maxForce) ||
-                other.maxForce == maxForce) &&
-            (identical(other.minDistance, minDistance) ||
-                other.minDistance == minDistance) &&
-            (identical(other.maxDistance, maxDistance) ||
-                other.maxDistance == maxDistance) &&
-            (identical(other.fullStrengthDistance, fullStrengthDistance) ||
-                other.fullStrengthDistance == fullStrengthDistance) &&
-            (identical(other.maxAngle, maxAngle) ||
-                other.maxAngle == maxAngle) &&
-            (identical(other.maxVolume, maxVolume) ||
-                other.maxVolume == maxVolume) &&
-            (identical(other.volumeForceCoefficient, volumeForceCoefficient) ||
-                other.volumeForceCoefficient == volumeForceCoefficient) &&
-            (identical(other.tetherBreakTime, tetherBreakTime) ||
-                other.tetherBreakTime == tetherBreakTime) &&
-            (identical(other.safeRangeValueFactor, safeRangeValueFactor) ||
-                other.safeRangeValueFactor == safeRangeValueFactor));
+            other is _$MissileDamageImpl &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.damage, damage) || other.damage == damage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      minForce,
-      maxForce,
-      minDistance,
-      maxDistance,
-      fullStrengthDistance,
-      maxAngle,
-      maxVolume,
-      volumeForceCoefficient,
-      tetherBreakTime,
-      safeRangeValueFactor);
+      runtimeType, const DeepCollectionEquality().hash(type), name, damage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MissileDamage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$TractorBeamImplCopyWith<_$TractorBeamImpl> get copyWith =>
-      __$$TractorBeamImplCopyWithImpl<_$TractorBeamImpl>(this, _$identity);
+  _$$MissileDamageImplCopyWith<_$MissileDamageImpl> get copyWith =>
+      __$$MissileDamageImplCopyWithImpl<_$MissileDamageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TractorBeamImplToJson(
+    return _$$MissileDamageImplToJson(
       this,
     );
   }
 }
 
-abstract class _TractorBeam implements TractorBeam {
-  const factory _TractorBeam(
-      {@JsonKey(name: "min_force") required final int minForce,
-      @JsonKey(name: "max_force") required final int maxForce,
-      @JsonKey(name: "min_distance") required final int minDistance,
-      @JsonKey(name: "max_distance") required final int maxDistance,
-      @JsonKey(name: "full_strength_distance")
-      required final int fullStrengthDistance,
-      @JsonKey(name: "max_angle") required final int maxAngle,
-      @JsonKey(name: "max_volume") required final int maxVolume,
-      @JsonKey(name: "volume_force_coefficient")
-      required final double volumeForceCoefficient,
-      @JsonKey(name: "tether_break_time") required final double tetherBreakTime,
-      @JsonKey(name: "safe_range_value_factor")
-      required final double safeRangeValueFactor}) = _$TractorBeamImpl;
+abstract class _MissileDamage implements MissileDamage {
+  const factory _MissileDamage(
+      {@JsonKey(name: "type") final dynamic type,
+      @JsonKey(name: "name") final String? name,
+      @JsonKey(name: "damage") final double? damage}) = _$MissileDamageImpl;
 
-  factory _TractorBeam.fromJson(Map<String, dynamic> json) =
-      _$TractorBeamImpl.fromJson;
+  factory _MissileDamage.fromJson(Map<String, dynamic> json) =
+      _$MissileDamageImpl.fromJson;
 
   @override
-  @JsonKey(name: "min_force")
-  int get minForce;
+  @JsonKey(name: "type")
+  dynamic get type;
   @override
-  @JsonKey(name: "max_force")
-  int get maxForce;
+  @JsonKey(name: "name")
+  String? get name;
   @override
-  @JsonKey(name: "min_distance")
-  int get minDistance;
+  @JsonKey(name: "damage")
+  double? get damage;
+
+  /// Create a copy of MissileDamage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(name: "max_distance")
-  int get maxDistance;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MissileDamageImplCopyWith<_$MissileDamageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Port _$PortFromJson(Map<String, dynamic> json) {
+  return _Port.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Port {
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "display_name")
+  String? get displayName => throw _privateConstructorUsedError;
+  @JsonKey(name: "position")
+  String? get position => throw _privateConstructorUsedError;
+  @JsonKey(name: "sizes")
+  PriceRange? get sizes => throw _privateConstructorUsedError;
+  @JsonKey(name: "compatible_types")
+  List<CompatibleType>? get compatibleTypes =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "tags")
+  List<dynamic>? get tags => throw _privateConstructorUsedError;
+  @JsonKey(name: "required_tags")
+  List<dynamic>? get requiredTags => throw _privateConstructorUsedError;
+  @JsonKey(name: "equipped_item")
+  dynamic get equippedItem => throw _privateConstructorUsedError;
+
+  /// Serializes this Port to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Port
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PortCopyWith<Port> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PortCopyWith<$Res> {
+  factory $PortCopyWith(Port value, $Res Function(Port) then) =
+      _$PortCopyWithImpl<$Res, Port>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "position") String? position,
+      @JsonKey(name: "sizes") PriceRange? sizes,
+      @JsonKey(name: "compatible_types") List<CompatibleType>? compatibleTypes,
+      @JsonKey(name: "tags") List<dynamic>? tags,
+      @JsonKey(name: "required_tags") List<dynamic>? requiredTags,
+      @JsonKey(name: "equipped_item") dynamic equippedItem});
+
+  $PriceRangeCopyWith<$Res>? get sizes;
+}
+
+/// @nodoc
+class _$PortCopyWithImpl<$Res, $Val extends Port>
+    implements $PortCopyWith<$Res> {
+  _$PortCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Port
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
-  @JsonKey(name: "full_strength_distance")
-  int get fullStrengthDistance;
+  $Res call({
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? position = freezed,
+    Object? sizes = freezed,
+    Object? compatibleTypes = freezed,
+    Object? tags = freezed,
+    Object? requiredTags = freezed,
+    Object? equippedItem = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      position: freezed == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sizes: freezed == sizes
+          ? _value.sizes
+          : sizes // ignore: cast_nullable_to_non_nullable
+              as PriceRange?,
+      compatibleTypes: freezed == compatibleTypes
+          ? _value.compatibleTypes
+          : compatibleTypes // ignore: cast_nullable_to_non_nullable
+              as List<CompatibleType>?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      requiredTags: freezed == requiredTags
+          ? _value.requiredTags
+          : requiredTags // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      equippedItem: freezed == equippedItem
+          ? _value.equippedItem
+          : equippedItem // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ) as $Val);
+  }
+
+  /// Create a copy of Port
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(name: "max_angle")
-  int get maxAngle;
+  @pragma('vm:prefer-inline')
+  $PriceRangeCopyWith<$Res>? get sizes {
+    if (_value.sizes == null) {
+      return null;
+    }
+
+    return $PriceRangeCopyWith<$Res>(_value.sizes!, (value) {
+      return _then(_value.copyWith(sizes: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$PortImplCopyWith<$Res> implements $PortCopyWith<$Res> {
+  factory _$$PortImplCopyWith(
+          _$PortImpl value, $Res Function(_$PortImpl) then) =
+      __$$PortImplCopyWithImpl<$Res>;
   @override
-  @JsonKey(name: "max_volume")
-  int get maxVolume;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "position") String? position,
+      @JsonKey(name: "sizes") PriceRange? sizes,
+      @JsonKey(name: "compatible_types") List<CompatibleType>? compatibleTypes,
+      @JsonKey(name: "tags") List<dynamic>? tags,
+      @JsonKey(name: "required_tags") List<dynamic>? requiredTags,
+      @JsonKey(name: "equipped_item") dynamic equippedItem});
+
   @override
-  @JsonKey(name: "volume_force_coefficient")
-  double get volumeForceCoefficient;
+  $PriceRangeCopyWith<$Res>? get sizes;
+}
+
+/// @nodoc
+class __$$PortImplCopyWithImpl<$Res>
+    extends _$PortCopyWithImpl<$Res, _$PortImpl>
+    implements _$$PortImplCopyWith<$Res> {
+  __$$PortImplCopyWithImpl(_$PortImpl _value, $Res Function(_$PortImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Port
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
-  @JsonKey(name: "tether_break_time")
-  double get tetherBreakTime;
+  $Res call({
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? position = freezed,
+    Object? sizes = freezed,
+    Object? compatibleTypes = freezed,
+    Object? tags = freezed,
+    Object? requiredTags = freezed,
+    Object? equippedItem = freezed,
+  }) {
+    return _then(_$PortImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      position: freezed == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sizes: freezed == sizes
+          ? _value.sizes
+          : sizes // ignore: cast_nullable_to_non_nullable
+              as PriceRange?,
+      compatibleTypes: freezed == compatibleTypes
+          ? _value._compatibleTypes
+          : compatibleTypes // ignore: cast_nullable_to_non_nullable
+              as List<CompatibleType>?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      requiredTags: freezed == requiredTags
+          ? _value._requiredTags
+          : requiredTags // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      equippedItem: freezed == equippedItem
+          ? _value.equippedItem
+          : equippedItem // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PortImpl implements _Port {
+  const _$PortImpl(
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "display_name") this.displayName,
+      @JsonKey(name: "position") this.position,
+      @JsonKey(name: "sizes") this.sizes,
+      @JsonKey(name: "compatible_types")
+      final List<CompatibleType>? compatibleTypes,
+      @JsonKey(name: "tags") final List<dynamic>? tags,
+      @JsonKey(name: "required_tags") final List<dynamic>? requiredTags,
+      @JsonKey(name: "equipped_item") this.equippedItem})
+      : _compatibleTypes = compatibleTypes,
+        _tags = tags,
+        _requiredTags = requiredTags;
+
+  factory _$PortImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PortImplFromJson(json);
+
   @override
-  @JsonKey(name: "safe_range_value_factor")
-  double get safeRangeValueFactor;
+  @JsonKey(name: "name")
+  final String? name;
   @override
-  @JsonKey(ignore: true)
-  _$$TractorBeamImplCopyWith<_$TractorBeamImpl> get copyWith =>
+  @JsonKey(name: "display_name")
+  final String? displayName;
+  @override
+  @JsonKey(name: "position")
+  final String? position;
+  @override
+  @JsonKey(name: "sizes")
+  final PriceRange? sizes;
+  final List<CompatibleType>? _compatibleTypes;
+  @override
+  @JsonKey(name: "compatible_types")
+  List<CompatibleType>? get compatibleTypes {
+    final value = _compatibleTypes;
+    if (value == null) return null;
+    if (_compatibleTypes is EqualUnmodifiableListView) return _compatibleTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<dynamic>? _tags;
+  @override
+  @JsonKey(name: "tags")
+  List<dynamic>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<dynamic>? _requiredTags;
+  @override
+  @JsonKey(name: "required_tags")
+  List<dynamic>? get requiredTags {
+    final value = _requiredTags;
+    if (value == null) return null;
+    if (_requiredTags is EqualUnmodifiableListView) return _requiredTags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: "equipped_item")
+  final dynamic equippedItem;
+
+  @override
+  String toString() {
+    return 'Port(name: $name, displayName: $displayName, position: $position, sizes: $sizes, compatibleTypes: $compatibleTypes, tags: $tags, requiredTags: $requiredTags, equippedItem: $equippedItem)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PortImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.sizes, sizes) || other.sizes == sizes) &&
+            const DeepCollectionEquality()
+                .equals(other._compatibleTypes, _compatibleTypes) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality()
+                .equals(other._requiredTags, _requiredTags) &&
+            const DeepCollectionEquality()
+                .equals(other.equippedItem, equippedItem));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      displayName,
+      position,
+      sizes,
+      const DeepCollectionEquality().hash(_compatibleTypes),
+      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_requiredTags),
+      const DeepCollectionEquality().hash(equippedItem));
+
+  /// Create a copy of Port
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PortImplCopyWith<_$PortImpl> get copyWith =>
+      __$$PortImplCopyWithImpl<_$PortImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PortImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Port implements Port {
+  const factory _Port(
+      {@JsonKey(name: "name") final String? name,
+      @JsonKey(name: "display_name") final String? displayName,
+      @JsonKey(name: "position") final String? position,
+      @JsonKey(name: "sizes") final PriceRange? sizes,
+      @JsonKey(name: "compatible_types")
+      final List<CompatibleType>? compatibleTypes,
+      @JsonKey(name: "tags") final List<dynamic>? tags,
+      @JsonKey(name: "required_tags") final List<dynamic>? requiredTags,
+      @JsonKey(name: "equipped_item") final dynamic equippedItem}) = _$PortImpl;
+
+  factory _Port.fromJson(Map<String, dynamic> json) = _$PortImpl.fromJson;
+
+  @override
+  @JsonKey(name: "name")
+  String? get name;
+  @override
+  @JsonKey(name: "display_name")
+  String? get displayName;
+  @override
+  @JsonKey(name: "position")
+  String? get position;
+  @override
+  @JsonKey(name: "sizes")
+  PriceRange? get sizes;
+  @override
+  @JsonKey(name: "compatible_types")
+  List<CompatibleType>? get compatibleTypes;
+  @override
+  @JsonKey(name: "tags")
+  List<dynamic>? get tags;
+  @override
+  @JsonKey(name: "required_tags")
+  List<dynamic>? get requiredTags;
+  @override
+  @JsonKey(name: "equipped_item")
+  dynamic get equippedItem;
+
+  /// Create a copy of Port
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PortImplCopyWith<_$PortImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CompatibleType _$CompatibleTypeFromJson(Map<String, dynamic> json) {
+  return _CompatibleType.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CompatibleType {
+  @JsonKey(name: "type")
+  String? get type => throw _privateConstructorUsedError;
+  @JsonKey(name: "sub_types")
+  List<String>? get subTypes => throw _privateConstructorUsedError;
+
+  /// Serializes this CompatibleType to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of CompatibleType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CompatibleTypeCopyWith<CompatibleType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CompatibleTypeCopyWith<$Res> {
+  factory $CompatibleTypeCopyWith(
+          CompatibleType value, $Res Function(CompatibleType) then) =
+      _$CompatibleTypeCopyWithImpl<$Res, CompatibleType>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_types") List<String>? subTypes});
+}
+
+/// @nodoc
+class _$CompatibleTypeCopyWithImpl<$Res, $Val extends CompatibleType>
+    implements $CompatibleTypeCopyWith<$Res> {
+  _$CompatibleTypeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CompatibleType
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = freezed,
+    Object? subTypes = freezed,
+  }) {
+    return _then(_value.copyWith(
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subTypes: freezed == subTypes
+          ? _value.subTypes
+          : subTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CompatibleTypeImplCopyWith<$Res>
+    implements $CompatibleTypeCopyWith<$Res> {
+  factory _$$CompatibleTypeImplCopyWith(_$CompatibleTypeImpl value,
+          $Res Function(_$CompatibleTypeImpl) then) =
+      __$$CompatibleTypeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_types") List<String>? subTypes});
+}
+
+/// @nodoc
+class __$$CompatibleTypeImplCopyWithImpl<$Res>
+    extends _$CompatibleTypeCopyWithImpl<$Res, _$CompatibleTypeImpl>
+    implements _$$CompatibleTypeImplCopyWith<$Res> {
+  __$$CompatibleTypeImplCopyWithImpl(
+      _$CompatibleTypeImpl _value, $Res Function(_$CompatibleTypeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CompatibleType
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = freezed,
+    Object? subTypes = freezed,
+  }) {
+    return _then(_$CompatibleTypeImpl(
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subTypes: freezed == subTypes
+          ? _value._subTypes
+          : subTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CompatibleTypeImpl implements _CompatibleType {
+  const _$CompatibleTypeImpl(
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_types") final List<String>? subTypes})
+      : _subTypes = subTypes;
+
+  factory _$CompatibleTypeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CompatibleTypeImplFromJson(json);
+
+  @override
+  @JsonKey(name: "type")
+  final String? type;
+  final List<String>? _subTypes;
+  @override
+  @JsonKey(name: "sub_types")
+  List<String>? get subTypes {
+    final value = _subTypes;
+    if (value == null) return null;
+    if (_subTypes is EqualUnmodifiableListView) return _subTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'CompatibleType(type: $type, subTypes: $subTypes)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CompatibleTypeImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other._subTypes, _subTypes));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(_subTypes));
+
+  /// Create a copy of CompatibleType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CompatibleTypeImplCopyWith<_$CompatibleTypeImpl> get copyWith =>
+      __$$CompatibleTypeImplCopyWithImpl<_$CompatibleTypeImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CompatibleTypeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CompatibleType implements CompatibleType {
+  const factory _CompatibleType(
+          {@JsonKey(name: "type") final String? type,
+          @JsonKey(name: "sub_types") final List<String>? subTypes}) =
+      _$CompatibleTypeImpl;
+
+  factory _CompatibleType.fromJson(Map<String, dynamic> json) =
+      _$CompatibleTypeImpl.fromJson;
+
+  @override
+  @JsonKey(name: "type")
+  String? get type;
+  @override
+  @JsonKey(name: "sub_types")
+  List<String>? get subTypes;
+
+  /// Create a copy of CompatibleType
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CompatibleTypeImplCopyWith<_$CompatibleTypeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PriceRange _$PriceRangeFromJson(Map<String, dynamic> json) {
+  return _PriceRange.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PriceRange {
+  @JsonKey(name: "min")
+  int? get min => throw _privateConstructorUsedError;
+  @JsonKey(name: "max")
+  int? get max => throw _privateConstructorUsedError;
+
+  /// Serializes this PriceRange to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PriceRange
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PriceRangeCopyWith<PriceRange> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PriceRangeCopyWith<$Res> {
+  factory $PriceRangeCopyWith(
+          PriceRange value, $Res Function(PriceRange) then) =
+      _$PriceRangeCopyWithImpl<$Res, PriceRange>;
+  @useResult
+  $Res call({@JsonKey(name: "min") int? min, @JsonKey(name: "max") int? max});
+}
+
+/// @nodoc
+class _$PriceRangeCopyWithImpl<$Res, $Val extends PriceRange>
+    implements $PriceRangeCopyWith<$Res> {
+  _$PriceRangeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PriceRange
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? min = freezed,
+    Object? max = freezed,
+  }) {
+    return _then(_value.copyWith(
+      min: freezed == min
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
+              as int?,
+      max: freezed == max
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PriceRangeImplCopyWith<$Res>
+    implements $PriceRangeCopyWith<$Res> {
+  factory _$$PriceRangeImplCopyWith(
+          _$PriceRangeImpl value, $Res Function(_$PriceRangeImpl) then) =
+      __$$PriceRangeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: "min") int? min, @JsonKey(name: "max") int? max});
+}
+
+/// @nodoc
+class __$$PriceRangeImplCopyWithImpl<$Res>
+    extends _$PriceRangeCopyWithImpl<$Res, _$PriceRangeImpl>
+    implements _$$PriceRangeImplCopyWith<$Res> {
+  __$$PriceRangeImplCopyWithImpl(
+      _$PriceRangeImpl _value, $Res Function(_$PriceRangeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PriceRange
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? min = freezed,
+    Object? max = freezed,
+  }) {
+    return _then(_$PriceRangeImpl(
+      min: freezed == min
+          ? _value.min
+          : min // ignore: cast_nullable_to_non_nullable
+              as int?,
+      max: freezed == max
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PriceRangeImpl implements _PriceRange {
+  const _$PriceRangeImpl(
+      {@JsonKey(name: "min") this.min, @JsonKey(name: "max") this.max});
+
+  factory _$PriceRangeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PriceRangeImplFromJson(json);
+
+  @override
+  @JsonKey(name: "min")
+  final int? min;
+  @override
+  @JsonKey(name: "max")
+  final int? max;
+
+  @override
+  String toString() {
+    return 'PriceRange(min: $min, max: $max)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PriceRangeImpl &&
+            (identical(other.min, min) || other.min == min) &&
+            (identical(other.max, max) || other.max == max));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, min, max);
+
+  /// Create a copy of PriceRange
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PriceRangeImplCopyWith<_$PriceRangeImpl> get copyWith =>
+      __$$PriceRangeImplCopyWithImpl<_$PriceRangeImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PriceRangeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PriceRange implements PriceRange {
+  const factory _PriceRange(
+      {@JsonKey(name: "min") final int? min,
+      @JsonKey(name: "max") final int? max}) = _$PriceRangeImpl;
+
+  factory _PriceRange.fromJson(Map<String, dynamic> json) =
+      _$PriceRangeImpl.fromJson;
+
+  @override
+  @JsonKey(name: "min")
+  int? get min;
+  @override
+  @JsonKey(name: "max")
+  int? get max;
+
+  /// Create a copy of PriceRange
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PriceRangeImplCopyWith<_$PriceRangeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FluffyVehicleWeapon _$FluffyVehicleWeaponFromJson(Map<String, dynamic> json) {
+  return _FluffyVehicleWeapon.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FluffyVehicleWeapon {
+  @JsonKey(name: "class")
+  dynamic get vehicleWeaponClass => throw _privateConstructorUsedError;
+  @JsonKey(name: "type")
+  String? get type => throw _privateConstructorUsedError;
+  @JsonKey(name: "capacity")
+  int? get capacity => throw _privateConstructorUsedError;
+  @JsonKey(name: "range")
+  int? get range => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_per_shot")
+  double? get damagePerShot => throw _privateConstructorUsedError;
+  @JsonKey(name: "modes")
+  List<VehicleWeaponMode>? get modes => throw _privateConstructorUsedError;
+  @JsonKey(name: "damages")
+  List<VehicleWeaponDamage>? get damages => throw _privateConstructorUsedError;
+  @JsonKey(name: "regeneration")
+  FluffyRegeneration? get regeneration => throw _privateConstructorUsedError;
+  @JsonKey(name: "ammunition")
+  VehicleWeaponAmmunition? get ammunition => throw _privateConstructorUsedError;
+
+  /// Serializes this FluffyVehicleWeapon to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FluffyVehicleWeaponCopyWith<FluffyVehicleWeapon> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FluffyVehicleWeaponCopyWith<$Res> {
+  factory $FluffyVehicleWeaponCopyWith(
+          FluffyVehicleWeapon value, $Res Function(FluffyVehicleWeapon) then) =
+      _$FluffyVehicleWeaponCopyWithImpl<$Res, FluffyVehicleWeapon>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "class") dynamic vehicleWeaponClass,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "damage_per_shot") double? damagePerShot,
+      @JsonKey(name: "modes") List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") FluffyRegeneration? regeneration,
+      @JsonKey(name: "ammunition") VehicleWeaponAmmunition? ammunition});
+
+  $FluffyRegenerationCopyWith<$Res>? get regeneration;
+  $VehicleWeaponAmmunitionCopyWith<$Res>? get ammunition;
+}
+
+/// @nodoc
+class _$FluffyVehicleWeaponCopyWithImpl<$Res, $Val extends FluffyVehicleWeapon>
+    implements $FluffyVehicleWeaponCopyWith<$Res> {
+  _$FluffyVehicleWeaponCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? vehicleWeaponClass = freezed,
+    Object? type = freezed,
+    Object? capacity = freezed,
+    Object? range = freezed,
+    Object? damagePerShot = freezed,
+    Object? modes = freezed,
+    Object? damages = freezed,
+    Object? regeneration = freezed,
+    Object? ammunition = freezed,
+  }) {
+    return _then(_value.copyWith(
+      vehicleWeaponClass: freezed == vehicleWeaponClass
+          ? _value.vehicleWeaponClass
+          : vehicleWeaponClass // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      capacity: freezed == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      range: freezed == range
+          ? _value.range
+          : range // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damagePerShot: freezed == damagePerShot
+          ? _value.damagePerShot
+          : damagePerShot // ignore: cast_nullable_to_non_nullable
+              as double?,
+      modes: freezed == modes
+          ? _value.modes
+          : modes // ignore: cast_nullable_to_non_nullable
+              as List<VehicleWeaponMode>?,
+      damages: freezed == damages
+          ? _value.damages
+          : damages // ignore: cast_nullable_to_non_nullable
+              as List<VehicleWeaponDamage>?,
+      regeneration: freezed == regeneration
+          ? _value.regeneration
+          : regeneration // ignore: cast_nullable_to_non_nullable
+              as FluffyRegeneration?,
+      ammunition: freezed == ammunition
+          ? _value.ammunition
+          : ammunition // ignore: cast_nullable_to_non_nullable
+              as VehicleWeaponAmmunition?,
+    ) as $Val);
+  }
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FluffyRegenerationCopyWith<$Res>? get regeneration {
+    if (_value.regeneration == null) {
+      return null;
+    }
+
+    return $FluffyRegenerationCopyWith<$Res>(_value.regeneration!, (value) {
+      return _then(_value.copyWith(regeneration: value) as $Val);
+    });
+  }
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VehicleWeaponAmmunitionCopyWith<$Res>? get ammunition {
+    if (_value.ammunition == null) {
+      return null;
+    }
+
+    return $VehicleWeaponAmmunitionCopyWith<$Res>(_value.ammunition!, (value) {
+      return _then(_value.copyWith(ammunition: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$FluffyVehicleWeaponImplCopyWith<$Res>
+    implements $FluffyVehicleWeaponCopyWith<$Res> {
+  factory _$$FluffyVehicleWeaponImplCopyWith(_$FluffyVehicleWeaponImpl value,
+          $Res Function(_$FluffyVehicleWeaponImpl) then) =
+      __$$FluffyVehicleWeaponImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "class") dynamic vehicleWeaponClass,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "damage_per_shot") double? damagePerShot,
+      @JsonKey(name: "modes") List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") FluffyRegeneration? regeneration,
+      @JsonKey(name: "ammunition") VehicleWeaponAmmunition? ammunition});
+
+  @override
+  $FluffyRegenerationCopyWith<$Res>? get regeneration;
+  @override
+  $VehicleWeaponAmmunitionCopyWith<$Res>? get ammunition;
+}
+
+/// @nodoc
+class __$$FluffyVehicleWeaponImplCopyWithImpl<$Res>
+    extends _$FluffyVehicleWeaponCopyWithImpl<$Res, _$FluffyVehicleWeaponImpl>
+    implements _$$FluffyVehicleWeaponImplCopyWith<$Res> {
+  __$$FluffyVehicleWeaponImplCopyWithImpl(_$FluffyVehicleWeaponImpl _value,
+      $Res Function(_$FluffyVehicleWeaponImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? vehicleWeaponClass = freezed,
+    Object? type = freezed,
+    Object? capacity = freezed,
+    Object? range = freezed,
+    Object? damagePerShot = freezed,
+    Object? modes = freezed,
+    Object? damages = freezed,
+    Object? regeneration = freezed,
+    Object? ammunition = freezed,
+  }) {
+    return _then(_$FluffyVehicleWeaponImpl(
+      vehicleWeaponClass: freezed == vehicleWeaponClass
+          ? _value.vehicleWeaponClass
+          : vehicleWeaponClass // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      capacity: freezed == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      range: freezed == range
+          ? _value.range
+          : range // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damagePerShot: freezed == damagePerShot
+          ? _value.damagePerShot
+          : damagePerShot // ignore: cast_nullable_to_non_nullable
+              as double?,
+      modes: freezed == modes
+          ? _value._modes
+          : modes // ignore: cast_nullable_to_non_nullable
+              as List<VehicleWeaponMode>?,
+      damages: freezed == damages
+          ? _value._damages
+          : damages // ignore: cast_nullable_to_non_nullable
+              as List<VehicleWeaponDamage>?,
+      regeneration: freezed == regeneration
+          ? _value.regeneration
+          : regeneration // ignore: cast_nullable_to_non_nullable
+              as FluffyRegeneration?,
+      ammunition: freezed == ammunition
+          ? _value.ammunition
+          : ammunition // ignore: cast_nullable_to_non_nullable
+              as VehicleWeaponAmmunition?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FluffyVehicleWeaponImpl implements _FluffyVehicleWeapon {
+  const _$FluffyVehicleWeaponImpl(
+      {@JsonKey(name: "class") this.vehicleWeaponClass,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "capacity") this.capacity,
+      @JsonKey(name: "range") this.range,
+      @JsonKey(name: "damage_per_shot") this.damagePerShot,
+      @JsonKey(name: "modes") final List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") final List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") this.regeneration,
+      @JsonKey(name: "ammunition") this.ammunition})
+      : _modes = modes,
+        _damages = damages;
+
+  factory _$FluffyVehicleWeaponImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FluffyVehicleWeaponImplFromJson(json);
+
+  @override
+  @JsonKey(name: "class")
+  final dynamic vehicleWeaponClass;
+  @override
+  @JsonKey(name: "type")
+  final String? type;
+  @override
+  @JsonKey(name: "capacity")
+  final int? capacity;
+  @override
+  @JsonKey(name: "range")
+  final int? range;
+  @override
+  @JsonKey(name: "damage_per_shot")
+  final double? damagePerShot;
+  final List<VehicleWeaponMode>? _modes;
+  @override
+  @JsonKey(name: "modes")
+  List<VehicleWeaponMode>? get modes {
+    final value = _modes;
+    if (value == null) return null;
+    if (_modes is EqualUnmodifiableListView) return _modes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<VehicleWeaponDamage>? _damages;
+  @override
+  @JsonKey(name: "damages")
+  List<VehicleWeaponDamage>? get damages {
+    final value = _damages;
+    if (value == null) return null;
+    if (_damages is EqualUnmodifiableListView) return _damages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: "regeneration")
+  final FluffyRegeneration? regeneration;
+  @override
+  @JsonKey(name: "ammunition")
+  final VehicleWeaponAmmunition? ammunition;
+
+  @override
+  String toString() {
+    return 'FluffyVehicleWeapon(vehicleWeaponClass: $vehicleWeaponClass, type: $type, capacity: $capacity, range: $range, damagePerShot: $damagePerShot, modes: $modes, damages: $damages, regeneration: $regeneration, ammunition: $ammunition)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FluffyVehicleWeaponImpl &&
+            const DeepCollectionEquality()
+                .equals(other.vehicleWeaponClass, vehicleWeaponClass) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.capacity, capacity) ||
+                other.capacity == capacity) &&
+            (identical(other.range, range) || other.range == range) &&
+            (identical(other.damagePerShot, damagePerShot) ||
+                other.damagePerShot == damagePerShot) &&
+            const DeepCollectionEquality().equals(other._modes, _modes) &&
+            const DeepCollectionEquality().equals(other._damages, _damages) &&
+            (identical(other.regeneration, regeneration) ||
+                other.regeneration == regeneration) &&
+            (identical(other.ammunition, ammunition) ||
+                other.ammunition == ammunition));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(vehicleWeaponClass),
+      type,
+      capacity,
+      range,
+      damagePerShot,
+      const DeepCollectionEquality().hash(_modes),
+      const DeepCollectionEquality().hash(_damages),
+      regeneration,
+      ammunition);
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FluffyVehicleWeaponImplCopyWith<_$FluffyVehicleWeaponImpl> get copyWith =>
+      __$$FluffyVehicleWeaponImplCopyWithImpl<_$FluffyVehicleWeaponImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FluffyVehicleWeaponImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FluffyVehicleWeapon implements FluffyVehicleWeapon {
+  const factory _FluffyVehicleWeapon(
+      {@JsonKey(name: "class") final dynamic vehicleWeaponClass,
+      @JsonKey(name: "type") final String? type,
+      @JsonKey(name: "capacity") final int? capacity,
+      @JsonKey(name: "range") final int? range,
+      @JsonKey(name: "damage_per_shot") final double? damagePerShot,
+      @JsonKey(name: "modes") final List<VehicleWeaponMode>? modes,
+      @JsonKey(name: "damages") final List<VehicleWeaponDamage>? damages,
+      @JsonKey(name: "regeneration") final FluffyRegeneration? regeneration,
+      @JsonKey(name: "ammunition")
+      final VehicleWeaponAmmunition? ammunition}) = _$FluffyVehicleWeaponImpl;
+
+  factory _FluffyVehicleWeapon.fromJson(Map<String, dynamic> json) =
+      _$FluffyVehicleWeaponImpl.fromJson;
+
+  @override
+  @JsonKey(name: "class")
+  dynamic get vehicleWeaponClass;
+  @override
+  @JsonKey(name: "type")
+  String? get type;
+  @override
+  @JsonKey(name: "capacity")
+  int? get capacity;
+  @override
+  @JsonKey(name: "range")
+  int? get range;
+  @override
+  @JsonKey(name: "damage_per_shot")
+  double? get damagePerShot;
+  @override
+  @JsonKey(name: "modes")
+  List<VehicleWeaponMode>? get modes;
+  @override
+  @JsonKey(name: "damages")
+  List<VehicleWeaponDamage>? get damages;
+  @override
+  @JsonKey(name: "regeneration")
+  FluffyRegeneration? get regeneration;
+  @override
+  @JsonKey(name: "ammunition")
+  VehicleWeaponAmmunition? get ammunition;
+
+  /// Create a copy of FluffyVehicleWeapon
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FluffyVehicleWeaponImplCopyWith<_$FluffyVehicleWeaponImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FluffyRegeneration _$FluffyRegenerationFromJson(Map<String, dynamic> json) {
+  return _FluffyRegeneration.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FluffyRegeneration {
+  @JsonKey(name: "requested_regen_per_sec")
+  int? get requestedRegenPerSec => throw _privateConstructorUsedError;
+  @JsonKey(name: "requested_ammo_load")
+  int? get requestedAmmoLoad => throw _privateConstructorUsedError;
+  @JsonKey(name: "cooldown")
+  double? get cooldown => throw _privateConstructorUsedError;
+  @JsonKey(name: "cost_per_bullet")
+  int? get costPerBullet => throw _privateConstructorUsedError;
+
+  /// Serializes this FluffyRegeneration to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of FluffyRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FluffyRegenerationCopyWith<FluffyRegeneration> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FluffyRegenerationCopyWith<$Res> {
+  factory $FluffyRegenerationCopyWith(
+          FluffyRegeneration value, $Res Function(FluffyRegeneration) then) =
+      _$FluffyRegenerationCopyWithImpl<$Res, FluffyRegeneration>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "requested_regen_per_sec") int? requestedRegenPerSec,
+      @JsonKey(name: "requested_ammo_load") int? requestedAmmoLoad,
+      @JsonKey(name: "cooldown") double? cooldown,
+      @JsonKey(name: "cost_per_bullet") int? costPerBullet});
+}
+
+/// @nodoc
+class _$FluffyRegenerationCopyWithImpl<$Res, $Val extends FluffyRegeneration>
+    implements $FluffyRegenerationCopyWith<$Res> {
+  _$FluffyRegenerationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FluffyRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? requestedRegenPerSec = freezed,
+    Object? requestedAmmoLoad = freezed,
+    Object? cooldown = freezed,
+    Object? costPerBullet = freezed,
+  }) {
+    return _then(_value.copyWith(
+      requestedRegenPerSec: freezed == requestedRegenPerSec
+          ? _value.requestedRegenPerSec
+          : requestedRegenPerSec // ignore: cast_nullable_to_non_nullable
+              as int?,
+      requestedAmmoLoad: freezed == requestedAmmoLoad
+          ? _value.requestedAmmoLoad
+          : requestedAmmoLoad // ignore: cast_nullable_to_non_nullable
+              as int?,
+      cooldown: freezed == cooldown
+          ? _value.cooldown
+          : cooldown // ignore: cast_nullable_to_non_nullable
+              as double?,
+      costPerBullet: freezed == costPerBullet
+          ? _value.costPerBullet
+          : costPerBullet // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FluffyRegenerationImplCopyWith<$Res>
+    implements $FluffyRegenerationCopyWith<$Res> {
+  factory _$$FluffyRegenerationImplCopyWith(_$FluffyRegenerationImpl value,
+          $Res Function(_$FluffyRegenerationImpl) then) =
+      __$$FluffyRegenerationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "requested_regen_per_sec") int? requestedRegenPerSec,
+      @JsonKey(name: "requested_ammo_load") int? requestedAmmoLoad,
+      @JsonKey(name: "cooldown") double? cooldown,
+      @JsonKey(name: "cost_per_bullet") int? costPerBullet});
+}
+
+/// @nodoc
+class __$$FluffyRegenerationImplCopyWithImpl<$Res>
+    extends _$FluffyRegenerationCopyWithImpl<$Res, _$FluffyRegenerationImpl>
+    implements _$$FluffyRegenerationImplCopyWith<$Res> {
+  __$$FluffyRegenerationImplCopyWithImpl(_$FluffyRegenerationImpl _value,
+      $Res Function(_$FluffyRegenerationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FluffyRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? requestedRegenPerSec = freezed,
+    Object? requestedAmmoLoad = freezed,
+    Object? cooldown = freezed,
+    Object? costPerBullet = freezed,
+  }) {
+    return _then(_$FluffyRegenerationImpl(
+      requestedRegenPerSec: freezed == requestedRegenPerSec
+          ? _value.requestedRegenPerSec
+          : requestedRegenPerSec // ignore: cast_nullable_to_non_nullable
+              as int?,
+      requestedAmmoLoad: freezed == requestedAmmoLoad
+          ? _value.requestedAmmoLoad
+          : requestedAmmoLoad // ignore: cast_nullable_to_non_nullable
+              as int?,
+      cooldown: freezed == cooldown
+          ? _value.cooldown
+          : cooldown // ignore: cast_nullable_to_non_nullable
+              as double?,
+      costPerBullet: freezed == costPerBullet
+          ? _value.costPerBullet
+          : costPerBullet // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FluffyRegenerationImpl implements _FluffyRegeneration {
+  const _$FluffyRegenerationImpl(
+      {@JsonKey(name: "requested_regen_per_sec") this.requestedRegenPerSec,
+      @JsonKey(name: "requested_ammo_load") this.requestedAmmoLoad,
+      @JsonKey(name: "cooldown") this.cooldown,
+      @JsonKey(name: "cost_per_bullet") this.costPerBullet});
+
+  factory _$FluffyRegenerationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FluffyRegenerationImplFromJson(json);
+
+  @override
+  @JsonKey(name: "requested_regen_per_sec")
+  final int? requestedRegenPerSec;
+  @override
+  @JsonKey(name: "requested_ammo_load")
+  final int? requestedAmmoLoad;
+  @override
+  @JsonKey(name: "cooldown")
+  final double? cooldown;
+  @override
+  @JsonKey(name: "cost_per_bullet")
+  final int? costPerBullet;
+
+  @override
+  String toString() {
+    return 'FluffyRegeneration(requestedRegenPerSec: $requestedRegenPerSec, requestedAmmoLoad: $requestedAmmoLoad, cooldown: $cooldown, costPerBullet: $costPerBullet)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FluffyRegenerationImpl &&
+            (identical(other.requestedRegenPerSec, requestedRegenPerSec) ||
+                other.requestedRegenPerSec == requestedRegenPerSec) &&
+            (identical(other.requestedAmmoLoad, requestedAmmoLoad) ||
+                other.requestedAmmoLoad == requestedAmmoLoad) &&
+            (identical(other.cooldown, cooldown) ||
+                other.cooldown == cooldown) &&
+            (identical(other.costPerBullet, costPerBullet) ||
+                other.costPerBullet == costPerBullet));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, requestedRegenPerSec,
+      requestedAmmoLoad, cooldown, costPerBullet);
+
+  /// Create a copy of FluffyRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FluffyRegenerationImplCopyWith<_$FluffyRegenerationImpl> get copyWith =>
+      __$$FluffyRegenerationImplCopyWithImpl<_$FluffyRegenerationImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FluffyRegenerationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FluffyRegeneration implements FluffyRegeneration {
+  const factory _FluffyRegeneration(
+          {@JsonKey(name: "requested_regen_per_sec")
+          final int? requestedRegenPerSec,
+          @JsonKey(name: "requested_ammo_load") final int? requestedAmmoLoad,
+          @JsonKey(name: "cooldown") final double? cooldown,
+          @JsonKey(name: "cost_per_bullet") final int? costPerBullet}) =
+      _$FluffyRegenerationImpl;
+
+  factory _FluffyRegeneration.fromJson(Map<String, dynamic> json) =
+      _$FluffyRegenerationImpl.fromJson;
+
+  @override
+  @JsonKey(name: "requested_regen_per_sec")
+  int? get requestedRegenPerSec;
+  @override
+  @JsonKey(name: "requested_ammo_load")
+  int? get requestedAmmoLoad;
+  @override
+  @JsonKey(name: "cooldown")
+  double? get cooldown;
+  @override
+  @JsonKey(name: "cost_per_bullet")
+  int? get costPerBullet;
+
+  /// Create a copy of FluffyRegeneration
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FluffyRegenerationImplCopyWith<_$FluffyRegenerationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -10326,33 +10798,31 @@ mixin _$HardpointItem {
   @JsonKey(name: "uuid")
   String? get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "class_name")
   String? get className => throw _privateConstructorUsedError;
   @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: "size")
-  int get size => throw _privateConstructorUsedError;
+  int? get size => throw _privateConstructorUsedError;
   @JsonKey(name: "mass")
-  int get mass => throw _privateConstructorUsedError;
+  int? get mass => throw _privateConstructorUsedError;
   @JsonKey(name: "grade")
   String? get grade => throw _privateConstructorUsedError;
   @JsonKey(name: "class")
   String? get itemClass => throw _privateConstructorUsedError;
   @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer => throw _privateConstructorUsedError;
+  ItemManufacturer? get manufacturer => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "sub_type")
-  String get subType => throw _privateConstructorUsedError;
+  String? get subType => throw _privateConstructorUsedError;
   @JsonKey(name: "emp")
   Armor? get emp => throw _privateConstructorUsedError;
-  @JsonKey(name: "ports")
-  List<Port> get ports => throw _privateConstructorUsedError;
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
   @JsonKey(name: "inventory")
   Inventory? get inventory => throw _privateConstructorUsedError;
   @JsonKey(name: "max_mounts")
@@ -10361,6 +10831,8 @@ mixin _$HardpointItem {
   int? get minSize => throw _privateConstructorUsedError;
   @JsonKey(name: "max_size")
   int? get maxSize => throw _privateConstructorUsedError;
+  @JsonKey(name: "ports")
+  List<Port>? get ports => throw _privateConstructorUsedError;
   @JsonKey(name: "counter_measure")
   CounterMeasure? get counterMeasure => throw _privateConstructorUsedError;
   @JsonKey(name: "self_destruct")
@@ -10384,8 +10856,12 @@ mixin _$HardpointItem {
   @JsonKey(name: "max_missiles")
   int? get maxMissiles => throw _privateConstructorUsedError;
 
+  /// Serializes this HardpointItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HardpointItemCopyWith<HardpointItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -10398,24 +10874,24 @@ abstract class $HardpointItemCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "mass") int mass,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "mass") int? mass,
       @JsonKey(name: "grade") String? grade,
       @JsonKey(name: "class") String? itemClass,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
+      @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
       @JsonKey(name: "emp") Armor? emp,
-      @JsonKey(name: "ports") List<Port> ports,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version,
       @JsonKey(name: "inventory") Inventory? inventory,
       @JsonKey(name: "max_mounts") int? maxMounts,
       @JsonKey(name: "min_size") int? minSize,
       @JsonKey(name: "max_size") int? maxSize,
+      @JsonKey(name: "ports") List<Port>? ports,
       @JsonKey(name: "counter_measure") CounterMeasure? counterMeasure,
       @JsonKey(name: "self_destruct") SelfDestruct? selfDestruct,
       @JsonKey(name: "flight_controller") FlightController? flightController,
@@ -10428,7 +10904,7 @@ abstract class $HardpointItemCopyWith<$Res> {
       @JsonKey(name: "shield") Shield? shield,
       @JsonKey(name: "max_missiles") int? maxMissiles});
 
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
+  $ItemManufacturerCopyWith<$Res>? get manufacturer;
   $ArmorCopyWith<$Res>? get emp;
   $InventoryCopyWith<$Res>? get inventory;
   $CounterMeasureCopyWith<$Res>? get counterMeasure;
@@ -10453,28 +10929,30 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? name = null,
+    Object? name = freezed,
     Object? className = freezed,
-    Object? link = null,
-    Object? size = null,
-    Object? mass = null,
+    Object? link = freezed,
+    Object? size = freezed,
+    Object? mass = freezed,
     Object? grade = freezed,
     Object? itemClass = freezed,
-    Object? manufacturer = null,
-    Object? type = null,
-    Object? subType = null,
+    Object? manufacturer = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
     Object? emp = freezed,
-    Object? ports = null,
-    Object? updatedAt = null,
-    Object? version = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
     Object? inventory = freezed,
     Object? maxMounts = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
+    Object? ports = freezed,
     Object? counterMeasure = freezed,
     Object? selfDestruct = freezed,
     Object? flightController = freezed,
@@ -10492,26 +10970,26 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      mass: null == mass
+              as int?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
@@ -10520,34 +10998,30 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
           ? _value.itemClass
           : itemClass // ignore: cast_nullable_to_non_nullable
               as String?,
-      manufacturer: null == manufacturer
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      type: null == type
+              as ItemManufacturer?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       emp: freezed == emp
           ? _value.emp
           : emp // ignore: cast_nullable_to_non_nullable
               as Armor?,
-      ports: null == ports
-          ? _value.ports
-          : ports // ignore: cast_nullable_to_non_nullable
-              as List<Port>,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       inventory: freezed == inventory
           ? _value.inventory
           : inventory // ignore: cast_nullable_to_non_nullable
@@ -10564,6 +11038,10 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
           ? _value.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      ports: freezed == ports
+          ? _value.ports
+          : ports // ignore: cast_nullable_to_non_nullable
+              as List<Port>?,
       counterMeasure: freezed == counterMeasure
           ? _value.counterMeasure
           : counterMeasure // ignore: cast_nullable_to_non_nullable
@@ -10611,14 +11089,22 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     ) as $Val);
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ItemManufacturerCopyWith<$Res> get manufacturer {
-    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer, (value) {
+  $ItemManufacturerCopyWith<$Res>? get manufacturer {
+    if (_value.manufacturer == null) {
+      return null;
+    }
+
+    return $ItemManufacturerCopyWith<$Res>(_value.manufacturer!, (value) {
       return _then(_value.copyWith(manufacturer: value) as $Val);
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ArmorCopyWith<$Res>? get emp {
@@ -10631,6 +11117,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $InventoryCopyWith<$Res>? get inventory {
@@ -10643,6 +11131,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CounterMeasureCopyWith<$Res>? get counterMeasure {
@@ -10655,6 +11145,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SelfDestructCopyWith<$Res>? get selfDestruct {
@@ -10667,6 +11159,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FlightControllerCopyWith<$Res>? get flightController {
@@ -10679,6 +11173,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoolerCopyWith<$Res>? get cooler {
@@ -10691,6 +11187,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FuelIntakeCopyWith<$Res>? get fuelIntake {
@@ -10703,6 +11201,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FuelTankCopyWith<$Res>? get fuelTank {
@@ -10715,6 +11215,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ThrusterCopyWith<$Res>? get thruster {
@@ -10727,6 +11229,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PowerPlantCopyWith<$Res>? get powerPlant {
@@ -10739,6 +11243,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QuantumDriveCopyWith<$Res>? get quantumDrive {
@@ -10751,6 +11257,8 @@ class _$HardpointItemCopyWithImpl<$Res, $Val extends HardpointItem>
     });
   }
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ShieldCopyWith<$Res>? get shield {
@@ -10774,24 +11282,24 @@ abstract class _$$HardpointItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "uuid") String? uuid,
-      @JsonKey(name: "name") String name,
+      @JsonKey(name: "name") String? name,
       @JsonKey(name: "class_name") String? className,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "size") int size,
-      @JsonKey(name: "mass") int mass,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "mass") int? mass,
       @JsonKey(name: "grade") String? grade,
       @JsonKey(name: "class") String? itemClass,
-      @JsonKey(name: "manufacturer") ItemManufacturer manufacturer,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
+      @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "sub_type") String? subType,
       @JsonKey(name: "emp") Armor? emp,
-      @JsonKey(name: "ports") List<Port> ports,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
-      @JsonKey(name: "version") String version,
+      @JsonKey(name: "updated_at") DateTime? updatedAt,
+      @JsonKey(name: "version") String? version,
       @JsonKey(name: "inventory") Inventory? inventory,
       @JsonKey(name: "max_mounts") int? maxMounts,
       @JsonKey(name: "min_size") int? minSize,
       @JsonKey(name: "max_size") int? maxSize,
+      @JsonKey(name: "ports") List<Port>? ports,
       @JsonKey(name: "counter_measure") CounterMeasure? counterMeasure,
       @JsonKey(name: "self_destruct") SelfDestruct? selfDestruct,
       @JsonKey(name: "flight_controller") FlightController? flightController,
@@ -10805,7 +11313,7 @@ abstract class _$$HardpointItemImplCopyWith<$Res>
       @JsonKey(name: "max_missiles") int? maxMissiles});
 
   @override
-  $ItemManufacturerCopyWith<$Res> get manufacturer;
+  $ItemManufacturerCopyWith<$Res>? get manufacturer;
   @override
   $ArmorCopyWith<$Res>? get emp;
   @override
@@ -10840,28 +11348,30 @@ class __$$HardpointItemImplCopyWithImpl<$Res>
       _$HardpointItemImpl _value, $Res Function(_$HardpointItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uuid = freezed,
-    Object? name = null,
+    Object? name = freezed,
     Object? className = freezed,
-    Object? link = null,
-    Object? size = null,
-    Object? mass = null,
+    Object? link = freezed,
+    Object? size = freezed,
+    Object? mass = freezed,
     Object? grade = freezed,
     Object? itemClass = freezed,
-    Object? manufacturer = null,
-    Object? type = null,
-    Object? subType = null,
+    Object? manufacturer = freezed,
+    Object? type = freezed,
+    Object? subType = freezed,
     Object? emp = freezed,
-    Object? ports = null,
-    Object? updatedAt = null,
-    Object? version = null,
+    Object? updatedAt = freezed,
+    Object? version = freezed,
     Object? inventory = freezed,
     Object? maxMounts = freezed,
     Object? minSize = freezed,
     Object? maxSize = freezed,
+    Object? ports = freezed,
     Object? counterMeasure = freezed,
     Object? selfDestruct = freezed,
     Object? flightController = freezed,
@@ -10879,26 +11389,26 @@ class __$$HardpointItemImplCopyWithImpl<$Res>
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       className: freezed == className
           ? _value.className
           : className // ignore: cast_nullable_to_non_nullable
               as String?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      mass: null == mass
+              as int?,
+      mass: freezed == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       grade: freezed == grade
           ? _value.grade
           : grade // ignore: cast_nullable_to_non_nullable
@@ -10907,34 +11417,30 @@ class __$$HardpointItemImplCopyWithImpl<$Res>
           ? _value.itemClass
           : itemClass // ignore: cast_nullable_to_non_nullable
               as String?,
-      manufacturer: null == manufacturer
+      manufacturer: freezed == manufacturer
           ? _value.manufacturer
           : manufacturer // ignore: cast_nullable_to_non_nullable
-              as ItemManufacturer,
-      type: null == type
+              as ItemManufacturer?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      subType: null == subType
+              as String?,
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       emp: freezed == emp
           ? _value.emp
           : emp // ignore: cast_nullable_to_non_nullable
               as Armor?,
-      ports: null == ports
-          ? _value._ports
-          : ports // ignore: cast_nullable_to_non_nullable
-              as List<Port>,
-      updatedAt: null == updatedAt
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      version: null == version
+              as DateTime?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       inventory: freezed == inventory
           ? _value.inventory
           : inventory // ignore: cast_nullable_to_non_nullable
@@ -10951,6 +11457,10 @@ class __$$HardpointItemImplCopyWithImpl<$Res>
           ? _value.maxSize
           : maxSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      ports: freezed == ports
+          ? _value._ports
+          : ports // ignore: cast_nullable_to_non_nullable
+              as List<Port>?,
       counterMeasure: freezed == counterMeasure
           ? _value.counterMeasure
           : counterMeasure // ignore: cast_nullable_to_non_nullable
@@ -11004,24 +11514,24 @@ class __$$HardpointItemImplCopyWithImpl<$Res>
 class _$HardpointItemImpl implements _HardpointItem {
   const _$HardpointItemImpl(
       {@JsonKey(name: "uuid") this.uuid,
-      @JsonKey(name: "name") required this.name,
+      @JsonKey(name: "name") this.name,
       @JsonKey(name: "class_name") this.className,
-      @JsonKey(name: "link") required this.link,
-      @JsonKey(name: "size") required this.size,
-      @JsonKey(name: "mass") required this.mass,
-      @JsonKey(name: "grade") required this.grade,
-      @JsonKey(name: "class") required this.itemClass,
-      @JsonKey(name: "manufacturer") required this.manufacturer,
-      @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
+      @JsonKey(name: "link") this.link,
+      @JsonKey(name: "size") this.size,
+      @JsonKey(name: "mass") this.mass,
+      @JsonKey(name: "grade") this.grade,
+      @JsonKey(name: "class") this.itemClass,
+      @JsonKey(name: "manufacturer") this.manufacturer,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "sub_type") this.subType,
       @JsonKey(name: "emp") this.emp,
-      @JsonKey(name: "ports") required final List<Port> ports,
-      @JsonKey(name: "updated_at") required this.updatedAt,
-      @JsonKey(name: "version") required this.version,
+      @JsonKey(name: "updated_at") this.updatedAt,
+      @JsonKey(name: "version") this.version,
       @JsonKey(name: "inventory") this.inventory,
       @JsonKey(name: "max_mounts") this.maxMounts,
       @JsonKey(name: "min_size") this.minSize,
       @JsonKey(name: "max_size") this.maxSize,
+      @JsonKey(name: "ports") final List<Port>? ports,
       @JsonKey(name: "counter_measure") this.counterMeasure,
       @JsonKey(name: "self_destruct") this.selfDestruct,
       @JsonKey(name: "flight_controller") this.flightController,
@@ -11043,19 +11553,19 @@ class _$HardpointItemImpl implements _HardpointItem {
   final String? uuid;
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "class_name")
   final String? className;
   @override
   @JsonKey(name: "link")
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: "size")
-  final int size;
+  final int? size;
   @override
   @JsonKey(name: "mass")
-  final int mass;
+  final int? mass;
   @override
   @JsonKey(name: "grade")
   final String? grade;
@@ -11064,31 +11574,22 @@ class _$HardpointItemImpl implements _HardpointItem {
   final String? itemClass;
   @override
   @JsonKey(name: "manufacturer")
-  final ItemManufacturer manufacturer;
+  final ItemManufacturer? manufacturer;
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "sub_type")
-  final String subType;
+  final String? subType;
   @override
   @JsonKey(name: "emp")
   final Armor? emp;
-  final List<Port> _ports;
-  @override
-  @JsonKey(name: "ports")
-  List<Port> get ports {
-    if (_ports is EqualUnmodifiableListView) return _ports;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ports);
-  }
-
   @override
   @JsonKey(name: "updated_at")
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   @override
   @JsonKey(name: "version")
-  final String version;
+  final String? version;
   @override
   @JsonKey(name: "inventory")
   final Inventory? inventory;
@@ -11101,6 +11602,17 @@ class _$HardpointItemImpl implements _HardpointItem {
   @override
   @JsonKey(name: "max_size")
   final int? maxSize;
+  final List<Port>? _ports;
+  @override
+  @JsonKey(name: "ports")
+  List<Port>? get ports {
+    final value = _ports;
+    if (value == null) return null;
+    if (_ports is EqualUnmodifiableListView) return _ports;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: "counter_measure")
   final CounterMeasure? counterMeasure;
@@ -11137,7 +11649,7 @@ class _$HardpointItemImpl implements _HardpointItem {
 
   @override
   String toString() {
-    return 'HardpointItem(uuid: $uuid, name: $name, className: $className, link: $link, size: $size, mass: $mass, grade: $grade, itemClass: $itemClass, manufacturer: $manufacturer, type: $type, subType: $subType, emp: $emp, ports: $ports, updatedAt: $updatedAt, version: $version, inventory: $inventory, maxMounts: $maxMounts, minSize: $minSize, maxSize: $maxSize, counterMeasure: $counterMeasure, selfDestruct: $selfDestruct, flightController: $flightController, cooler: $cooler, fuelIntake: $fuelIntake, fuelTank: $fuelTank, thruster: $thruster, powerPlant: $powerPlant, quantumDrive: $quantumDrive, shield: $shield, maxMissiles: $maxMissiles)';
+    return 'HardpointItem(uuid: $uuid, name: $name, className: $className, link: $link, size: $size, mass: $mass, grade: $grade, itemClass: $itemClass, manufacturer: $manufacturer, type: $type, subType: $subType, emp: $emp, updatedAt: $updatedAt, version: $version, inventory: $inventory, maxMounts: $maxMounts, minSize: $minSize, maxSize: $maxSize, ports: $ports, counterMeasure: $counterMeasure, selfDestruct: $selfDestruct, flightController: $flightController, cooler: $cooler, fuelIntake: $fuelIntake, fuelTank: $fuelTank, thruster: $thruster, powerPlant: $powerPlant, quantumDrive: $quantumDrive, shield: $shield, maxMissiles: $maxMissiles)';
   }
 
   @override
@@ -11160,7 +11672,6 @@ class _$HardpointItemImpl implements _HardpointItem {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.subType, subType) || other.subType == subType) &&
             (identical(other.emp, emp) || other.emp == emp) &&
-            const DeepCollectionEquality().equals(other._ports, _ports) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.version, version) || other.version == version) &&
@@ -11170,6 +11681,7 @@ class _$HardpointItemImpl implements _HardpointItem {
                 other.maxMounts == maxMounts) &&
             (identical(other.minSize, minSize) || other.minSize == minSize) &&
             (identical(other.maxSize, maxSize) || other.maxSize == maxSize) &&
+            const DeepCollectionEquality().equals(other._ports, _ports) &&
             (identical(other.counterMeasure, counterMeasure) ||
                 other.counterMeasure == counterMeasure) &&
             (identical(other.selfDestruct, selfDestruct) ||
@@ -11192,7 +11704,7 @@ class _$HardpointItemImpl implements _HardpointItem {
                 other.maxMissiles == maxMissiles));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -11208,13 +11720,13 @@ class _$HardpointItemImpl implements _HardpointItem {
         type,
         subType,
         emp,
-        const DeepCollectionEquality().hash(_ports),
         updatedAt,
         version,
         inventory,
         maxMounts,
         minSize,
         maxSize,
+        const DeepCollectionEquality().hash(_ports),
         counterMeasure,
         selfDestruct,
         flightController,
@@ -11228,7 +11740,9 @@ class _$HardpointItemImpl implements _HardpointItem {
         maxMissiles
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HardpointItemImplCopyWith<_$HardpointItemImpl> get copyWith =>
@@ -11245,25 +11759,24 @@ class _$HardpointItemImpl implements _HardpointItem {
 abstract class _HardpointItem implements HardpointItem {
   const factory _HardpointItem(
       {@JsonKey(name: "uuid") final String? uuid,
-      @JsonKey(name: "name") required final String name,
+      @JsonKey(name: "name") final String? name,
       @JsonKey(name: "class_name") final String? className,
-      @JsonKey(name: "link") required final String link,
-      @JsonKey(name: "size") required final int size,
-      @JsonKey(name: "mass") required final int mass,
-      @JsonKey(name: "grade") required final String? grade,
-      @JsonKey(name: "class") required final String? itemClass,
-      @JsonKey(name: "manufacturer")
-      required final ItemManufacturer manufacturer,
-      @JsonKey(name: "type") required final String type,
-      @JsonKey(name: "sub_type") required final String subType,
+      @JsonKey(name: "link") final String? link,
+      @JsonKey(name: "size") final int? size,
+      @JsonKey(name: "mass") final int? mass,
+      @JsonKey(name: "grade") final String? grade,
+      @JsonKey(name: "class") final String? itemClass,
+      @JsonKey(name: "manufacturer") final ItemManufacturer? manufacturer,
+      @JsonKey(name: "type") final String? type,
+      @JsonKey(name: "sub_type") final String? subType,
       @JsonKey(name: "emp") final Armor? emp,
-      @JsonKey(name: "ports") required final List<Port> ports,
-      @JsonKey(name: "updated_at") required final DateTime updatedAt,
-      @JsonKey(name: "version") required final String version,
+      @JsonKey(name: "updated_at") final DateTime? updatedAt,
+      @JsonKey(name: "version") final String? version,
       @JsonKey(name: "inventory") final Inventory? inventory,
       @JsonKey(name: "max_mounts") final int? maxMounts,
       @JsonKey(name: "min_size") final int? minSize,
       @JsonKey(name: "max_size") final int? maxSize,
+      @JsonKey(name: "ports") final List<Port>? ports,
       @JsonKey(name: "counter_measure") final CounterMeasure? counterMeasure,
       @JsonKey(name: "self_destruct") final SelfDestruct? selfDestruct,
       @JsonKey(name: "flight_controller")
@@ -11286,19 +11799,19 @@ abstract class _HardpointItem implements HardpointItem {
   String? get uuid;
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "class_name")
   String? get className;
   @override
   @JsonKey(name: "link")
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: "size")
-  int get size;
+  int? get size;
   @override
   @JsonKey(name: "mass")
-  int get mass;
+  int? get mass;
   @override
   @JsonKey(name: "grade")
   String? get grade;
@@ -11307,25 +11820,22 @@ abstract class _HardpointItem implements HardpointItem {
   String? get itemClass;
   @override
   @JsonKey(name: "manufacturer")
-  ItemManufacturer get manufacturer;
+  ItemManufacturer? get manufacturer;
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "sub_type")
-  String get subType;
+  String? get subType;
   @override
   @JsonKey(name: "emp")
   Armor? get emp;
   @override
-  @JsonKey(name: "ports")
-  List<Port> get ports;
-  @override
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
   @override
   @JsonKey(name: "inventory")
   Inventory? get inventory;
@@ -11338,6 +11848,9 @@ abstract class _HardpointItem implements HardpointItem {
   @override
   @JsonKey(name: "max_size")
   int? get maxSize;
+  @override
+  @JsonKey(name: "ports")
+  List<Port>? get ports;
   @override
   @JsonKey(name: "counter_measure")
   CounterMeasure? get counterMeasure;
@@ -11371,8 +11884,11 @@ abstract class _HardpointItem implements HardpointItem {
   @override
   @JsonKey(name: "max_missiles")
   int? get maxMissiles;
+
+  /// Create a copy of HardpointItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HardpointItemImplCopyWith<_$HardpointItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -11384,14 +11900,18 @@ Cooler _$CoolerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Cooler {
   @JsonKey(name: "cooling_rate")
-  int get coolingRate => throw _privateConstructorUsedError;
+  int? get coolingRate => throw _privateConstructorUsedError;
   @JsonKey(name: "suppression_ir_factor")
-  double get suppressionIrFactor => throw _privateConstructorUsedError;
+  double? get suppressionIrFactor => throw _privateConstructorUsedError;
   @JsonKey(name: "suppression_heat_factor")
-  double get suppressionHeatFactor => throw _privateConstructorUsedError;
+  double? get suppressionHeatFactor => throw _privateConstructorUsedError;
 
+  /// Serializes this Cooler to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Cooler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoolerCopyWith<Cooler> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -11401,9 +11921,9 @@ abstract class $CoolerCopyWith<$Res> {
       _$CoolerCopyWithImpl<$Res, Cooler>;
   @useResult
   $Res call(
-      {@JsonKey(name: "cooling_rate") int coolingRate,
-      @JsonKey(name: "suppression_ir_factor") double suppressionIrFactor,
-      @JsonKey(name: "suppression_heat_factor") double suppressionHeatFactor});
+      {@JsonKey(name: "cooling_rate") int? coolingRate,
+      @JsonKey(name: "suppression_ir_factor") double? suppressionIrFactor,
+      @JsonKey(name: "suppression_heat_factor") double? suppressionHeatFactor});
 }
 
 /// @nodoc
@@ -11416,26 +11936,28 @@ class _$CoolerCopyWithImpl<$Res, $Val extends Cooler>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Cooler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? coolingRate = null,
-    Object? suppressionIrFactor = null,
-    Object? suppressionHeatFactor = null,
+    Object? coolingRate = freezed,
+    Object? suppressionIrFactor = freezed,
+    Object? suppressionHeatFactor = freezed,
   }) {
     return _then(_value.copyWith(
-      coolingRate: null == coolingRate
+      coolingRate: freezed == coolingRate
           ? _value.coolingRate
           : coolingRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      suppressionIrFactor: null == suppressionIrFactor
+              as int?,
+      suppressionIrFactor: freezed == suppressionIrFactor
           ? _value.suppressionIrFactor
           : suppressionIrFactor // ignore: cast_nullable_to_non_nullable
-              as double,
-      suppressionHeatFactor: null == suppressionHeatFactor
+              as double?,
+      suppressionHeatFactor: freezed == suppressionHeatFactor
           ? _value.suppressionHeatFactor
           : suppressionHeatFactor // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -11448,9 +11970,9 @@ abstract class _$$CoolerImplCopyWith<$Res> implements $CoolerCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "cooling_rate") int coolingRate,
-      @JsonKey(name: "suppression_ir_factor") double suppressionIrFactor,
-      @JsonKey(name: "suppression_heat_factor") double suppressionHeatFactor});
+      {@JsonKey(name: "cooling_rate") int? coolingRate,
+      @JsonKey(name: "suppression_ir_factor") double? suppressionIrFactor,
+      @JsonKey(name: "suppression_heat_factor") double? suppressionHeatFactor});
 }
 
 /// @nodoc
@@ -11461,26 +11983,28 @@ class __$$CoolerImplCopyWithImpl<$Res>
       _$CoolerImpl _value, $Res Function(_$CoolerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Cooler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? coolingRate = null,
-    Object? suppressionIrFactor = null,
-    Object? suppressionHeatFactor = null,
+    Object? coolingRate = freezed,
+    Object? suppressionIrFactor = freezed,
+    Object? suppressionHeatFactor = freezed,
   }) {
     return _then(_$CoolerImpl(
-      coolingRate: null == coolingRate
+      coolingRate: freezed == coolingRate
           ? _value.coolingRate
           : coolingRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      suppressionIrFactor: null == suppressionIrFactor
+              as int?,
+      suppressionIrFactor: freezed == suppressionIrFactor
           ? _value.suppressionIrFactor
           : suppressionIrFactor // ignore: cast_nullable_to_non_nullable
-              as double,
-      suppressionHeatFactor: null == suppressionHeatFactor
+              as double?,
+      suppressionHeatFactor: freezed == suppressionHeatFactor
           ? _value.suppressionHeatFactor
           : suppressionHeatFactor // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -11489,23 +12013,22 @@ class __$$CoolerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CoolerImpl implements _Cooler {
   const _$CoolerImpl(
-      {@JsonKey(name: "cooling_rate") required this.coolingRate,
-      @JsonKey(name: "suppression_ir_factor") required this.suppressionIrFactor,
-      @JsonKey(name: "suppression_heat_factor")
-      required this.suppressionHeatFactor});
+      {@JsonKey(name: "cooling_rate") this.coolingRate,
+      @JsonKey(name: "suppression_ir_factor") this.suppressionIrFactor,
+      @JsonKey(name: "suppression_heat_factor") this.suppressionHeatFactor});
 
   factory _$CoolerImpl.fromJson(Map<String, dynamic> json) =>
       _$$CoolerImplFromJson(json);
 
   @override
   @JsonKey(name: "cooling_rate")
-  final int coolingRate;
+  final int? coolingRate;
   @override
   @JsonKey(name: "suppression_ir_factor")
-  final double suppressionIrFactor;
+  final double? suppressionIrFactor;
   @override
   @JsonKey(name: "suppression_heat_factor")
-  final double suppressionHeatFactor;
+  final double? suppressionHeatFactor;
 
   @override
   String toString() {
@@ -11525,12 +12048,14 @@ class _$CoolerImpl implements _Cooler {
                 other.suppressionHeatFactor == suppressionHeatFactor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, coolingRate, suppressionIrFactor, suppressionHeatFactor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Cooler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoolerImplCopyWith<_$CoolerImpl> get copyWith =>
@@ -11546,26 +12071,1277 @@ class _$CoolerImpl implements _Cooler {
 
 abstract class _Cooler implements Cooler {
   const factory _Cooler(
-      {@JsonKey(name: "cooling_rate") required final int coolingRate,
-      @JsonKey(name: "suppression_ir_factor")
-      required final double suppressionIrFactor,
+      {@JsonKey(name: "cooling_rate") final int? coolingRate,
+      @JsonKey(name: "suppression_ir_factor") final double? suppressionIrFactor,
       @JsonKey(name: "suppression_heat_factor")
-      required final double suppressionHeatFactor}) = _$CoolerImpl;
+      final double? suppressionHeatFactor}) = _$CoolerImpl;
 
   factory _Cooler.fromJson(Map<String, dynamic> json) = _$CoolerImpl.fromJson;
 
   @override
   @JsonKey(name: "cooling_rate")
-  int get coolingRate;
+  int? get coolingRate;
   @override
   @JsonKey(name: "suppression_ir_factor")
-  double get suppressionIrFactor;
+  double? get suppressionIrFactor;
   @override
   @JsonKey(name: "suppression_heat_factor")
-  double get suppressionHeatFactor;
+  double? get suppressionHeatFactor;
+
+  /// Create a copy of Cooler
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoolerImplCopyWith<_$CoolerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CounterMeasure _$CounterMeasureFromJson(Map<String, dynamic> json) {
+  return _CounterMeasure.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CounterMeasure {
+  @JsonKey(name: "class")
+  dynamic get counterMeasureClass => throw _privateConstructorUsedError;
+  @JsonKey(name: "type")
+  dynamic get type => throw _privateConstructorUsedError;
+  @JsonKey(name: "capacity")
+  int? get capacity => throw _privateConstructorUsedError;
+  @JsonKey(name: "range")
+  int? get range => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_per_shot")
+  int? get damagePerShot => throw _privateConstructorUsedError;
+  @JsonKey(name: "modes")
+  List<CounterMeasureMode>? get modes => throw _privateConstructorUsedError;
+  @JsonKey(name: "damages")
+  List<dynamic>? get damages => throw _privateConstructorUsedError;
+  @JsonKey(name: "regeneration")
+  dynamic get regeneration => throw _privateConstructorUsedError;
+  @JsonKey(name: "ammunition")
+  CounterMeasureAmmunition? get ammunition =>
+      throw _privateConstructorUsedError;
+
+  /// Serializes this CounterMeasure to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of CounterMeasure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CounterMeasureCopyWith<CounterMeasure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CounterMeasureCopyWith<$Res> {
+  factory $CounterMeasureCopyWith(
+          CounterMeasure value, $Res Function(CounterMeasure) then) =
+      _$CounterMeasureCopyWithImpl<$Res, CounterMeasure>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "class") dynamic counterMeasureClass,
+      @JsonKey(name: "type") dynamic type,
+      @JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "damage_per_shot") int? damagePerShot,
+      @JsonKey(name: "modes") List<CounterMeasureMode>? modes,
+      @JsonKey(name: "damages") List<dynamic>? damages,
+      @JsonKey(name: "regeneration") dynamic regeneration,
+      @JsonKey(name: "ammunition") CounterMeasureAmmunition? ammunition});
+
+  $CounterMeasureAmmunitionCopyWith<$Res>? get ammunition;
+}
+
+/// @nodoc
+class _$CounterMeasureCopyWithImpl<$Res, $Val extends CounterMeasure>
+    implements $CounterMeasureCopyWith<$Res> {
+  _$CounterMeasureCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CounterMeasure
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? counterMeasureClass = freezed,
+    Object? type = freezed,
+    Object? capacity = freezed,
+    Object? range = freezed,
+    Object? damagePerShot = freezed,
+    Object? modes = freezed,
+    Object? damages = freezed,
+    Object? regeneration = freezed,
+    Object? ammunition = freezed,
+  }) {
+    return _then(_value.copyWith(
+      counterMeasureClass: freezed == counterMeasureClass
+          ? _value.counterMeasureClass
+          : counterMeasureClass // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      capacity: freezed == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      range: freezed == range
+          ? _value.range
+          : range // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damagePerShot: freezed == damagePerShot
+          ? _value.damagePerShot
+          : damagePerShot // ignore: cast_nullable_to_non_nullable
+              as int?,
+      modes: freezed == modes
+          ? _value.modes
+          : modes // ignore: cast_nullable_to_non_nullable
+              as List<CounterMeasureMode>?,
+      damages: freezed == damages
+          ? _value.damages
+          : damages // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      regeneration: freezed == regeneration
+          ? _value.regeneration
+          : regeneration // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      ammunition: freezed == ammunition
+          ? _value.ammunition
+          : ammunition // ignore: cast_nullable_to_non_nullable
+              as CounterMeasureAmmunition?,
+    ) as $Val);
+  }
+
+  /// Create a copy of CounterMeasure
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CounterMeasureAmmunitionCopyWith<$Res>? get ammunition {
+    if (_value.ammunition == null) {
+      return null;
+    }
+
+    return $CounterMeasureAmmunitionCopyWith<$Res>(_value.ammunition!, (value) {
+      return _then(_value.copyWith(ammunition: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$CounterMeasureImplCopyWith<$Res>
+    implements $CounterMeasureCopyWith<$Res> {
+  factory _$$CounterMeasureImplCopyWith(_$CounterMeasureImpl value,
+          $Res Function(_$CounterMeasureImpl) then) =
+      __$$CounterMeasureImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "class") dynamic counterMeasureClass,
+      @JsonKey(name: "type") dynamic type,
+      @JsonKey(name: "capacity") int? capacity,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "damage_per_shot") int? damagePerShot,
+      @JsonKey(name: "modes") List<CounterMeasureMode>? modes,
+      @JsonKey(name: "damages") List<dynamic>? damages,
+      @JsonKey(name: "regeneration") dynamic regeneration,
+      @JsonKey(name: "ammunition") CounterMeasureAmmunition? ammunition});
+
+  @override
+  $CounterMeasureAmmunitionCopyWith<$Res>? get ammunition;
+}
+
+/// @nodoc
+class __$$CounterMeasureImplCopyWithImpl<$Res>
+    extends _$CounterMeasureCopyWithImpl<$Res, _$CounterMeasureImpl>
+    implements _$$CounterMeasureImplCopyWith<$Res> {
+  __$$CounterMeasureImplCopyWithImpl(
+      _$CounterMeasureImpl _value, $Res Function(_$CounterMeasureImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CounterMeasure
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? counterMeasureClass = freezed,
+    Object? type = freezed,
+    Object? capacity = freezed,
+    Object? range = freezed,
+    Object? damagePerShot = freezed,
+    Object? modes = freezed,
+    Object? damages = freezed,
+    Object? regeneration = freezed,
+    Object? ammunition = freezed,
+  }) {
+    return _then(_$CounterMeasureImpl(
+      counterMeasureClass: freezed == counterMeasureClass
+          ? _value.counterMeasureClass
+          : counterMeasureClass // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      capacity: freezed == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      range: freezed == range
+          ? _value.range
+          : range // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damagePerShot: freezed == damagePerShot
+          ? _value.damagePerShot
+          : damagePerShot // ignore: cast_nullable_to_non_nullable
+              as int?,
+      modes: freezed == modes
+          ? _value._modes
+          : modes // ignore: cast_nullable_to_non_nullable
+              as List<CounterMeasureMode>?,
+      damages: freezed == damages
+          ? _value._damages
+          : damages // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      regeneration: freezed == regeneration
+          ? _value.regeneration
+          : regeneration // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      ammunition: freezed == ammunition
+          ? _value.ammunition
+          : ammunition // ignore: cast_nullable_to_non_nullable
+              as CounterMeasureAmmunition?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CounterMeasureImpl implements _CounterMeasure {
+  const _$CounterMeasureImpl(
+      {@JsonKey(name: "class") this.counterMeasureClass,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "capacity") this.capacity,
+      @JsonKey(name: "range") this.range,
+      @JsonKey(name: "damage_per_shot") this.damagePerShot,
+      @JsonKey(name: "modes") final List<CounterMeasureMode>? modes,
+      @JsonKey(name: "damages") final List<dynamic>? damages,
+      @JsonKey(name: "regeneration") this.regeneration,
+      @JsonKey(name: "ammunition") this.ammunition})
+      : _modes = modes,
+        _damages = damages;
+
+  factory _$CounterMeasureImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CounterMeasureImplFromJson(json);
+
+  @override
+  @JsonKey(name: "class")
+  final dynamic counterMeasureClass;
+  @override
+  @JsonKey(name: "type")
+  final dynamic type;
+  @override
+  @JsonKey(name: "capacity")
+  final int? capacity;
+  @override
+  @JsonKey(name: "range")
+  final int? range;
+  @override
+  @JsonKey(name: "damage_per_shot")
+  final int? damagePerShot;
+  final List<CounterMeasureMode>? _modes;
+  @override
+  @JsonKey(name: "modes")
+  List<CounterMeasureMode>? get modes {
+    final value = _modes;
+    if (value == null) return null;
+    if (_modes is EqualUnmodifiableListView) return _modes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<dynamic>? _damages;
+  @override
+  @JsonKey(name: "damages")
+  List<dynamic>? get damages {
+    final value = _damages;
+    if (value == null) return null;
+    if (_damages is EqualUnmodifiableListView) return _damages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: "regeneration")
+  final dynamic regeneration;
+  @override
+  @JsonKey(name: "ammunition")
+  final CounterMeasureAmmunition? ammunition;
+
+  @override
+  String toString() {
+    return 'CounterMeasure(counterMeasureClass: $counterMeasureClass, type: $type, capacity: $capacity, range: $range, damagePerShot: $damagePerShot, modes: $modes, damages: $damages, regeneration: $regeneration, ammunition: $ammunition)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CounterMeasureImpl &&
+            const DeepCollectionEquality()
+                .equals(other.counterMeasureClass, counterMeasureClass) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            (identical(other.capacity, capacity) ||
+                other.capacity == capacity) &&
+            (identical(other.range, range) || other.range == range) &&
+            (identical(other.damagePerShot, damagePerShot) ||
+                other.damagePerShot == damagePerShot) &&
+            const DeepCollectionEquality().equals(other._modes, _modes) &&
+            const DeepCollectionEquality().equals(other._damages, _damages) &&
+            const DeepCollectionEquality()
+                .equals(other.regeneration, regeneration) &&
+            (identical(other.ammunition, ammunition) ||
+                other.ammunition == ammunition));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(counterMeasureClass),
+      const DeepCollectionEquality().hash(type),
+      capacity,
+      range,
+      damagePerShot,
+      const DeepCollectionEquality().hash(_modes),
+      const DeepCollectionEquality().hash(_damages),
+      const DeepCollectionEquality().hash(regeneration),
+      ammunition);
+
+  /// Create a copy of CounterMeasure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CounterMeasureImplCopyWith<_$CounterMeasureImpl> get copyWith =>
+      __$$CounterMeasureImplCopyWithImpl<_$CounterMeasureImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CounterMeasureImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CounterMeasure implements CounterMeasure {
+  const factory _CounterMeasure(
+      {@JsonKey(name: "class") final dynamic counterMeasureClass,
+      @JsonKey(name: "type") final dynamic type,
+      @JsonKey(name: "capacity") final int? capacity,
+      @JsonKey(name: "range") final int? range,
+      @JsonKey(name: "damage_per_shot") final int? damagePerShot,
+      @JsonKey(name: "modes") final List<CounterMeasureMode>? modes,
+      @JsonKey(name: "damages") final List<dynamic>? damages,
+      @JsonKey(name: "regeneration") final dynamic regeneration,
+      @JsonKey(name: "ammunition")
+      final CounterMeasureAmmunition? ammunition}) = _$CounterMeasureImpl;
+
+  factory _CounterMeasure.fromJson(Map<String, dynamic> json) =
+      _$CounterMeasureImpl.fromJson;
+
+  @override
+  @JsonKey(name: "class")
+  dynamic get counterMeasureClass;
+  @override
+  @JsonKey(name: "type")
+  dynamic get type;
+  @override
+  @JsonKey(name: "capacity")
+  int? get capacity;
+  @override
+  @JsonKey(name: "range")
+  int? get range;
+  @override
+  @JsonKey(name: "damage_per_shot")
+  int? get damagePerShot;
+  @override
+  @JsonKey(name: "modes")
+  List<CounterMeasureMode>? get modes;
+  @override
+  @JsonKey(name: "damages")
+  List<dynamic>? get damages;
+  @override
+  @JsonKey(name: "regeneration")
+  dynamic get regeneration;
+  @override
+  @JsonKey(name: "ammunition")
+  CounterMeasureAmmunition? get ammunition;
+
+  /// Create a copy of CounterMeasure
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CounterMeasureImplCopyWith<_$CounterMeasureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CounterMeasureAmmunition _$CounterMeasureAmmunitionFromJson(
+    Map<String, dynamic> json) {
+  return _CounterMeasureAmmunition.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CounterMeasureAmmunition {
+  @JsonKey(name: "uuid")
+  String? get uuid => throw _privateConstructorUsedError;
+  @JsonKey(name: "size")
+  int? get size => throw _privateConstructorUsedError;
+  @JsonKey(name: "lifetime")
+  double? get lifetime => throw _privateConstructorUsedError;
+  @JsonKey(name: "speed")
+  int? get speed => throw _privateConstructorUsedError;
+  @JsonKey(name: "range")
+  int? get range => throw _privateConstructorUsedError;
+  @JsonKey(name: "piercability")
+  FluffyPiercability? get piercability => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_falloffs")
+  DamageFalloffs? get damageFalloffs => throw _privateConstructorUsedError;
+
+  /// Serializes this CounterMeasureAmmunition to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CounterMeasureAmmunitionCopyWith<CounterMeasureAmmunition> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CounterMeasureAmmunitionCopyWith<$Res> {
+  factory $CounterMeasureAmmunitionCopyWith(CounterMeasureAmmunition value,
+          $Res Function(CounterMeasureAmmunition) then) =
+      _$CounterMeasureAmmunitionCopyWithImpl<$Res, CounterMeasureAmmunition>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "uuid") String? uuid,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "lifetime") double? lifetime,
+      @JsonKey(name: "speed") int? speed,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "piercability") FluffyPiercability? piercability,
+      @JsonKey(name: "damage_falloffs") DamageFalloffs? damageFalloffs});
+
+  $FluffyPiercabilityCopyWith<$Res>? get piercability;
+  $DamageFalloffsCopyWith<$Res>? get damageFalloffs;
+}
+
+/// @nodoc
+class _$CounterMeasureAmmunitionCopyWithImpl<$Res,
+        $Val extends CounterMeasureAmmunition>
+    implements $CounterMeasureAmmunitionCopyWith<$Res> {
+  _$CounterMeasureAmmunitionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = freezed,
+    Object? size = freezed,
+    Object? lifetime = freezed,
+    Object? speed = freezed,
+    Object? range = freezed,
+    Object? piercability = freezed,
+    Object? damageFalloffs = freezed,
+  }) {
+    return _then(_value.copyWith(
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      lifetime: freezed == lifetime
+          ? _value.lifetime
+          : lifetime // ignore: cast_nullable_to_non_nullable
+              as double?,
+      speed: freezed == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int?,
+      range: freezed == range
+          ? _value.range
+          : range // ignore: cast_nullable_to_non_nullable
+              as int?,
+      piercability: freezed == piercability
+          ? _value.piercability
+          : piercability // ignore: cast_nullable_to_non_nullable
+              as FluffyPiercability?,
+      damageFalloffs: freezed == damageFalloffs
+          ? _value.damageFalloffs
+          : damageFalloffs // ignore: cast_nullable_to_non_nullable
+              as DamageFalloffs?,
+    ) as $Val);
+  }
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FluffyPiercabilityCopyWith<$Res>? get piercability {
+    if (_value.piercability == null) {
+      return null;
+    }
+
+    return $FluffyPiercabilityCopyWith<$Res>(_value.piercability!, (value) {
+      return _then(_value.copyWith(piercability: value) as $Val);
+    });
+  }
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DamageFalloffsCopyWith<$Res>? get damageFalloffs {
+    if (_value.damageFalloffs == null) {
+      return null;
+    }
+
+    return $DamageFalloffsCopyWith<$Res>(_value.damageFalloffs!, (value) {
+      return _then(_value.copyWith(damageFalloffs: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$CounterMeasureAmmunitionImplCopyWith<$Res>
+    implements $CounterMeasureAmmunitionCopyWith<$Res> {
+  factory _$$CounterMeasureAmmunitionImplCopyWith(
+          _$CounterMeasureAmmunitionImpl value,
+          $Res Function(_$CounterMeasureAmmunitionImpl) then) =
+      __$$CounterMeasureAmmunitionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "uuid") String? uuid,
+      @JsonKey(name: "size") int? size,
+      @JsonKey(name: "lifetime") double? lifetime,
+      @JsonKey(name: "speed") int? speed,
+      @JsonKey(name: "range") int? range,
+      @JsonKey(name: "piercability") FluffyPiercability? piercability,
+      @JsonKey(name: "damage_falloffs") DamageFalloffs? damageFalloffs});
+
+  @override
+  $FluffyPiercabilityCopyWith<$Res>? get piercability;
+  @override
+  $DamageFalloffsCopyWith<$Res>? get damageFalloffs;
+}
+
+/// @nodoc
+class __$$CounterMeasureAmmunitionImplCopyWithImpl<$Res>
+    extends _$CounterMeasureAmmunitionCopyWithImpl<$Res,
+        _$CounterMeasureAmmunitionImpl>
+    implements _$$CounterMeasureAmmunitionImplCopyWith<$Res> {
+  __$$CounterMeasureAmmunitionImplCopyWithImpl(
+      _$CounterMeasureAmmunitionImpl _value,
+      $Res Function(_$CounterMeasureAmmunitionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = freezed,
+    Object? size = freezed,
+    Object? lifetime = freezed,
+    Object? speed = freezed,
+    Object? range = freezed,
+    Object? piercability = freezed,
+    Object? damageFalloffs = freezed,
+  }) {
+    return _then(_$CounterMeasureAmmunitionImpl(
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int?,
+      lifetime: freezed == lifetime
+          ? _value.lifetime
+          : lifetime // ignore: cast_nullable_to_non_nullable
+              as double?,
+      speed: freezed == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as int?,
+      range: freezed == range
+          ? _value.range
+          : range // ignore: cast_nullable_to_non_nullable
+              as int?,
+      piercability: freezed == piercability
+          ? _value.piercability
+          : piercability // ignore: cast_nullable_to_non_nullable
+              as FluffyPiercability?,
+      damageFalloffs: freezed == damageFalloffs
+          ? _value.damageFalloffs
+          : damageFalloffs // ignore: cast_nullable_to_non_nullable
+              as DamageFalloffs?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CounterMeasureAmmunitionImpl implements _CounterMeasureAmmunition {
+  const _$CounterMeasureAmmunitionImpl(
+      {@JsonKey(name: "uuid") this.uuid,
+      @JsonKey(name: "size") this.size,
+      @JsonKey(name: "lifetime") this.lifetime,
+      @JsonKey(name: "speed") this.speed,
+      @JsonKey(name: "range") this.range,
+      @JsonKey(name: "piercability") this.piercability,
+      @JsonKey(name: "damage_falloffs") this.damageFalloffs});
+
+  factory _$CounterMeasureAmmunitionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CounterMeasureAmmunitionImplFromJson(json);
+
+  @override
+  @JsonKey(name: "uuid")
+  final String? uuid;
+  @override
+  @JsonKey(name: "size")
+  final int? size;
+  @override
+  @JsonKey(name: "lifetime")
+  final double? lifetime;
+  @override
+  @JsonKey(name: "speed")
+  final int? speed;
+  @override
+  @JsonKey(name: "range")
+  final int? range;
+  @override
+  @JsonKey(name: "piercability")
+  final FluffyPiercability? piercability;
+  @override
+  @JsonKey(name: "damage_falloffs")
+  final DamageFalloffs? damageFalloffs;
+
+  @override
+  String toString() {
+    return 'CounterMeasureAmmunition(uuid: $uuid, size: $size, lifetime: $lifetime, speed: $speed, range: $range, piercability: $piercability, damageFalloffs: $damageFalloffs)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CounterMeasureAmmunitionImpl &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.lifetime, lifetime) ||
+                other.lifetime == lifetime) &&
+            (identical(other.speed, speed) || other.speed == speed) &&
+            (identical(other.range, range) || other.range == range) &&
+            (identical(other.piercability, piercability) ||
+                other.piercability == piercability) &&
+            (identical(other.damageFalloffs, damageFalloffs) ||
+                other.damageFalloffs == damageFalloffs));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, uuid, size, lifetime, speed,
+      range, piercability, damageFalloffs);
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CounterMeasureAmmunitionImplCopyWith<_$CounterMeasureAmmunitionImpl>
+      get copyWith => __$$CounterMeasureAmmunitionImplCopyWithImpl<
+          _$CounterMeasureAmmunitionImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CounterMeasureAmmunitionImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CounterMeasureAmmunition implements CounterMeasureAmmunition {
+  const factory _CounterMeasureAmmunition(
+      {@JsonKey(name: "uuid") final String? uuid,
+      @JsonKey(name: "size") final int? size,
+      @JsonKey(name: "lifetime") final double? lifetime,
+      @JsonKey(name: "speed") final int? speed,
+      @JsonKey(name: "range") final int? range,
+      @JsonKey(name: "piercability") final FluffyPiercability? piercability,
+      @JsonKey(name: "damage_falloffs")
+      final DamageFalloffs? damageFalloffs}) = _$CounterMeasureAmmunitionImpl;
+
+  factory _CounterMeasureAmmunition.fromJson(Map<String, dynamic> json) =
+      _$CounterMeasureAmmunitionImpl.fromJson;
+
+  @override
+  @JsonKey(name: "uuid")
+  String? get uuid;
+  @override
+  @JsonKey(name: "size")
+  int? get size;
+  @override
+  @JsonKey(name: "lifetime")
+  double? get lifetime;
+  @override
+  @JsonKey(name: "speed")
+  int? get speed;
+  @override
+  @JsonKey(name: "range")
+  int? get range;
+  @override
+  @JsonKey(name: "piercability")
+  FluffyPiercability? get piercability;
+  @override
+  @JsonKey(name: "damage_falloffs")
+  DamageFalloffs? get damageFalloffs;
+
+  /// Create a copy of CounterMeasureAmmunition
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CounterMeasureAmmunitionImplCopyWith<_$CounterMeasureAmmunitionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+FluffyPiercability _$FluffyPiercabilityFromJson(Map<String, dynamic> json) {
+  return _FluffyPiercability.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FluffyPiercability {
+  @JsonKey(name: "damage_falloff_level_1")
+  int? get damageFalloffLevel1 => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_falloff_level_2")
+  int? get damageFalloffLevel2 => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_falloff_level_3")
+  int? get damageFalloffLevel3 => throw _privateConstructorUsedError;
+  @JsonKey(name: "max_penetration_thickness")
+  int? get maxPenetrationThickness => throw _privateConstructorUsedError;
+
+  /// Serializes this FluffyPiercability to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of FluffyPiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FluffyPiercabilityCopyWith<FluffyPiercability> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FluffyPiercabilityCopyWith<$Res> {
+  factory $FluffyPiercabilityCopyWith(
+          FluffyPiercability value, $Res Function(FluffyPiercability) then) =
+      _$FluffyPiercabilityCopyWithImpl<$Res, FluffyPiercability>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "damage_falloff_level_1") int? damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") int? damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") int? damageFalloffLevel3,
+      @JsonKey(name: "max_penetration_thickness")
+      int? maxPenetrationThickness});
+}
+
+/// @nodoc
+class _$FluffyPiercabilityCopyWithImpl<$Res, $Val extends FluffyPiercability>
+    implements $FluffyPiercabilityCopyWith<$Res> {
+  _$FluffyPiercabilityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FluffyPiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? damageFalloffLevel1 = freezed,
+    Object? damageFalloffLevel2 = freezed,
+    Object? damageFalloffLevel3 = freezed,
+    Object? maxPenetrationThickness = freezed,
+  }) {
+    return _then(_value.copyWith(
+      damageFalloffLevel1: freezed == damageFalloffLevel1
+          ? _value.damageFalloffLevel1
+          : damageFalloffLevel1 // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damageFalloffLevel2: freezed == damageFalloffLevel2
+          ? _value.damageFalloffLevel2
+          : damageFalloffLevel2 // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damageFalloffLevel3: freezed == damageFalloffLevel3
+          ? _value.damageFalloffLevel3
+          : damageFalloffLevel3 // ignore: cast_nullable_to_non_nullable
+              as int?,
+      maxPenetrationThickness: freezed == maxPenetrationThickness
+          ? _value.maxPenetrationThickness
+          : maxPenetrationThickness // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FluffyPiercabilityImplCopyWith<$Res>
+    implements $FluffyPiercabilityCopyWith<$Res> {
+  factory _$$FluffyPiercabilityImplCopyWith(_$FluffyPiercabilityImpl value,
+          $Res Function(_$FluffyPiercabilityImpl) then) =
+      __$$FluffyPiercabilityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "damage_falloff_level_1") int? damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") int? damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") int? damageFalloffLevel3,
+      @JsonKey(name: "max_penetration_thickness")
+      int? maxPenetrationThickness});
+}
+
+/// @nodoc
+class __$$FluffyPiercabilityImplCopyWithImpl<$Res>
+    extends _$FluffyPiercabilityCopyWithImpl<$Res, _$FluffyPiercabilityImpl>
+    implements _$$FluffyPiercabilityImplCopyWith<$Res> {
+  __$$FluffyPiercabilityImplCopyWithImpl(_$FluffyPiercabilityImpl _value,
+      $Res Function(_$FluffyPiercabilityImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FluffyPiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? damageFalloffLevel1 = freezed,
+    Object? damageFalloffLevel2 = freezed,
+    Object? damageFalloffLevel3 = freezed,
+    Object? maxPenetrationThickness = freezed,
+  }) {
+    return _then(_$FluffyPiercabilityImpl(
+      damageFalloffLevel1: freezed == damageFalloffLevel1
+          ? _value.damageFalloffLevel1
+          : damageFalloffLevel1 // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damageFalloffLevel2: freezed == damageFalloffLevel2
+          ? _value.damageFalloffLevel2
+          : damageFalloffLevel2 // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damageFalloffLevel3: freezed == damageFalloffLevel3
+          ? _value.damageFalloffLevel3
+          : damageFalloffLevel3 // ignore: cast_nullable_to_non_nullable
+              as int?,
+      maxPenetrationThickness: freezed == maxPenetrationThickness
+          ? _value.maxPenetrationThickness
+          : maxPenetrationThickness // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FluffyPiercabilityImpl implements _FluffyPiercability {
+  const _$FluffyPiercabilityImpl(
+      {@JsonKey(name: "damage_falloff_level_1") this.damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") this.damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") this.damageFalloffLevel3,
+      @JsonKey(name: "max_penetration_thickness")
+      this.maxPenetrationThickness});
+
+  factory _$FluffyPiercabilityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FluffyPiercabilityImplFromJson(json);
+
+  @override
+  @JsonKey(name: "damage_falloff_level_1")
+  final int? damageFalloffLevel1;
+  @override
+  @JsonKey(name: "damage_falloff_level_2")
+  final int? damageFalloffLevel2;
+  @override
+  @JsonKey(name: "damage_falloff_level_3")
+  final int? damageFalloffLevel3;
+  @override
+  @JsonKey(name: "max_penetration_thickness")
+  final int? maxPenetrationThickness;
+
+  @override
+  String toString() {
+    return 'FluffyPiercability(damageFalloffLevel1: $damageFalloffLevel1, damageFalloffLevel2: $damageFalloffLevel2, damageFalloffLevel3: $damageFalloffLevel3, maxPenetrationThickness: $maxPenetrationThickness)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FluffyPiercabilityImpl &&
+            (identical(other.damageFalloffLevel1, damageFalloffLevel1) ||
+                other.damageFalloffLevel1 == damageFalloffLevel1) &&
+            (identical(other.damageFalloffLevel2, damageFalloffLevel2) ||
+                other.damageFalloffLevel2 == damageFalloffLevel2) &&
+            (identical(other.damageFalloffLevel3, damageFalloffLevel3) ||
+                other.damageFalloffLevel3 == damageFalloffLevel3) &&
+            (identical(
+                    other.maxPenetrationThickness, maxPenetrationThickness) ||
+                other.maxPenetrationThickness == maxPenetrationThickness));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, damageFalloffLevel1,
+      damageFalloffLevel2, damageFalloffLevel3, maxPenetrationThickness);
+
+  /// Create a copy of FluffyPiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FluffyPiercabilityImplCopyWith<_$FluffyPiercabilityImpl> get copyWith =>
+      __$$FluffyPiercabilityImplCopyWithImpl<_$FluffyPiercabilityImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FluffyPiercabilityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FluffyPiercability implements FluffyPiercability {
+  const factory _FluffyPiercability(
+      {@JsonKey(name: "damage_falloff_level_1") final int? damageFalloffLevel1,
+      @JsonKey(name: "damage_falloff_level_2") final int? damageFalloffLevel2,
+      @JsonKey(name: "damage_falloff_level_3") final int? damageFalloffLevel3,
+      @JsonKey(name: "max_penetration_thickness")
+      final int? maxPenetrationThickness}) = _$FluffyPiercabilityImpl;
+
+  factory _FluffyPiercability.fromJson(Map<String, dynamic> json) =
+      _$FluffyPiercabilityImpl.fromJson;
+
+  @override
+  @JsonKey(name: "damage_falloff_level_1")
+  int? get damageFalloffLevel1;
+  @override
+  @JsonKey(name: "damage_falloff_level_2")
+  int? get damageFalloffLevel2;
+  @override
+  @JsonKey(name: "damage_falloff_level_3")
+  int? get damageFalloffLevel3;
+  @override
+  @JsonKey(name: "max_penetration_thickness")
+  int? get maxPenetrationThickness;
+
+  /// Create a copy of FluffyPiercability
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FluffyPiercabilityImplCopyWith<_$FluffyPiercabilityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CounterMeasureMode _$CounterMeasureModeFromJson(Map<String, dynamic> json) {
+  return _CounterMeasureMode.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CounterMeasureMode {
+  @JsonKey(name: "mode")
+  String? get mode => throw _privateConstructorUsedError;
+  @JsonKey(name: "type")
+  String? get type => throw _privateConstructorUsedError;
+  @JsonKey(name: "rpm")
+  int? get rpm => throw _privateConstructorUsedError;
+  @JsonKey(name: "ammo_per_shot")
+  int? get ammoPerShot => throw _privateConstructorUsedError;
+  @JsonKey(name: "pellets_per_shot")
+  int? get pelletsPerShot => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_per_second")
+  int? get damagePerSecond => throw _privateConstructorUsedError;
+
+  /// Serializes this CounterMeasureMode to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of CounterMeasureMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CounterMeasureModeCopyWith<CounterMeasureMode> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CounterMeasureModeCopyWith<$Res> {
+  factory $CounterMeasureModeCopyWith(
+          CounterMeasureMode value, $Res Function(CounterMeasureMode) then) =
+      _$CounterMeasureModeCopyWithImpl<$Res, CounterMeasureMode>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "mode") String? mode,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "rpm") int? rpm,
+      @JsonKey(name: "ammo_per_shot") int? ammoPerShot,
+      @JsonKey(name: "pellets_per_shot") int? pelletsPerShot,
+      @JsonKey(name: "damage_per_second") int? damagePerSecond});
+}
+
+/// @nodoc
+class _$CounterMeasureModeCopyWithImpl<$Res, $Val extends CounterMeasureMode>
+    implements $CounterMeasureModeCopyWith<$Res> {
+  _$CounterMeasureModeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CounterMeasureMode
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = freezed,
+    Object? type = freezed,
+    Object? rpm = freezed,
+    Object? ammoPerShot = freezed,
+    Object? pelletsPerShot = freezed,
+    Object? damagePerSecond = freezed,
+  }) {
+    return _then(_value.copyWith(
+      mode: freezed == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rpm: freezed == rpm
+          ? _value.rpm
+          : rpm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ammoPerShot: freezed == ammoPerShot
+          ? _value.ammoPerShot
+          : ammoPerShot // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pelletsPerShot: freezed == pelletsPerShot
+          ? _value.pelletsPerShot
+          : pelletsPerShot // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damagePerSecond: freezed == damagePerSecond
+          ? _value.damagePerSecond
+          : damagePerSecond // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CounterMeasureModeImplCopyWith<$Res>
+    implements $CounterMeasureModeCopyWith<$Res> {
+  factory _$$CounterMeasureModeImplCopyWith(_$CounterMeasureModeImpl value,
+          $Res Function(_$CounterMeasureModeImpl) then) =
+      __$$CounterMeasureModeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "mode") String? mode,
+      @JsonKey(name: "type") String? type,
+      @JsonKey(name: "rpm") int? rpm,
+      @JsonKey(name: "ammo_per_shot") int? ammoPerShot,
+      @JsonKey(name: "pellets_per_shot") int? pelletsPerShot,
+      @JsonKey(name: "damage_per_second") int? damagePerSecond});
+}
+
+/// @nodoc
+class __$$CounterMeasureModeImplCopyWithImpl<$Res>
+    extends _$CounterMeasureModeCopyWithImpl<$Res, _$CounterMeasureModeImpl>
+    implements _$$CounterMeasureModeImplCopyWith<$Res> {
+  __$$CounterMeasureModeImplCopyWithImpl(_$CounterMeasureModeImpl _value,
+      $Res Function(_$CounterMeasureModeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CounterMeasureMode
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = freezed,
+    Object? type = freezed,
+    Object? rpm = freezed,
+    Object? ammoPerShot = freezed,
+    Object? pelletsPerShot = freezed,
+    Object? damagePerSecond = freezed,
+  }) {
+    return _then(_$CounterMeasureModeImpl(
+      mode: freezed == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rpm: freezed == rpm
+          ? _value.rpm
+          : rpm // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ammoPerShot: freezed == ammoPerShot
+          ? _value.ammoPerShot
+          : ammoPerShot // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pelletsPerShot: freezed == pelletsPerShot
+          ? _value.pelletsPerShot
+          : pelletsPerShot // ignore: cast_nullable_to_non_nullable
+              as int?,
+      damagePerSecond: freezed == damagePerSecond
+          ? _value.damagePerSecond
+          : damagePerSecond // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CounterMeasureModeImpl implements _CounterMeasureMode {
+  const _$CounterMeasureModeImpl(
+      {@JsonKey(name: "mode") this.mode,
+      @JsonKey(name: "type") this.type,
+      @JsonKey(name: "rpm") this.rpm,
+      @JsonKey(name: "ammo_per_shot") this.ammoPerShot,
+      @JsonKey(name: "pellets_per_shot") this.pelletsPerShot,
+      @JsonKey(name: "damage_per_second") this.damagePerSecond});
+
+  factory _$CounterMeasureModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CounterMeasureModeImplFromJson(json);
+
+  @override
+  @JsonKey(name: "mode")
+  final String? mode;
+  @override
+  @JsonKey(name: "type")
+  final String? type;
+  @override
+  @JsonKey(name: "rpm")
+  final int? rpm;
+  @override
+  @JsonKey(name: "ammo_per_shot")
+  final int? ammoPerShot;
+  @override
+  @JsonKey(name: "pellets_per_shot")
+  final int? pelletsPerShot;
+  @override
+  @JsonKey(name: "damage_per_second")
+  final int? damagePerSecond;
+
+  @override
+  String toString() {
+    return 'CounterMeasureMode(mode: $mode, type: $type, rpm: $rpm, ammoPerShot: $ammoPerShot, pelletsPerShot: $pelletsPerShot, damagePerSecond: $damagePerSecond)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CounterMeasureModeImpl &&
+            (identical(other.mode, mode) || other.mode == mode) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.rpm, rpm) || other.rpm == rpm) &&
+            (identical(other.ammoPerShot, ammoPerShot) ||
+                other.ammoPerShot == ammoPerShot) &&
+            (identical(other.pelletsPerShot, pelletsPerShot) ||
+                other.pelletsPerShot == pelletsPerShot) &&
+            (identical(other.damagePerSecond, damagePerSecond) ||
+                other.damagePerSecond == damagePerSecond));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, mode, type, rpm, ammoPerShot,
+      pelletsPerShot, damagePerSecond);
+
+  /// Create a copy of CounterMeasureMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CounterMeasureModeImplCopyWith<_$CounterMeasureModeImpl> get copyWith =>
+      __$$CounterMeasureModeImplCopyWithImpl<_$CounterMeasureModeImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CounterMeasureModeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CounterMeasureMode implements CounterMeasureMode {
+  const factory _CounterMeasureMode(
+          {@JsonKey(name: "mode") final String? mode,
+          @JsonKey(name: "type") final String? type,
+          @JsonKey(name: "rpm") final int? rpm,
+          @JsonKey(name: "ammo_per_shot") final int? ammoPerShot,
+          @JsonKey(name: "pellets_per_shot") final int? pelletsPerShot,
+          @JsonKey(name: "damage_per_second") final int? damagePerSecond}) =
+      _$CounterMeasureModeImpl;
+
+  factory _CounterMeasureMode.fromJson(Map<String, dynamic> json) =
+      _$CounterMeasureModeImpl.fromJson;
+
+  @override
+  @JsonKey(name: "mode")
+  String? get mode;
+  @override
+  @JsonKey(name: "type")
+  String? get type;
+  @override
+  @JsonKey(name: "rpm")
+  int? get rpm;
+  @override
+  @JsonKey(name: "ammo_per_shot")
+  int? get ammoPerShot;
+  @override
+  @JsonKey(name: "pellets_per_shot")
+  int? get pelletsPerShot;
+  @override
+  @JsonKey(name: "damage_per_second")
+  int? get damagePerSecond;
+
+  /// Create a copy of CounterMeasureMode
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CounterMeasureModeImplCopyWith<_$CounterMeasureModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -11576,18 +13352,22 @@ FlightController _$FlightControllerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FlightController {
   @JsonKey(name: "scm_speed")
-  int get scmSpeed => throw _privateConstructorUsedError;
+  int? get scmSpeed => throw _privateConstructorUsedError;
   @JsonKey(name: "max_speed")
-  int get maxSpeed => throw _privateConstructorUsedError;
+  int? get maxSpeed => throw _privateConstructorUsedError;
   @JsonKey(name: "pitch")
-  int get pitch => throw _privateConstructorUsedError;
+  int? get pitch => throw _privateConstructorUsedError;
   @JsonKey(name: "yaw")
-  double get yaw => throw _privateConstructorUsedError;
+  int? get yaw => throw _privateConstructorUsedError;
   @JsonKey(name: "roll")
-  int get roll => throw _privateConstructorUsedError;
+  int? get roll => throw _privateConstructorUsedError;
 
+  /// Serializes this FlightController to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FlightController
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FlightControllerCopyWith<FlightController> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -11599,11 +13379,11 @@ abstract class $FlightControllerCopyWith<$Res> {
       _$FlightControllerCopyWithImpl<$Res, FlightController>;
   @useResult
   $Res call(
-      {@JsonKey(name: "scm_speed") int scmSpeed,
-      @JsonKey(name: "max_speed") int maxSpeed,
-      @JsonKey(name: "pitch") int pitch,
-      @JsonKey(name: "yaw") double yaw,
-      @JsonKey(name: "roll") int roll});
+      {@JsonKey(name: "scm_speed") int? scmSpeed,
+      @JsonKey(name: "max_speed") int? maxSpeed,
+      @JsonKey(name: "pitch") int? pitch,
+      @JsonKey(name: "yaw") int? yaw,
+      @JsonKey(name: "roll") int? roll});
 }
 
 /// @nodoc
@@ -11616,36 +13396,38 @@ class _$FlightControllerCopyWithImpl<$Res, $Val extends FlightController>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FlightController
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? scmSpeed = null,
-    Object? maxSpeed = null,
-    Object? pitch = null,
-    Object? yaw = null,
-    Object? roll = null,
+    Object? scmSpeed = freezed,
+    Object? maxSpeed = freezed,
+    Object? pitch = freezed,
+    Object? yaw = freezed,
+    Object? roll = freezed,
   }) {
     return _then(_value.copyWith(
-      scmSpeed: null == scmSpeed
+      scmSpeed: freezed == scmSpeed
           ? _value.scmSpeed
           : scmSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxSpeed: null == maxSpeed
+              as int?,
+      maxSpeed: freezed == maxSpeed
           ? _value.maxSpeed
           : maxSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      pitch: null == pitch
+              as int?,
+      pitch: freezed == pitch
           ? _value.pitch
           : pitch // ignore: cast_nullable_to_non_nullable
-              as int,
-      yaw: null == yaw
+              as int?,
+      yaw: freezed == yaw
           ? _value.yaw
           : yaw // ignore: cast_nullable_to_non_nullable
-              as double,
-      roll: null == roll
+              as int?,
+      roll: freezed == roll
           ? _value.roll
           : roll // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -11659,11 +13441,11 @@ abstract class _$$FlightControllerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "scm_speed") int scmSpeed,
-      @JsonKey(name: "max_speed") int maxSpeed,
-      @JsonKey(name: "pitch") int pitch,
-      @JsonKey(name: "yaw") double yaw,
-      @JsonKey(name: "roll") int roll});
+      {@JsonKey(name: "scm_speed") int? scmSpeed,
+      @JsonKey(name: "max_speed") int? maxSpeed,
+      @JsonKey(name: "pitch") int? pitch,
+      @JsonKey(name: "yaw") int? yaw,
+      @JsonKey(name: "roll") int? roll});
 }
 
 /// @nodoc
@@ -11674,36 +13456,38 @@ class __$$FlightControllerImplCopyWithImpl<$Res>
       $Res Function(_$FlightControllerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FlightController
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? scmSpeed = null,
-    Object? maxSpeed = null,
-    Object? pitch = null,
-    Object? yaw = null,
-    Object? roll = null,
+    Object? scmSpeed = freezed,
+    Object? maxSpeed = freezed,
+    Object? pitch = freezed,
+    Object? yaw = freezed,
+    Object? roll = freezed,
   }) {
     return _then(_$FlightControllerImpl(
-      scmSpeed: null == scmSpeed
+      scmSpeed: freezed == scmSpeed
           ? _value.scmSpeed
           : scmSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxSpeed: null == maxSpeed
+              as int?,
+      maxSpeed: freezed == maxSpeed
           ? _value.maxSpeed
           : maxSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      pitch: null == pitch
+              as int?,
+      pitch: freezed == pitch
           ? _value.pitch
           : pitch // ignore: cast_nullable_to_non_nullable
-              as int,
-      yaw: null == yaw
+              as int?,
+      yaw: freezed == yaw
           ? _value.yaw
           : yaw // ignore: cast_nullable_to_non_nullable
-              as double,
-      roll: null == roll
+              as int?,
+      roll: freezed == roll
           ? _value.roll
           : roll // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -11712,30 +13496,30 @@ class __$$FlightControllerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FlightControllerImpl implements _FlightController {
   const _$FlightControllerImpl(
-      {@JsonKey(name: "scm_speed") required this.scmSpeed,
-      @JsonKey(name: "max_speed") required this.maxSpeed,
-      @JsonKey(name: "pitch") required this.pitch,
-      @JsonKey(name: "yaw") required this.yaw,
-      @JsonKey(name: "roll") required this.roll});
+      {@JsonKey(name: "scm_speed") this.scmSpeed,
+      @JsonKey(name: "max_speed") this.maxSpeed,
+      @JsonKey(name: "pitch") this.pitch,
+      @JsonKey(name: "yaw") this.yaw,
+      @JsonKey(name: "roll") this.roll});
 
   factory _$FlightControllerImpl.fromJson(Map<String, dynamic> json) =>
       _$$FlightControllerImplFromJson(json);
 
   @override
   @JsonKey(name: "scm_speed")
-  final int scmSpeed;
+  final int? scmSpeed;
   @override
   @JsonKey(name: "max_speed")
-  final int maxSpeed;
+  final int? maxSpeed;
   @override
   @JsonKey(name: "pitch")
-  final int pitch;
+  final int? pitch;
   @override
   @JsonKey(name: "yaw")
-  final double yaw;
+  final int? yaw;
   @override
   @JsonKey(name: "roll")
-  final int roll;
+  final int? roll;
 
   @override
   String toString() {
@@ -11756,12 +13540,14 @@ class _$FlightControllerImpl implements _FlightController {
             (identical(other.roll, roll) || other.roll == roll));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, scmSpeed, maxSpeed, pitch, yaw, roll);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FlightController
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FlightControllerImplCopyWith<_$FlightControllerImpl> get copyWith =>
@@ -11778,32 +13564,35 @@ class _$FlightControllerImpl implements _FlightController {
 
 abstract class _FlightController implements FlightController {
   const factory _FlightController(
-      {@JsonKey(name: "scm_speed") required final int scmSpeed,
-      @JsonKey(name: "max_speed") required final int maxSpeed,
-      @JsonKey(name: "pitch") required final int pitch,
-      @JsonKey(name: "yaw") required final double yaw,
-      @JsonKey(name: "roll") required final int roll}) = _$FlightControllerImpl;
+      {@JsonKey(name: "scm_speed") final int? scmSpeed,
+      @JsonKey(name: "max_speed") final int? maxSpeed,
+      @JsonKey(name: "pitch") final int? pitch,
+      @JsonKey(name: "yaw") final int? yaw,
+      @JsonKey(name: "roll") final int? roll}) = _$FlightControllerImpl;
 
   factory _FlightController.fromJson(Map<String, dynamic> json) =
       _$FlightControllerImpl.fromJson;
 
   @override
   @JsonKey(name: "scm_speed")
-  int get scmSpeed;
+  int? get scmSpeed;
   @override
   @JsonKey(name: "max_speed")
-  int get maxSpeed;
+  int? get maxSpeed;
   @override
   @JsonKey(name: "pitch")
-  int get pitch;
+  int? get pitch;
   @override
   @JsonKey(name: "yaw")
-  double get yaw;
+  int? get yaw;
   @override
   @JsonKey(name: "roll")
-  int get roll;
+  int? get roll;
+
+  /// Create a copy of FlightController
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FlightControllerImplCopyWith<_$FlightControllerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -11815,12 +13604,16 @@ FuelIntake _$FuelIntakeFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FuelIntake {
   @JsonKey(name: "fuel_push_rate")
-  int get fuelPushRate => throw _privateConstructorUsedError;
+  int? get fuelPushRate => throw _privateConstructorUsedError;
   @JsonKey(name: "minimum_rate")
-  double get minimumRate => throw _privateConstructorUsedError;
+  double? get minimumRate => throw _privateConstructorUsedError;
 
+  /// Serializes this FuelIntake to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FuelIntake
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FuelIntakeCopyWith<FuelIntake> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -11832,8 +13625,8 @@ abstract class $FuelIntakeCopyWith<$Res> {
       _$FuelIntakeCopyWithImpl<$Res, FuelIntake>;
   @useResult
   $Res call(
-      {@JsonKey(name: "fuel_push_rate") int fuelPushRate,
-      @JsonKey(name: "minimum_rate") double minimumRate});
+      {@JsonKey(name: "fuel_push_rate") int? fuelPushRate,
+      @JsonKey(name: "minimum_rate") double? minimumRate});
 }
 
 /// @nodoc
@@ -11846,21 +13639,23 @@ class _$FuelIntakeCopyWithImpl<$Res, $Val extends FuelIntake>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FuelIntake
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fuelPushRate = null,
-    Object? minimumRate = null,
+    Object? fuelPushRate = freezed,
+    Object? minimumRate = freezed,
   }) {
     return _then(_value.copyWith(
-      fuelPushRate: null == fuelPushRate
+      fuelPushRate: freezed == fuelPushRate
           ? _value.fuelPushRate
           : fuelPushRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      minimumRate: null == minimumRate
+              as int?,
+      minimumRate: freezed == minimumRate
           ? _value.minimumRate
           : minimumRate // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -11874,8 +13669,8 @@ abstract class _$$FuelIntakeImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "fuel_push_rate") int fuelPushRate,
-      @JsonKey(name: "minimum_rate") double minimumRate});
+      {@JsonKey(name: "fuel_push_rate") int? fuelPushRate,
+      @JsonKey(name: "minimum_rate") double? minimumRate});
 }
 
 /// @nodoc
@@ -11886,21 +13681,23 @@ class __$$FuelIntakeImplCopyWithImpl<$Res>
       _$FuelIntakeImpl _value, $Res Function(_$FuelIntakeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FuelIntake
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fuelPushRate = null,
-    Object? minimumRate = null,
+    Object? fuelPushRate = freezed,
+    Object? minimumRate = freezed,
   }) {
     return _then(_$FuelIntakeImpl(
-      fuelPushRate: null == fuelPushRate
+      fuelPushRate: freezed == fuelPushRate
           ? _value.fuelPushRate
           : fuelPushRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      minimumRate: null == minimumRate
+              as int?,
+      minimumRate: freezed == minimumRate
           ? _value.minimumRate
           : minimumRate // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -11909,18 +13706,18 @@ class __$$FuelIntakeImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FuelIntakeImpl implements _FuelIntake {
   const _$FuelIntakeImpl(
-      {@JsonKey(name: "fuel_push_rate") required this.fuelPushRate,
-      @JsonKey(name: "minimum_rate") required this.minimumRate});
+      {@JsonKey(name: "fuel_push_rate") this.fuelPushRate,
+      @JsonKey(name: "minimum_rate") this.minimumRate});
 
   factory _$FuelIntakeImpl.fromJson(Map<String, dynamic> json) =>
       _$$FuelIntakeImplFromJson(json);
 
   @override
   @JsonKey(name: "fuel_push_rate")
-  final int fuelPushRate;
+  final int? fuelPushRate;
   @override
   @JsonKey(name: "minimum_rate")
-  final double minimumRate;
+  final double? minimumRate;
 
   @override
   String toString() {
@@ -11938,11 +13735,13 @@ class _$FuelIntakeImpl implements _FuelIntake {
                 other.minimumRate == minimumRate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, fuelPushRate, minimumRate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FuelIntake
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FuelIntakeImplCopyWith<_$FuelIntakeImpl> get copyWith =>
@@ -11958,8 +13757,8 @@ class _$FuelIntakeImpl implements _FuelIntake {
 
 abstract class _FuelIntake implements FuelIntake {
   const factory _FuelIntake(
-          {@JsonKey(name: "fuel_push_rate") required final int fuelPushRate,
-          @JsonKey(name: "minimum_rate") required final double minimumRate}) =
+          {@JsonKey(name: "fuel_push_rate") final int? fuelPushRate,
+          @JsonKey(name: "minimum_rate") final double? minimumRate}) =
       _$FuelIntakeImpl;
 
   factory _FuelIntake.fromJson(Map<String, dynamic> json) =
@@ -11967,12 +13766,15 @@ abstract class _FuelIntake implements FuelIntake {
 
   @override
   @JsonKey(name: "fuel_push_rate")
-  int get fuelPushRate;
+  int? get fuelPushRate;
   @override
   @JsonKey(name: "minimum_rate")
-  double get minimumRate;
+  double? get minimumRate;
+
+  /// Create a copy of FuelIntake
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FuelIntakeImplCopyWith<_$FuelIntakeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -11984,14 +13786,18 @@ FuelTank _$FuelTankFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FuelTank {
   @JsonKey(name: "fill_rate")
-  int get fillRate => throw _privateConstructorUsedError;
+  int? get fillRate => throw _privateConstructorUsedError;
   @JsonKey(name: "drain_rate")
-  int get drainRate => throw _privateConstructorUsedError;
+  int? get drainRate => throw _privateConstructorUsedError;
   @JsonKey(name: "capacity")
-  int get capacity => throw _privateConstructorUsedError;
+  int? get capacity => throw _privateConstructorUsedError;
 
+  /// Serializes this FuelTank to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FuelTank
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FuelTankCopyWith<FuelTank> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12002,9 +13808,9 @@ abstract class $FuelTankCopyWith<$Res> {
       _$FuelTankCopyWithImpl<$Res, FuelTank>;
   @useResult
   $Res call(
-      {@JsonKey(name: "fill_rate") int fillRate,
-      @JsonKey(name: "drain_rate") int drainRate,
-      @JsonKey(name: "capacity") int capacity});
+      {@JsonKey(name: "fill_rate") int? fillRate,
+      @JsonKey(name: "drain_rate") int? drainRate,
+      @JsonKey(name: "capacity") int? capacity});
 }
 
 /// @nodoc
@@ -12017,26 +13823,28 @@ class _$FuelTankCopyWithImpl<$Res, $Val extends FuelTank>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FuelTank
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fillRate = null,
-    Object? drainRate = null,
-    Object? capacity = null,
+    Object? fillRate = freezed,
+    Object? drainRate = freezed,
+    Object? capacity = freezed,
   }) {
     return _then(_value.copyWith(
-      fillRate: null == fillRate
+      fillRate: freezed == fillRate
           ? _value.fillRate
           : fillRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      drainRate: null == drainRate
+              as int?,
+      drainRate: freezed == drainRate
           ? _value.drainRate
           : drainRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      capacity: null == capacity
+              as int?,
+      capacity: freezed == capacity
           ? _value.capacity
           : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -12050,9 +13858,9 @@ abstract class _$$FuelTankImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "fill_rate") int fillRate,
-      @JsonKey(name: "drain_rate") int drainRate,
-      @JsonKey(name: "capacity") int capacity});
+      {@JsonKey(name: "fill_rate") int? fillRate,
+      @JsonKey(name: "drain_rate") int? drainRate,
+      @JsonKey(name: "capacity") int? capacity});
 }
 
 /// @nodoc
@@ -12063,26 +13871,28 @@ class __$$FuelTankImplCopyWithImpl<$Res>
       _$FuelTankImpl _value, $Res Function(_$FuelTankImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FuelTank
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fillRate = null,
-    Object? drainRate = null,
-    Object? capacity = null,
+    Object? fillRate = freezed,
+    Object? drainRate = freezed,
+    Object? capacity = freezed,
   }) {
     return _then(_$FuelTankImpl(
-      fillRate: null == fillRate
+      fillRate: freezed == fillRate
           ? _value.fillRate
           : fillRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      drainRate: null == drainRate
+              as int?,
+      drainRate: freezed == drainRate
           ? _value.drainRate
           : drainRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      capacity: null == capacity
+              as int?,
+      capacity: freezed == capacity
           ? _value.capacity
           : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -12091,22 +13901,22 @@ class __$$FuelTankImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FuelTankImpl implements _FuelTank {
   const _$FuelTankImpl(
-      {@JsonKey(name: "fill_rate") required this.fillRate,
-      @JsonKey(name: "drain_rate") required this.drainRate,
-      @JsonKey(name: "capacity") required this.capacity});
+      {@JsonKey(name: "fill_rate") this.fillRate,
+      @JsonKey(name: "drain_rate") this.drainRate,
+      @JsonKey(name: "capacity") this.capacity});
 
   factory _$FuelTankImpl.fromJson(Map<String, dynamic> json) =>
       _$$FuelTankImplFromJson(json);
 
   @override
   @JsonKey(name: "fill_rate")
-  final int fillRate;
+  final int? fillRate;
   @override
   @JsonKey(name: "drain_rate")
-  final int drainRate;
+  final int? drainRate;
   @override
   @JsonKey(name: "capacity")
-  final int capacity;
+  final int? capacity;
 
   @override
   String toString() {
@@ -12126,11 +13936,13 @@ class _$FuelTankImpl implements _FuelTank {
                 other.capacity == capacity));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, fillRate, drainRate, capacity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FuelTank
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FuelTankImplCopyWith<_$FuelTankImpl> get copyWith =>
@@ -12146,25 +13958,324 @@ class _$FuelTankImpl implements _FuelTank {
 
 abstract class _FuelTank implements FuelTank {
   const factory _FuelTank(
-      {@JsonKey(name: "fill_rate") required final int fillRate,
-      @JsonKey(name: "drain_rate") required final int drainRate,
-      @JsonKey(name: "capacity") required final int capacity}) = _$FuelTankImpl;
+      {@JsonKey(name: "fill_rate") final int? fillRate,
+      @JsonKey(name: "drain_rate") final int? drainRate,
+      @JsonKey(name: "capacity") final int? capacity}) = _$FuelTankImpl;
 
   factory _FuelTank.fromJson(Map<String, dynamic> json) =
       _$FuelTankImpl.fromJson;
 
   @override
   @JsonKey(name: "fill_rate")
-  int get fillRate;
+  int? get fillRate;
   @override
   @JsonKey(name: "drain_rate")
-  int get drainRate;
+  int? get drainRate;
   @override
   @JsonKey(name: "capacity")
-  int get capacity;
+  int? get capacity;
+
+  /// Create a copy of FuelTank
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FuelTankImplCopyWith<_$FuelTankImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Inventory _$InventoryFromJson(Map<String, dynamic> json) {
+  return _Inventory.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Inventory {
+  @JsonKey(name: "width")
+  int? get width => throw _privateConstructorUsedError;
+  @JsonKey(name: "height")
+  double? get height => throw _privateConstructorUsedError;
+  @JsonKey(name: "length")
+  double? get length => throw _privateConstructorUsedError;
+  @JsonKey(name: "dimension")
+  double? get dimension => throw _privateConstructorUsedError;
+  @JsonKey(name: "scu")
+  double? get scu => throw _privateConstructorUsedError;
+  @JsonKey(name: "scu_converted")
+  double? get scuConverted => throw _privateConstructorUsedError;
+  @JsonKey(name: "unit")
+  String? get unit => throw _privateConstructorUsedError;
+
+  /// Serializes this Inventory to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Inventory
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $InventoryCopyWith<Inventory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InventoryCopyWith<$Res> {
+  factory $InventoryCopyWith(Inventory value, $Res Function(Inventory) then) =
+      _$InventoryCopyWithImpl<$Res, Inventory>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "width") int? width,
+      @JsonKey(name: "height") double? height,
+      @JsonKey(name: "length") double? length,
+      @JsonKey(name: "dimension") double? dimension,
+      @JsonKey(name: "scu") double? scu,
+      @JsonKey(name: "scu_converted") double? scuConverted,
+      @JsonKey(name: "unit") String? unit});
+}
+
+/// @nodoc
+class _$InventoryCopyWithImpl<$Res, $Val extends Inventory>
+    implements $InventoryCopyWith<$Res> {
+  _$InventoryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Inventory
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? length = freezed,
+    Object? dimension = freezed,
+    Object? scu = freezed,
+    Object? scuConverted = freezed,
+    Object? unit = freezed,
+  }) {
+    return _then(_value.copyWith(
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
+      length: freezed == length
+          ? _value.length
+          : length // ignore: cast_nullable_to_non_nullable
+              as double?,
+      dimension: freezed == dimension
+          ? _value.dimension
+          : dimension // ignore: cast_nullable_to_non_nullable
+              as double?,
+      scu: freezed == scu
+          ? _value.scu
+          : scu // ignore: cast_nullable_to_non_nullable
+              as double?,
+      scuConverted: freezed == scuConverted
+          ? _value.scuConverted
+          : scuConverted // ignore: cast_nullable_to_non_nullable
+              as double?,
+      unit: freezed == unit
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InventoryImplCopyWith<$Res>
+    implements $InventoryCopyWith<$Res> {
+  factory _$$InventoryImplCopyWith(
+          _$InventoryImpl value, $Res Function(_$InventoryImpl) then) =
+      __$$InventoryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "width") int? width,
+      @JsonKey(name: "height") double? height,
+      @JsonKey(name: "length") double? length,
+      @JsonKey(name: "dimension") double? dimension,
+      @JsonKey(name: "scu") double? scu,
+      @JsonKey(name: "scu_converted") double? scuConverted,
+      @JsonKey(name: "unit") String? unit});
+}
+
+/// @nodoc
+class __$$InventoryImplCopyWithImpl<$Res>
+    extends _$InventoryCopyWithImpl<$Res, _$InventoryImpl>
+    implements _$$InventoryImplCopyWith<$Res> {
+  __$$InventoryImplCopyWithImpl(
+      _$InventoryImpl _value, $Res Function(_$InventoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Inventory
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? length = freezed,
+    Object? dimension = freezed,
+    Object? scu = freezed,
+    Object? scuConverted = freezed,
+    Object? unit = freezed,
+  }) {
+    return _then(_$InventoryImpl(
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
+      length: freezed == length
+          ? _value.length
+          : length // ignore: cast_nullable_to_non_nullable
+              as double?,
+      dimension: freezed == dimension
+          ? _value.dimension
+          : dimension // ignore: cast_nullable_to_non_nullable
+              as double?,
+      scu: freezed == scu
+          ? _value.scu
+          : scu // ignore: cast_nullable_to_non_nullable
+              as double?,
+      scuConverted: freezed == scuConverted
+          ? _value.scuConverted
+          : scuConverted // ignore: cast_nullable_to_non_nullable
+              as double?,
+      unit: freezed == unit
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$InventoryImpl implements _Inventory {
+  const _$InventoryImpl(
+      {@JsonKey(name: "width") this.width,
+      @JsonKey(name: "height") this.height,
+      @JsonKey(name: "length") this.length,
+      @JsonKey(name: "dimension") this.dimension,
+      @JsonKey(name: "scu") this.scu,
+      @JsonKey(name: "scu_converted") this.scuConverted,
+      @JsonKey(name: "unit") this.unit});
+
+  factory _$InventoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InventoryImplFromJson(json);
+
+  @override
+  @JsonKey(name: "width")
+  final int? width;
+  @override
+  @JsonKey(name: "height")
+  final double? height;
+  @override
+  @JsonKey(name: "length")
+  final double? length;
+  @override
+  @JsonKey(name: "dimension")
+  final double? dimension;
+  @override
+  @JsonKey(name: "scu")
+  final double? scu;
+  @override
+  @JsonKey(name: "scu_converted")
+  final double? scuConverted;
+  @override
+  @JsonKey(name: "unit")
+  final String? unit;
+
+  @override
+  String toString() {
+    return 'Inventory(width: $width, height: $height, length: $length, dimension: $dimension, scu: $scu, scuConverted: $scuConverted, unit: $unit)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InventoryImpl &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.length, length) || other.length == length) &&
+            (identical(other.dimension, dimension) ||
+                other.dimension == dimension) &&
+            (identical(other.scu, scu) || other.scu == scu) &&
+            (identical(other.scuConverted, scuConverted) ||
+                other.scuConverted == scuConverted) &&
+            (identical(other.unit, unit) || other.unit == unit));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, width, height, length, dimension, scu, scuConverted, unit);
+
+  /// Create a copy of Inventory
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InventoryImplCopyWith<_$InventoryImpl> get copyWith =>
+      __$$InventoryImplCopyWithImpl<_$InventoryImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InventoryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Inventory implements Inventory {
+  const factory _Inventory(
+      {@JsonKey(name: "width") final int? width,
+      @JsonKey(name: "height") final double? height,
+      @JsonKey(name: "length") final double? length,
+      @JsonKey(name: "dimension") final double? dimension,
+      @JsonKey(name: "scu") final double? scu,
+      @JsonKey(name: "scu_converted") final double? scuConverted,
+      @JsonKey(name: "unit") final String? unit}) = _$InventoryImpl;
+
+  factory _Inventory.fromJson(Map<String, dynamic> json) =
+      _$InventoryImpl.fromJson;
+
+  @override
+  @JsonKey(name: "width")
+  int? get width;
+  @override
+  @JsonKey(name: "height")
+  double? get height;
+  @override
+  @JsonKey(name: "length")
+  double? get length;
+  @override
+  @JsonKey(name: "dimension")
+  double? get dimension;
+  @override
+  @JsonKey(name: "scu")
+  double? get scu;
+  @override
+  @JsonKey(name: "scu_converted")
+  double? get scuConverted;
+  @override
+  @JsonKey(name: "unit")
+  String? get unit;
+
+  /// Create a copy of Inventory
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InventoryImplCopyWith<_$InventoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -12175,10 +14286,14 @@ PowerPlant _$PowerPlantFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PowerPlant {
   @JsonKey(name: "power_output")
-  double get powerOutput => throw _privateConstructorUsedError;
+  double? get powerOutput => throw _privateConstructorUsedError;
 
+  /// Serializes this PowerPlant to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PowerPlant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PowerPlantCopyWith<PowerPlant> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12189,7 +14304,7 @@ abstract class $PowerPlantCopyWith<$Res> {
           PowerPlant value, $Res Function(PowerPlant) then) =
       _$PowerPlantCopyWithImpl<$Res, PowerPlant>;
   @useResult
-  $Res call({@JsonKey(name: "power_output") double powerOutput});
+  $Res call({@JsonKey(name: "power_output") double? powerOutput});
 }
 
 /// @nodoc
@@ -12202,16 +14317,18 @@ class _$PowerPlantCopyWithImpl<$Res, $Val extends PowerPlant>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PowerPlant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? powerOutput = null,
+    Object? powerOutput = freezed,
   }) {
     return _then(_value.copyWith(
-      powerOutput: null == powerOutput
+      powerOutput: freezed == powerOutput
           ? _value.powerOutput
           : powerOutput // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -12224,7 +14341,7 @@ abstract class _$$PowerPlantImplCopyWith<$Res>
       __$$PowerPlantImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "power_output") double powerOutput});
+  $Res call({@JsonKey(name: "power_output") double? powerOutput});
 }
 
 /// @nodoc
@@ -12235,16 +14352,18 @@ class __$$PowerPlantImplCopyWithImpl<$Res>
       _$PowerPlantImpl _value, $Res Function(_$PowerPlantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PowerPlant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? powerOutput = null,
+    Object? powerOutput = freezed,
   }) {
     return _then(_$PowerPlantImpl(
-      powerOutput: null == powerOutput
+      powerOutput: freezed == powerOutput
           ? _value.powerOutput
           : powerOutput // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -12252,15 +14371,14 @@ class __$$PowerPlantImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PowerPlantImpl implements _PowerPlant {
-  const _$PowerPlantImpl(
-      {@JsonKey(name: "power_output") required this.powerOutput});
+  const _$PowerPlantImpl({@JsonKey(name: "power_output") this.powerOutput});
 
   factory _$PowerPlantImpl.fromJson(Map<String, dynamic> json) =>
       _$$PowerPlantImplFromJson(json);
 
   @override
   @JsonKey(name: "power_output")
-  final double powerOutput;
+  final double? powerOutput;
 
   @override
   String toString() {
@@ -12276,11 +14394,13 @@ class _$PowerPlantImpl implements _PowerPlant {
                 other.powerOutput == powerOutput));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, powerOutput);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PowerPlant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PowerPlantImplCopyWith<_$PowerPlantImpl> get copyWith =>
@@ -12296,7 +14416,7 @@ class _$PowerPlantImpl implements _PowerPlant {
 
 abstract class _PowerPlant implements PowerPlant {
   const factory _PowerPlant(
-          {@JsonKey(name: "power_output") required final double powerOutput}) =
+          {@JsonKey(name: "power_output") final double? powerOutput}) =
       _$PowerPlantImpl;
 
   factory _PowerPlant.fromJson(Map<String, dynamic> json) =
@@ -12304,9 +14424,12 @@ abstract class _PowerPlant implements PowerPlant {
 
   @override
   @JsonKey(name: "power_output")
-  double get powerOutput;
+  double? get powerOutput;
+
+  /// Create a copy of PowerPlant
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PowerPlantImplCopyWith<_$PowerPlantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12318,18 +14441,23 @@ QuantumDrive _$QuantumDriveFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QuantumDrive {
   @JsonKey(name: "quantum_fuel_requirement")
-  double get quantumFuelRequirement => throw _privateConstructorUsedError;
+  double? get quantumFuelRequirement => throw _privateConstructorUsedError;
   @JsonKey(name: "jump_range")
-  String get jumpRange => throw _privateConstructorUsedError;
+  String? get jumpRange => throw _privateConstructorUsedError;
   @JsonKey(name: "disconnect_range")
-  int get disconnectRange => throw _privateConstructorUsedError;
+  int? get disconnectRange => throw _privateConstructorUsedError;
   @JsonKey(name: "thermal_energy_draw")
-  ThermalEnergyDraw get thermalEnergyDraw => throw _privateConstructorUsedError;
+  ThermalEnergyDraw? get thermalEnergyDraw =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: "modes")
-  List<QuantumDriveMode> get modes => throw _privateConstructorUsedError;
+  List<QuantumDriveMode>? get modes => throw _privateConstructorUsedError;
 
+  /// Serializes this QuantumDrive to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of QuantumDrive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuantumDriveCopyWith<QuantumDrive> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12341,13 +14469,15 @@ abstract class $QuantumDriveCopyWith<$Res> {
       _$QuantumDriveCopyWithImpl<$Res, QuantumDrive>;
   @useResult
   $Res call(
-      {@JsonKey(name: "quantum_fuel_requirement") double quantumFuelRequirement,
-      @JsonKey(name: "jump_range") String jumpRange,
-      @JsonKey(name: "disconnect_range") int disconnectRange,
-      @JsonKey(name: "thermal_energy_draw") ThermalEnergyDraw thermalEnergyDraw,
-      @JsonKey(name: "modes") List<QuantumDriveMode> modes});
+      {@JsonKey(name: "quantum_fuel_requirement")
+      double? quantumFuelRequirement,
+      @JsonKey(name: "jump_range") String? jumpRange,
+      @JsonKey(name: "disconnect_range") int? disconnectRange,
+      @JsonKey(name: "thermal_energy_draw")
+      ThermalEnergyDraw? thermalEnergyDraw,
+      @JsonKey(name: "modes") List<QuantumDriveMode>? modes});
 
-  $ThermalEnergyDrawCopyWith<$Res> get thermalEnergyDraw;
+  $ThermalEnergyDrawCopyWith<$Res>? get thermalEnergyDraw;
 }
 
 /// @nodoc
@@ -12360,43 +14490,51 @@ class _$QuantumDriveCopyWithImpl<$Res, $Val extends QuantumDrive>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuantumDrive
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? quantumFuelRequirement = null,
-    Object? jumpRange = null,
-    Object? disconnectRange = null,
-    Object? thermalEnergyDraw = null,
-    Object? modes = null,
+    Object? quantumFuelRequirement = freezed,
+    Object? jumpRange = freezed,
+    Object? disconnectRange = freezed,
+    Object? thermalEnergyDraw = freezed,
+    Object? modes = freezed,
   }) {
     return _then(_value.copyWith(
-      quantumFuelRequirement: null == quantumFuelRequirement
+      quantumFuelRequirement: freezed == quantumFuelRequirement
           ? _value.quantumFuelRequirement
           : quantumFuelRequirement // ignore: cast_nullable_to_non_nullable
-              as double,
-      jumpRange: null == jumpRange
+              as double?,
+      jumpRange: freezed == jumpRange
           ? _value.jumpRange
           : jumpRange // ignore: cast_nullable_to_non_nullable
-              as String,
-      disconnectRange: null == disconnectRange
+              as String?,
+      disconnectRange: freezed == disconnectRange
           ? _value.disconnectRange
           : disconnectRange // ignore: cast_nullable_to_non_nullable
-              as int,
-      thermalEnergyDraw: null == thermalEnergyDraw
+              as int?,
+      thermalEnergyDraw: freezed == thermalEnergyDraw
           ? _value.thermalEnergyDraw
           : thermalEnergyDraw // ignore: cast_nullable_to_non_nullable
-              as ThermalEnergyDraw,
-      modes: null == modes
+              as ThermalEnergyDraw?,
+      modes: freezed == modes
           ? _value.modes
           : modes // ignore: cast_nullable_to_non_nullable
-              as List<QuantumDriveMode>,
+              as List<QuantumDriveMode>?,
     ) as $Val);
   }
 
+  /// Create a copy of QuantumDrive
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThermalEnergyDrawCopyWith<$Res> get thermalEnergyDraw {
-    return $ThermalEnergyDrawCopyWith<$Res>(_value.thermalEnergyDraw, (value) {
+  $ThermalEnergyDrawCopyWith<$Res>? get thermalEnergyDraw {
+    if (_value.thermalEnergyDraw == null) {
+      return null;
+    }
+
+    return $ThermalEnergyDrawCopyWith<$Res>(_value.thermalEnergyDraw!, (value) {
       return _then(_value.copyWith(thermalEnergyDraw: value) as $Val);
     });
   }
@@ -12411,14 +14549,16 @@ abstract class _$$QuantumDriveImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "quantum_fuel_requirement") double quantumFuelRequirement,
-      @JsonKey(name: "jump_range") String jumpRange,
-      @JsonKey(name: "disconnect_range") int disconnectRange,
-      @JsonKey(name: "thermal_energy_draw") ThermalEnergyDraw thermalEnergyDraw,
-      @JsonKey(name: "modes") List<QuantumDriveMode> modes});
+      {@JsonKey(name: "quantum_fuel_requirement")
+      double? quantumFuelRequirement,
+      @JsonKey(name: "jump_range") String? jumpRange,
+      @JsonKey(name: "disconnect_range") int? disconnectRange,
+      @JsonKey(name: "thermal_energy_draw")
+      ThermalEnergyDraw? thermalEnergyDraw,
+      @JsonKey(name: "modes") List<QuantumDriveMode>? modes});
 
   @override
-  $ThermalEnergyDrawCopyWith<$Res> get thermalEnergyDraw;
+  $ThermalEnergyDrawCopyWith<$Res>? get thermalEnergyDraw;
 }
 
 /// @nodoc
@@ -12429,36 +14569,38 @@ class __$$QuantumDriveImplCopyWithImpl<$Res>
       _$QuantumDriveImpl _value, $Res Function(_$QuantumDriveImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuantumDrive
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? quantumFuelRequirement = null,
-    Object? jumpRange = null,
-    Object? disconnectRange = null,
-    Object? thermalEnergyDraw = null,
-    Object? modes = null,
+    Object? quantumFuelRequirement = freezed,
+    Object? jumpRange = freezed,
+    Object? disconnectRange = freezed,
+    Object? thermalEnergyDraw = freezed,
+    Object? modes = freezed,
   }) {
     return _then(_$QuantumDriveImpl(
-      quantumFuelRequirement: null == quantumFuelRequirement
+      quantumFuelRequirement: freezed == quantumFuelRequirement
           ? _value.quantumFuelRequirement
           : quantumFuelRequirement // ignore: cast_nullable_to_non_nullable
-              as double,
-      jumpRange: null == jumpRange
+              as double?,
+      jumpRange: freezed == jumpRange
           ? _value.jumpRange
           : jumpRange // ignore: cast_nullable_to_non_nullable
-              as String,
-      disconnectRange: null == disconnectRange
+              as String?,
+      disconnectRange: freezed == disconnectRange
           ? _value.disconnectRange
           : disconnectRange // ignore: cast_nullable_to_non_nullable
-              as int,
-      thermalEnergyDraw: null == thermalEnergyDraw
+              as int?,
+      thermalEnergyDraw: freezed == thermalEnergyDraw
           ? _value.thermalEnergyDraw
           : thermalEnergyDraw // ignore: cast_nullable_to_non_nullable
-              as ThermalEnergyDraw,
-      modes: null == modes
+              as ThermalEnergyDraw?,
+      modes: freezed == modes
           ? _value._modes
           : modes // ignore: cast_nullable_to_non_nullable
-              as List<QuantumDriveMode>,
+              as List<QuantumDriveMode>?,
     ));
   }
 }
@@ -12467,12 +14609,11 @@ class __$$QuantumDriveImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuantumDriveImpl implements _QuantumDrive {
   const _$QuantumDriveImpl(
-      {@JsonKey(name: "quantum_fuel_requirement")
-      required this.quantumFuelRequirement,
-      @JsonKey(name: "jump_range") required this.jumpRange,
-      @JsonKey(name: "disconnect_range") required this.disconnectRange,
-      @JsonKey(name: "thermal_energy_draw") required this.thermalEnergyDraw,
-      @JsonKey(name: "modes") required final List<QuantumDriveMode> modes})
+      {@JsonKey(name: "quantum_fuel_requirement") this.quantumFuelRequirement,
+      @JsonKey(name: "jump_range") this.jumpRange,
+      @JsonKey(name: "disconnect_range") this.disconnectRange,
+      @JsonKey(name: "thermal_energy_draw") this.thermalEnergyDraw,
+      @JsonKey(name: "modes") final List<QuantumDriveMode>? modes})
       : _modes = modes;
 
   factory _$QuantumDriveImpl.fromJson(Map<String, dynamic> json) =>
@@ -12480,23 +14621,25 @@ class _$QuantumDriveImpl implements _QuantumDrive {
 
   @override
   @JsonKey(name: "quantum_fuel_requirement")
-  final double quantumFuelRequirement;
+  final double? quantumFuelRequirement;
   @override
   @JsonKey(name: "jump_range")
-  final String jumpRange;
+  final String? jumpRange;
   @override
   @JsonKey(name: "disconnect_range")
-  final int disconnectRange;
+  final int? disconnectRange;
   @override
   @JsonKey(name: "thermal_energy_draw")
-  final ThermalEnergyDraw thermalEnergyDraw;
-  final List<QuantumDriveMode> _modes;
+  final ThermalEnergyDraw? thermalEnergyDraw;
+  final List<QuantumDriveMode>? _modes;
   @override
   @JsonKey(name: "modes")
-  List<QuantumDriveMode> get modes {
+  List<QuantumDriveMode>? get modes {
+    final value = _modes;
+    if (value == null) return null;
     if (_modes is EqualUnmodifiableListView) return _modes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_modes);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -12520,7 +14663,7 @@ class _$QuantumDriveImpl implements _QuantumDrive {
             const DeepCollectionEquality().equals(other._modes, _modes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -12530,7 +14673,9 @@ class _$QuantumDriveImpl implements _QuantumDrive {
       thermalEnergyDraw,
       const DeepCollectionEquality().hash(_modes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuantumDrive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuantumDriveImplCopyWith<_$QuantumDriveImpl> get copyWith =>
@@ -12546,35 +14691,38 @@ class _$QuantumDriveImpl implements _QuantumDrive {
 
 abstract class _QuantumDrive implements QuantumDrive {
   const factory _QuantumDrive(
-      {@JsonKey(name: "quantum_fuel_requirement")
-      required final double quantumFuelRequirement,
-      @JsonKey(name: "jump_range") required final String jumpRange,
-      @JsonKey(name: "disconnect_range") required final int disconnectRange,
-      @JsonKey(name: "thermal_energy_draw")
-      required final ThermalEnergyDraw thermalEnergyDraw,
-      @JsonKey(name: "modes")
-      required final List<QuantumDriveMode> modes}) = _$QuantumDriveImpl;
+          {@JsonKey(name: "quantum_fuel_requirement")
+          final double? quantumFuelRequirement,
+          @JsonKey(name: "jump_range") final String? jumpRange,
+          @JsonKey(name: "disconnect_range") final int? disconnectRange,
+          @JsonKey(name: "thermal_energy_draw")
+          final ThermalEnergyDraw? thermalEnergyDraw,
+          @JsonKey(name: "modes") final List<QuantumDriveMode>? modes}) =
+      _$QuantumDriveImpl;
 
   factory _QuantumDrive.fromJson(Map<String, dynamic> json) =
       _$QuantumDriveImpl.fromJson;
 
   @override
   @JsonKey(name: "quantum_fuel_requirement")
-  double get quantumFuelRequirement;
+  double? get quantumFuelRequirement;
   @override
   @JsonKey(name: "jump_range")
-  String get jumpRange;
+  String? get jumpRange;
   @override
   @JsonKey(name: "disconnect_range")
-  int get disconnectRange;
+  int? get disconnectRange;
   @override
   @JsonKey(name: "thermal_energy_draw")
-  ThermalEnergyDraw get thermalEnergyDraw;
+  ThermalEnergyDraw? get thermalEnergyDraw;
   @override
   @JsonKey(name: "modes")
-  List<QuantumDriveMode> get modes;
+  List<QuantumDriveMode>? get modes;
+
+  /// Create a copy of QuantumDrive
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuantumDriveImplCopyWith<_$QuantumDriveImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12586,34 +14734,38 @@ QuantumDriveMode _$QuantumDriveModeFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QuantumDriveMode {
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "drive_speed")
-  int get driveSpeed => throw _privateConstructorUsedError;
+  int? get driveSpeed => throw _privateConstructorUsedError;
   @JsonKey(name: "cooldown_time")
-  double get cooldownTime => throw _privateConstructorUsedError;
+  double? get cooldownTime => throw _privateConstructorUsedError;
   @JsonKey(name: "stage_one_accel_rate")
-  int get stageOneAccelRate => throw _privateConstructorUsedError;
+  int? get stageOneAccelRate => throw _privateConstructorUsedError;
   @JsonKey(name: "stage_two_accel_rate")
-  int get stageTwoAccelRate => throw _privateConstructorUsedError;
+  int? get stageTwoAccelRate => throw _privateConstructorUsedError;
   @JsonKey(name: "engage_speed")
-  int get engageSpeed => throw _privateConstructorUsedError;
+  int? get engageSpeed => throw _privateConstructorUsedError;
   @JsonKey(name: "interdiction_effect_time")
-  int get interdictionEffectTime => throw _privateConstructorUsedError;
+  int? get interdictionEffectTime => throw _privateConstructorUsedError;
   @JsonKey(name: "calibration_rate")
-  int get calibrationRate => throw _privateConstructorUsedError;
+  int? get calibrationRate => throw _privateConstructorUsedError;
   @JsonKey(name: "min_calibration_requirement")
-  int get minCalibrationRequirement => throw _privateConstructorUsedError;
+  int? get minCalibrationRequirement => throw _privateConstructorUsedError;
   @JsonKey(name: "max_calibration_requirement")
-  int get maxCalibrationRequirement => throw _privateConstructorUsedError;
+  int? get maxCalibrationRequirement => throw _privateConstructorUsedError;
   @JsonKey(name: "calibration_process_angle_limit")
-  int get calibrationProcessAngleLimit => throw _privateConstructorUsedError;
+  int? get calibrationProcessAngleLimit => throw _privateConstructorUsedError;
   @JsonKey(name: "calibration_warning_angle_limit")
-  int get calibrationWarningAngleLimit => throw _privateConstructorUsedError;
+  int? get calibrationWarningAngleLimit => throw _privateConstructorUsedError;
   @JsonKey(name: "spool_up_time")
-  int get spoolUpTime => throw _privateConstructorUsedError;
+  int? get spoolUpTime => throw _privateConstructorUsedError;
 
+  /// Serializes this QuantumDriveMode to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of QuantumDriveMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuantumDriveModeCopyWith<QuantumDriveMode> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12625,23 +14777,23 @@ abstract class $QuantumDriveModeCopyWith<$Res> {
       _$QuantumDriveModeCopyWithImpl<$Res, QuantumDriveMode>;
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String type,
-      @JsonKey(name: "drive_speed") int driveSpeed,
-      @JsonKey(name: "cooldown_time") double cooldownTime,
-      @JsonKey(name: "stage_one_accel_rate") int stageOneAccelRate,
-      @JsonKey(name: "stage_two_accel_rate") int stageTwoAccelRate,
-      @JsonKey(name: "engage_speed") int engageSpeed,
-      @JsonKey(name: "interdiction_effect_time") int interdictionEffectTime,
-      @JsonKey(name: "calibration_rate") int calibrationRate,
+      {@JsonKey(name: "type") String? type,
+      @JsonKey(name: "drive_speed") int? driveSpeed,
+      @JsonKey(name: "cooldown_time") double? cooldownTime,
+      @JsonKey(name: "stage_one_accel_rate") int? stageOneAccelRate,
+      @JsonKey(name: "stage_two_accel_rate") int? stageTwoAccelRate,
+      @JsonKey(name: "engage_speed") int? engageSpeed,
+      @JsonKey(name: "interdiction_effect_time") int? interdictionEffectTime,
+      @JsonKey(name: "calibration_rate") int? calibrationRate,
       @JsonKey(name: "min_calibration_requirement")
-      int minCalibrationRequirement,
+      int? minCalibrationRequirement,
       @JsonKey(name: "max_calibration_requirement")
-      int maxCalibrationRequirement,
+      int? maxCalibrationRequirement,
       @JsonKey(name: "calibration_process_angle_limit")
-      int calibrationProcessAngleLimit,
+      int? calibrationProcessAngleLimit,
       @JsonKey(name: "calibration_warning_angle_limit")
-      int calibrationWarningAngleLimit,
-      @JsonKey(name: "spool_up_time") int spoolUpTime});
+      int? calibrationWarningAngleLimit,
+      @JsonKey(name: "spool_up_time") int? spoolUpTime});
 }
 
 /// @nodoc
@@ -12654,76 +14806,78 @@ class _$QuantumDriveModeCopyWithImpl<$Res, $Val extends QuantumDriveMode>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuantumDriveMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? driveSpeed = null,
-    Object? cooldownTime = null,
-    Object? stageOneAccelRate = null,
-    Object? stageTwoAccelRate = null,
-    Object? engageSpeed = null,
-    Object? interdictionEffectTime = null,
-    Object? calibrationRate = null,
-    Object? minCalibrationRequirement = null,
-    Object? maxCalibrationRequirement = null,
-    Object? calibrationProcessAngleLimit = null,
-    Object? calibrationWarningAngleLimit = null,
-    Object? spoolUpTime = null,
+    Object? type = freezed,
+    Object? driveSpeed = freezed,
+    Object? cooldownTime = freezed,
+    Object? stageOneAccelRate = freezed,
+    Object? stageTwoAccelRate = freezed,
+    Object? engageSpeed = freezed,
+    Object? interdictionEffectTime = freezed,
+    Object? calibrationRate = freezed,
+    Object? minCalibrationRequirement = freezed,
+    Object? maxCalibrationRequirement = freezed,
+    Object? calibrationProcessAngleLimit = freezed,
+    Object? calibrationWarningAngleLimit = freezed,
+    Object? spoolUpTime = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      driveSpeed: null == driveSpeed
+              as String?,
+      driveSpeed: freezed == driveSpeed
           ? _value.driveSpeed
           : driveSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      cooldownTime: null == cooldownTime
+              as int?,
+      cooldownTime: freezed == cooldownTime
           ? _value.cooldownTime
           : cooldownTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      stageOneAccelRate: null == stageOneAccelRate
+              as double?,
+      stageOneAccelRate: freezed == stageOneAccelRate
           ? _value.stageOneAccelRate
           : stageOneAccelRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      stageTwoAccelRate: null == stageTwoAccelRate
+              as int?,
+      stageTwoAccelRate: freezed == stageTwoAccelRate
           ? _value.stageTwoAccelRate
           : stageTwoAccelRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      engageSpeed: null == engageSpeed
+              as int?,
+      engageSpeed: freezed == engageSpeed
           ? _value.engageSpeed
           : engageSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      interdictionEffectTime: null == interdictionEffectTime
+              as int?,
+      interdictionEffectTime: freezed == interdictionEffectTime
           ? _value.interdictionEffectTime
           : interdictionEffectTime // ignore: cast_nullable_to_non_nullable
-              as int,
-      calibrationRate: null == calibrationRate
+              as int?,
+      calibrationRate: freezed == calibrationRate
           ? _value.calibrationRate
           : calibrationRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      minCalibrationRequirement: null == minCalibrationRequirement
+              as int?,
+      minCalibrationRequirement: freezed == minCalibrationRequirement
           ? _value.minCalibrationRequirement
           : minCalibrationRequirement // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxCalibrationRequirement: null == maxCalibrationRequirement
+              as int?,
+      maxCalibrationRequirement: freezed == maxCalibrationRequirement
           ? _value.maxCalibrationRequirement
           : maxCalibrationRequirement // ignore: cast_nullable_to_non_nullable
-              as int,
-      calibrationProcessAngleLimit: null == calibrationProcessAngleLimit
+              as int?,
+      calibrationProcessAngleLimit: freezed == calibrationProcessAngleLimit
           ? _value.calibrationProcessAngleLimit
           : calibrationProcessAngleLimit // ignore: cast_nullable_to_non_nullable
-              as int,
-      calibrationWarningAngleLimit: null == calibrationWarningAngleLimit
+              as int?,
+      calibrationWarningAngleLimit: freezed == calibrationWarningAngleLimit
           ? _value.calibrationWarningAngleLimit
           : calibrationWarningAngleLimit // ignore: cast_nullable_to_non_nullable
-              as int,
-      spoolUpTime: null == spoolUpTime
+              as int?,
+      spoolUpTime: freezed == spoolUpTime
           ? _value.spoolUpTime
           : spoolUpTime // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -12737,23 +14891,23 @@ abstract class _$$QuantumDriveModeImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String type,
-      @JsonKey(name: "drive_speed") int driveSpeed,
-      @JsonKey(name: "cooldown_time") double cooldownTime,
-      @JsonKey(name: "stage_one_accel_rate") int stageOneAccelRate,
-      @JsonKey(name: "stage_two_accel_rate") int stageTwoAccelRate,
-      @JsonKey(name: "engage_speed") int engageSpeed,
-      @JsonKey(name: "interdiction_effect_time") int interdictionEffectTime,
-      @JsonKey(name: "calibration_rate") int calibrationRate,
+      {@JsonKey(name: "type") String? type,
+      @JsonKey(name: "drive_speed") int? driveSpeed,
+      @JsonKey(name: "cooldown_time") double? cooldownTime,
+      @JsonKey(name: "stage_one_accel_rate") int? stageOneAccelRate,
+      @JsonKey(name: "stage_two_accel_rate") int? stageTwoAccelRate,
+      @JsonKey(name: "engage_speed") int? engageSpeed,
+      @JsonKey(name: "interdiction_effect_time") int? interdictionEffectTime,
+      @JsonKey(name: "calibration_rate") int? calibrationRate,
       @JsonKey(name: "min_calibration_requirement")
-      int minCalibrationRequirement,
+      int? minCalibrationRequirement,
       @JsonKey(name: "max_calibration_requirement")
-      int maxCalibrationRequirement,
+      int? maxCalibrationRequirement,
       @JsonKey(name: "calibration_process_angle_limit")
-      int calibrationProcessAngleLimit,
+      int? calibrationProcessAngleLimit,
       @JsonKey(name: "calibration_warning_angle_limit")
-      int calibrationWarningAngleLimit,
-      @JsonKey(name: "spool_up_time") int spoolUpTime});
+      int? calibrationWarningAngleLimit,
+      @JsonKey(name: "spool_up_time") int? spoolUpTime});
 }
 
 /// @nodoc
@@ -12764,76 +14918,78 @@ class __$$QuantumDriveModeImplCopyWithImpl<$Res>
       $Res Function(_$QuantumDriveModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuantumDriveMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? driveSpeed = null,
-    Object? cooldownTime = null,
-    Object? stageOneAccelRate = null,
-    Object? stageTwoAccelRate = null,
-    Object? engageSpeed = null,
-    Object? interdictionEffectTime = null,
-    Object? calibrationRate = null,
-    Object? minCalibrationRequirement = null,
-    Object? maxCalibrationRequirement = null,
-    Object? calibrationProcessAngleLimit = null,
-    Object? calibrationWarningAngleLimit = null,
-    Object? spoolUpTime = null,
+    Object? type = freezed,
+    Object? driveSpeed = freezed,
+    Object? cooldownTime = freezed,
+    Object? stageOneAccelRate = freezed,
+    Object? stageTwoAccelRate = freezed,
+    Object? engageSpeed = freezed,
+    Object? interdictionEffectTime = freezed,
+    Object? calibrationRate = freezed,
+    Object? minCalibrationRequirement = freezed,
+    Object? maxCalibrationRequirement = freezed,
+    Object? calibrationProcessAngleLimit = freezed,
+    Object? calibrationWarningAngleLimit = freezed,
+    Object? spoolUpTime = freezed,
   }) {
     return _then(_$QuantumDriveModeImpl(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      driveSpeed: null == driveSpeed
+              as String?,
+      driveSpeed: freezed == driveSpeed
           ? _value.driveSpeed
           : driveSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      cooldownTime: null == cooldownTime
+              as int?,
+      cooldownTime: freezed == cooldownTime
           ? _value.cooldownTime
           : cooldownTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      stageOneAccelRate: null == stageOneAccelRate
+              as double?,
+      stageOneAccelRate: freezed == stageOneAccelRate
           ? _value.stageOneAccelRate
           : stageOneAccelRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      stageTwoAccelRate: null == stageTwoAccelRate
+              as int?,
+      stageTwoAccelRate: freezed == stageTwoAccelRate
           ? _value.stageTwoAccelRate
           : stageTwoAccelRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      engageSpeed: null == engageSpeed
+              as int?,
+      engageSpeed: freezed == engageSpeed
           ? _value.engageSpeed
           : engageSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      interdictionEffectTime: null == interdictionEffectTime
+              as int?,
+      interdictionEffectTime: freezed == interdictionEffectTime
           ? _value.interdictionEffectTime
           : interdictionEffectTime // ignore: cast_nullable_to_non_nullable
-              as int,
-      calibrationRate: null == calibrationRate
+              as int?,
+      calibrationRate: freezed == calibrationRate
           ? _value.calibrationRate
           : calibrationRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      minCalibrationRequirement: null == minCalibrationRequirement
+              as int?,
+      minCalibrationRequirement: freezed == minCalibrationRequirement
           ? _value.minCalibrationRequirement
           : minCalibrationRequirement // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxCalibrationRequirement: null == maxCalibrationRequirement
+              as int?,
+      maxCalibrationRequirement: freezed == maxCalibrationRequirement
           ? _value.maxCalibrationRequirement
           : maxCalibrationRequirement // ignore: cast_nullable_to_non_nullable
-              as int,
-      calibrationProcessAngleLimit: null == calibrationProcessAngleLimit
+              as int?,
+      calibrationProcessAngleLimit: freezed == calibrationProcessAngleLimit
           ? _value.calibrationProcessAngleLimit
           : calibrationProcessAngleLimit // ignore: cast_nullable_to_non_nullable
-              as int,
-      calibrationWarningAngleLimit: null == calibrationWarningAngleLimit
+              as int?,
+      calibrationWarningAngleLimit: freezed == calibrationWarningAngleLimit
           ? _value.calibrationWarningAngleLimit
           : calibrationWarningAngleLimit // ignore: cast_nullable_to_non_nullable
-              as int,
-      spoolUpTime: null == spoolUpTime
+              as int?,
+      spoolUpTime: freezed == spoolUpTime
           ? _value.spoolUpTime
           : spoolUpTime // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -12842,67 +14998,66 @@ class __$$QuantumDriveModeImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuantumDriveModeImpl implements _QuantumDriveMode {
   const _$QuantumDriveModeImpl(
-      {@JsonKey(name: "type") required this.type,
-      @JsonKey(name: "drive_speed") required this.driveSpeed,
-      @JsonKey(name: "cooldown_time") required this.cooldownTime,
-      @JsonKey(name: "stage_one_accel_rate") required this.stageOneAccelRate,
-      @JsonKey(name: "stage_two_accel_rate") required this.stageTwoAccelRate,
-      @JsonKey(name: "engage_speed") required this.engageSpeed,
-      @JsonKey(name: "interdiction_effect_time")
-      required this.interdictionEffectTime,
-      @JsonKey(name: "calibration_rate") required this.calibrationRate,
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "drive_speed") this.driveSpeed,
+      @JsonKey(name: "cooldown_time") this.cooldownTime,
+      @JsonKey(name: "stage_one_accel_rate") this.stageOneAccelRate,
+      @JsonKey(name: "stage_two_accel_rate") this.stageTwoAccelRate,
+      @JsonKey(name: "engage_speed") this.engageSpeed,
+      @JsonKey(name: "interdiction_effect_time") this.interdictionEffectTime,
+      @JsonKey(name: "calibration_rate") this.calibrationRate,
       @JsonKey(name: "min_calibration_requirement")
-      required this.minCalibrationRequirement,
+      this.minCalibrationRequirement,
       @JsonKey(name: "max_calibration_requirement")
-      required this.maxCalibrationRequirement,
+      this.maxCalibrationRequirement,
       @JsonKey(name: "calibration_process_angle_limit")
-      required this.calibrationProcessAngleLimit,
+      this.calibrationProcessAngleLimit,
       @JsonKey(name: "calibration_warning_angle_limit")
-      required this.calibrationWarningAngleLimit,
-      @JsonKey(name: "spool_up_time") required this.spoolUpTime});
+      this.calibrationWarningAngleLimit,
+      @JsonKey(name: "spool_up_time") this.spoolUpTime});
 
   factory _$QuantumDriveModeImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuantumDriveModeImplFromJson(json);
 
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
   @override
   @JsonKey(name: "drive_speed")
-  final int driveSpeed;
+  final int? driveSpeed;
   @override
   @JsonKey(name: "cooldown_time")
-  final double cooldownTime;
+  final double? cooldownTime;
   @override
   @JsonKey(name: "stage_one_accel_rate")
-  final int stageOneAccelRate;
+  final int? stageOneAccelRate;
   @override
   @JsonKey(name: "stage_two_accel_rate")
-  final int stageTwoAccelRate;
+  final int? stageTwoAccelRate;
   @override
   @JsonKey(name: "engage_speed")
-  final int engageSpeed;
+  final int? engageSpeed;
   @override
   @JsonKey(name: "interdiction_effect_time")
-  final int interdictionEffectTime;
+  final int? interdictionEffectTime;
   @override
   @JsonKey(name: "calibration_rate")
-  final int calibrationRate;
+  final int? calibrationRate;
   @override
   @JsonKey(name: "min_calibration_requirement")
-  final int minCalibrationRequirement;
+  final int? minCalibrationRequirement;
   @override
   @JsonKey(name: "max_calibration_requirement")
-  final int maxCalibrationRequirement;
+  final int? maxCalibrationRequirement;
   @override
   @JsonKey(name: "calibration_process_angle_limit")
-  final int calibrationProcessAngleLimit;
+  final int? calibrationProcessAngleLimit;
   @override
   @JsonKey(name: "calibration_warning_angle_limit")
-  final int calibrationWarningAngleLimit;
+  final int? calibrationWarningAngleLimit;
   @override
   @JsonKey(name: "spool_up_time")
-  final int spoolUpTime;
+  final int? spoolUpTime;
 
   @override
   String toString() {
@@ -12947,7 +15102,7 @@ class _$QuantumDriveModeImpl implements _QuantumDriveMode {
                 other.spoolUpTime == spoolUpTime));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -12965,7 +15120,9 @@ class _$QuantumDriveModeImpl implements _QuantumDriveMode {
       calibrationWarningAngleLimit,
       spoolUpTime);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuantumDriveMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuantumDriveModeImplCopyWith<_$QuantumDriveModeImpl> get copyWith =>
@@ -12982,26 +15139,24 @@ class _$QuantumDriveModeImpl implements _QuantumDriveMode {
 
 abstract class _QuantumDriveMode implements QuantumDriveMode {
   const factory _QuantumDriveMode(
-          {@JsonKey(name: "type") required final String type,
-          @JsonKey(name: "drive_speed") required final int driveSpeed,
-          @JsonKey(name: "cooldown_time") required final double cooldownTime,
-          @JsonKey(name: "stage_one_accel_rate")
-          required final int stageOneAccelRate,
-          @JsonKey(name: "stage_two_accel_rate")
-          required final int stageTwoAccelRate,
-          @JsonKey(name: "engage_speed") required final int engageSpeed,
+          {@JsonKey(name: "type") final String? type,
+          @JsonKey(name: "drive_speed") final int? driveSpeed,
+          @JsonKey(name: "cooldown_time") final double? cooldownTime,
+          @JsonKey(name: "stage_one_accel_rate") final int? stageOneAccelRate,
+          @JsonKey(name: "stage_two_accel_rate") final int? stageTwoAccelRate,
+          @JsonKey(name: "engage_speed") final int? engageSpeed,
           @JsonKey(name: "interdiction_effect_time")
-          required final int interdictionEffectTime,
-          @JsonKey(name: "calibration_rate") required final int calibrationRate,
+          final int? interdictionEffectTime,
+          @JsonKey(name: "calibration_rate") final int? calibrationRate,
           @JsonKey(name: "min_calibration_requirement")
-          required final int minCalibrationRequirement,
+          final int? minCalibrationRequirement,
           @JsonKey(name: "max_calibration_requirement")
-          required final int maxCalibrationRequirement,
+          final int? maxCalibrationRequirement,
           @JsonKey(name: "calibration_process_angle_limit")
-          required final int calibrationProcessAngleLimit,
+          final int? calibrationProcessAngleLimit,
           @JsonKey(name: "calibration_warning_angle_limit")
-          required final int calibrationWarningAngleLimit,
-          @JsonKey(name: "spool_up_time") required final int spoolUpTime}) =
+          final int? calibrationWarningAngleLimit,
+          @JsonKey(name: "spool_up_time") final int? spoolUpTime}) =
       _$QuantumDriveModeImpl;
 
   factory _QuantumDriveMode.fromJson(Map<String, dynamic> json) =
@@ -13009,45 +15164,48 @@ abstract class _QuantumDriveMode implements QuantumDriveMode {
 
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
   @override
   @JsonKey(name: "drive_speed")
-  int get driveSpeed;
+  int? get driveSpeed;
   @override
   @JsonKey(name: "cooldown_time")
-  double get cooldownTime;
+  double? get cooldownTime;
   @override
   @JsonKey(name: "stage_one_accel_rate")
-  int get stageOneAccelRate;
+  int? get stageOneAccelRate;
   @override
   @JsonKey(name: "stage_two_accel_rate")
-  int get stageTwoAccelRate;
+  int? get stageTwoAccelRate;
   @override
   @JsonKey(name: "engage_speed")
-  int get engageSpeed;
+  int? get engageSpeed;
   @override
   @JsonKey(name: "interdiction_effect_time")
-  int get interdictionEffectTime;
+  int? get interdictionEffectTime;
   @override
   @JsonKey(name: "calibration_rate")
-  int get calibrationRate;
+  int? get calibrationRate;
   @override
   @JsonKey(name: "min_calibration_requirement")
-  int get minCalibrationRequirement;
+  int? get minCalibrationRequirement;
   @override
   @JsonKey(name: "max_calibration_requirement")
-  int get maxCalibrationRequirement;
+  int? get maxCalibrationRequirement;
   @override
   @JsonKey(name: "calibration_process_angle_limit")
-  int get calibrationProcessAngleLimit;
+  int? get calibrationProcessAngleLimit;
   @override
   @JsonKey(name: "calibration_warning_angle_limit")
-  int get calibrationWarningAngleLimit;
+  int? get calibrationWarningAngleLimit;
   @override
   @JsonKey(name: "spool_up_time")
-  int get spoolUpTime;
+  int? get spoolUpTime;
+
+  /// Create a copy of QuantumDriveMode
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuantumDriveModeImplCopyWith<_$QuantumDriveModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13059,18 +15217,22 @@ ThermalEnergyDraw _$ThermalEnergyDrawFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ThermalEnergyDraw {
   @JsonKey(name: "pre_ramp_up")
-  int get preRampUp => throw _privateConstructorUsedError;
+  int? get preRampUp => throw _privateConstructorUsedError;
   @JsonKey(name: "ramp_up")
-  int get rampUp => throw _privateConstructorUsedError;
+  int? get rampUp => throw _privateConstructorUsedError;
   @JsonKey(name: "in_flight")
-  int get inFlight => throw _privateConstructorUsedError;
+  int? get inFlight => throw _privateConstructorUsedError;
   @JsonKey(name: "ramp_down")
-  int get rampDown => throw _privateConstructorUsedError;
+  int? get rampDown => throw _privateConstructorUsedError;
   @JsonKey(name: "post_ramp_down")
-  int get postRampDown => throw _privateConstructorUsedError;
+  int? get postRampDown => throw _privateConstructorUsedError;
 
+  /// Serializes this ThermalEnergyDraw to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThermalEnergyDraw
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThermalEnergyDrawCopyWith<ThermalEnergyDraw> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13082,11 +15244,11 @@ abstract class $ThermalEnergyDrawCopyWith<$Res> {
       _$ThermalEnergyDrawCopyWithImpl<$Res, ThermalEnergyDraw>;
   @useResult
   $Res call(
-      {@JsonKey(name: "pre_ramp_up") int preRampUp,
-      @JsonKey(name: "ramp_up") int rampUp,
-      @JsonKey(name: "in_flight") int inFlight,
-      @JsonKey(name: "ramp_down") int rampDown,
-      @JsonKey(name: "post_ramp_down") int postRampDown});
+      {@JsonKey(name: "pre_ramp_up") int? preRampUp,
+      @JsonKey(name: "ramp_up") int? rampUp,
+      @JsonKey(name: "in_flight") int? inFlight,
+      @JsonKey(name: "ramp_down") int? rampDown,
+      @JsonKey(name: "post_ramp_down") int? postRampDown});
 }
 
 /// @nodoc
@@ -13099,36 +15261,38 @@ class _$ThermalEnergyDrawCopyWithImpl<$Res, $Val extends ThermalEnergyDraw>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThermalEnergyDraw
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? preRampUp = null,
-    Object? rampUp = null,
-    Object? inFlight = null,
-    Object? rampDown = null,
-    Object? postRampDown = null,
+    Object? preRampUp = freezed,
+    Object? rampUp = freezed,
+    Object? inFlight = freezed,
+    Object? rampDown = freezed,
+    Object? postRampDown = freezed,
   }) {
     return _then(_value.copyWith(
-      preRampUp: null == preRampUp
+      preRampUp: freezed == preRampUp
           ? _value.preRampUp
           : preRampUp // ignore: cast_nullable_to_non_nullable
-              as int,
-      rampUp: null == rampUp
+              as int?,
+      rampUp: freezed == rampUp
           ? _value.rampUp
           : rampUp // ignore: cast_nullable_to_non_nullable
-              as int,
-      inFlight: null == inFlight
+              as int?,
+      inFlight: freezed == inFlight
           ? _value.inFlight
           : inFlight // ignore: cast_nullable_to_non_nullable
-              as int,
-      rampDown: null == rampDown
+              as int?,
+      rampDown: freezed == rampDown
           ? _value.rampDown
           : rampDown // ignore: cast_nullable_to_non_nullable
-              as int,
-      postRampDown: null == postRampDown
+              as int?,
+      postRampDown: freezed == postRampDown
           ? _value.postRampDown
           : postRampDown // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -13142,11 +15306,11 @@ abstract class _$$ThermalEnergyDrawImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "pre_ramp_up") int preRampUp,
-      @JsonKey(name: "ramp_up") int rampUp,
-      @JsonKey(name: "in_flight") int inFlight,
-      @JsonKey(name: "ramp_down") int rampDown,
-      @JsonKey(name: "post_ramp_down") int postRampDown});
+      {@JsonKey(name: "pre_ramp_up") int? preRampUp,
+      @JsonKey(name: "ramp_up") int? rampUp,
+      @JsonKey(name: "in_flight") int? inFlight,
+      @JsonKey(name: "ramp_down") int? rampDown,
+      @JsonKey(name: "post_ramp_down") int? postRampDown});
 }
 
 /// @nodoc
@@ -13157,36 +15321,38 @@ class __$$ThermalEnergyDrawImplCopyWithImpl<$Res>
       $Res Function(_$ThermalEnergyDrawImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThermalEnergyDraw
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? preRampUp = null,
-    Object? rampUp = null,
-    Object? inFlight = null,
-    Object? rampDown = null,
-    Object? postRampDown = null,
+    Object? preRampUp = freezed,
+    Object? rampUp = freezed,
+    Object? inFlight = freezed,
+    Object? rampDown = freezed,
+    Object? postRampDown = freezed,
   }) {
     return _then(_$ThermalEnergyDrawImpl(
-      preRampUp: null == preRampUp
+      preRampUp: freezed == preRampUp
           ? _value.preRampUp
           : preRampUp // ignore: cast_nullable_to_non_nullable
-              as int,
-      rampUp: null == rampUp
+              as int?,
+      rampUp: freezed == rampUp
           ? _value.rampUp
           : rampUp // ignore: cast_nullable_to_non_nullable
-              as int,
-      inFlight: null == inFlight
+              as int?,
+      inFlight: freezed == inFlight
           ? _value.inFlight
           : inFlight // ignore: cast_nullable_to_non_nullable
-              as int,
-      rampDown: null == rampDown
+              as int?,
+      rampDown: freezed == rampDown
           ? _value.rampDown
           : rampDown // ignore: cast_nullable_to_non_nullable
-              as int,
-      postRampDown: null == postRampDown
+              as int?,
+      postRampDown: freezed == postRampDown
           ? _value.postRampDown
           : postRampDown // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -13195,30 +15361,30 @@ class __$$ThermalEnergyDrawImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ThermalEnergyDrawImpl implements _ThermalEnergyDraw {
   const _$ThermalEnergyDrawImpl(
-      {@JsonKey(name: "pre_ramp_up") required this.preRampUp,
-      @JsonKey(name: "ramp_up") required this.rampUp,
-      @JsonKey(name: "in_flight") required this.inFlight,
-      @JsonKey(name: "ramp_down") required this.rampDown,
-      @JsonKey(name: "post_ramp_down") required this.postRampDown});
+      {@JsonKey(name: "pre_ramp_up") this.preRampUp,
+      @JsonKey(name: "ramp_up") this.rampUp,
+      @JsonKey(name: "in_flight") this.inFlight,
+      @JsonKey(name: "ramp_down") this.rampDown,
+      @JsonKey(name: "post_ramp_down") this.postRampDown});
 
   factory _$ThermalEnergyDrawImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThermalEnergyDrawImplFromJson(json);
 
   @override
   @JsonKey(name: "pre_ramp_up")
-  final int preRampUp;
+  final int? preRampUp;
   @override
   @JsonKey(name: "ramp_up")
-  final int rampUp;
+  final int? rampUp;
   @override
   @JsonKey(name: "in_flight")
-  final int inFlight;
+  final int? inFlight;
   @override
   @JsonKey(name: "ramp_down")
-  final int rampDown;
+  final int? rampDown;
   @override
   @JsonKey(name: "post_ramp_down")
-  final int postRampDown;
+  final int? postRampDown;
 
   @override
   String toString() {
@@ -13241,12 +15407,14 @@ class _$ThermalEnergyDrawImpl implements _ThermalEnergyDraw {
                 other.postRampDown == postRampDown));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, preRampUp, rampUp, inFlight, rampDown, postRampDown);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThermalEnergyDraw
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThermalEnergyDrawImplCopyWith<_$ThermalEnergyDrawImpl> get copyWith =>
@@ -13263,11 +15431,11 @@ class _$ThermalEnergyDrawImpl implements _ThermalEnergyDraw {
 
 abstract class _ThermalEnergyDraw implements ThermalEnergyDraw {
   const factory _ThermalEnergyDraw(
-          {@JsonKey(name: "pre_ramp_up") required final int preRampUp,
-          @JsonKey(name: "ramp_up") required final int rampUp,
-          @JsonKey(name: "in_flight") required final int inFlight,
-          @JsonKey(name: "ramp_down") required final int rampDown,
-          @JsonKey(name: "post_ramp_down") required final int postRampDown}) =
+          {@JsonKey(name: "pre_ramp_up") final int? preRampUp,
+          @JsonKey(name: "ramp_up") final int? rampUp,
+          @JsonKey(name: "in_flight") final int? inFlight,
+          @JsonKey(name: "ramp_down") final int? rampDown,
+          @JsonKey(name: "post_ramp_down") final int? postRampDown}) =
       _$ThermalEnergyDrawImpl;
 
   factory _ThermalEnergyDraw.fromJson(Map<String, dynamic> json) =
@@ -13275,21 +15443,24 @@ abstract class _ThermalEnergyDraw implements ThermalEnergyDraw {
 
   @override
   @JsonKey(name: "pre_ramp_up")
-  int get preRampUp;
+  int? get preRampUp;
   @override
   @JsonKey(name: "ramp_up")
-  int get rampUp;
+  int? get rampUp;
   @override
   @JsonKey(name: "in_flight")
-  int get inFlight;
+  int? get inFlight;
   @override
   @JsonKey(name: "ramp_down")
-  int get rampDown;
+  int? get rampDown;
   @override
   @JsonKey(name: "post_ramp_down")
-  int get postRampDown;
+  int? get postRampDown;
+
+  /// Create a copy of ThermalEnergyDraw
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThermalEnergyDrawImplCopyWith<_$ThermalEnergyDrawImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13301,20 +15472,24 @@ SelfDestruct _$SelfDestructFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SelfDestruct {
   @JsonKey(name: "damage")
-  int get damage => throw _privateConstructorUsedError;
+  int? get damage => throw _privateConstructorUsedError;
   @JsonKey(name: "radius")
-  int get radius => throw _privateConstructorUsedError;
+  int? get radius => throw _privateConstructorUsedError;
   @JsonKey(name: "min_radius")
-  int get minRadius => throw _privateConstructorUsedError;
+  int? get minRadius => throw _privateConstructorUsedError;
   @JsonKey(name: "phys_radius")
-  int get physRadius => throw _privateConstructorUsedError;
+  int? get physRadius => throw _privateConstructorUsedError;
   @JsonKey(name: "min_phys_radius")
-  int get minPhysRadius => throw _privateConstructorUsedError;
+  int? get minPhysRadius => throw _privateConstructorUsedError;
   @JsonKey(name: "time")
-  int get time => throw _privateConstructorUsedError;
+  int? get time => throw _privateConstructorUsedError;
 
+  /// Serializes this SelfDestruct to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SelfDestruct
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SelfDestructCopyWith<SelfDestruct> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13326,12 +15501,12 @@ abstract class $SelfDestructCopyWith<$Res> {
       _$SelfDestructCopyWithImpl<$Res, SelfDestruct>;
   @useResult
   $Res call(
-      {@JsonKey(name: "damage") int damage,
-      @JsonKey(name: "radius") int radius,
-      @JsonKey(name: "min_radius") int minRadius,
-      @JsonKey(name: "phys_radius") int physRadius,
-      @JsonKey(name: "min_phys_radius") int minPhysRadius,
-      @JsonKey(name: "time") int time});
+      {@JsonKey(name: "damage") int? damage,
+      @JsonKey(name: "radius") int? radius,
+      @JsonKey(name: "min_radius") int? minRadius,
+      @JsonKey(name: "phys_radius") int? physRadius,
+      @JsonKey(name: "min_phys_radius") int? minPhysRadius,
+      @JsonKey(name: "time") int? time});
 }
 
 /// @nodoc
@@ -13344,41 +15519,43 @@ class _$SelfDestructCopyWithImpl<$Res, $Val extends SelfDestruct>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SelfDestruct
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? damage = null,
-    Object? radius = null,
-    Object? minRadius = null,
-    Object? physRadius = null,
-    Object? minPhysRadius = null,
-    Object? time = null,
+    Object? damage = freezed,
+    Object? radius = freezed,
+    Object? minRadius = freezed,
+    Object? physRadius = freezed,
+    Object? minPhysRadius = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
-      damage: null == damage
+      damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
-              as int,
-      radius: null == radius
+              as int?,
+      radius: freezed == radius
           ? _value.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as int,
-      minRadius: null == minRadius
+              as int?,
+      minRadius: freezed == minRadius
           ? _value.minRadius
           : minRadius // ignore: cast_nullable_to_non_nullable
-              as int,
-      physRadius: null == physRadius
+              as int?,
+      physRadius: freezed == physRadius
           ? _value.physRadius
           : physRadius // ignore: cast_nullable_to_non_nullable
-              as int,
-      minPhysRadius: null == minPhysRadius
+              as int?,
+      minPhysRadius: freezed == minPhysRadius
           ? _value.minPhysRadius
           : minPhysRadius // ignore: cast_nullable_to_non_nullable
-              as int,
-      time: null == time
+              as int?,
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -13392,12 +15569,12 @@ abstract class _$$SelfDestructImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "damage") int damage,
-      @JsonKey(name: "radius") int radius,
-      @JsonKey(name: "min_radius") int minRadius,
-      @JsonKey(name: "phys_radius") int physRadius,
-      @JsonKey(name: "min_phys_radius") int minPhysRadius,
-      @JsonKey(name: "time") int time});
+      {@JsonKey(name: "damage") int? damage,
+      @JsonKey(name: "radius") int? radius,
+      @JsonKey(name: "min_radius") int? minRadius,
+      @JsonKey(name: "phys_radius") int? physRadius,
+      @JsonKey(name: "min_phys_radius") int? minPhysRadius,
+      @JsonKey(name: "time") int? time});
 }
 
 /// @nodoc
@@ -13408,41 +15585,43 @@ class __$$SelfDestructImplCopyWithImpl<$Res>
       _$SelfDestructImpl _value, $Res Function(_$SelfDestructImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SelfDestruct
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? damage = null,
-    Object? radius = null,
-    Object? minRadius = null,
-    Object? physRadius = null,
-    Object? minPhysRadius = null,
-    Object? time = null,
+    Object? damage = freezed,
+    Object? radius = freezed,
+    Object? minRadius = freezed,
+    Object? physRadius = freezed,
+    Object? minPhysRadius = freezed,
+    Object? time = freezed,
   }) {
     return _then(_$SelfDestructImpl(
-      damage: null == damage
+      damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
-              as int,
-      radius: null == radius
+              as int?,
+      radius: freezed == radius
           ? _value.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as int,
-      minRadius: null == minRadius
+              as int?,
+      minRadius: freezed == minRadius
           ? _value.minRadius
           : minRadius // ignore: cast_nullable_to_non_nullable
-              as int,
-      physRadius: null == physRadius
+              as int?,
+      physRadius: freezed == physRadius
           ? _value.physRadius
           : physRadius // ignore: cast_nullable_to_non_nullable
-              as int,
-      minPhysRadius: null == minPhysRadius
+              as int?,
+      minPhysRadius: freezed == minPhysRadius
           ? _value.minPhysRadius
           : minPhysRadius // ignore: cast_nullable_to_non_nullable
-              as int,
-      time: null == time
+              as int?,
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -13451,34 +15630,34 @@ class __$$SelfDestructImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SelfDestructImpl implements _SelfDestruct {
   const _$SelfDestructImpl(
-      {@JsonKey(name: "damage") required this.damage,
-      @JsonKey(name: "radius") required this.radius,
-      @JsonKey(name: "min_radius") required this.minRadius,
-      @JsonKey(name: "phys_radius") required this.physRadius,
-      @JsonKey(name: "min_phys_radius") required this.minPhysRadius,
-      @JsonKey(name: "time") required this.time});
+      {@JsonKey(name: "damage") this.damage,
+      @JsonKey(name: "radius") this.radius,
+      @JsonKey(name: "min_radius") this.minRadius,
+      @JsonKey(name: "phys_radius") this.physRadius,
+      @JsonKey(name: "min_phys_radius") this.minPhysRadius,
+      @JsonKey(name: "time") this.time});
 
   factory _$SelfDestructImpl.fromJson(Map<String, dynamic> json) =>
       _$$SelfDestructImplFromJson(json);
 
   @override
   @JsonKey(name: "damage")
-  final int damage;
+  final int? damage;
   @override
   @JsonKey(name: "radius")
-  final int radius;
+  final int? radius;
   @override
   @JsonKey(name: "min_radius")
-  final int minRadius;
+  final int? minRadius;
   @override
   @JsonKey(name: "phys_radius")
-  final int physRadius;
+  final int? physRadius;
   @override
   @JsonKey(name: "min_phys_radius")
-  final int minPhysRadius;
+  final int? minPhysRadius;
   @override
   @JsonKey(name: "time")
-  final int time;
+  final int? time;
 
   @override
   String toString() {
@@ -13501,12 +15680,14 @@ class _$SelfDestructImpl implements _SelfDestruct {
             (identical(other.time, time) || other.time == time));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, damage, radius, minRadius, physRadius, minPhysRadius, time);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SelfDestruct
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelfDestructImplCopyWith<_$SelfDestructImpl> get copyWith =>
@@ -13522,36 +15703,39 @@ class _$SelfDestructImpl implements _SelfDestruct {
 
 abstract class _SelfDestruct implements SelfDestruct {
   const factory _SelfDestruct(
-      {@JsonKey(name: "damage") required final int damage,
-      @JsonKey(name: "radius") required final int radius,
-      @JsonKey(name: "min_radius") required final int minRadius,
-      @JsonKey(name: "phys_radius") required final int physRadius,
-      @JsonKey(name: "min_phys_radius") required final int minPhysRadius,
-      @JsonKey(name: "time") required final int time}) = _$SelfDestructImpl;
+      {@JsonKey(name: "damage") final int? damage,
+      @JsonKey(name: "radius") final int? radius,
+      @JsonKey(name: "min_radius") final int? minRadius,
+      @JsonKey(name: "phys_radius") final int? physRadius,
+      @JsonKey(name: "min_phys_radius") final int? minPhysRadius,
+      @JsonKey(name: "time") final int? time}) = _$SelfDestructImpl;
 
   factory _SelfDestruct.fromJson(Map<String, dynamic> json) =
       _$SelfDestructImpl.fromJson;
 
   @override
   @JsonKey(name: "damage")
-  int get damage;
+  int? get damage;
   @override
   @JsonKey(name: "radius")
-  int get radius;
+  int? get radius;
   @override
   @JsonKey(name: "min_radius")
-  int get minRadius;
+  int? get minRadius;
   @override
   @JsonKey(name: "phys_radius")
-  int get physRadius;
+  int? get physRadius;
   @override
   @JsonKey(name: "min_phys_radius")
-  int get minPhysRadius;
+  int? get minPhysRadius;
   @override
   @JsonKey(name: "time")
-  int get time;
+  int? get time;
+
+  /// Create a copy of SelfDestruct
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelfDestructImplCopyWith<_$SelfDestructImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13563,20 +15747,24 @@ Shield _$ShieldFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Shield {
   @JsonKey(name: "max_shield_health")
-  int get maxShieldHealth => throw _privateConstructorUsedError;
+  int? get maxShieldHealth => throw _privateConstructorUsedError;
   @JsonKey(name: "max_shield_regen")
-  int get maxShieldRegen => throw _privateConstructorUsedError;
+  int? get maxShieldRegen => throw _privateConstructorUsedError;
   @JsonKey(name: "decay_ratio")
-  double get decayRatio => throw _privateConstructorUsedError;
+  double? get decayRatio => throw _privateConstructorUsedError;
   @JsonKey(name: "regen_delay")
-  RegenDelay get regenDelay => throw _privateConstructorUsedError;
+  RegenDelay? get regenDelay => throw _privateConstructorUsedError;
   @JsonKey(name: "max_reallocation")
-  int get maxReallocation => throw _privateConstructorUsedError;
+  int? get maxReallocation => throw _privateConstructorUsedError;
   @JsonKey(name: "reallocation_rate")
-  int get reallocationRate => throw _privateConstructorUsedError;
+  int? get reallocationRate => throw _privateConstructorUsedError;
 
+  /// Serializes this Shield to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Shield
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ShieldCopyWith<Shield> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -13586,14 +15774,14 @@ abstract class $ShieldCopyWith<$Res> {
       _$ShieldCopyWithImpl<$Res, Shield>;
   @useResult
   $Res call(
-      {@JsonKey(name: "max_shield_health") int maxShieldHealth,
-      @JsonKey(name: "max_shield_regen") int maxShieldRegen,
-      @JsonKey(name: "decay_ratio") double decayRatio,
-      @JsonKey(name: "regen_delay") RegenDelay regenDelay,
-      @JsonKey(name: "max_reallocation") int maxReallocation,
-      @JsonKey(name: "reallocation_rate") int reallocationRate});
+      {@JsonKey(name: "max_shield_health") int? maxShieldHealth,
+      @JsonKey(name: "max_shield_regen") int? maxShieldRegen,
+      @JsonKey(name: "decay_ratio") double? decayRatio,
+      @JsonKey(name: "regen_delay") RegenDelay? regenDelay,
+      @JsonKey(name: "max_reallocation") int? maxReallocation,
+      @JsonKey(name: "reallocation_rate") int? reallocationRate});
 
-  $RegenDelayCopyWith<$Res> get regenDelay;
+  $RegenDelayCopyWith<$Res>? get regenDelay;
 }
 
 /// @nodoc
@@ -13606,48 +15794,56 @@ class _$ShieldCopyWithImpl<$Res, $Val extends Shield>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Shield
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? maxShieldHealth = null,
-    Object? maxShieldRegen = null,
-    Object? decayRatio = null,
-    Object? regenDelay = null,
-    Object? maxReallocation = null,
-    Object? reallocationRate = null,
+    Object? maxShieldHealth = freezed,
+    Object? maxShieldRegen = freezed,
+    Object? decayRatio = freezed,
+    Object? regenDelay = freezed,
+    Object? maxReallocation = freezed,
+    Object? reallocationRate = freezed,
   }) {
     return _then(_value.copyWith(
-      maxShieldHealth: null == maxShieldHealth
+      maxShieldHealth: freezed == maxShieldHealth
           ? _value.maxShieldHealth
           : maxShieldHealth // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxShieldRegen: null == maxShieldRegen
+              as int?,
+      maxShieldRegen: freezed == maxShieldRegen
           ? _value.maxShieldRegen
           : maxShieldRegen // ignore: cast_nullable_to_non_nullable
-              as int,
-      decayRatio: null == decayRatio
+              as int?,
+      decayRatio: freezed == decayRatio
           ? _value.decayRatio
           : decayRatio // ignore: cast_nullable_to_non_nullable
-              as double,
-      regenDelay: null == regenDelay
+              as double?,
+      regenDelay: freezed == regenDelay
           ? _value.regenDelay
           : regenDelay // ignore: cast_nullable_to_non_nullable
-              as RegenDelay,
-      maxReallocation: null == maxReallocation
+              as RegenDelay?,
+      maxReallocation: freezed == maxReallocation
           ? _value.maxReallocation
           : maxReallocation // ignore: cast_nullable_to_non_nullable
-              as int,
-      reallocationRate: null == reallocationRate
+              as int?,
+      reallocationRate: freezed == reallocationRate
           ? _value.reallocationRate
           : reallocationRate // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 
+  /// Create a copy of Shield
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RegenDelayCopyWith<$Res> get regenDelay {
-    return $RegenDelayCopyWith<$Res>(_value.regenDelay, (value) {
+  $RegenDelayCopyWith<$Res>? get regenDelay {
+    if (_value.regenDelay == null) {
+      return null;
+    }
+
+    return $RegenDelayCopyWith<$Res>(_value.regenDelay!, (value) {
       return _then(_value.copyWith(regenDelay: value) as $Val);
     });
   }
@@ -13661,15 +15857,15 @@ abstract class _$$ShieldImplCopyWith<$Res> implements $ShieldCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "max_shield_health") int maxShieldHealth,
-      @JsonKey(name: "max_shield_regen") int maxShieldRegen,
-      @JsonKey(name: "decay_ratio") double decayRatio,
-      @JsonKey(name: "regen_delay") RegenDelay regenDelay,
-      @JsonKey(name: "max_reallocation") int maxReallocation,
-      @JsonKey(name: "reallocation_rate") int reallocationRate});
+      {@JsonKey(name: "max_shield_health") int? maxShieldHealth,
+      @JsonKey(name: "max_shield_regen") int? maxShieldRegen,
+      @JsonKey(name: "decay_ratio") double? decayRatio,
+      @JsonKey(name: "regen_delay") RegenDelay? regenDelay,
+      @JsonKey(name: "max_reallocation") int? maxReallocation,
+      @JsonKey(name: "reallocation_rate") int? reallocationRate});
 
   @override
-  $RegenDelayCopyWith<$Res> get regenDelay;
+  $RegenDelayCopyWith<$Res>? get regenDelay;
 }
 
 /// @nodoc
@@ -13680,41 +15876,43 @@ class __$$ShieldImplCopyWithImpl<$Res>
       _$ShieldImpl _value, $Res Function(_$ShieldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Shield
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? maxShieldHealth = null,
-    Object? maxShieldRegen = null,
-    Object? decayRatio = null,
-    Object? regenDelay = null,
-    Object? maxReallocation = null,
-    Object? reallocationRate = null,
+    Object? maxShieldHealth = freezed,
+    Object? maxShieldRegen = freezed,
+    Object? decayRatio = freezed,
+    Object? regenDelay = freezed,
+    Object? maxReallocation = freezed,
+    Object? reallocationRate = freezed,
   }) {
     return _then(_$ShieldImpl(
-      maxShieldHealth: null == maxShieldHealth
+      maxShieldHealth: freezed == maxShieldHealth
           ? _value.maxShieldHealth
           : maxShieldHealth // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxShieldRegen: null == maxShieldRegen
+              as int?,
+      maxShieldRegen: freezed == maxShieldRegen
           ? _value.maxShieldRegen
           : maxShieldRegen // ignore: cast_nullable_to_non_nullable
-              as int,
-      decayRatio: null == decayRatio
+              as int?,
+      decayRatio: freezed == decayRatio
           ? _value.decayRatio
           : decayRatio // ignore: cast_nullable_to_non_nullable
-              as double,
-      regenDelay: null == regenDelay
+              as double?,
+      regenDelay: freezed == regenDelay
           ? _value.regenDelay
           : regenDelay // ignore: cast_nullable_to_non_nullable
-              as RegenDelay,
-      maxReallocation: null == maxReallocation
+              as RegenDelay?,
+      maxReallocation: freezed == maxReallocation
           ? _value.maxReallocation
           : maxReallocation // ignore: cast_nullable_to_non_nullable
-              as int,
-      reallocationRate: null == reallocationRate
+              as int?,
+      reallocationRate: freezed == reallocationRate
           ? _value.reallocationRate
           : reallocationRate // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -13723,34 +15921,34 @@ class __$$ShieldImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ShieldImpl implements _Shield {
   const _$ShieldImpl(
-      {@JsonKey(name: "max_shield_health") required this.maxShieldHealth,
-      @JsonKey(name: "max_shield_regen") required this.maxShieldRegen,
-      @JsonKey(name: "decay_ratio") required this.decayRatio,
-      @JsonKey(name: "regen_delay") required this.regenDelay,
-      @JsonKey(name: "max_reallocation") required this.maxReallocation,
-      @JsonKey(name: "reallocation_rate") required this.reallocationRate});
+      {@JsonKey(name: "max_shield_health") this.maxShieldHealth,
+      @JsonKey(name: "max_shield_regen") this.maxShieldRegen,
+      @JsonKey(name: "decay_ratio") this.decayRatio,
+      @JsonKey(name: "regen_delay") this.regenDelay,
+      @JsonKey(name: "max_reallocation") this.maxReallocation,
+      @JsonKey(name: "reallocation_rate") this.reallocationRate});
 
   factory _$ShieldImpl.fromJson(Map<String, dynamic> json) =>
       _$$ShieldImplFromJson(json);
 
   @override
   @JsonKey(name: "max_shield_health")
-  final int maxShieldHealth;
+  final int? maxShieldHealth;
   @override
   @JsonKey(name: "max_shield_regen")
-  final int maxShieldRegen;
+  final int? maxShieldRegen;
   @override
   @JsonKey(name: "decay_ratio")
-  final double decayRatio;
+  final double? decayRatio;
   @override
   @JsonKey(name: "regen_delay")
-  final RegenDelay regenDelay;
+  final RegenDelay? regenDelay;
   @override
   @JsonKey(name: "max_reallocation")
-  final int maxReallocation;
+  final int? maxReallocation;
   @override
   @JsonKey(name: "reallocation_rate")
-  final int reallocationRate;
+  final int? reallocationRate;
 
   @override
   String toString() {
@@ -13776,12 +15974,14 @@ class _$ShieldImpl implements _Shield {
                 other.reallocationRate == reallocationRate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, maxShieldHealth, maxShieldRegen,
       decayRatio, regenDelay, maxReallocation, reallocationRate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Shield
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ShieldImplCopyWith<_$ShieldImpl> get copyWith =>
@@ -13797,36 +15997,39 @@ class _$ShieldImpl implements _Shield {
 
 abstract class _Shield implements Shield {
   const factory _Shield(
-      {@JsonKey(name: "max_shield_health") required final int maxShieldHealth,
-      @JsonKey(name: "max_shield_regen") required final int maxShieldRegen,
-      @JsonKey(name: "decay_ratio") required final double decayRatio,
-      @JsonKey(name: "regen_delay") required final RegenDelay regenDelay,
-      @JsonKey(name: "max_reallocation") required final int maxReallocation,
-      @JsonKey(name: "reallocation_rate")
-      required final int reallocationRate}) = _$ShieldImpl;
+          {@JsonKey(name: "max_shield_health") final int? maxShieldHealth,
+          @JsonKey(name: "max_shield_regen") final int? maxShieldRegen,
+          @JsonKey(name: "decay_ratio") final double? decayRatio,
+          @JsonKey(name: "regen_delay") final RegenDelay? regenDelay,
+          @JsonKey(name: "max_reallocation") final int? maxReallocation,
+          @JsonKey(name: "reallocation_rate") final int? reallocationRate}) =
+      _$ShieldImpl;
 
   factory _Shield.fromJson(Map<String, dynamic> json) = _$ShieldImpl.fromJson;
 
   @override
   @JsonKey(name: "max_shield_health")
-  int get maxShieldHealth;
+  int? get maxShieldHealth;
   @override
   @JsonKey(name: "max_shield_regen")
-  int get maxShieldRegen;
+  int? get maxShieldRegen;
   @override
   @JsonKey(name: "decay_ratio")
-  double get decayRatio;
+  double? get decayRatio;
   @override
   @JsonKey(name: "regen_delay")
-  RegenDelay get regenDelay;
+  RegenDelay? get regenDelay;
   @override
   @JsonKey(name: "max_reallocation")
-  int get maxReallocation;
+  int? get maxReallocation;
   @override
   @JsonKey(name: "reallocation_rate")
-  int get reallocationRate;
+  int? get reallocationRate;
+
+  /// Create a copy of Shield
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ShieldImplCopyWith<_$ShieldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13838,12 +16041,16 @@ RegenDelay _$RegenDelayFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RegenDelay {
   @JsonKey(name: "downed")
-  int get downed => throw _privateConstructorUsedError;
+  int? get downed => throw _privateConstructorUsedError;
   @JsonKey(name: "damage")
-  int get damage => throw _privateConstructorUsedError;
+  int? get damage => throw _privateConstructorUsedError;
 
+  /// Serializes this RegenDelay to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RegenDelay
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RegenDelayCopyWith<RegenDelay> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13855,8 +16062,8 @@ abstract class $RegenDelayCopyWith<$Res> {
       _$RegenDelayCopyWithImpl<$Res, RegenDelay>;
   @useResult
   $Res call(
-      {@JsonKey(name: "downed") int downed,
-      @JsonKey(name: "damage") int damage});
+      {@JsonKey(name: "downed") int? downed,
+      @JsonKey(name: "damage") int? damage});
 }
 
 /// @nodoc
@@ -13869,21 +16076,23 @@ class _$RegenDelayCopyWithImpl<$Res, $Val extends RegenDelay>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RegenDelay
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? downed = null,
-    Object? damage = null,
+    Object? downed = freezed,
+    Object? damage = freezed,
   }) {
     return _then(_value.copyWith(
-      downed: null == downed
+      downed: freezed == downed
           ? _value.downed
           : downed // ignore: cast_nullable_to_non_nullable
-              as int,
-      damage: null == damage
+              as int?,
+      damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -13897,8 +16106,8 @@ abstract class _$$RegenDelayImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "downed") int downed,
-      @JsonKey(name: "damage") int damage});
+      {@JsonKey(name: "downed") int? downed,
+      @JsonKey(name: "damage") int? damage});
 }
 
 /// @nodoc
@@ -13909,21 +16118,23 @@ class __$$RegenDelayImplCopyWithImpl<$Res>
       _$RegenDelayImpl _value, $Res Function(_$RegenDelayImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RegenDelay
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? downed = null,
-    Object? damage = null,
+    Object? downed = freezed,
+    Object? damage = freezed,
   }) {
     return _then(_$RegenDelayImpl(
-      downed: null == downed
+      downed: freezed == downed
           ? _value.downed
           : downed // ignore: cast_nullable_to_non_nullable
-              as int,
-      damage: null == damage
+              as int?,
+      damage: freezed == damage
           ? _value.damage
           : damage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -13932,18 +16143,18 @@ class __$$RegenDelayImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RegenDelayImpl implements _RegenDelay {
   const _$RegenDelayImpl(
-      {@JsonKey(name: "downed") required this.downed,
-      @JsonKey(name: "damage") required this.damage});
+      {@JsonKey(name: "downed") this.downed,
+      @JsonKey(name: "damage") this.damage});
 
   factory _$RegenDelayImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegenDelayImplFromJson(json);
 
   @override
   @JsonKey(name: "downed")
-  final int downed;
+  final int? downed;
   @override
   @JsonKey(name: "damage")
-  final int damage;
+  final int? damage;
 
   @override
   String toString() {
@@ -13959,11 +16170,13 @@ class _$RegenDelayImpl implements _RegenDelay {
             (identical(other.damage, damage) || other.damage == damage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, downed, damage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegenDelay
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RegenDelayImplCopyWith<_$RegenDelayImpl> get copyWith =>
@@ -13979,20 +16192,23 @@ class _$RegenDelayImpl implements _RegenDelay {
 
 abstract class _RegenDelay implements RegenDelay {
   const factory _RegenDelay(
-      {@JsonKey(name: "downed") required final int downed,
-      @JsonKey(name: "damage") required final int damage}) = _$RegenDelayImpl;
+      {@JsonKey(name: "downed") final int? downed,
+      @JsonKey(name: "damage") final int? damage}) = _$RegenDelayImpl;
 
   factory _RegenDelay.fromJson(Map<String, dynamic> json) =
       _$RegenDelayImpl.fromJson;
 
   @override
   @JsonKey(name: "downed")
-  int get downed;
+  int? get downed;
   @override
   @JsonKey(name: "damage")
-  int get damage;
+  int? get damage;
+
+  /// Create a copy of RegenDelay
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RegenDelayImplCopyWith<_$RegenDelayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14004,16 +16220,20 @@ Thruster _$ThrusterFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Thruster {
   @JsonKey(name: "thrust_capacity")
-  int get thrustCapacity => throw _privateConstructorUsedError;
+  int? get thrustCapacity => throw _privateConstructorUsedError;
   @JsonKey(name: "min_health_thrust_multiplier")
-  double get minHealthThrustMultiplier => throw _privateConstructorUsedError;
+  double? get minHealthThrustMultiplier => throw _privateConstructorUsedError;
   @JsonKey(name: "fuel_burn_per_10k_newton")
-  double get fuelBurnPer10KNewton => throw _privateConstructorUsedError;
+  double? get fuelBurnPer10KNewton => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
 
+  /// Serializes this Thruster to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Thruster
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThrusterCopyWith<Thruster> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14024,11 +16244,11 @@ abstract class $ThrusterCopyWith<$Res> {
       _$ThrusterCopyWithImpl<$Res, Thruster>;
   @useResult
   $Res call(
-      {@JsonKey(name: "thrust_capacity") int thrustCapacity,
+      {@JsonKey(name: "thrust_capacity") int? thrustCapacity,
       @JsonKey(name: "min_health_thrust_multiplier")
-      double minHealthThrustMultiplier,
-      @JsonKey(name: "fuel_burn_per_10k_newton") double fuelBurnPer10KNewton,
-      @JsonKey(name: "type") String type});
+      double? minHealthThrustMultiplier,
+      @JsonKey(name: "fuel_burn_per_10k_newton") double? fuelBurnPer10KNewton,
+      @JsonKey(name: "type") String? type});
 }
 
 /// @nodoc
@@ -14041,31 +16261,33 @@ class _$ThrusterCopyWithImpl<$Res, $Val extends Thruster>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Thruster
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? thrustCapacity = null,
-    Object? minHealthThrustMultiplier = null,
-    Object? fuelBurnPer10KNewton = null,
-    Object? type = null,
+    Object? thrustCapacity = freezed,
+    Object? minHealthThrustMultiplier = freezed,
+    Object? fuelBurnPer10KNewton = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      thrustCapacity: null == thrustCapacity
+      thrustCapacity: freezed == thrustCapacity
           ? _value.thrustCapacity
           : thrustCapacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      minHealthThrustMultiplier: null == minHealthThrustMultiplier
+              as int?,
+      minHealthThrustMultiplier: freezed == minHealthThrustMultiplier
           ? _value.minHealthThrustMultiplier
           : minHealthThrustMultiplier // ignore: cast_nullable_to_non_nullable
-              as double,
-      fuelBurnPer10KNewton: null == fuelBurnPer10KNewton
+              as double?,
+      fuelBurnPer10KNewton: freezed == fuelBurnPer10KNewton
           ? _value.fuelBurnPer10KNewton
           : fuelBurnPer10KNewton // ignore: cast_nullable_to_non_nullable
-              as double,
-      type: null == type
+              as double?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -14079,11 +16301,11 @@ abstract class _$$ThrusterImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "thrust_capacity") int thrustCapacity,
+      {@JsonKey(name: "thrust_capacity") int? thrustCapacity,
       @JsonKey(name: "min_health_thrust_multiplier")
-      double minHealthThrustMultiplier,
-      @JsonKey(name: "fuel_burn_per_10k_newton") double fuelBurnPer10KNewton,
-      @JsonKey(name: "type") String type});
+      double? minHealthThrustMultiplier,
+      @JsonKey(name: "fuel_burn_per_10k_newton") double? fuelBurnPer10KNewton,
+      @JsonKey(name: "type") String? type});
 }
 
 /// @nodoc
@@ -14094,31 +16316,33 @@ class __$$ThrusterImplCopyWithImpl<$Res>
       _$ThrusterImpl _value, $Res Function(_$ThrusterImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Thruster
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? thrustCapacity = null,
-    Object? minHealthThrustMultiplier = null,
-    Object? fuelBurnPer10KNewton = null,
-    Object? type = null,
+    Object? thrustCapacity = freezed,
+    Object? minHealthThrustMultiplier = freezed,
+    Object? fuelBurnPer10KNewton = freezed,
+    Object? type = freezed,
   }) {
     return _then(_$ThrusterImpl(
-      thrustCapacity: null == thrustCapacity
+      thrustCapacity: freezed == thrustCapacity
           ? _value.thrustCapacity
           : thrustCapacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      minHealthThrustMultiplier: null == minHealthThrustMultiplier
+              as int?,
+      minHealthThrustMultiplier: freezed == minHealthThrustMultiplier
           ? _value.minHealthThrustMultiplier
           : minHealthThrustMultiplier // ignore: cast_nullable_to_non_nullable
-              as double,
-      fuelBurnPer10KNewton: null == fuelBurnPer10KNewton
+              as double?,
+      fuelBurnPer10KNewton: freezed == fuelBurnPer10KNewton
           ? _value.fuelBurnPer10KNewton
           : fuelBurnPer10KNewton // ignore: cast_nullable_to_non_nullable
-              as double,
-      type: null == type
+              as double?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -14127,28 +16351,27 @@ class __$$ThrusterImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ThrusterImpl implements _Thruster {
   const _$ThrusterImpl(
-      {@JsonKey(name: "thrust_capacity") required this.thrustCapacity,
+      {@JsonKey(name: "thrust_capacity") this.thrustCapacity,
       @JsonKey(name: "min_health_thrust_multiplier")
-      required this.minHealthThrustMultiplier,
-      @JsonKey(name: "fuel_burn_per_10k_newton")
-      required this.fuelBurnPer10KNewton,
-      @JsonKey(name: "type") required this.type});
+      this.minHealthThrustMultiplier,
+      @JsonKey(name: "fuel_burn_per_10k_newton") this.fuelBurnPer10KNewton,
+      @JsonKey(name: "type") this.type});
 
   factory _$ThrusterImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThrusterImplFromJson(json);
 
   @override
   @JsonKey(name: "thrust_capacity")
-  final int thrustCapacity;
+  final int? thrustCapacity;
   @override
   @JsonKey(name: "min_health_thrust_multiplier")
-  final double minHealthThrustMultiplier;
+  final double? minHealthThrustMultiplier;
   @override
   @JsonKey(name: "fuel_burn_per_10k_newton")
-  final double fuelBurnPer10KNewton;
+  final double? fuelBurnPer10KNewton;
   @override
   @JsonKey(name: "type")
-  final String type;
+  final String? type;
 
   @override
   String toString() {
@@ -14170,12 +16393,14 @@ class _$ThrusterImpl implements _Thruster {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, thrustCapacity,
       minHealthThrustMultiplier, fuelBurnPer10KNewton, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Thruster
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThrusterImplCopyWith<_$ThrusterImpl> get copyWith =>
@@ -14191,30 +16416,33 @@ class _$ThrusterImpl implements _Thruster {
 
 abstract class _Thruster implements Thruster {
   const factory _Thruster(
-      {@JsonKey(name: "thrust_capacity") required final int thrustCapacity,
+      {@JsonKey(name: "thrust_capacity") final int? thrustCapacity,
       @JsonKey(name: "min_health_thrust_multiplier")
-      required final double minHealthThrustMultiplier,
+      final double? minHealthThrustMultiplier,
       @JsonKey(name: "fuel_burn_per_10k_newton")
-      required final double fuelBurnPer10KNewton,
-      @JsonKey(name: "type") required final String type}) = _$ThrusterImpl;
+      final double? fuelBurnPer10KNewton,
+      @JsonKey(name: "type") final String? type}) = _$ThrusterImpl;
 
   factory _Thruster.fromJson(Map<String, dynamic> json) =
       _$ThrusterImpl.fromJson;
 
   @override
   @JsonKey(name: "thrust_capacity")
-  int get thrustCapacity;
+  int? get thrustCapacity;
   @override
   @JsonKey(name: "min_health_thrust_multiplier")
-  double get minHealthThrustMultiplier;
+  double? get minHealthThrustMultiplier;
   @override
   @JsonKey(name: "fuel_burn_per_10k_newton")
-  double get fuelBurnPer10KNewton;
+  double? get fuelBurnPer10KNewton;
   @override
   @JsonKey(name: "type")
-  String get type;
+  String? get type;
+
+  /// Create a copy of Thruster
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThrusterImplCopyWith<_$ThrusterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14226,14 +16454,18 @@ Insurance _$InsuranceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Insurance {
   @JsonKey(name: "claim_time")
-  double get claimTime => throw _privateConstructorUsedError;
+  double? get claimTime => throw _privateConstructorUsedError;
   @JsonKey(name: "expedite_time")
-  double get expediteTime => throw _privateConstructorUsedError;
+  double? get expediteTime => throw _privateConstructorUsedError;
   @JsonKey(name: "expedite_cost")
-  int get expediteCost => throw _privateConstructorUsedError;
+  int? get expediteCost => throw _privateConstructorUsedError;
 
+  /// Serializes this Insurance to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Insurance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InsuranceCopyWith<Insurance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14244,9 +16476,9 @@ abstract class $InsuranceCopyWith<$Res> {
       _$InsuranceCopyWithImpl<$Res, Insurance>;
   @useResult
   $Res call(
-      {@JsonKey(name: "claim_time") double claimTime,
-      @JsonKey(name: "expedite_time") double expediteTime,
-      @JsonKey(name: "expedite_cost") int expediteCost});
+      {@JsonKey(name: "claim_time") double? claimTime,
+      @JsonKey(name: "expedite_time") double? expediteTime,
+      @JsonKey(name: "expedite_cost") int? expediteCost});
 }
 
 /// @nodoc
@@ -14259,26 +16491,28 @@ class _$InsuranceCopyWithImpl<$Res, $Val extends Insurance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Insurance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? claimTime = null,
-    Object? expediteTime = null,
-    Object? expediteCost = null,
+    Object? claimTime = freezed,
+    Object? expediteTime = freezed,
+    Object? expediteCost = freezed,
   }) {
     return _then(_value.copyWith(
-      claimTime: null == claimTime
+      claimTime: freezed == claimTime
           ? _value.claimTime
           : claimTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      expediteTime: null == expediteTime
+              as double?,
+      expediteTime: freezed == expediteTime
           ? _value.expediteTime
           : expediteTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      expediteCost: null == expediteCost
+              as double?,
+      expediteCost: freezed == expediteCost
           ? _value.expediteCost
           : expediteCost // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -14292,9 +16526,9 @@ abstract class _$$InsuranceImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "claim_time") double claimTime,
-      @JsonKey(name: "expedite_time") double expediteTime,
-      @JsonKey(name: "expedite_cost") int expediteCost});
+      {@JsonKey(name: "claim_time") double? claimTime,
+      @JsonKey(name: "expedite_time") double? expediteTime,
+      @JsonKey(name: "expedite_cost") int? expediteCost});
 }
 
 /// @nodoc
@@ -14305,26 +16539,28 @@ class __$$InsuranceImplCopyWithImpl<$Res>
       _$InsuranceImpl _value, $Res Function(_$InsuranceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Insurance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? claimTime = null,
-    Object? expediteTime = null,
-    Object? expediteCost = null,
+    Object? claimTime = freezed,
+    Object? expediteTime = freezed,
+    Object? expediteCost = freezed,
   }) {
     return _then(_$InsuranceImpl(
-      claimTime: null == claimTime
+      claimTime: freezed == claimTime
           ? _value.claimTime
           : claimTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      expediteTime: null == expediteTime
+              as double?,
+      expediteTime: freezed == expediteTime
           ? _value.expediteTime
           : expediteTime // ignore: cast_nullable_to_non_nullable
-              as double,
-      expediteCost: null == expediteCost
+              as double?,
+      expediteCost: freezed == expediteCost
           ? _value.expediteCost
           : expediteCost // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -14333,22 +16569,22 @@ class __$$InsuranceImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$InsuranceImpl implements _Insurance {
   const _$InsuranceImpl(
-      {@JsonKey(name: "claim_time") required this.claimTime,
-      @JsonKey(name: "expedite_time") required this.expediteTime,
-      @JsonKey(name: "expedite_cost") required this.expediteCost});
+      {@JsonKey(name: "claim_time") this.claimTime,
+      @JsonKey(name: "expedite_time") this.expediteTime,
+      @JsonKey(name: "expedite_cost") this.expediteCost});
 
   factory _$InsuranceImpl.fromJson(Map<String, dynamic> json) =>
       _$$InsuranceImplFromJson(json);
 
   @override
   @JsonKey(name: "claim_time")
-  final double claimTime;
+  final double? claimTime;
   @override
   @JsonKey(name: "expedite_time")
-  final double expediteTime;
+  final double? expediteTime;
   @override
   @JsonKey(name: "expedite_cost")
-  final int expediteCost;
+  final int? expediteCost;
 
   @override
   String toString() {
@@ -14368,12 +16604,14 @@ class _$InsuranceImpl implements _Insurance {
                 other.expediteCost == expediteCost));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, claimTime, expediteTime, expediteCost);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Insurance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InsuranceImplCopyWith<_$InsuranceImpl> get copyWith =>
@@ -14389,9 +16627,9 @@ class _$InsuranceImpl implements _Insurance {
 
 abstract class _Insurance implements Insurance {
   const factory _Insurance(
-          {@JsonKey(name: "claim_time") required final double claimTime,
-          @JsonKey(name: "expedite_time") required final double expediteTime,
-          @JsonKey(name: "expedite_cost") required final int expediteCost}) =
+          {@JsonKey(name: "claim_time") final double? claimTime,
+          @JsonKey(name: "expedite_time") final double? expediteTime,
+          @JsonKey(name: "expedite_cost") final int? expediteCost}) =
       _$InsuranceImpl;
 
   factory _Insurance.fromJson(Map<String, dynamic> json) =
@@ -14399,15 +16637,18 @@ abstract class _Insurance implements Insurance {
 
   @override
   @JsonKey(name: "claim_time")
-  double get claimTime;
+  double? get claimTime;
   @override
   @JsonKey(name: "expedite_time")
-  double get expediteTime;
+  double? get expediteTime;
   @override
   @JsonKey(name: "expedite_cost")
-  int get expediteCost;
+  int? get expediteCost;
+
+  /// Create a copy of Insurance
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InsuranceImplCopyWith<_$InsuranceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14419,14 +16660,18 @@ Loaner _$LoanerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Loaner {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
 
+  /// Serializes this Loaner to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Loaner
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LoanerCopyWith<Loaner> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -14436,9 +16681,9 @@ abstract class $LoanerCopyWith<$Res> {
       _$LoanerCopyWithImpl<$Res, Loaner>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "version") String version});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "version") String? version});
 }
 
 /// @nodoc
@@ -14451,26 +16696,28 @@ class _$LoanerCopyWithImpl<$Res, $Val extends Loaner>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Loaner
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? link = null,
-    Object? version = null,
+    Object? name = freezed,
+    Object? link = freezed,
+    Object? version = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
+              as String?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -14483,9 +16730,9 @@ abstract class _$$LoanerImplCopyWith<$Res> implements $LoanerCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "version") String version});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "version") String? version});
 }
 
 /// @nodoc
@@ -14496,26 +16743,28 @@ class __$$LoanerImplCopyWithImpl<$Res>
       _$LoanerImpl _value, $Res Function(_$LoanerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Loaner
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? link = null,
-    Object? version = null,
+    Object? name = freezed,
+    Object? link = freezed,
+    Object? version = freezed,
   }) {
     return _then(_$LoanerImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
+              as String?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -14524,22 +16773,22 @@ class __$$LoanerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LoanerImpl implements _Loaner {
   const _$LoanerImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "link") required this.link,
-      @JsonKey(name: "version") required this.version});
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "link") this.link,
+      @JsonKey(name: "version") this.version});
 
   factory _$LoanerImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoanerImplFromJson(json);
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "link")
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: "version")
-  final String version;
+  final String? version;
 
   @override
   String toString() {
@@ -14556,11 +16805,13 @@ class _$LoanerImpl implements _Loaner {
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, link, version);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Loaner
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoanerImplCopyWith<_$LoanerImpl> get copyWith =>
@@ -14576,23 +16827,26 @@ class _$LoanerImpl implements _Loaner {
 
 abstract class _Loaner implements Loaner {
   const factory _Loaner(
-      {@JsonKey(name: "name") required final String name,
-      @JsonKey(name: "link") required final String link,
-      @JsonKey(name: "version") required final String version}) = _$LoanerImpl;
+      {@JsonKey(name: "name") final String? name,
+      @JsonKey(name: "link") final String? link,
+      @JsonKey(name: "version") final String? version}) = _$LoanerImpl;
 
   factory _Loaner.fromJson(Map<String, dynamic> json) = _$LoanerImpl.fromJson;
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "link")
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
+
+  /// Create a copy of Loaner
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoanerImplCopyWith<_$LoanerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14604,12 +16858,16 @@ DataManufacturer _$DataManufacturerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DataManufacturer {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "code")
-  String get code => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
 
+  /// Serializes this DataManufacturer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DataManufacturer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DataManufacturerCopyWith<DataManufacturer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14621,7 +16879,8 @@ abstract class $DataManufacturerCopyWith<$Res> {
       _$DataManufacturerCopyWithImpl<$Res, DataManufacturer>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name, @JsonKey(name: "code") String code});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "code") String? code});
 }
 
 /// @nodoc
@@ -14634,21 +16893,23 @@ class _$DataManufacturerCopyWithImpl<$Res, $Val extends DataManufacturer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DataManufacturer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? code = null,
+    Object? name = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
+              as String?,
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -14662,7 +16923,8 @@ abstract class _$$DataManufacturerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name, @JsonKey(name: "code") String code});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "code") String? code});
 }
 
 /// @nodoc
@@ -14673,21 +16935,23 @@ class __$$DataManufacturerImplCopyWithImpl<$Res>
       $Res Function(_$DataManufacturerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DataManufacturer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? code = null,
+    Object? name = freezed,
+    Object? code = freezed,
   }) {
     return _then(_$DataManufacturerImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
+              as String?,
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -14696,18 +16960,17 @@ class __$$DataManufacturerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DataManufacturerImpl implements _DataManufacturer {
   const _$DataManufacturerImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "code") required this.code});
+      {@JsonKey(name: "name") this.name, @JsonKey(name: "code") this.code});
 
   factory _$DataManufacturerImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataManufacturerImplFromJson(json);
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "code")
-  final String code;
+  final String? code;
 
   @override
   String toString() {
@@ -14723,11 +16986,13 @@ class _$DataManufacturerImpl implements _DataManufacturer {
             (identical(other.code, code) || other.code == code));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DataManufacturer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DataManufacturerImplCopyWith<_$DataManufacturerImpl> get copyWith =>
@@ -14744,21 +17009,23 @@ class _$DataManufacturerImpl implements _DataManufacturer {
 
 abstract class _DataManufacturer implements DataManufacturer {
   const factory _DataManufacturer(
-          {@JsonKey(name: "name") required final String name,
-          @JsonKey(name: "code") required final String code}) =
-      _$DataManufacturerImpl;
+      {@JsonKey(name: "name") final String? name,
+      @JsonKey(name: "code") final String? code}) = _$DataManufacturerImpl;
 
   factory _DataManufacturer.fromJson(Map<String, dynamic> json) =
       _$DataManufacturerImpl.fromJson;
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "code")
-  String get code;
+  String? get code;
+
+  /// Create a copy of DataManufacturer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DataManufacturerImplCopyWith<_$DataManufacturerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -14770,16 +17037,20 @@ Part _$PartFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Part {
   @JsonKey(name: "name")
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "display_name")
-  String get displayName => throw _privateConstructorUsedError;
+  String? get displayName => throw _privateConstructorUsedError;
   @JsonKey(name: "damage_max")
-  int get damageMax => throw _privateConstructorUsedError;
+  int? get damageMax => throw _privateConstructorUsedError;
   @JsonKey(name: "children")
-  List<Part> get children => throw _privateConstructorUsedError;
+  List<PartChild>? get children => throw _privateConstructorUsedError;
 
+  /// Serializes this Part to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Part
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PartCopyWith<Part> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -14789,10 +17060,10 @@ abstract class $PartCopyWith<$Res> {
       _$PartCopyWithImpl<$Res, Part>;
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "display_name") String displayName,
-      @JsonKey(name: "damage_max") int damageMax,
-      @JsonKey(name: "children") List<Part> children});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "damage_max") int? damageMax,
+      @JsonKey(name: "children") List<PartChild>? children});
 }
 
 /// @nodoc
@@ -14805,31 +17076,33 @@ class _$PartCopyWithImpl<$Res, $Val extends Part>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Part
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? displayName = null,
-    Object? damageMax = null,
-    Object? children = null,
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? damageMax = freezed,
+    Object? children = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
+              as String?,
+      displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      damageMax: null == damageMax
+              as String?,
+      damageMax: freezed == damageMax
           ? _value.damageMax
           : damageMax // ignore: cast_nullable_to_non_nullable
-              as int,
-      children: null == children
+              as int?,
+      children: freezed == children
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
-              as List<Part>,
+              as List<PartChild>?,
     ) as $Val);
   }
 }
@@ -14842,10 +17115,10 @@ abstract class _$$PartImplCopyWith<$Res> implements $PartCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "name") String name,
-      @JsonKey(name: "display_name") String displayName,
-      @JsonKey(name: "damage_max") int damageMax,
-      @JsonKey(name: "children") List<Part> children});
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "damage_max") int? damageMax,
+      @JsonKey(name: "children") List<PartChild>? children});
 }
 
 /// @nodoc
@@ -14855,31 +17128,33 @@ class __$$PartImplCopyWithImpl<$Res>
   __$$PartImplCopyWithImpl(_$PartImpl _value, $Res Function(_$PartImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Part
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? displayName = null,
-    Object? damageMax = null,
-    Object? children = null,
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? damageMax = freezed,
+    Object? children = freezed,
   }) {
     return _then(_$PartImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
+              as String?,
+      displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      damageMax: null == damageMax
+              as String?,
+      damageMax: freezed == damageMax
           ? _value.damageMax
           : damageMax // ignore: cast_nullable_to_non_nullable
-              as int,
-      children: null == children
+              as int?,
+      children: freezed == children
           ? _value._children
           : children // ignore: cast_nullable_to_non_nullable
-              as List<Part>,
+              as List<PartChild>?,
     ));
   }
 }
@@ -14888,10 +17163,10 @@ class __$$PartImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PartImpl implements _Part {
   const _$PartImpl(
-      {@JsonKey(name: "name") required this.name,
-      @JsonKey(name: "display_name") required this.displayName,
-      @JsonKey(name: "damage_max") required this.damageMax,
-      @JsonKey(name: "children") required final List<Part> children})
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "display_name") this.displayName,
+      @JsonKey(name: "damage_max") this.damageMax,
+      @JsonKey(name: "children") final List<PartChild>? children})
       : _children = children;
 
   factory _$PartImpl.fromJson(Map<String, dynamic> json) =>
@@ -14899,20 +17174,22 @@ class _$PartImpl implements _Part {
 
   @override
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: "display_name")
-  final String displayName;
+  final String? displayName;
   @override
   @JsonKey(name: "damage_max")
-  final int damageMax;
-  final List<Part> _children;
+  final int? damageMax;
+  final List<PartChild>? _children;
   @override
   @JsonKey(name: "children")
-  List<Part> get children {
+  List<PartChild>? get children {
+    final value = _children;
+    if (value == null) return null;
     if (_children is EqualUnmodifiableListView) return _children;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_children);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -14933,12 +17210,14 @@ class _$PartImpl implements _Part {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, displayName, damageMax,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Part
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PartImplCopyWith<_$PartImpl> get copyWith =>
@@ -14954,29 +17233,504 @@ class _$PartImpl implements _Part {
 
 abstract class _Part implements Part {
   const factory _Part(
-          {@JsonKey(name: "name") required final String name,
-          @JsonKey(name: "display_name") required final String displayName,
-          @JsonKey(name: "damage_max") required final int damageMax,
-          @JsonKey(name: "children") required final List<Part> children}) =
-      _$PartImpl;
+      {@JsonKey(name: "name") final String? name,
+      @JsonKey(name: "display_name") final String? displayName,
+      @JsonKey(name: "damage_max") final int? damageMax,
+      @JsonKey(name: "children") final List<PartChild>? children}) = _$PartImpl;
 
   factory _Part.fromJson(Map<String, dynamic> json) = _$PartImpl.fromJson;
 
   @override
   @JsonKey(name: "name")
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: "display_name")
-  String get displayName;
+  String? get displayName;
   @override
   @JsonKey(name: "damage_max")
-  int get damageMax;
+  int? get damageMax;
   @override
   @JsonKey(name: "children")
-  List<Part> get children;
+  List<PartChild>? get children;
+
+  /// Create a copy of Part
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PartImplCopyWith<_$PartImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PartChild _$PartChildFromJson(Map<String, dynamic> json) {
+  return _PartChild.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PartChild {
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "display_name")
+  String? get displayName => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_max")
+  int? get damageMax => throw _privateConstructorUsedError;
+  @JsonKey(name: "children")
+  List<FluffyChild>? get children => throw _privateConstructorUsedError;
+
+  /// Serializes this PartChild to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PartChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PartChildCopyWith<PartChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PartChildCopyWith<$Res> {
+  factory $PartChildCopyWith(PartChild value, $Res Function(PartChild) then) =
+      _$PartChildCopyWithImpl<$Res, PartChild>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "damage_max") int? damageMax,
+      @JsonKey(name: "children") List<FluffyChild>? children});
+}
+
+/// @nodoc
+class _$PartChildCopyWithImpl<$Res, $Val extends PartChild>
+    implements $PartChildCopyWith<$Res> {
+  _$PartChildCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PartChild
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? damageMax = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      damageMax: freezed == damageMax
+          ? _value.damageMax
+          : damageMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      children: freezed == children
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<FluffyChild>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PartChildImplCopyWith<$Res>
+    implements $PartChildCopyWith<$Res> {
+  factory _$$PartChildImplCopyWith(
+          _$PartChildImpl value, $Res Function(_$PartChildImpl) then) =
+      __$$PartChildImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "damage_max") int? damageMax,
+      @JsonKey(name: "children") List<FluffyChild>? children});
+}
+
+/// @nodoc
+class __$$PartChildImplCopyWithImpl<$Res>
+    extends _$PartChildCopyWithImpl<$Res, _$PartChildImpl>
+    implements _$$PartChildImplCopyWith<$Res> {
+  __$$PartChildImplCopyWithImpl(
+      _$PartChildImpl _value, $Res Function(_$PartChildImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PartChild
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? damageMax = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_$PartChildImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      damageMax: freezed == damageMax
+          ? _value.damageMax
+          : damageMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      children: freezed == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<FluffyChild>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PartChildImpl implements _PartChild {
+  const _$PartChildImpl(
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "display_name") this.displayName,
+      @JsonKey(name: "damage_max") this.damageMax,
+      @JsonKey(name: "children") final List<FluffyChild>? children})
+      : _children = children;
+
+  factory _$PartChildImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PartChildImplFromJson(json);
+
+  @override
+  @JsonKey(name: "name")
+  final String? name;
+  @override
+  @JsonKey(name: "display_name")
+  final String? displayName;
+  @override
+  @JsonKey(name: "damage_max")
+  final int? damageMax;
+  final List<FluffyChild>? _children;
+  @override
+  @JsonKey(name: "children")
+  List<FluffyChild>? get children {
+    final value = _children;
+    if (value == null) return null;
+    if (_children is EqualUnmodifiableListView) return _children;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'PartChild(name: $name, displayName: $displayName, damageMax: $damageMax, children: $children)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PartChildImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.damageMax, damageMax) ||
+                other.damageMax == damageMax) &&
+            const DeepCollectionEquality().equals(other._children, _children));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, displayName, damageMax,
+      const DeepCollectionEquality().hash(_children));
+
+  /// Create a copy of PartChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PartChildImplCopyWith<_$PartChildImpl> get copyWith =>
+      __$$PartChildImplCopyWithImpl<_$PartChildImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PartChildImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PartChild implements PartChild {
+  const factory _PartChild(
+          {@JsonKey(name: "name") final String? name,
+          @JsonKey(name: "display_name") final String? displayName,
+          @JsonKey(name: "damage_max") final int? damageMax,
+          @JsonKey(name: "children") final List<FluffyChild>? children}) =
+      _$PartChildImpl;
+
+  factory _PartChild.fromJson(Map<String, dynamic> json) =
+      _$PartChildImpl.fromJson;
+
+  @override
+  @JsonKey(name: "name")
+  String? get name;
+  @override
+  @JsonKey(name: "display_name")
+  String? get displayName;
+  @override
+  @JsonKey(name: "damage_max")
+  int? get damageMax;
+  @override
+  @JsonKey(name: "children")
+  List<FluffyChild>? get children;
+
+  /// Create a copy of PartChild
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PartChildImplCopyWith<_$PartChildImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FluffyChild _$FluffyChildFromJson(Map<String, dynamic> json) {
+  return _FluffyChild.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FluffyChild {
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: "display_name")
+  String? get displayName => throw _privateConstructorUsedError;
+  @JsonKey(name: "damage_max")
+  int? get damageMax => throw _privateConstructorUsedError;
+  @JsonKey(name: "children")
+  List<dynamic>? get children => throw _privateConstructorUsedError;
+
+  /// Serializes this FluffyChild to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of FluffyChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FluffyChildCopyWith<FluffyChild> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FluffyChildCopyWith<$Res> {
+  factory $FluffyChildCopyWith(
+          FluffyChild value, $Res Function(FluffyChild) then) =
+      _$FluffyChildCopyWithImpl<$Res, FluffyChild>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "damage_max") int? damageMax,
+      @JsonKey(name: "children") List<dynamic>? children});
+}
+
+/// @nodoc
+class _$FluffyChildCopyWithImpl<$Res, $Val extends FluffyChild>
+    implements $FluffyChildCopyWith<$Res> {
+  _$FluffyChildCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FluffyChild
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? damageMax = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      damageMax: freezed == damageMax
+          ? _value.damageMax
+          : damageMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      children: freezed == children
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FluffyChildImplCopyWith<$Res>
+    implements $FluffyChildCopyWith<$Res> {
+  factory _$$FluffyChildImplCopyWith(
+          _$FluffyChildImpl value, $Res Function(_$FluffyChildImpl) then) =
+      __$$FluffyChildImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "name") String? name,
+      @JsonKey(name: "display_name") String? displayName,
+      @JsonKey(name: "damage_max") int? damageMax,
+      @JsonKey(name: "children") List<dynamic>? children});
+}
+
+/// @nodoc
+class __$$FluffyChildImplCopyWithImpl<$Res>
+    extends _$FluffyChildCopyWithImpl<$Res, _$FluffyChildImpl>
+    implements _$$FluffyChildImplCopyWith<$Res> {
+  __$$FluffyChildImplCopyWithImpl(
+      _$FluffyChildImpl _value, $Res Function(_$FluffyChildImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FluffyChild
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? displayName = freezed,
+    Object? damageMax = freezed,
+    Object? children = freezed,
+  }) {
+    return _then(_$FluffyChildImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      damageMax: freezed == damageMax
+          ? _value.damageMax
+          : damageMax // ignore: cast_nullable_to_non_nullable
+              as int?,
+      children: freezed == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FluffyChildImpl implements _FluffyChild {
+  const _$FluffyChildImpl(
+      {@JsonKey(name: "name") this.name,
+      @JsonKey(name: "display_name") this.displayName,
+      @JsonKey(name: "damage_max") this.damageMax,
+      @JsonKey(name: "children") final List<dynamic>? children})
+      : _children = children;
+
+  factory _$FluffyChildImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FluffyChildImplFromJson(json);
+
+  @override
+  @JsonKey(name: "name")
+  final String? name;
+  @override
+  @JsonKey(name: "display_name")
+  final String? displayName;
+  @override
+  @JsonKey(name: "damage_max")
+  final int? damageMax;
+  final List<dynamic>? _children;
+  @override
+  @JsonKey(name: "children")
+  List<dynamic>? get children {
+    final value = _children;
+    if (value == null) return null;
+    if (_children is EqualUnmodifiableListView) return _children;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'FluffyChild(name: $name, displayName: $displayName, damageMax: $damageMax, children: $children)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FluffyChildImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.damageMax, damageMax) ||
+                other.damageMax == damageMax) &&
+            const DeepCollectionEquality().equals(other._children, _children));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, displayName, damageMax,
+      const DeepCollectionEquality().hash(_children));
+
+  /// Create a copy of FluffyChild
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FluffyChildImplCopyWith<_$FluffyChildImpl> get copyWith =>
+      __$$FluffyChildImplCopyWithImpl<_$FluffyChildImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FluffyChildImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FluffyChild implements FluffyChild {
+  const factory _FluffyChild(
+          {@JsonKey(name: "name") final String? name,
+          @JsonKey(name: "display_name") final String? displayName,
+          @JsonKey(name: "damage_max") final int? damageMax,
+          @JsonKey(name: "children") final List<dynamic>? children}) =
+      _$FluffyChildImpl;
+
+  factory _FluffyChild.fromJson(Map<String, dynamic> json) =
+      _$FluffyChildImpl.fromJson;
+
+  @override
+  @JsonKey(name: "name")
+  String? get name;
+  @override
+  @JsonKey(name: "display_name")
+  String? get displayName;
+  @override
+  @JsonKey(name: "damage_max")
+  int? get damageMax;
+  @override
+  @JsonKey(name: "children")
+  List<dynamic>? get children;
+
+  /// Create a copy of FluffyChild
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FluffyChildImplCopyWith<_$FluffyChildImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -14987,16 +17741,20 @@ Quantum _$QuantumFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Quantum {
   @JsonKey(name: "quantum_speed")
-  int get quantumSpeed => throw _privateConstructorUsedError;
+  int? get quantumSpeed => throw _privateConstructorUsedError;
   @JsonKey(name: "quantum_spool_time")
-  int get quantumSpoolTime => throw _privateConstructorUsedError;
+  int? get quantumSpoolTime => throw _privateConstructorUsedError;
   @JsonKey(name: "quantum_fuel_capacity")
-  int get quantumFuelCapacity => throw _privateConstructorUsedError;
+  int? get quantumFuelCapacity => throw _privateConstructorUsedError;
   @JsonKey(name: "quantum_range")
-  double get quantumRange => throw _privateConstructorUsedError;
+  double? get quantumRange => throw _privateConstructorUsedError;
 
+  /// Serializes this Quantum to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Quantum
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuantumCopyWith<Quantum> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -15006,10 +17764,10 @@ abstract class $QuantumCopyWith<$Res> {
       _$QuantumCopyWithImpl<$Res, Quantum>;
   @useResult
   $Res call(
-      {@JsonKey(name: "quantum_speed") int quantumSpeed,
-      @JsonKey(name: "quantum_spool_time") int quantumSpoolTime,
-      @JsonKey(name: "quantum_fuel_capacity") int quantumFuelCapacity,
-      @JsonKey(name: "quantum_range") double quantumRange});
+      {@JsonKey(name: "quantum_speed") int? quantumSpeed,
+      @JsonKey(name: "quantum_spool_time") int? quantumSpoolTime,
+      @JsonKey(name: "quantum_fuel_capacity") int? quantumFuelCapacity,
+      @JsonKey(name: "quantum_range") double? quantumRange});
 }
 
 /// @nodoc
@@ -15022,31 +17780,33 @@ class _$QuantumCopyWithImpl<$Res, $Val extends Quantum>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Quantum
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? quantumSpeed = null,
-    Object? quantumSpoolTime = null,
-    Object? quantumFuelCapacity = null,
-    Object? quantumRange = null,
+    Object? quantumSpeed = freezed,
+    Object? quantumSpoolTime = freezed,
+    Object? quantumFuelCapacity = freezed,
+    Object? quantumRange = freezed,
   }) {
     return _then(_value.copyWith(
-      quantumSpeed: null == quantumSpeed
+      quantumSpeed: freezed == quantumSpeed
           ? _value.quantumSpeed
           : quantumSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      quantumSpoolTime: null == quantumSpoolTime
+              as int?,
+      quantumSpoolTime: freezed == quantumSpoolTime
           ? _value.quantumSpoolTime
           : quantumSpoolTime // ignore: cast_nullable_to_non_nullable
-              as int,
-      quantumFuelCapacity: null == quantumFuelCapacity
+              as int?,
+      quantumFuelCapacity: freezed == quantumFuelCapacity
           ? _value.quantumFuelCapacity
           : quantumFuelCapacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      quantumRange: null == quantumRange
+              as int?,
+      quantumRange: freezed == quantumRange
           ? _value.quantumRange
           : quantumRange // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -15059,10 +17819,10 @@ abstract class _$$QuantumImplCopyWith<$Res> implements $QuantumCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "quantum_speed") int quantumSpeed,
-      @JsonKey(name: "quantum_spool_time") int quantumSpoolTime,
-      @JsonKey(name: "quantum_fuel_capacity") int quantumFuelCapacity,
-      @JsonKey(name: "quantum_range") double quantumRange});
+      {@JsonKey(name: "quantum_speed") int? quantumSpeed,
+      @JsonKey(name: "quantum_spool_time") int? quantumSpoolTime,
+      @JsonKey(name: "quantum_fuel_capacity") int? quantumFuelCapacity,
+      @JsonKey(name: "quantum_range") double? quantumRange});
 }
 
 /// @nodoc
@@ -15073,31 +17833,33 @@ class __$$QuantumImplCopyWithImpl<$Res>
       _$QuantumImpl _value, $Res Function(_$QuantumImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Quantum
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? quantumSpeed = null,
-    Object? quantumSpoolTime = null,
-    Object? quantumFuelCapacity = null,
-    Object? quantumRange = null,
+    Object? quantumSpeed = freezed,
+    Object? quantumSpoolTime = freezed,
+    Object? quantumFuelCapacity = freezed,
+    Object? quantumRange = freezed,
   }) {
     return _then(_$QuantumImpl(
-      quantumSpeed: null == quantumSpeed
+      quantumSpeed: freezed == quantumSpeed
           ? _value.quantumSpeed
           : quantumSpeed // ignore: cast_nullable_to_non_nullable
-              as int,
-      quantumSpoolTime: null == quantumSpoolTime
+              as int?,
+      quantumSpoolTime: freezed == quantumSpoolTime
           ? _value.quantumSpoolTime
           : quantumSpoolTime // ignore: cast_nullable_to_non_nullable
-              as int,
-      quantumFuelCapacity: null == quantumFuelCapacity
+              as int?,
+      quantumFuelCapacity: freezed == quantumFuelCapacity
           ? _value.quantumFuelCapacity
           : quantumFuelCapacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      quantumRange: null == quantumRange
+              as int?,
+      quantumRange: freezed == quantumRange
           ? _value.quantumRange
           : quantumRange // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -15106,26 +17868,26 @@ class __$$QuantumImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuantumImpl implements _Quantum {
   const _$QuantumImpl(
-      {@JsonKey(name: "quantum_speed") required this.quantumSpeed,
-      @JsonKey(name: "quantum_spool_time") required this.quantumSpoolTime,
-      @JsonKey(name: "quantum_fuel_capacity") required this.quantumFuelCapacity,
-      @JsonKey(name: "quantum_range") required this.quantumRange});
+      {@JsonKey(name: "quantum_speed") this.quantumSpeed,
+      @JsonKey(name: "quantum_spool_time") this.quantumSpoolTime,
+      @JsonKey(name: "quantum_fuel_capacity") this.quantumFuelCapacity,
+      @JsonKey(name: "quantum_range") this.quantumRange});
 
   factory _$QuantumImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuantumImplFromJson(json);
 
   @override
   @JsonKey(name: "quantum_speed")
-  final int quantumSpeed;
+  final int? quantumSpeed;
   @override
   @JsonKey(name: "quantum_spool_time")
-  final int quantumSpoolTime;
+  final int? quantumSpoolTime;
   @override
   @JsonKey(name: "quantum_fuel_capacity")
-  final int quantumFuelCapacity;
+  final int? quantumFuelCapacity;
   @override
   @JsonKey(name: "quantum_range")
-  final double quantumRange;
+  final double? quantumRange;
 
   @override
   String toString() {
@@ -15147,12 +17909,14 @@ class _$QuantumImpl implements _Quantum {
                 other.quantumRange == quantumRange));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, quantumSpeed, quantumSpoolTime,
       quantumFuelCapacity, quantumRange);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Quantum
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuantumImplCopyWith<_$QuantumImpl> get copyWith =>
@@ -15168,29 +17932,31 @@ class _$QuantumImpl implements _Quantum {
 
 abstract class _Quantum implements Quantum {
   const factory _Quantum(
-      {@JsonKey(name: "quantum_speed") required final int quantumSpeed,
-      @JsonKey(name: "quantum_spool_time") required final int quantumSpoolTime,
-      @JsonKey(name: "quantum_fuel_capacity")
-      required final int quantumFuelCapacity,
+      {@JsonKey(name: "quantum_speed") final int? quantumSpeed,
+      @JsonKey(name: "quantum_spool_time") final int? quantumSpoolTime,
+      @JsonKey(name: "quantum_fuel_capacity") final int? quantumFuelCapacity,
       @JsonKey(name: "quantum_range")
-      required final double quantumRange}) = _$QuantumImpl;
+      final double? quantumRange}) = _$QuantumImpl;
 
   factory _Quantum.fromJson(Map<String, dynamic> json) = _$QuantumImpl.fromJson;
 
   @override
   @JsonKey(name: "quantum_speed")
-  int get quantumSpeed;
+  int? get quantumSpeed;
   @override
   @JsonKey(name: "quantum_spool_time")
-  int get quantumSpoolTime;
+  int? get quantumSpoolTime;
   @override
   @JsonKey(name: "quantum_fuel_capacity")
-  int get quantumFuelCapacity;
+  int? get quantumFuelCapacity;
   @override
   @JsonKey(name: "quantum_range")
-  double get quantumRange;
+  double? get quantumRange;
+
+  /// Create a copy of Quantum
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuantumImplCopyWith<_$QuantumImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -15202,24 +17968,28 @@ Shop _$ShopFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Shop {
   @JsonKey(name: "uuid")
-  String? get uuid => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "name_raw")
   String get nameRaw => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "position")
-  String get position => throw _privateConstructorUsedError;
+  String? get position => throw _privateConstructorUsedError;
   @JsonKey(name: "profit_margin")
-  int get profitMargin => throw _privateConstructorUsedError;
+  int? get profitMargin => throw _privateConstructorUsedError;
   @JsonKey(name: "link")
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
   @JsonKey(name: "items")
   List<ItemElement> get items => throw _privateConstructorUsedError;
 
+  /// Serializes this Shop to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Shop
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ShopCopyWith<Shop> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -15229,13 +17999,13 @@ abstract class $ShopCopyWith<$Res> {
       _$ShopCopyWithImpl<$Res, Shop>;
   @useResult
   $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
+      {@JsonKey(name: "uuid") String uuid,
       @JsonKey(name: "name_raw") String nameRaw,
       @JsonKey(name: "name") String name,
-      @JsonKey(name: "position") String position,
-      @JsonKey(name: "profit_margin") int profitMargin,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "version") String version,
+      @JsonKey(name: "position") String? position,
+      @JsonKey(name: "profit_margin") int? profitMargin,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "version") String? version,
       @JsonKey(name: "items") List<ItemElement> items});
 }
 
@@ -15249,23 +18019,25 @@ class _$ShopCopyWithImpl<$Res, $Val extends Shop>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Shop
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
+    Object? uuid = null,
     Object? nameRaw = null,
     Object? name = null,
-    Object? position = null,
-    Object? profitMargin = null,
-    Object? link = null,
-    Object? version = null,
+    Object? position = freezed,
+    Object? profitMargin = freezed,
+    Object? link = freezed,
+    Object? version = freezed,
     Object? items = null,
   }) {
     return _then(_value.copyWith(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       nameRaw: null == nameRaw
           ? _value.nameRaw
           : nameRaw // ignore: cast_nullable_to_non_nullable
@@ -15274,22 +18046,22 @@ class _$ShopCopyWithImpl<$Res, $Val extends Shop>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      position: null == position
+      position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      profitMargin: null == profitMargin
+              as String?,
+      profitMargin: freezed == profitMargin
           ? _value.profitMargin
           : profitMargin // ignore: cast_nullable_to_non_nullable
-              as int,
-      link: null == link
+              as int?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
+              as String?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -15306,13 +18078,13 @@ abstract class _$$ShopImplCopyWith<$Res> implements $ShopCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
+      {@JsonKey(name: "uuid") String uuid,
       @JsonKey(name: "name_raw") String nameRaw,
       @JsonKey(name: "name") String name,
-      @JsonKey(name: "position") String position,
-      @JsonKey(name: "profit_margin") int profitMargin,
-      @JsonKey(name: "link") String link,
-      @JsonKey(name: "version") String version,
+      @JsonKey(name: "position") String? position,
+      @JsonKey(name: "profit_margin") int? profitMargin,
+      @JsonKey(name: "link") String? link,
+      @JsonKey(name: "version") String? version,
       @JsonKey(name: "items") List<ItemElement> items});
 }
 
@@ -15323,23 +18095,25 @@ class __$$ShopImplCopyWithImpl<$Res>
   __$$ShopImplCopyWithImpl(_$ShopImpl _value, $Res Function(_$ShopImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Shop
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
+    Object? uuid = null,
     Object? nameRaw = null,
     Object? name = null,
-    Object? position = null,
-    Object? profitMargin = null,
-    Object? link = null,
-    Object? version = null,
+    Object? position = freezed,
+    Object? profitMargin = freezed,
+    Object? link = freezed,
+    Object? version = freezed,
     Object? items = null,
   }) {
     return _then(_$ShopImpl(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       nameRaw: null == nameRaw
           ? _value.nameRaw
           : nameRaw // ignore: cast_nullable_to_non_nullable
@@ -15348,22 +18122,22 @@ class __$$ShopImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      position: null == position
+      position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      profitMargin: null == profitMargin
+              as String?,
+      profitMargin: freezed == profitMargin
           ? _value.profitMargin
           : profitMargin // ignore: cast_nullable_to_non_nullable
-              as int,
-      link: null == link
+              as int?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
+              as String?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -15376,13 +18150,13 @@ class __$$ShopImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ShopImpl implements _Shop {
   const _$ShopImpl(
-      {@JsonKey(name: "uuid") this.uuid,
+      {@JsonKey(name: "uuid") required this.uuid,
       @JsonKey(name: "name_raw") required this.nameRaw,
       @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "position") required this.position,
-      @JsonKey(name: "profit_margin") required this.profitMargin,
-      @JsonKey(name: "link") required this.link,
-      @JsonKey(name: "version") required this.version,
+      @JsonKey(name: "position") this.position,
+      @JsonKey(name: "profit_margin") this.profitMargin,
+      @JsonKey(name: "link") this.link,
+      @JsonKey(name: "version") this.version,
       @JsonKey(name: "items") required final List<ItemElement> items})
       : _items = items;
 
@@ -15391,7 +18165,7 @@ class _$ShopImpl implements _Shop {
 
   @override
   @JsonKey(name: "uuid")
-  final String? uuid;
+  final String uuid;
   @override
   @JsonKey(name: "name_raw")
   final String nameRaw;
@@ -15400,16 +18174,16 @@ class _$ShopImpl implements _Shop {
   final String name;
   @override
   @JsonKey(name: "position")
-  final String position;
+  final String? position;
   @override
   @JsonKey(name: "profit_margin")
-  final int profitMargin;
+  final int? profitMargin;
   @override
   @JsonKey(name: "link")
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: "version")
-  final String version;
+  final String? version;
   final List<ItemElement> _items;
   @override
   @JsonKey(name: "items")
@@ -15441,12 +18215,14 @@ class _$ShopImpl implements _Shop {
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, uuid, nameRaw, name, position,
       profitMargin, link, version, const DeepCollectionEquality().hash(_items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Shop
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ShopImplCopyWith<_$ShopImpl> get copyWith =>
@@ -15462,13 +18238,13 @@ class _$ShopImpl implements _Shop {
 
 abstract class _Shop implements Shop {
   const factory _Shop(
-          {@JsonKey(name: "uuid") final String? uuid,
+          {@JsonKey(name: "uuid") required final String uuid,
           @JsonKey(name: "name_raw") required final String nameRaw,
           @JsonKey(name: "name") required final String name,
-          @JsonKey(name: "position") required final String position,
-          @JsonKey(name: "profit_margin") required final int profitMargin,
-          @JsonKey(name: "link") required final String link,
-          @JsonKey(name: "version") required final String version,
+          @JsonKey(name: "position") final String? position,
+          @JsonKey(name: "profit_margin") final int? profitMargin,
+          @JsonKey(name: "link") final String? link,
+          @JsonKey(name: "version") final String? version,
           @JsonKey(name: "items") required final List<ItemElement> items}) =
       _$ShopImpl;
 
@@ -15476,7 +18252,7 @@ abstract class _Shop implements Shop {
 
   @override
   @JsonKey(name: "uuid")
-  String? get uuid;
+  String get uuid;
   @override
   @JsonKey(name: "name_raw")
   String get nameRaw;
@@ -15485,21 +18261,24 @@ abstract class _Shop implements Shop {
   String get name;
   @override
   @JsonKey(name: "position")
-  String get position;
+  String? get position;
   @override
   @JsonKey(name: "profit_margin")
-  int get profitMargin;
+  int? get profitMargin;
   @override
   @JsonKey(name: "link")
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
   @override
   @JsonKey(name: "items")
   List<ItemElement> get items;
+
+  /// Create a copy of Shop
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ShopImplCopyWith<_$ShopImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -15511,52 +18290,52 @@ ItemElement _$ItemElementFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ItemElement {
   @JsonKey(name: "uuid")
-  String? get uuid => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "type")
   String get type => throw _privateConstructorUsedError;
   @JsonKey(name: "sub_type")
-  String get subType => throw _privateConstructorUsedError;
+  String? get subType => throw _privateConstructorUsedError;
   @JsonKey(name: "base_price")
-  int get basePrice => throw _privateConstructorUsedError;
+  int? get basePrice => throw _privateConstructorUsedError;
   @JsonKey(name: "price_calculated")
-  int get priceCalculated => throw _privateConstructorUsedError;
+  int? get priceCalculated => throw _privateConstructorUsedError;
   @JsonKey(name: "price_range")
-  PriceRange get priceRange => throw _privateConstructorUsedError;
+  PriceRange? get priceRange => throw _privateConstructorUsedError;
   @JsonKey(name: "base_price_offset")
-  int get basePriceOffset => throw _privateConstructorUsedError;
+  int? get basePriceOffset => throw _privateConstructorUsedError;
   @JsonKey(name: "max_discount")
-  int get maxDiscount => throw _privateConstructorUsedError;
+  int? get maxDiscount => throw _privateConstructorUsedError;
   @JsonKey(name: "max_premium")
-  int get maxPremium => throw _privateConstructorUsedError;
+  int? get maxPremium => throw _privateConstructorUsedError;
   @JsonKey(name: "inventory")
-  int get inventory => throw _privateConstructorUsedError;
+  int? get inventory => throw _privateConstructorUsedError;
   @JsonKey(name: "optimal_inventory")
-  int get optimalInventory => throw _privateConstructorUsedError;
+  int? get optimalInventory => throw _privateConstructorUsedError;
   @JsonKey(name: "max_inventory")
-  int get maxInventory => throw _privateConstructorUsedError;
+  int? get maxInventory => throw _privateConstructorUsedError;
   @JsonKey(name: "auto_restock")
-  bool get autoRestock => throw _privateConstructorUsedError;
+  bool? get autoRestock => throw _privateConstructorUsedError;
   @JsonKey(name: "auto_consume")
-  bool get autoConsume => throw _privateConstructorUsedError;
+  bool? get autoConsume => throw _privateConstructorUsedError;
   @JsonKey(name: "refresh_rate")
-  int get refreshRate => throw _privateConstructorUsedError;
+  int? get refreshRate => throw _privateConstructorUsedError;
   @JsonKey(name: "buyable")
-  bool get buyable => throw _privateConstructorUsedError;
+  bool? get buyable => throw _privateConstructorUsedError;
   @JsonKey(name: "sellable")
-  bool get sellable => throw _privateConstructorUsedError;
+  bool? get sellable => throw _privateConstructorUsedError;
   @JsonKey(name: "rentable")
-  bool get rentable => throw _privateConstructorUsedError;
+  bool? get rentable => throw _privateConstructorUsedError;
   @JsonKey(name: "version")
-  String get version => throw _privateConstructorUsedError;
-  @JsonKey(name: "rental_price_days")
-  RentalPDays? get rentalPriceDays => throw _privateConstructorUsedError;
-  @JsonKey(name: "rental_percent_days")
-  RentalPDays? get rentalPercentDays => throw _privateConstructorUsedError;
+  String? get version => throw _privateConstructorUsedError;
 
+  /// Serializes this ItemElement to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ItemElement
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ItemElementCopyWith<ItemElement> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -15568,32 +18347,28 @@ abstract class $ItemElementCopyWith<$Res> {
       _$ItemElementCopyWithImpl<$Res, ItemElement>;
   @useResult
   $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
+      {@JsonKey(name: "uuid") String uuid,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "base_price") int basePrice,
-      @JsonKey(name: "price_calculated") int priceCalculated,
-      @JsonKey(name: "price_range") PriceRange priceRange,
-      @JsonKey(name: "base_price_offset") int basePriceOffset,
-      @JsonKey(name: "max_discount") int maxDiscount,
-      @JsonKey(name: "max_premium") int maxPremium,
-      @JsonKey(name: "inventory") int inventory,
-      @JsonKey(name: "optimal_inventory") int optimalInventory,
-      @JsonKey(name: "max_inventory") int maxInventory,
-      @JsonKey(name: "auto_restock") bool autoRestock,
-      @JsonKey(name: "auto_consume") bool autoConsume,
-      @JsonKey(name: "refresh_rate") int refreshRate,
-      @JsonKey(name: "buyable") bool buyable,
-      @JsonKey(name: "sellable") bool sellable,
-      @JsonKey(name: "rentable") bool rentable,
-      @JsonKey(name: "version") String version,
-      @JsonKey(name: "rental_price_days") RentalPDays? rentalPriceDays,
-      @JsonKey(name: "rental_percent_days") RentalPDays? rentalPercentDays});
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "base_price") int? basePrice,
+      @JsonKey(name: "price_calculated") int? priceCalculated,
+      @JsonKey(name: "price_range") PriceRange? priceRange,
+      @JsonKey(name: "base_price_offset") int? basePriceOffset,
+      @JsonKey(name: "max_discount") int? maxDiscount,
+      @JsonKey(name: "max_premium") int? maxPremium,
+      @JsonKey(name: "inventory") int? inventory,
+      @JsonKey(name: "optimal_inventory") int? optimalInventory,
+      @JsonKey(name: "max_inventory") int? maxInventory,
+      @JsonKey(name: "auto_restock") bool? autoRestock,
+      @JsonKey(name: "auto_consume") bool? autoConsume,
+      @JsonKey(name: "refresh_rate") int? refreshRate,
+      @JsonKey(name: "buyable") bool? buyable,
+      @JsonKey(name: "sellable") bool? sellable,
+      @JsonKey(name: "rentable") bool? rentable,
+      @JsonKey(name: "version") String? version});
 
-  $PriceRangeCopyWith<$Res> get priceRange;
-  $RentalPDaysCopyWith<$Res>? get rentalPriceDays;
-  $RentalPDaysCopyWith<$Res>? get rentalPercentDays;
+  $PriceRangeCopyWith<$Res>? get priceRange;
 }
 
 /// @nodoc
@@ -15606,37 +18381,37 @@ class _$ItemElementCopyWithImpl<$Res, $Val extends ItemElement>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ItemElement
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
+    Object? uuid = null,
     Object? name = null,
     Object? type = null,
-    Object? subType = null,
-    Object? basePrice = null,
-    Object? priceCalculated = null,
-    Object? priceRange = null,
-    Object? basePriceOffset = null,
-    Object? maxDiscount = null,
-    Object? maxPremium = null,
-    Object? inventory = null,
-    Object? optimalInventory = null,
-    Object? maxInventory = null,
-    Object? autoRestock = null,
-    Object? autoConsume = null,
-    Object? refreshRate = null,
-    Object? buyable = null,
-    Object? sellable = null,
-    Object? rentable = null,
-    Object? version = null,
-    Object? rentalPriceDays = freezed,
-    Object? rentalPercentDays = freezed,
+    Object? subType = freezed,
+    Object? basePrice = freezed,
+    Object? priceCalculated = freezed,
+    Object? priceRange = freezed,
+    Object? basePriceOffset = freezed,
+    Object? maxDiscount = freezed,
+    Object? maxPremium = freezed,
+    Object? inventory = freezed,
+    Object? optimalInventory = freezed,
+    Object? maxInventory = freezed,
+    Object? autoRestock = freezed,
+    Object? autoConsume = freezed,
+    Object? refreshRate = freezed,
+    Object? buyable = freezed,
+    Object? sellable = freezed,
+    Object? rentable = freezed,
+    Object? version = freezed,
   }) {
     return _then(_value.copyWith(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -15645,114 +18420,88 @@ class _$ItemElementCopyWithImpl<$Res, $Val extends ItemElement>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      subType: null == subType
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
-      basePrice: null == basePrice
+              as String?,
+      basePrice: freezed == basePrice
           ? _value.basePrice
           : basePrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      priceCalculated: null == priceCalculated
+              as int?,
+      priceCalculated: freezed == priceCalculated
           ? _value.priceCalculated
           : priceCalculated // ignore: cast_nullable_to_non_nullable
-              as int,
-      priceRange: null == priceRange
+              as int?,
+      priceRange: freezed == priceRange
           ? _value.priceRange
           : priceRange // ignore: cast_nullable_to_non_nullable
-              as PriceRange,
-      basePriceOffset: null == basePriceOffset
+              as PriceRange?,
+      basePriceOffset: freezed == basePriceOffset
           ? _value.basePriceOffset
           : basePriceOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxDiscount: null == maxDiscount
+              as int?,
+      maxDiscount: freezed == maxDiscount
           ? _value.maxDiscount
           : maxDiscount // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxPremium: null == maxPremium
+              as int?,
+      maxPremium: freezed == maxPremium
           ? _value.maxPremium
           : maxPremium // ignore: cast_nullable_to_non_nullable
-              as int,
-      inventory: null == inventory
+              as int?,
+      inventory: freezed == inventory
           ? _value.inventory
           : inventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      optimalInventory: null == optimalInventory
+              as int?,
+      optimalInventory: freezed == optimalInventory
           ? _value.optimalInventory
           : optimalInventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxInventory: null == maxInventory
+              as int?,
+      maxInventory: freezed == maxInventory
           ? _value.maxInventory
           : maxInventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      autoRestock: null == autoRestock
+              as int?,
+      autoRestock: freezed == autoRestock
           ? _value.autoRestock
           : autoRestock // ignore: cast_nullable_to_non_nullable
-              as bool,
-      autoConsume: null == autoConsume
+              as bool?,
+      autoConsume: freezed == autoConsume
           ? _value.autoConsume
           : autoConsume // ignore: cast_nullable_to_non_nullable
-              as bool,
-      refreshRate: null == refreshRate
+              as bool?,
+      refreshRate: freezed == refreshRate
           ? _value.refreshRate
           : refreshRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      buyable: null == buyable
+              as int?,
+      buyable: freezed == buyable
           ? _value.buyable
           : buyable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sellable: null == sellable
+              as bool?,
+      sellable: freezed == sellable
           ? _value.sellable
           : sellable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rentable: null == rentable
+              as bool?,
+      rentable: freezed == rentable
           ? _value.rentable
           : rentable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      version: null == version
+              as bool?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      rentalPriceDays: freezed == rentalPriceDays
-          ? _value.rentalPriceDays
-          : rentalPriceDays // ignore: cast_nullable_to_non_nullable
-              as RentalPDays?,
-      rentalPercentDays: freezed == rentalPercentDays
-          ? _value.rentalPercentDays
-          : rentalPercentDays // ignore: cast_nullable_to_non_nullable
-              as RentalPDays?,
+              as String?,
     ) as $Val);
   }
 
+  /// Create a copy of ItemElement
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PriceRangeCopyWith<$Res> get priceRange {
-    return $PriceRangeCopyWith<$Res>(_value.priceRange, (value) {
+  $PriceRangeCopyWith<$Res>? get priceRange {
+    if (_value.priceRange == null) {
+      return null;
+    }
+
+    return $PriceRangeCopyWith<$Res>(_value.priceRange!, (value) {
       return _then(_value.copyWith(priceRange: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RentalPDaysCopyWith<$Res>? get rentalPriceDays {
-    if (_value.rentalPriceDays == null) {
-      return null;
-    }
-
-    return $RentalPDaysCopyWith<$Res>(_value.rentalPriceDays!, (value) {
-      return _then(_value.copyWith(rentalPriceDays: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RentalPDaysCopyWith<$Res>? get rentalPercentDays {
-    if (_value.rentalPercentDays == null) {
-      return null;
-    }
-
-    return $RentalPDaysCopyWith<$Res>(_value.rentalPercentDays!, (value) {
-      return _then(_value.copyWith(rentalPercentDays: value) as $Val);
     });
   }
 }
@@ -15766,35 +18515,29 @@ abstract class _$$ItemElementImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "uuid") String? uuid,
+      {@JsonKey(name: "uuid") String uuid,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "type") String type,
-      @JsonKey(name: "sub_type") String subType,
-      @JsonKey(name: "base_price") int basePrice,
-      @JsonKey(name: "price_calculated") int priceCalculated,
-      @JsonKey(name: "price_range") PriceRange priceRange,
-      @JsonKey(name: "base_price_offset") int basePriceOffset,
-      @JsonKey(name: "max_discount") int maxDiscount,
-      @JsonKey(name: "max_premium") int maxPremium,
-      @JsonKey(name: "inventory") int inventory,
-      @JsonKey(name: "optimal_inventory") int optimalInventory,
-      @JsonKey(name: "max_inventory") int maxInventory,
-      @JsonKey(name: "auto_restock") bool autoRestock,
-      @JsonKey(name: "auto_consume") bool autoConsume,
-      @JsonKey(name: "refresh_rate") int refreshRate,
-      @JsonKey(name: "buyable") bool buyable,
-      @JsonKey(name: "sellable") bool sellable,
-      @JsonKey(name: "rentable") bool rentable,
-      @JsonKey(name: "version") String version,
-      @JsonKey(name: "rental_price_days") RentalPDays? rentalPriceDays,
-      @JsonKey(name: "rental_percent_days") RentalPDays? rentalPercentDays});
+      @JsonKey(name: "sub_type") String? subType,
+      @JsonKey(name: "base_price") int? basePrice,
+      @JsonKey(name: "price_calculated") int? priceCalculated,
+      @JsonKey(name: "price_range") PriceRange? priceRange,
+      @JsonKey(name: "base_price_offset") int? basePriceOffset,
+      @JsonKey(name: "max_discount") int? maxDiscount,
+      @JsonKey(name: "max_premium") int? maxPremium,
+      @JsonKey(name: "inventory") int? inventory,
+      @JsonKey(name: "optimal_inventory") int? optimalInventory,
+      @JsonKey(name: "max_inventory") int? maxInventory,
+      @JsonKey(name: "auto_restock") bool? autoRestock,
+      @JsonKey(name: "auto_consume") bool? autoConsume,
+      @JsonKey(name: "refresh_rate") int? refreshRate,
+      @JsonKey(name: "buyable") bool? buyable,
+      @JsonKey(name: "sellable") bool? sellable,
+      @JsonKey(name: "rentable") bool? rentable,
+      @JsonKey(name: "version") String? version});
 
   @override
-  $PriceRangeCopyWith<$Res> get priceRange;
-  @override
-  $RentalPDaysCopyWith<$Res>? get rentalPriceDays;
-  @override
-  $RentalPDaysCopyWith<$Res>? get rentalPercentDays;
+  $PriceRangeCopyWith<$Res>? get priceRange;
 }
 
 /// @nodoc
@@ -15805,37 +18548,37 @@ class __$$ItemElementImplCopyWithImpl<$Res>
       _$ItemElementImpl _value, $Res Function(_$ItemElementImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ItemElement
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
+    Object? uuid = null,
     Object? name = null,
     Object? type = null,
-    Object? subType = null,
-    Object? basePrice = null,
-    Object? priceCalculated = null,
-    Object? priceRange = null,
-    Object? basePriceOffset = null,
-    Object? maxDiscount = null,
-    Object? maxPremium = null,
-    Object? inventory = null,
-    Object? optimalInventory = null,
-    Object? maxInventory = null,
-    Object? autoRestock = null,
-    Object? autoConsume = null,
-    Object? refreshRate = null,
-    Object? buyable = null,
-    Object? sellable = null,
-    Object? rentable = null,
-    Object? version = null,
-    Object? rentalPriceDays = freezed,
-    Object? rentalPercentDays = freezed,
+    Object? subType = freezed,
+    Object? basePrice = freezed,
+    Object? priceCalculated = freezed,
+    Object? priceRange = freezed,
+    Object? basePriceOffset = freezed,
+    Object? maxDiscount = freezed,
+    Object? maxPremium = freezed,
+    Object? inventory = freezed,
+    Object? optimalInventory = freezed,
+    Object? maxInventory = freezed,
+    Object? autoRestock = freezed,
+    Object? autoConsume = freezed,
+    Object? refreshRate = freezed,
+    Object? buyable = freezed,
+    Object? sellable = freezed,
+    Object? rentable = freezed,
+    Object? version = freezed,
   }) {
     return _then(_$ItemElementImpl(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -15844,82 +18587,74 @@ class __$$ItemElementImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      subType: null == subType
+      subType: freezed == subType
           ? _value.subType
           : subType // ignore: cast_nullable_to_non_nullable
-              as String,
-      basePrice: null == basePrice
+              as String?,
+      basePrice: freezed == basePrice
           ? _value.basePrice
           : basePrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      priceCalculated: null == priceCalculated
+              as int?,
+      priceCalculated: freezed == priceCalculated
           ? _value.priceCalculated
           : priceCalculated // ignore: cast_nullable_to_non_nullable
-              as int,
-      priceRange: null == priceRange
+              as int?,
+      priceRange: freezed == priceRange
           ? _value.priceRange
           : priceRange // ignore: cast_nullable_to_non_nullable
-              as PriceRange,
-      basePriceOffset: null == basePriceOffset
+              as PriceRange?,
+      basePriceOffset: freezed == basePriceOffset
           ? _value.basePriceOffset
           : basePriceOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxDiscount: null == maxDiscount
+              as int?,
+      maxDiscount: freezed == maxDiscount
           ? _value.maxDiscount
           : maxDiscount // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxPremium: null == maxPremium
+              as int?,
+      maxPremium: freezed == maxPremium
           ? _value.maxPremium
           : maxPremium // ignore: cast_nullable_to_non_nullable
-              as int,
-      inventory: null == inventory
+              as int?,
+      inventory: freezed == inventory
           ? _value.inventory
           : inventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      optimalInventory: null == optimalInventory
+              as int?,
+      optimalInventory: freezed == optimalInventory
           ? _value.optimalInventory
           : optimalInventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxInventory: null == maxInventory
+              as int?,
+      maxInventory: freezed == maxInventory
           ? _value.maxInventory
           : maxInventory // ignore: cast_nullable_to_non_nullable
-              as int,
-      autoRestock: null == autoRestock
+              as int?,
+      autoRestock: freezed == autoRestock
           ? _value.autoRestock
           : autoRestock // ignore: cast_nullable_to_non_nullable
-              as bool,
-      autoConsume: null == autoConsume
+              as bool?,
+      autoConsume: freezed == autoConsume
           ? _value.autoConsume
           : autoConsume // ignore: cast_nullable_to_non_nullable
-              as bool,
-      refreshRate: null == refreshRate
+              as bool?,
+      refreshRate: freezed == refreshRate
           ? _value.refreshRate
           : refreshRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      buyable: null == buyable
+              as int?,
+      buyable: freezed == buyable
           ? _value.buyable
           : buyable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sellable: null == sellable
+              as bool?,
+      sellable: freezed == sellable
           ? _value.sellable
           : sellable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rentable: null == rentable
+              as bool?,
+      rentable: freezed == rentable
           ? _value.rentable
           : rentable // ignore: cast_nullable_to_non_nullable
-              as bool,
-      version: null == version
+              as bool?,
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      rentalPriceDays: freezed == rentalPriceDays
-          ? _value.rentalPriceDays
-          : rentalPriceDays // ignore: cast_nullable_to_non_nullable
-              as RentalPDays?,
-      rentalPercentDays: freezed == rentalPercentDays
-          ? _value.rentalPercentDays
-          : rentalPercentDays // ignore: cast_nullable_to_non_nullable
-              as RentalPDays?,
+              as String?,
     ));
   }
 }
@@ -15928,35 +18663,33 @@ class __$$ItemElementImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ItemElementImpl implements _ItemElement {
   const _$ItemElementImpl(
-      {@JsonKey(name: "uuid") this.uuid,
+      {@JsonKey(name: "uuid") required this.uuid,
       @JsonKey(name: "name") required this.name,
       @JsonKey(name: "type") required this.type,
-      @JsonKey(name: "sub_type") required this.subType,
-      @JsonKey(name: "base_price") required this.basePrice,
-      @JsonKey(name: "price_calculated") required this.priceCalculated,
-      @JsonKey(name: "price_range") required this.priceRange,
-      @JsonKey(name: "base_price_offset") required this.basePriceOffset,
-      @JsonKey(name: "max_discount") required this.maxDiscount,
-      @JsonKey(name: "max_premium") required this.maxPremium,
-      @JsonKey(name: "inventory") required this.inventory,
-      @JsonKey(name: "optimal_inventory") required this.optimalInventory,
-      @JsonKey(name: "max_inventory") required this.maxInventory,
-      @JsonKey(name: "auto_restock") required this.autoRestock,
-      @JsonKey(name: "auto_consume") required this.autoConsume,
-      @JsonKey(name: "refresh_rate") required this.refreshRate,
-      @JsonKey(name: "buyable") required this.buyable,
-      @JsonKey(name: "sellable") required this.sellable,
-      @JsonKey(name: "rentable") required this.rentable,
-      @JsonKey(name: "version") required this.version,
-      @JsonKey(name: "rental_price_days") this.rentalPriceDays,
-      @JsonKey(name: "rental_percent_days") this.rentalPercentDays});
+      @JsonKey(name: "sub_type") this.subType,
+      @JsonKey(name: "base_price") this.basePrice,
+      @JsonKey(name: "price_calculated") this.priceCalculated,
+      @JsonKey(name: "price_range") this.priceRange,
+      @JsonKey(name: "base_price_offset") this.basePriceOffset,
+      @JsonKey(name: "max_discount") this.maxDiscount,
+      @JsonKey(name: "max_premium") this.maxPremium,
+      @JsonKey(name: "inventory") this.inventory,
+      @JsonKey(name: "optimal_inventory") this.optimalInventory,
+      @JsonKey(name: "max_inventory") this.maxInventory,
+      @JsonKey(name: "auto_restock") this.autoRestock,
+      @JsonKey(name: "auto_consume") this.autoConsume,
+      @JsonKey(name: "refresh_rate") this.refreshRate,
+      @JsonKey(name: "buyable") this.buyable,
+      @JsonKey(name: "sellable") this.sellable,
+      @JsonKey(name: "rentable") this.rentable,
+      @JsonKey(name: "version") this.version});
 
   factory _$ItemElementImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItemElementImplFromJson(json);
 
   @override
   @JsonKey(name: "uuid")
-  final String? uuid;
+  final String uuid;
   @override
   @JsonKey(name: "name")
   final String name;
@@ -15965,65 +18698,59 @@ class _$ItemElementImpl implements _ItemElement {
   final String type;
   @override
   @JsonKey(name: "sub_type")
-  final String subType;
+  final String? subType;
   @override
   @JsonKey(name: "base_price")
-  final int basePrice;
+  final int? basePrice;
   @override
   @JsonKey(name: "price_calculated")
-  final int priceCalculated;
+  final int? priceCalculated;
   @override
   @JsonKey(name: "price_range")
-  final PriceRange priceRange;
+  final PriceRange? priceRange;
   @override
   @JsonKey(name: "base_price_offset")
-  final int basePriceOffset;
+  final int? basePriceOffset;
   @override
   @JsonKey(name: "max_discount")
-  final int maxDiscount;
+  final int? maxDiscount;
   @override
   @JsonKey(name: "max_premium")
-  final int maxPremium;
+  final int? maxPremium;
   @override
   @JsonKey(name: "inventory")
-  final int inventory;
+  final int? inventory;
   @override
   @JsonKey(name: "optimal_inventory")
-  final int optimalInventory;
+  final int? optimalInventory;
   @override
   @JsonKey(name: "max_inventory")
-  final int maxInventory;
+  final int? maxInventory;
   @override
   @JsonKey(name: "auto_restock")
-  final bool autoRestock;
+  final bool? autoRestock;
   @override
   @JsonKey(name: "auto_consume")
-  final bool autoConsume;
+  final bool? autoConsume;
   @override
   @JsonKey(name: "refresh_rate")
-  final int refreshRate;
+  final int? refreshRate;
   @override
   @JsonKey(name: "buyable")
-  final bool buyable;
+  final bool? buyable;
   @override
   @JsonKey(name: "sellable")
-  final bool sellable;
+  final bool? sellable;
   @override
   @JsonKey(name: "rentable")
-  final bool rentable;
+  final bool? rentable;
   @override
   @JsonKey(name: "version")
-  final String version;
-  @override
-  @JsonKey(name: "rental_price_days")
-  final RentalPDays? rentalPriceDays;
-  @override
-  @JsonKey(name: "rental_percent_days")
-  final RentalPDays? rentalPercentDays;
+  final String? version;
 
   @override
   String toString() {
-    return 'ItemElement(uuid: $uuid, name: $name, type: $type, subType: $subType, basePrice: $basePrice, priceCalculated: $priceCalculated, priceRange: $priceRange, basePriceOffset: $basePriceOffset, maxDiscount: $maxDiscount, maxPremium: $maxPremium, inventory: $inventory, optimalInventory: $optimalInventory, maxInventory: $maxInventory, autoRestock: $autoRestock, autoConsume: $autoConsume, refreshRate: $refreshRate, buyable: $buyable, sellable: $sellable, rentable: $rentable, version: $version, rentalPriceDays: $rentalPriceDays, rentalPercentDays: $rentalPercentDays)';
+    return 'ItemElement(uuid: $uuid, name: $name, type: $type, subType: $subType, basePrice: $basePrice, priceCalculated: $priceCalculated, priceRange: $priceRange, basePriceOffset: $basePriceOffset, maxDiscount: $maxDiscount, maxPremium: $maxPremium, inventory: $inventory, optimalInventory: $optimalInventory, maxInventory: $maxInventory, autoRestock: $autoRestock, autoConsume: $autoConsume, refreshRate: $refreshRate, buyable: $buyable, sellable: $sellable, rentable: $rentable, version: $version)';
   }
 
   @override
@@ -16064,14 +18791,10 @@ class _$ItemElementImpl implements _ItemElement {
                 other.sellable == sellable) &&
             (identical(other.rentable, rentable) ||
                 other.rentable == rentable) &&
-            (identical(other.version, version) || other.version == version) &&
-            (identical(other.rentalPriceDays, rentalPriceDays) ||
-                other.rentalPriceDays == rentalPriceDays) &&
-            (identical(other.rentalPercentDays, rentalPercentDays) ||
-                other.rentalPercentDays == rentalPercentDays));
+            (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -16094,12 +18817,12 @@ class _$ItemElementImpl implements _ItemElement {
         buyable,
         sellable,
         rentable,
-        version,
-        rentalPriceDays,
-        rentalPercentDays
+        version
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ItemElement
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ItemElementImplCopyWith<_$ItemElementImpl> get copyWith =>
@@ -16115,36 +18838,33 @@ class _$ItemElementImpl implements _ItemElement {
 
 abstract class _ItemElement implements ItemElement {
   const factory _ItemElement(
-      {@JsonKey(name: "uuid") final String? uuid,
+      {@JsonKey(name: "uuid") required final String uuid,
       @JsonKey(name: "name") required final String name,
       @JsonKey(name: "type") required final String type,
-      @JsonKey(name: "sub_type") required final String subType,
-      @JsonKey(name: "base_price") required final int basePrice,
-      @JsonKey(name: "price_calculated") required final int priceCalculated,
-      @JsonKey(name: "price_range") required final PriceRange priceRange,
-      @JsonKey(name: "base_price_offset") required final int basePriceOffset,
-      @JsonKey(name: "max_discount") required final int maxDiscount,
-      @JsonKey(name: "max_premium") required final int maxPremium,
-      @JsonKey(name: "inventory") required final int inventory,
-      @JsonKey(name: "optimal_inventory") required final int optimalInventory,
-      @JsonKey(name: "max_inventory") required final int maxInventory,
-      @JsonKey(name: "auto_restock") required final bool autoRestock,
-      @JsonKey(name: "auto_consume") required final bool autoConsume,
-      @JsonKey(name: "refresh_rate") required final int refreshRate,
-      @JsonKey(name: "buyable") required final bool buyable,
-      @JsonKey(name: "sellable") required final bool sellable,
-      @JsonKey(name: "rentable") required final bool rentable,
-      @JsonKey(name: "version") required final String version,
-      @JsonKey(name: "rental_price_days") final RentalPDays? rentalPriceDays,
-      @JsonKey(name: "rental_percent_days")
-      final RentalPDays? rentalPercentDays}) = _$ItemElementImpl;
+      @JsonKey(name: "sub_type") final String? subType,
+      @JsonKey(name: "base_price") final int? basePrice,
+      @JsonKey(name: "price_calculated") final int? priceCalculated,
+      @JsonKey(name: "price_range") final PriceRange? priceRange,
+      @JsonKey(name: "base_price_offset") final int? basePriceOffset,
+      @JsonKey(name: "max_discount") final int? maxDiscount,
+      @JsonKey(name: "max_premium") final int? maxPremium,
+      @JsonKey(name: "inventory") final int? inventory,
+      @JsonKey(name: "optimal_inventory") final int? optimalInventory,
+      @JsonKey(name: "max_inventory") final int? maxInventory,
+      @JsonKey(name: "auto_restock") final bool? autoRestock,
+      @JsonKey(name: "auto_consume") final bool? autoConsume,
+      @JsonKey(name: "refresh_rate") final int? refreshRate,
+      @JsonKey(name: "buyable") final bool? buyable,
+      @JsonKey(name: "sellable") final bool? sellable,
+      @JsonKey(name: "rentable") final bool? rentable,
+      @JsonKey(name: "version") final String? version}) = _$ItemElementImpl;
 
   factory _ItemElement.fromJson(Map<String, dynamic> json) =
       _$ItemElementImpl.fromJson;
 
   @override
   @JsonKey(name: "uuid")
-  String? get uuid;
+  String get uuid;
   @override
   @JsonKey(name: "name")
   String get name;
@@ -16153,282 +18873,61 @@ abstract class _ItemElement implements ItemElement {
   String get type;
   @override
   @JsonKey(name: "sub_type")
-  String get subType;
+  String? get subType;
   @override
   @JsonKey(name: "base_price")
-  int get basePrice;
+  int? get basePrice;
   @override
   @JsonKey(name: "price_calculated")
-  int get priceCalculated;
+  int? get priceCalculated;
   @override
   @JsonKey(name: "price_range")
-  PriceRange get priceRange;
+  PriceRange? get priceRange;
   @override
   @JsonKey(name: "base_price_offset")
-  int get basePriceOffset;
+  int? get basePriceOffset;
   @override
   @JsonKey(name: "max_discount")
-  int get maxDiscount;
+  int? get maxDiscount;
   @override
   @JsonKey(name: "max_premium")
-  int get maxPremium;
+  int? get maxPremium;
   @override
   @JsonKey(name: "inventory")
-  int get inventory;
+  int? get inventory;
   @override
   @JsonKey(name: "optimal_inventory")
-  int get optimalInventory;
+  int? get optimalInventory;
   @override
   @JsonKey(name: "max_inventory")
-  int get maxInventory;
+  int? get maxInventory;
   @override
   @JsonKey(name: "auto_restock")
-  bool get autoRestock;
+  bool? get autoRestock;
   @override
   @JsonKey(name: "auto_consume")
-  bool get autoConsume;
+  bool? get autoConsume;
   @override
   @JsonKey(name: "refresh_rate")
-  int get refreshRate;
+  int? get refreshRate;
   @override
   @JsonKey(name: "buyable")
-  bool get buyable;
+  bool? get buyable;
   @override
   @JsonKey(name: "sellable")
-  bool get sellable;
+  bool? get sellable;
   @override
   @JsonKey(name: "rentable")
-  bool get rentable;
+  bool? get rentable;
   @override
   @JsonKey(name: "version")
-  String get version;
+  String? get version;
+
+  /// Create a copy of ItemElement
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(name: "rental_price_days")
-  RentalPDays? get rentalPriceDays;
-  @override
-  @JsonKey(name: "rental_percent_days")
-  RentalPDays? get rentalPercentDays;
-  @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ItemElementImplCopyWith<_$ItemElementImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-RentalPDays _$RentalPDaysFromJson(Map<String, dynamic> json) {
-  return _RentalPDays.fromJson(json);
-}
-
-/// @nodoc
-mixin _$RentalPDays {
-  @JsonKey(name: "duration_1")
-  int get duration1 => throw _privateConstructorUsedError;
-  @JsonKey(name: "duration_3")
-  double get duration3 => throw _privateConstructorUsedError;
-  @JsonKey(name: "duration_7")
-  double get duration7 => throw _privateConstructorUsedError;
-  @JsonKey(name: "duration_30")
-  double get duration30 => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RentalPDaysCopyWith<RentalPDays> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RentalPDaysCopyWith<$Res> {
-  factory $RentalPDaysCopyWith(
-          RentalPDays value, $Res Function(RentalPDays) then) =
-      _$RentalPDaysCopyWithImpl<$Res, RentalPDays>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "duration_1") int duration1,
-      @JsonKey(name: "duration_3") double duration3,
-      @JsonKey(name: "duration_7") double duration7,
-      @JsonKey(name: "duration_30") double duration30});
-}
-
-/// @nodoc
-class _$RentalPDaysCopyWithImpl<$Res, $Val extends RentalPDays>
-    implements $RentalPDaysCopyWith<$Res> {
-  _$RentalPDaysCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? duration1 = null,
-    Object? duration3 = null,
-    Object? duration7 = null,
-    Object? duration30 = null,
-  }) {
-    return _then(_value.copyWith(
-      duration1: null == duration1
-          ? _value.duration1
-          : duration1 // ignore: cast_nullable_to_non_nullable
-              as int,
-      duration3: null == duration3
-          ? _value.duration3
-          : duration3 // ignore: cast_nullable_to_non_nullable
-              as double,
-      duration7: null == duration7
-          ? _value.duration7
-          : duration7 // ignore: cast_nullable_to_non_nullable
-              as double,
-      duration30: null == duration30
-          ? _value.duration30
-          : duration30 // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$RentalPDaysImplCopyWith<$Res>
-    implements $RentalPDaysCopyWith<$Res> {
-  factory _$$RentalPDaysImplCopyWith(
-          _$RentalPDaysImpl value, $Res Function(_$RentalPDaysImpl) then) =
-      __$$RentalPDaysImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "duration_1") int duration1,
-      @JsonKey(name: "duration_3") double duration3,
-      @JsonKey(name: "duration_7") double duration7,
-      @JsonKey(name: "duration_30") double duration30});
-}
-
-/// @nodoc
-class __$$RentalPDaysImplCopyWithImpl<$Res>
-    extends _$RentalPDaysCopyWithImpl<$Res, _$RentalPDaysImpl>
-    implements _$$RentalPDaysImplCopyWith<$Res> {
-  __$$RentalPDaysImplCopyWithImpl(
-      _$RentalPDaysImpl _value, $Res Function(_$RentalPDaysImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? duration1 = null,
-    Object? duration3 = null,
-    Object? duration7 = null,
-    Object? duration30 = null,
-  }) {
-    return _then(_$RentalPDaysImpl(
-      duration1: null == duration1
-          ? _value.duration1
-          : duration1 // ignore: cast_nullable_to_non_nullable
-              as int,
-      duration3: null == duration3
-          ? _value.duration3
-          : duration3 // ignore: cast_nullable_to_non_nullable
-              as double,
-      duration7: null == duration7
-          ? _value.duration7
-          : duration7 // ignore: cast_nullable_to_non_nullable
-              as double,
-      duration30: null == duration30
-          ? _value.duration30
-          : duration30 // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RentalPDaysImpl implements _RentalPDays {
-  const _$RentalPDaysImpl(
-      {@JsonKey(name: "duration_1") required this.duration1,
-      @JsonKey(name: "duration_3") required this.duration3,
-      @JsonKey(name: "duration_7") required this.duration7,
-      @JsonKey(name: "duration_30") required this.duration30});
-
-  factory _$RentalPDaysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RentalPDaysImplFromJson(json);
-
-  @override
-  @JsonKey(name: "duration_1")
-  final int duration1;
-  @override
-  @JsonKey(name: "duration_3")
-  final double duration3;
-  @override
-  @JsonKey(name: "duration_7")
-  final double duration7;
-  @override
-  @JsonKey(name: "duration_30")
-  final double duration30;
-
-  @override
-  String toString() {
-    return 'RentalPDays(duration1: $duration1, duration3: $duration3, duration7: $duration7, duration30: $duration30)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RentalPDaysImpl &&
-            (identical(other.duration1, duration1) ||
-                other.duration1 == duration1) &&
-            (identical(other.duration3, duration3) ||
-                other.duration3 == duration3) &&
-            (identical(other.duration7, duration7) ||
-                other.duration7 == duration7) &&
-            (identical(other.duration30, duration30) ||
-                other.duration30 == duration30));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, duration1, duration3, duration7, duration30);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RentalPDaysImplCopyWith<_$RentalPDaysImpl> get copyWith =>
-      __$$RentalPDaysImplCopyWithImpl<_$RentalPDaysImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RentalPDaysImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _RentalPDays implements RentalPDays {
-  const factory _RentalPDays(
-          {@JsonKey(name: "duration_1") required final int duration1,
-          @JsonKey(name: "duration_3") required final double duration3,
-          @JsonKey(name: "duration_7") required final double duration7,
-          @JsonKey(name: "duration_30") required final double duration30}) =
-      _$RentalPDaysImpl;
-
-  factory _RentalPDays.fromJson(Map<String, dynamic> json) =
-      _$RentalPDaysImpl.fromJson;
-
-  @override
-  @JsonKey(name: "duration_1")
-  int get duration1;
-  @override
-  @JsonKey(name: "duration_3")
-  double get duration3;
-  @override
-  @JsonKey(name: "duration_7")
-  double get duration7;
-  @override
-  @JsonKey(name: "duration_30")
-  double get duration30;
-  @override
-  @JsonKey(ignore: true)
-  _$$RentalPDaysImplCopyWith<_$RentalPDaysImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -16439,14 +18938,18 @@ Sizes _$SizesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Sizes {
   @JsonKey(name: "length")
-  double get length => throw _privateConstructorUsedError;
+  int? get length => throw _privateConstructorUsedError;
   @JsonKey(name: "beam")
-  double get beam => throw _privateConstructorUsedError;
+  int? get beam => throw _privateConstructorUsedError;
   @JsonKey(name: "height")
-  double get height => throw _privateConstructorUsedError;
+  int? get height => throw _privateConstructorUsedError;
 
+  /// Serializes this Sizes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Sizes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SizesCopyWith<Sizes> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -16456,9 +18959,9 @@ abstract class $SizesCopyWith<$Res> {
       _$SizesCopyWithImpl<$Res, Sizes>;
   @useResult
   $Res call(
-      {@JsonKey(name: "length") double length,
-      @JsonKey(name: "beam") double beam,
-      @JsonKey(name: "height") double height});
+      {@JsonKey(name: "length") int? length,
+      @JsonKey(name: "beam") int? beam,
+      @JsonKey(name: "height") int? height});
 }
 
 /// @nodoc
@@ -16471,26 +18974,28 @@ class _$SizesCopyWithImpl<$Res, $Val extends Sizes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Sizes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? length = null,
-    Object? beam = null,
-    Object? height = null,
+    Object? length = freezed,
+    Object? beam = freezed,
+    Object? height = freezed,
   }) {
     return _then(_value.copyWith(
-      length: null == length
+      length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
-              as double,
-      beam: null == beam
+              as int?,
+      beam: freezed == beam
           ? _value.beam
           : beam // ignore: cast_nullable_to_non_nullable
-              as double,
-      height: null == height
+              as int?,
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int?,
     ) as $Val);
   }
 }
@@ -16503,9 +19008,9 @@ abstract class _$$SizesImplCopyWith<$Res> implements $SizesCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "length") double length,
-      @JsonKey(name: "beam") double beam,
-      @JsonKey(name: "height") double height});
+      {@JsonKey(name: "length") int? length,
+      @JsonKey(name: "beam") int? beam,
+      @JsonKey(name: "height") int? height});
 }
 
 /// @nodoc
@@ -16516,26 +19021,28 @@ class __$$SizesImplCopyWithImpl<$Res>
       _$SizesImpl _value, $Res Function(_$SizesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Sizes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? length = null,
-    Object? beam = null,
-    Object? height = null,
+    Object? length = freezed,
+    Object? beam = freezed,
+    Object? height = freezed,
   }) {
     return _then(_$SizesImpl(
-      length: null == length
+      length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
-              as double,
-      beam: null == beam
+              as int?,
+      beam: freezed == beam
           ? _value.beam
           : beam // ignore: cast_nullable_to_non_nullable
-              as double,
-      height: null == height
+              as int?,
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int?,
     ));
   }
 }
@@ -16544,22 +19051,22 @@ class __$$SizesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SizesImpl implements _Sizes {
   const _$SizesImpl(
-      {@JsonKey(name: "length") required this.length,
-      @JsonKey(name: "beam") required this.beam,
-      @JsonKey(name: "height") required this.height});
+      {@JsonKey(name: "length") this.length,
+      @JsonKey(name: "beam") this.beam,
+      @JsonKey(name: "height") this.height});
 
   factory _$SizesImpl.fromJson(Map<String, dynamic> json) =>
       _$$SizesImplFromJson(json);
 
   @override
   @JsonKey(name: "length")
-  final double length;
+  final int? length;
   @override
   @JsonKey(name: "beam")
-  final double beam;
+  final int? beam;
   @override
   @JsonKey(name: "height")
-  final double height;
+  final int? height;
 
   @override
   String toString() {
@@ -16576,11 +19083,13 @@ class _$SizesImpl implements _Sizes {
             (identical(other.height, height) || other.height == height));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, length, beam, height);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Sizes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SizesImplCopyWith<_$SizesImpl> get copyWith =>
@@ -16596,23 +19105,26 @@ class _$SizesImpl implements _Sizes {
 
 abstract class _Sizes implements Sizes {
   const factory _Sizes(
-      {@JsonKey(name: "length") required final double length,
-      @JsonKey(name: "beam") required final double beam,
-      @JsonKey(name: "height") required final double height}) = _$SizesImpl;
+      {@JsonKey(name: "length") final int? length,
+      @JsonKey(name: "beam") final int? beam,
+      @JsonKey(name: "height") final int? height}) = _$SizesImpl;
 
   factory _Sizes.fromJson(Map<String, dynamic> json) = _$SizesImpl.fromJson;
 
   @override
   @JsonKey(name: "length")
-  double get length;
+  int? get length;
   @override
   @JsonKey(name: "beam")
-  double get beam;
+  int? get beam;
   @override
   @JsonKey(name: "height")
-  double get height;
+  int? get height;
+
+  /// Create a copy of Sizes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SizesImplCopyWith<_$SizesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -16624,16 +19136,20 @@ Skus _$SkusFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Skus {
   @JsonKey(name: "title")
-  String get title => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: "price")
-  int get price => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
   @JsonKey(name: "available")
-  int get available => throw _privateConstructorUsedError;
+  int? get available => throw _privateConstructorUsedError;
   @JsonKey(name: "imported_at")
-  DateTime get importedAt => throw _privateConstructorUsedError;
+  DateTime? get importedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this Skus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Skus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SkusCopyWith<Skus> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -16643,10 +19159,10 @@ abstract class $SkusCopyWith<$Res> {
       _$SkusCopyWithImpl<$Res, Skus>;
   @useResult
   $Res call(
-      {@JsonKey(name: "title") String title,
-      @JsonKey(name: "price") int price,
-      @JsonKey(name: "available") int available,
-      @JsonKey(name: "imported_at") DateTime importedAt});
+      {@JsonKey(name: "title") String? title,
+      @JsonKey(name: "price") int? price,
+      @JsonKey(name: "available") int? available,
+      @JsonKey(name: "imported_at") DateTime? importedAt});
 }
 
 /// @nodoc
@@ -16659,31 +19175,33 @@ class _$SkusCopyWithImpl<$Res, $Val extends Skus>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Skus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? price = null,
-    Object? available = null,
-    Object? importedAt = null,
+    Object? title = freezed,
+    Object? price = freezed,
+    Object? available = freezed,
+    Object? importedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
-      available: null == available
+              as int?,
+      available: freezed == available
           ? _value.available
           : available // ignore: cast_nullable_to_non_nullable
-              as int,
-      importedAt: null == importedAt
+              as int?,
+      importedAt: freezed == importedAt
           ? _value.importedAt
           : importedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -16696,10 +19214,10 @@ abstract class _$$SkusImplCopyWith<$Res> implements $SkusCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "title") String title,
-      @JsonKey(name: "price") int price,
-      @JsonKey(name: "available") int available,
-      @JsonKey(name: "imported_at") DateTime importedAt});
+      {@JsonKey(name: "title") String? title,
+      @JsonKey(name: "price") int? price,
+      @JsonKey(name: "available") int? available,
+      @JsonKey(name: "imported_at") DateTime? importedAt});
 }
 
 /// @nodoc
@@ -16709,31 +19227,33 @@ class __$$SkusImplCopyWithImpl<$Res>
   __$$SkusImplCopyWithImpl(_$SkusImpl _value, $Res Function(_$SkusImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Skus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? price = null,
-    Object? available = null,
-    Object? importedAt = null,
+    Object? title = freezed,
+    Object? price = freezed,
+    Object? available = freezed,
+    Object? importedAt = freezed,
   }) {
     return _then(_$SkusImpl(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
-      available: null == available
+              as int?,
+      available: freezed == available
           ? _value.available
           : available // ignore: cast_nullable_to_non_nullable
-              as int,
-      importedAt: null == importedAt
+              as int?,
+      importedAt: freezed == importedAt
           ? _value.importedAt
           : importedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -16742,26 +19262,26 @@ class __$$SkusImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SkusImpl implements _Skus {
   const _$SkusImpl(
-      {@JsonKey(name: "title") required this.title,
-      @JsonKey(name: "price") required this.price,
-      @JsonKey(name: "available") required this.available,
-      @JsonKey(name: "imported_at") required this.importedAt});
+      {@JsonKey(name: "title") this.title,
+      @JsonKey(name: "price") this.price,
+      @JsonKey(name: "available") this.available,
+      @JsonKey(name: "imported_at") this.importedAt});
 
   factory _$SkusImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkusImplFromJson(json);
 
   @override
   @JsonKey(name: "title")
-  final String title;
+  final String? title;
   @override
   @JsonKey(name: "price")
-  final int price;
+  final int? price;
   @override
   @JsonKey(name: "available")
-  final int available;
+  final int? available;
   @override
   @JsonKey(name: "imported_at")
-  final DateTime importedAt;
+  final DateTime? importedAt;
 
   @override
   String toString() {
@@ -16781,12 +19301,14 @@ class _$SkusImpl implements _Skus {
                 other.importedAt == importedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, title, price, available, importedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Skus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkusImplCopyWith<_$SkusImpl> get copyWith =>
@@ -16802,28 +19324,30 @@ class _$SkusImpl implements _Skus {
 
 abstract class _Skus implements Skus {
   const factory _Skus(
-          {@JsonKey(name: "title") required final String title,
-          @JsonKey(name: "price") required final int price,
-          @JsonKey(name: "available") required final int available,
-          @JsonKey(name: "imported_at") required final DateTime importedAt}) =
-      _$SkusImpl;
+      {@JsonKey(name: "title") final String? title,
+      @JsonKey(name: "price") final int? price,
+      @JsonKey(name: "available") final int? available,
+      @JsonKey(name: "imported_at") final DateTime? importedAt}) = _$SkusImpl;
 
   factory _Skus.fromJson(Map<String, dynamic> json) = _$SkusImpl.fromJson;
 
   @override
   @JsonKey(name: "title")
-  String get title;
+  String? get title;
   @override
   @JsonKey(name: "price")
-  int get price;
+  int? get price;
   @override
   @JsonKey(name: "available")
-  int get available;
+  int? get available;
   @override
   @JsonKey(name: "imported_at")
-  DateTime get importedAt;
+  DateTime? get importedAt;
+
+  /// Create a copy of Skus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkusImplCopyWith<_$SkusImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -16835,20 +19359,24 @@ Speed _$SpeedFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Speed {
   @JsonKey(name: "scm")
-  int get scm => throw _privateConstructorUsedError;
+  double get scm => throw _privateConstructorUsedError;
   @JsonKey(name: "max")
-  int get max => throw _privateConstructorUsedError;
+  double get max => throw _privateConstructorUsedError;
   @JsonKey(name: "zero_to_scm")
-  double get zeroToScm => throw _privateConstructorUsedError;
+  double? get zeroToScm => throw _privateConstructorUsedError;
   @JsonKey(name: "zero_to_max")
-  double get zeroToMax => throw _privateConstructorUsedError;
+  double? get zeroToMax => throw _privateConstructorUsedError;
   @JsonKey(name: "scm_to_zero")
-  double get scmToZero => throw _privateConstructorUsedError;
+  double? get scmToZero => throw _privateConstructorUsedError;
   @JsonKey(name: "max_to_zero")
-  double get maxToZero => throw _privateConstructorUsedError;
+  double? get maxToZero => throw _privateConstructorUsedError;
 
+  /// Serializes this Speed to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Speed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SpeedCopyWith<Speed> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -16858,12 +19386,12 @@ abstract class $SpeedCopyWith<$Res> {
       _$SpeedCopyWithImpl<$Res, Speed>;
   @useResult
   $Res call(
-      {@JsonKey(name: "scm") int scm,
-      @JsonKey(name: "max") int max,
-      @JsonKey(name: "zero_to_scm") double zeroToScm,
-      @JsonKey(name: "zero_to_max") double zeroToMax,
-      @JsonKey(name: "scm_to_zero") double scmToZero,
-      @JsonKey(name: "max_to_zero") double maxToZero});
+      {@JsonKey(name: "scm") double scm,
+      @JsonKey(name: "max") double max,
+      @JsonKey(name: "zero_to_scm") double? zeroToScm,
+      @JsonKey(name: "zero_to_max") double? zeroToMax,
+      @JsonKey(name: "scm_to_zero") double? scmToZero,
+      @JsonKey(name: "max_to_zero") double? maxToZero});
 }
 
 /// @nodoc
@@ -16876,41 +19404,43 @@ class _$SpeedCopyWithImpl<$Res, $Val extends Speed>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Speed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? scm = null,
     Object? max = null,
-    Object? zeroToScm = null,
-    Object? zeroToMax = null,
-    Object? scmToZero = null,
-    Object? maxToZero = null,
+    Object? zeroToScm = freezed,
+    Object? zeroToMax = freezed,
+    Object? scmToZero = freezed,
+    Object? maxToZero = freezed,
   }) {
     return _then(_value.copyWith(
       scm: null == scm
           ? _value.scm
           : scm // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       max: null == max
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
-              as int,
-      zeroToScm: null == zeroToScm
+              as double,
+      zeroToScm: freezed == zeroToScm
           ? _value.zeroToScm
           : zeroToScm // ignore: cast_nullable_to_non_nullable
-              as double,
-      zeroToMax: null == zeroToMax
+              as double?,
+      zeroToMax: freezed == zeroToMax
           ? _value.zeroToMax
           : zeroToMax // ignore: cast_nullable_to_non_nullable
-              as double,
-      scmToZero: null == scmToZero
+              as double?,
+      scmToZero: freezed == scmToZero
           ? _value.scmToZero
           : scmToZero // ignore: cast_nullable_to_non_nullable
-              as double,
-      maxToZero: null == maxToZero
+              as double?,
+      maxToZero: freezed == maxToZero
           ? _value.maxToZero
           : maxToZero // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -16923,12 +19453,12 @@ abstract class _$$SpeedImplCopyWith<$Res> implements $SpeedCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "scm") int scm,
-      @JsonKey(name: "max") int max,
-      @JsonKey(name: "zero_to_scm") double zeroToScm,
-      @JsonKey(name: "zero_to_max") double zeroToMax,
-      @JsonKey(name: "scm_to_zero") double scmToZero,
-      @JsonKey(name: "max_to_zero") double maxToZero});
+      {@JsonKey(name: "scm") double scm,
+      @JsonKey(name: "max") double max,
+      @JsonKey(name: "zero_to_scm") double? zeroToScm,
+      @JsonKey(name: "zero_to_max") double? zeroToMax,
+      @JsonKey(name: "scm_to_zero") double? scmToZero,
+      @JsonKey(name: "max_to_zero") double? maxToZero});
 }
 
 /// @nodoc
@@ -16939,41 +19469,43 @@ class __$$SpeedImplCopyWithImpl<$Res>
       _$SpeedImpl _value, $Res Function(_$SpeedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Speed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? scm = null,
     Object? max = null,
-    Object? zeroToScm = null,
-    Object? zeroToMax = null,
-    Object? scmToZero = null,
-    Object? maxToZero = null,
+    Object? zeroToScm = freezed,
+    Object? zeroToMax = freezed,
+    Object? scmToZero = freezed,
+    Object? maxToZero = freezed,
   }) {
     return _then(_$SpeedImpl(
       scm: null == scm
           ? _value.scm
           : scm // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       max: null == max
           ? _value.max
           : max // ignore: cast_nullable_to_non_nullable
-              as int,
-      zeroToScm: null == zeroToScm
+              as double,
+      zeroToScm: freezed == zeroToScm
           ? _value.zeroToScm
           : zeroToScm // ignore: cast_nullable_to_non_nullable
-              as double,
-      zeroToMax: null == zeroToMax
+              as double?,
+      zeroToMax: freezed == zeroToMax
           ? _value.zeroToMax
           : zeroToMax // ignore: cast_nullable_to_non_nullable
-              as double,
-      scmToZero: null == scmToZero
+              as double?,
+      scmToZero: freezed == scmToZero
           ? _value.scmToZero
           : scmToZero // ignore: cast_nullable_to_non_nullable
-              as double,
-      maxToZero: null == maxToZero
+              as double?,
+      maxToZero: freezed == maxToZero
           ? _value.maxToZero
           : maxToZero // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -16984,32 +19516,32 @@ class _$SpeedImpl implements _Speed {
   const _$SpeedImpl(
       {@JsonKey(name: "scm") required this.scm,
       @JsonKey(name: "max") required this.max,
-      @JsonKey(name: "zero_to_scm") required this.zeroToScm,
-      @JsonKey(name: "zero_to_max") required this.zeroToMax,
-      @JsonKey(name: "scm_to_zero") required this.scmToZero,
-      @JsonKey(name: "max_to_zero") required this.maxToZero});
+      @JsonKey(name: "zero_to_scm") this.zeroToScm,
+      @JsonKey(name: "zero_to_max") this.zeroToMax,
+      @JsonKey(name: "scm_to_zero") this.scmToZero,
+      @JsonKey(name: "max_to_zero") this.maxToZero});
 
   factory _$SpeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$SpeedImplFromJson(json);
 
   @override
   @JsonKey(name: "scm")
-  final int scm;
+  final double scm;
   @override
   @JsonKey(name: "max")
-  final int max;
+  final double max;
   @override
   @JsonKey(name: "zero_to_scm")
-  final double zeroToScm;
+  final double? zeroToScm;
   @override
   @JsonKey(name: "zero_to_max")
-  final double zeroToMax;
+  final double? zeroToMax;
   @override
   @JsonKey(name: "scm_to_zero")
-  final double scmToZero;
+  final double? scmToZero;
   @override
   @JsonKey(name: "max_to_zero")
-  final double maxToZero;
+  final double? maxToZero;
 
   @override
   String toString() {
@@ -17033,12 +19565,14 @@ class _$SpeedImpl implements _Speed {
                 other.maxToZero == maxToZero));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, scm, max, zeroToScm, zeroToMax, scmToZero, maxToZero);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Speed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SpeedImplCopyWith<_$SpeedImpl> get copyWith =>
@@ -17054,36 +19588,38 @@ class _$SpeedImpl implements _Speed {
 
 abstract class _Speed implements Speed {
   const factory _Speed(
-          {@JsonKey(name: "scm") required final int scm,
-          @JsonKey(name: "max") required final int max,
-          @JsonKey(name: "zero_to_scm") required final double zeroToScm,
-          @JsonKey(name: "zero_to_max") required final double zeroToMax,
-          @JsonKey(name: "scm_to_zero") required final double scmToZero,
-          @JsonKey(name: "max_to_zero") required final double maxToZero}) =
-      _$SpeedImpl;
+      {@JsonKey(name: "scm") required final double scm,
+      @JsonKey(name: "max") required final double max,
+      @JsonKey(name: "zero_to_scm") final double? zeroToScm,
+      @JsonKey(name: "zero_to_max") final double? zeroToMax,
+      @JsonKey(name: "scm_to_zero") final double? scmToZero,
+      @JsonKey(name: "max_to_zero") final double? maxToZero}) = _$SpeedImpl;
 
   factory _Speed.fromJson(Map<String, dynamic> json) = _$SpeedImpl.fromJson;
 
   @override
   @JsonKey(name: "scm")
-  int get scm;
+  double get scm;
   @override
   @JsonKey(name: "max")
-  int get max;
+  double get max;
   @override
   @JsonKey(name: "zero_to_scm")
-  double get zeroToScm;
+  double? get zeroToScm;
   @override
   @JsonKey(name: "zero_to_max")
-  double get zeroToMax;
+  double? get zeroToMax;
   @override
   @JsonKey(name: "scm_to_zero")
-  double get scmToZero;
+  double? get scmToZero;
   @override
   @JsonKey(name: "max_to_zero")
-  double get maxToZero;
+  double? get maxToZero;
+
+  /// Create a copy of Speed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SpeedImplCopyWith<_$SpeedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -17095,12 +19631,16 @@ Meta _$MetaFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Meta {
   @JsonKey(name: "processed_at")
-  DateTime get processedAt => throw _privateConstructorUsedError;
+  DateTime? get processedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "valid_relations")
-  List<String> get validRelations => throw _privateConstructorUsedError;
+  List<String>? get validRelations => throw _privateConstructorUsedError;
 
+  /// Serializes this Meta to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Meta
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MetaCopyWith<Meta> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -17110,8 +19650,8 @@ abstract class $MetaCopyWith<$Res> {
       _$MetaCopyWithImpl<$Res, Meta>;
   @useResult
   $Res call(
-      {@JsonKey(name: "processed_at") DateTime processedAt,
-      @JsonKey(name: "valid_relations") List<String> validRelations});
+      {@JsonKey(name: "processed_at") DateTime? processedAt,
+      @JsonKey(name: "valid_relations") List<String>? validRelations});
 }
 
 /// @nodoc
@@ -17124,21 +19664,23 @@ class _$MetaCopyWithImpl<$Res, $Val extends Meta>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Meta
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? processedAt = null,
-    Object? validRelations = null,
+    Object? processedAt = freezed,
+    Object? validRelations = freezed,
   }) {
     return _then(_value.copyWith(
-      processedAt: null == processedAt
+      processedAt: freezed == processedAt
           ? _value.processedAt
           : processedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      validRelations: null == validRelations
+              as DateTime?,
+      validRelations: freezed == validRelations
           ? _value.validRelations
           : validRelations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -17151,8 +19693,8 @@ abstract class _$$MetaImplCopyWith<$Res> implements $MetaCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "processed_at") DateTime processedAt,
-      @JsonKey(name: "valid_relations") List<String> validRelations});
+      {@JsonKey(name: "processed_at") DateTime? processedAt,
+      @JsonKey(name: "valid_relations") List<String>? validRelations});
 }
 
 /// @nodoc
@@ -17162,21 +19704,23 @@ class __$$MetaImplCopyWithImpl<$Res>
   __$$MetaImplCopyWithImpl(_$MetaImpl _value, $Res Function(_$MetaImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Meta
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? processedAt = null,
-    Object? validRelations = null,
+    Object? processedAt = freezed,
+    Object? validRelations = freezed,
   }) {
     return _then(_$MetaImpl(
-      processedAt: null == processedAt
+      processedAt: freezed == processedAt
           ? _value.processedAt
           : processedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      validRelations: null == validRelations
+              as DateTime?,
+      validRelations: freezed == validRelations
           ? _value._validRelations
           : validRelations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ));
   }
 }
@@ -17185,9 +19729,8 @@ class __$$MetaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MetaImpl implements _Meta {
   const _$MetaImpl(
-      {@JsonKey(name: "processed_at") required this.processedAt,
-      @JsonKey(name: "valid_relations")
-      required final List<String> validRelations})
+      {@JsonKey(name: "processed_at") this.processedAt,
+      @JsonKey(name: "valid_relations") final List<String>? validRelations})
       : _validRelations = validRelations;
 
   factory _$MetaImpl.fromJson(Map<String, dynamic> json) =>
@@ -17195,14 +19738,16 @@ class _$MetaImpl implements _Meta {
 
   @override
   @JsonKey(name: "processed_at")
-  final DateTime processedAt;
-  final List<String> _validRelations;
+  final DateTime? processedAt;
+  final List<String>? _validRelations;
   @override
   @JsonKey(name: "valid_relations")
-  List<String> get validRelations {
+  List<String>? get validRelations {
+    final value = _validRelations;
+    if (value == null) return null;
     if (_validRelations is EqualUnmodifiableListView) return _validRelations;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_validRelations);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -17221,12 +19766,14 @@ class _$MetaImpl implements _Meta {
                 .equals(other._validRelations, _validRelations));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, processedAt,
       const DeepCollectionEquality().hash(_validRelations));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Meta
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MetaImplCopyWith<_$MetaImpl> get copyWith =>
@@ -17242,20 +19789,23 @@ class _$MetaImpl implements _Meta {
 
 abstract class _Meta implements Meta {
   const factory _Meta(
-      {@JsonKey(name: "processed_at") required final DateTime processedAt,
+      {@JsonKey(name: "processed_at") final DateTime? processedAt,
       @JsonKey(name: "valid_relations")
-      required final List<String> validRelations}) = _$MetaImpl;
+      final List<String>? validRelations}) = _$MetaImpl;
 
   factory _Meta.fromJson(Map<String, dynamic> json) = _$MetaImpl.fromJson;
 
   @override
   @JsonKey(name: "processed_at")
-  DateTime get processedAt;
+  DateTime? get processedAt;
   @override
   @JsonKey(name: "valid_relations")
-  List<String> get validRelations;
+  List<String>? get validRelations;
+
+  /// Create a copy of Meta
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MetaImplCopyWith<_$MetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

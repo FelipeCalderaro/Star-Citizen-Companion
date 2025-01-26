@@ -1,14 +1,13 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:overlay_test/core/extensions/on_color.dart';
 import 'package:overlay_test/core/models/UEX/vehicles/uex_vehicles_model.dart';
 import 'package:overlay_test/ui/theme/app_theme.dart';
-
-import 'package:collection/collection.dart';
 
 class AutocompleteFilter extends StatefulWidget {
   final List<UexVehicleData> vehicleList;
@@ -82,7 +81,6 @@ class _AutocompleteFilterState extends State<AutocompleteFilter> {
                           autofocus: false,
                           style: AppTextStyles.body,
                           onEditingComplete: () {
-                            print('complete');
                             final UexVehicleData? data = widget.vehicleList
                                 .where((e) => e.name
                                     .toLowerCase()

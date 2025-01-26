@@ -1,3 +1,0 @@
-class UEXCommoditiesModel {}
-
-class UEXVehicleModel {}

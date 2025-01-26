@@ -20,6 +20,8 @@ mixin _$AppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -30,6 +32,7 @@ mixin _$AppEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -40,6 +43,7 @@ mixin _$AppEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -51,6 +55,8 @@ mixin _$AppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -61,6 +67,7 @@ mixin _$AppEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -71,6 +78,7 @@ mixin _$AppEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -95,6 +103,9 @@ class _$AppEventCopyWithImpl<$Res, $Val extends AppEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -111,6 +122,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -137,6 +151,8 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -150,6 +166,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -163,6 +180,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -180,6 +198,8 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -193,6 +213,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -206,6 +227,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -237,6 +259,9 @@ class __$$FetchCommoditiesImplCopyWithImpl<$Res>
   __$$FetchCommoditiesImplCopyWithImpl(_$FetchCommoditiesImpl _value,
       $Res Function(_$FetchCommoditiesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -263,6 +288,8 @@ class _$FetchCommoditiesImpl implements _FetchCommodities {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -276,6 +303,7 @@ class _$FetchCommoditiesImpl implements _FetchCommodities {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -289,6 +317,7 @@ class _$FetchCommoditiesImpl implements _FetchCommodities {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -306,6 +335,8 @@ class _$FetchCommoditiesImpl implements _FetchCommodities {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -319,6 +350,7 @@ class _$FetchCommoditiesImpl implements _FetchCommodities {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -332,6 +364,7 @@ class _$FetchCommoditiesImpl implements _FetchCommodities {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -350,6 +383,195 @@ abstract class _FetchCommodities implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchCommoditiesDetailsImplCopyWith<$Res> {
+  factory _$$FetchCommoditiesDetailsImplCopyWith(
+          _$FetchCommoditiesDetailsImpl value,
+          $Res Function(_$FetchCommoditiesDetailsImpl) then) =
+      __$$FetchCommoditiesDetailsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UexCommoditiesModel commodities});
+
+  $UexCommoditiesModelCopyWith<$Res> get commodities;
+}
+
+/// @nodoc
+class __$$FetchCommoditiesDetailsImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$FetchCommoditiesDetailsImpl>
+    implements _$$FetchCommoditiesDetailsImplCopyWith<$Res> {
+  __$$FetchCommoditiesDetailsImplCopyWithImpl(
+      _$FetchCommoditiesDetailsImpl _value,
+      $Res Function(_$FetchCommoditiesDetailsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? commodities = null,
+  }) {
+    return _then(_$FetchCommoditiesDetailsImpl(
+      null == commodities
+          ? _value.commodities
+          : commodities // ignore: cast_nullable_to_non_nullable
+              as UexCommoditiesModel,
+    ));
+  }
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UexCommoditiesModelCopyWith<$Res> get commodities {
+    return $UexCommoditiesModelCopyWith<$Res>(_value.commodities, (value) {
+      return _then(_value.copyWith(commodities: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$FetchCommoditiesDetailsImpl implements _FetchCommoditiesDetails {
+  const _$FetchCommoditiesDetailsImpl(this.commodities);
+
+  @override
+  final UexCommoditiesModel commodities;
+
+  @override
+  String toString() {
+    return 'AppEvent.fetchCommoditiesDetails(commodities: $commodities)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchCommoditiesDetailsImpl &&
+            (identical(other.commodities, commodities) ||
+                other.commodities == commodities));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, commodities);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchCommoditiesDetailsImplCopyWith<_$FetchCommoditiesDetailsImpl>
+      get copyWith => __$$FetchCommoditiesDetailsImplCopyWithImpl<
+          _$FetchCommoditiesDetailsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
+    required TResult Function() fetchVehicles,
+    required TResult Function(UexVehicleData selectedShip) setActiveShip,
+    required TResult Function() propagate,
+    required TResult Function() startHotkeyStream,
+  }) {
+    return fetchCommoditiesDetails(commodities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
+    TResult? Function()? fetchVehicles,
+    TResult? Function(UexVehicleData selectedShip)? setActiveShip,
+    TResult? Function()? propagate,
+    TResult? Function()? startHotkeyStream,
+  }) {
+    return fetchCommoditiesDetails?.call(commodities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
+    TResult Function()? fetchVehicles,
+    TResult Function(UexVehicleData selectedShip)? setActiveShip,
+    TResult Function()? propagate,
+    TResult Function()? startHotkeyStream,
+    required TResult orElse(),
+  }) {
+    if (fetchCommoditiesDetails != null) {
+      return fetchCommoditiesDetails(commodities);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
+    required TResult Function(_FetchVehicles value) fetchVehicles,
+    required TResult Function(_SetActiveShip value) setActiveShip,
+    required TResult Function(_Propagate value) propagate,
+    required TResult Function(_StartHotkeyStream value) startHotkeyStream,
+  }) {
+    return fetchCommoditiesDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
+    TResult? Function(_FetchVehicles value)? fetchVehicles,
+    TResult? Function(_SetActiveShip value)? setActiveShip,
+    TResult? Function(_Propagate value)? propagate,
+    TResult? Function(_StartHotkeyStream value)? startHotkeyStream,
+  }) {
+    return fetchCommoditiesDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
+    TResult Function(_FetchVehicles value)? fetchVehicles,
+    TResult Function(_SetActiveShip value)? setActiveShip,
+    TResult Function(_Propagate value)? propagate,
+    TResult Function(_StartHotkeyStream value)? startHotkeyStream,
+    required TResult orElse(),
+  }) {
+    if (fetchCommoditiesDetails != null) {
+      return fetchCommoditiesDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchCommoditiesDetails implements AppEvent {
+  const factory _FetchCommoditiesDetails(
+      final UexCommoditiesModel commodities) = _$FetchCommoditiesDetailsImpl;
+
+  UexCommoditiesModel get commodities;
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchCommoditiesDetailsImplCopyWith<_$FetchCommoditiesDetailsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$FetchVehiclesImplCopyWith<$Res> {
   factory _$$FetchVehiclesImplCopyWith(
           _$FetchVehiclesImpl value, $Res Function(_$FetchVehiclesImpl) then) =
@@ -363,6 +585,9 @@ class __$$FetchVehiclesImplCopyWithImpl<$Res>
   __$$FetchVehiclesImplCopyWithImpl(
       _$FetchVehiclesImpl _value, $Res Function(_$FetchVehiclesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -389,6 +614,8 @@ class _$FetchVehiclesImpl implements _FetchVehicles {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -402,6 +629,7 @@ class _$FetchVehiclesImpl implements _FetchVehicles {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -415,6 +643,7 @@ class _$FetchVehiclesImpl implements _FetchVehicles {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -432,6 +661,8 @@ class _$FetchVehiclesImpl implements _FetchVehicles {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -445,6 +676,7 @@ class _$FetchVehiclesImpl implements _FetchVehicles {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -458,6 +690,7 @@ class _$FetchVehiclesImpl implements _FetchVehicles {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -494,6 +727,8 @@ class __$$SetActiveShipImplCopyWithImpl<$Res>
       _$SetActiveShipImpl _value, $Res Function(_$SetActiveShipImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -507,6 +742,8 @@ class __$$SetActiveShipImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UexVehicleDataCopyWith<$Res> get selectedShip {
@@ -541,7 +778,9 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   @override
   int get hashCode => Object.hash(runtimeType, selectedShip);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetActiveShipImplCopyWith<_$SetActiveShipImpl> get copyWith =>
@@ -552,6 +791,8 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -565,6 +806,7 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -578,6 +820,7 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -595,6 +838,8 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -608,6 +853,7 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -621,6 +867,7 @@ class _$SetActiveShipImpl implements _SetActiveShip {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -639,7 +886,10 @@ abstract class _SetActiveShip implements AppEvent {
       _$SetActiveShipImpl;
 
   UexVehicleData get selectedShip;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetActiveShipImplCopyWith<_$SetActiveShipImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -658,6 +908,9 @@ class __$$PropagateImplCopyWithImpl<$Res>
   __$$PropagateImplCopyWithImpl(
       _$PropagateImpl _value, $Res Function(_$PropagateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -684,6 +937,8 @@ class _$PropagateImpl implements _Propagate {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -697,6 +952,7 @@ class _$PropagateImpl implements _Propagate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -710,6 +966,7 @@ class _$PropagateImpl implements _Propagate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -727,6 +984,8 @@ class _$PropagateImpl implements _Propagate {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -740,6 +999,7 @@ class _$PropagateImpl implements _Propagate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -753,6 +1013,7 @@ class _$PropagateImpl implements _Propagate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -784,6 +1045,9 @@ class __$$StartHotkeyStreamImplCopyWithImpl<$Res>
   __$$StartHotkeyStreamImplCopyWithImpl(_$StartHotkeyStreamImpl _value,
       $Res Function(_$StartHotkeyStreamImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -810,6 +1074,8 @@ class _$StartHotkeyStreamImpl implements _StartHotkeyStream {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchCommodities,
+    required TResult Function(UexCommoditiesModel commodities)
+        fetchCommoditiesDetails,
     required TResult Function() fetchVehicles,
     required TResult Function(UexVehicleData selectedShip) setActiveShip,
     required TResult Function() propagate,
@@ -823,6 +1089,7 @@ class _$StartHotkeyStreamImpl implements _StartHotkeyStream {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchCommodities,
+    TResult? Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult? Function()? fetchVehicles,
     TResult? Function(UexVehicleData selectedShip)? setActiveShip,
     TResult? Function()? propagate,
@@ -836,6 +1103,7 @@ class _$StartHotkeyStreamImpl implements _StartHotkeyStream {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchCommodities,
+    TResult Function(UexCommoditiesModel commodities)? fetchCommoditiesDetails,
     TResult Function()? fetchVehicles,
     TResult Function(UexVehicleData selectedShip)? setActiveShip,
     TResult Function()? propagate,
@@ -853,6 +1121,8 @@ class _$StartHotkeyStreamImpl implements _StartHotkeyStream {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchCommodities value) fetchCommodities,
+    required TResult Function(_FetchCommoditiesDetails value)
+        fetchCommoditiesDetails,
     required TResult Function(_FetchVehicles value) fetchVehicles,
     required TResult Function(_SetActiveShip value) setActiveShip,
     required TResult Function(_Propagate value) propagate,
@@ -866,6 +1136,7 @@ class _$StartHotkeyStreamImpl implements _StartHotkeyStream {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchCommodities value)? fetchCommodities,
+    TResult? Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult? Function(_FetchVehicles value)? fetchVehicles,
     TResult? Function(_SetActiveShip value)? setActiveShip,
     TResult? Function(_Propagate value)? propagate,
@@ -879,6 +1150,7 @@ class _$StartHotkeyStreamImpl implements _StartHotkeyStream {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchCommodities value)? fetchCommodities,
+    TResult Function(_FetchCommoditiesDetails value)? fetchCommoditiesDetails,
     TResult Function(_FetchVehicles value)? fetchVehicles,
     TResult Function(_SetActiveShip value)? setActiveShip,
     TResult Function(_Propagate value)? propagate,
@@ -902,14 +1174,16 @@ mixin _$AppState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -922,13 +1196,15 @@ mixin _$AppState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -941,12 +1217,14 @@ mixin _$AppState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -965,6 +1243,10 @@ mixin _$AppState {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -982,6 +1264,10 @@ mixin _$AppState {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -998,6 +1284,9 @@ mixin _$AppState {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -1024,6 +1313,9 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1040,6 +1332,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1066,14 +1361,16 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -1089,13 +1386,15 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -1111,12 +1410,14 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -1141,6 +1442,10 @@ class _$InitialImpl implements _Initial {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -1161,6 +1466,10 @@ class _$InitialImpl implements _Initial {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -1180,6 +1489,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -1215,6 +1527,9 @@ class __$$LoadingCommoditiesRankingImplCopyWithImpl<$Res>
       _$LoadingCommoditiesRankingImpl _value,
       $Res Function(_$LoadingCommoditiesRankingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1242,14 +1557,16 @@ class _$LoadingCommoditiesRankingImpl implements _LoadingCommoditiesRanking {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -1265,13 +1582,15 @@ class _$LoadingCommoditiesRankingImpl implements _LoadingCommoditiesRanking {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -1287,12 +1606,14 @@ class _$LoadingCommoditiesRankingImpl implements _LoadingCommoditiesRanking {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -1317,6 +1638,10 @@ class _$LoadingCommoditiesRankingImpl implements _LoadingCommoditiesRanking {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -1337,6 +1662,10 @@ class _$LoadingCommoditiesRankingImpl implements _LoadingCommoditiesRanking {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -1356,6 +1685,9 @@ class _$LoadingCommoditiesRankingImpl implements _LoadingCommoditiesRanking {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -1382,7 +1714,7 @@ abstract class _$$LoadedCommoditiesRankingImplCopyWith<$Res> {
           $Res Function(_$LoadedCommoditiesRankingImpl) then) =
       __$$LoadedCommoditiesRankingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UEXCommoditiesModel commoditiesRanking});
+  $Res call({UEXCommodity commoditiesRanking});
 }
 
 /// @nodoc
@@ -1394,6 +1726,8 @@ class __$$LoadedCommoditiesRankingImplCopyWithImpl<$Res>
       $Res Function(_$LoadedCommoditiesRankingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1403,7 +1737,7 @@ class __$$LoadedCommoditiesRankingImplCopyWithImpl<$Res>
       null == commoditiesRanking
           ? _value.commoditiesRanking
           : commoditiesRanking // ignore: cast_nullable_to_non_nullable
-              as UEXCommoditiesModel,
+              as UEXCommodity,
     ));
   }
 }
@@ -1414,7 +1748,7 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
   const _$LoadedCommoditiesRankingImpl(this.commoditiesRanking);
 
   @override
-  final UEXCommoditiesModel commoditiesRanking;
+  final UEXCommodity commoditiesRanking;
 
   @override
   String toString() {
@@ -1433,7 +1767,9 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
   @override
   int get hashCode => Object.hash(runtimeType, commoditiesRanking);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadedCommoditiesRankingImplCopyWith<_$LoadedCommoditiesRankingImpl>
@@ -1445,14 +1781,16 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -1468,13 +1806,15 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -1490,12 +1830,14 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -1520,6 +1862,10 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -1540,6 +1886,10 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -1559,6 +1909,9 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -1576,11 +1929,13 @@ class _$LoadedCommoditiesRankingImpl implements _LoadedCommoditiesRanking {
 
 abstract class _LoadedCommoditiesRanking implements AppState {
   const factory _LoadedCommoditiesRanking(
-          final UEXCommoditiesModel commoditiesRanking) =
-      _$LoadedCommoditiesRankingImpl;
+      final UEXCommodity commoditiesRanking) = _$LoadedCommoditiesRankingImpl;
 
-  UEXCommoditiesModel get commoditiesRanking;
-  @JsonKey(ignore: true)
+  UEXCommodity get commoditiesRanking;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedCommoditiesRankingImplCopyWith<_$LoadedCommoditiesRankingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1599,6 +1954,9 @@ class __$$LoadingCommoditiesImplCopyWithImpl<$Res>
   __$$LoadingCommoditiesImplCopyWithImpl(_$LoadingCommoditiesImpl _value,
       $Res Function(_$LoadingCommoditiesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1625,14 +1983,16 @@ class _$LoadingCommoditiesImpl implements _LoadingCommodities {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -1648,13 +2008,15 @@ class _$LoadingCommoditiesImpl implements _LoadingCommodities {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -1670,12 +2032,14 @@ class _$LoadingCommoditiesImpl implements _LoadingCommodities {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -1700,6 +2064,10 @@ class _$LoadingCommoditiesImpl implements _LoadingCommodities {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -1720,6 +2088,10 @@ class _$LoadingCommoditiesImpl implements _LoadingCommodities {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -1739,6 +2111,9 @@ class _$LoadingCommoditiesImpl implements _LoadingCommodities {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -1764,7 +2139,7 @@ abstract class _$$LoadedCommoditiesImplCopyWith<$Res> {
           $Res Function(_$LoadedCommoditiesImpl) then) =
       __$$LoadedCommoditiesImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UEXCommoditiesModel commodities});
+  $Res call({UEXCommodity commodities});
 }
 
 /// @nodoc
@@ -1775,6 +2150,8 @@ class __$$LoadedCommoditiesImplCopyWithImpl<$Res>
       $Res Function(_$LoadedCommoditiesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1784,7 +2161,7 @@ class __$$LoadedCommoditiesImplCopyWithImpl<$Res>
       null == commodities
           ? _value.commodities
           : commodities // ignore: cast_nullable_to_non_nullable
-              as UEXCommoditiesModel,
+              as UEXCommodity,
     ));
   }
 }
@@ -1795,7 +2172,7 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
   const _$LoadedCommoditiesImpl(this.commodities);
 
   @override
-  final UEXCommoditiesModel commodities;
+  final UEXCommodity commodities;
 
   @override
   String toString() {
@@ -1814,7 +2191,9 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
   @override
   int get hashCode => Object.hash(runtimeType, commodities);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadedCommoditiesImplCopyWith<_$LoadedCommoditiesImpl> get copyWith =>
@@ -1826,14 +2205,16 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -1849,13 +2230,15 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -1871,12 +2254,14 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -1901,6 +2286,10 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -1921,6 +2310,10 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -1940,6 +2333,9 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -1956,13 +2352,451 @@ class _$LoadedCommoditiesImpl implements _LoadedCommodities {
 }
 
 abstract class _LoadedCommodities implements AppState {
-  const factory _LoadedCommodities(final UEXCommoditiesModel commodities) =
+  const factory _LoadedCommodities(final UEXCommodity commodities) =
       _$LoadedCommoditiesImpl;
 
-  UEXCommoditiesModel get commodities;
-  @JsonKey(ignore: true)
+  UEXCommodity get commodities;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedCommoditiesImplCopyWith<_$LoadedCommoditiesImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingCommoditiesDetailsImplCopyWith<$Res> {
+  factory _$$LoadingCommoditiesDetailsImplCopyWith(
+          _$LoadingCommoditiesDetailsImpl value,
+          $Res Function(_$LoadingCommoditiesDetailsImpl) then) =
+      __$$LoadingCommoditiesDetailsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingCommoditiesDetailsImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$LoadingCommoditiesDetailsImpl>
+    implements _$$LoadingCommoditiesDetailsImplCopyWith<$Res> {
+  __$$LoadingCommoditiesDetailsImplCopyWithImpl(
+      _$LoadingCommoditiesDetailsImpl _value,
+      $Res Function(_$LoadingCommoditiesDetailsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadingCommoditiesDetailsImpl implements _LoadingCommoditiesDetails {
+  const _$LoadingCommoditiesDetailsImpl();
+
+  @override
+  String toString() {
+    return 'AppState.loadingCommoditiesDetails()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingCommoditiesDetailsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCommoditiesRanking,
+    required TResult Function(UEXCommodity commoditiesRanking)
+        loadedCommoditiesRanking,
+    required TResult Function() loadingCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
+    required TResult Function() loadingVehicles,
+    required TResult Function(
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
+        loadedVehicles,
+    required TResult Function(UexVehicleData ship) activeShip,
+    required TResult Function() reload,
+    required TResult Function(Object e, String? message, StackTrace? stackTrace)
+        httpError,
+    required TResult Function(Object error, StackTrace stackTrace) error,
+  }) {
+    return loadingCommoditiesDetails();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCommoditiesRanking,
+    TResult? Function(UEXCommodity commoditiesRanking)?
+        loadedCommoditiesRanking,
+    TResult? Function()? loadingCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
+    TResult? Function()? loadingVehicles,
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
+        loadedVehicles,
+    TResult? Function(UexVehicleData ship)? activeShip,
+    TResult? Function()? reload,
+    TResult? Function(Object e, String? message, StackTrace? stackTrace)?
+        httpError,
+    TResult? Function(Object error, StackTrace stackTrace)? error,
+  }) {
+    return loadingCommoditiesDetails?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
+    TResult Function()? loadingCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
+    TResult Function()? loadingVehicles,
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
+        loadedVehicles,
+    TResult Function(UexVehicleData ship)? activeShip,
+    TResult Function()? reload,
+    TResult Function(Object e, String? message, StackTrace? stackTrace)?
+        httpError,
+    TResult Function(Object error, StackTrace stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (loadingCommoditiesDetails != null) {
+      return loadingCommoditiesDetails();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingCommoditiesRanking value)
+        loadingCommoditiesRanking,
+    required TResult Function(_LoadedCommoditiesRanking value)
+        loadedCommoditiesRanking,
+    required TResult Function(_LoadingCommodities value) loadingCommodities,
+    required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
+    required TResult Function(_LoadingVehicles value) loadingVehicles,
+    required TResult Function(_LoadedVehicles value) loadedVehicles,
+    required TResult Function(_ActiveShip value) activeShip,
+    required TResult Function(_Reload value) reload,
+    required TResult Function(_HttpError value) httpError,
+    required TResult Function(_Error value) error,
+  }) {
+    return loadingCommoditiesDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingCommoditiesRanking value)?
+        loadingCommoditiesRanking,
+    TResult? Function(_LoadedCommoditiesRanking value)?
+        loadedCommoditiesRanking,
+    TResult? Function(_LoadingCommodities value)? loadingCommodities,
+    TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
+    TResult? Function(_LoadingVehicles value)? loadingVehicles,
+    TResult? Function(_LoadedVehicles value)? loadedVehicles,
+    TResult? Function(_ActiveShip value)? activeShip,
+    TResult? Function(_Reload value)? reload,
+    TResult? Function(_HttpError value)? httpError,
+    TResult? Function(_Error value)? error,
+  }) {
+    return loadingCommoditiesDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingCommoditiesRanking value)?
+        loadingCommoditiesRanking,
+    TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
+    TResult Function(_LoadingCommodities value)? loadingCommodities,
+    TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
+    TResult Function(_LoadingVehicles value)? loadingVehicles,
+    TResult Function(_LoadedVehicles value)? loadedVehicles,
+    TResult Function(_ActiveShip value)? activeShip,
+    TResult Function(_Reload value)? reload,
+    TResult Function(_HttpError value)? httpError,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loadingCommoditiesDetails != null) {
+      return loadingCommoditiesDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingCommoditiesDetails implements AppState {
+  const factory _LoadingCommoditiesDetails() = _$LoadingCommoditiesDetailsImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedCommoditiesDetailsImplCopyWith<$Res> {
+  factory _$$LoadedCommoditiesDetailsImplCopyWith(
+          _$LoadedCommoditiesDetailsImpl value,
+          $Res Function(_$LoadedCommoditiesDetailsImpl) then) =
+      __$$LoadedCommoditiesDetailsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<ScwCommodityDetail> details});
+}
+
+/// @nodoc
+class __$$LoadedCommoditiesDetailsImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$LoadedCommoditiesDetailsImpl>
+    implements _$$LoadedCommoditiesDetailsImplCopyWith<$Res> {
+  __$$LoadedCommoditiesDetailsImplCopyWithImpl(
+      _$LoadedCommoditiesDetailsImpl _value,
+      $Res Function(_$LoadedCommoditiesDetailsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? details = null,
+  }) {
+    return _then(_$LoadedCommoditiesDetailsImpl(
+      null == details
+          ? _value._details
+          : details // ignore: cast_nullable_to_non_nullable
+              as List<ScwCommodityDetail>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadedCommoditiesDetailsImpl implements _LoadedCommoditiesDetails {
+  const _$LoadedCommoditiesDetailsImpl(final List<ScwCommodityDetail> details)
+      : _details = details;
+
+  final List<ScwCommodityDetail> _details;
+  @override
+  List<ScwCommodityDetail> get details {
+    if (_details is EqualUnmodifiableListView) return _details;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_details);
+  }
+
+  @override
+  String toString() {
+    return 'AppState.loadedCommoditiesDetails(details: $details)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedCommoditiesDetailsImpl &&
+            const DeepCollectionEquality().equals(other._details, _details));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_details));
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedCommoditiesDetailsImplCopyWith<_$LoadedCommoditiesDetailsImpl>
+      get copyWith => __$$LoadedCommoditiesDetailsImplCopyWithImpl<
+          _$LoadedCommoditiesDetailsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCommoditiesRanking,
+    required TResult Function(UEXCommodity commoditiesRanking)
+        loadedCommoditiesRanking,
+    required TResult Function() loadingCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
+    required TResult Function() loadingVehicles,
+    required TResult Function(
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
+        loadedVehicles,
+    required TResult Function(UexVehicleData ship) activeShip,
+    required TResult Function() reload,
+    required TResult Function(Object e, String? message, StackTrace? stackTrace)
+        httpError,
+    required TResult Function(Object error, StackTrace stackTrace) error,
+  }) {
+    return loadedCommoditiesDetails(details);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCommoditiesRanking,
+    TResult? Function(UEXCommodity commoditiesRanking)?
+        loadedCommoditiesRanking,
+    TResult? Function()? loadingCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
+    TResult? Function()? loadingVehicles,
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
+        loadedVehicles,
+    TResult? Function(UexVehicleData ship)? activeShip,
+    TResult? Function()? reload,
+    TResult? Function(Object e, String? message, StackTrace? stackTrace)?
+        httpError,
+    TResult? Function(Object error, StackTrace stackTrace)? error,
+  }) {
+    return loadedCommoditiesDetails?.call(details);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
+    TResult Function()? loadingCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
+    TResult Function()? loadingVehicles,
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
+        loadedVehicles,
+    TResult Function(UexVehicleData ship)? activeShip,
+    TResult Function()? reload,
+    TResult Function(Object e, String? message, StackTrace? stackTrace)?
+        httpError,
+    TResult Function(Object error, StackTrace stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (loadedCommoditiesDetails != null) {
+      return loadedCommoditiesDetails(details);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingCommoditiesRanking value)
+        loadingCommoditiesRanking,
+    required TResult Function(_LoadedCommoditiesRanking value)
+        loadedCommoditiesRanking,
+    required TResult Function(_LoadingCommodities value) loadingCommodities,
+    required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
+    required TResult Function(_LoadingVehicles value) loadingVehicles,
+    required TResult Function(_LoadedVehicles value) loadedVehicles,
+    required TResult Function(_ActiveShip value) activeShip,
+    required TResult Function(_Reload value) reload,
+    required TResult Function(_HttpError value) httpError,
+    required TResult Function(_Error value) error,
+  }) {
+    return loadedCommoditiesDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingCommoditiesRanking value)?
+        loadingCommoditiesRanking,
+    TResult? Function(_LoadedCommoditiesRanking value)?
+        loadedCommoditiesRanking,
+    TResult? Function(_LoadingCommodities value)? loadingCommodities,
+    TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
+    TResult? Function(_LoadingVehicles value)? loadingVehicles,
+    TResult? Function(_LoadedVehicles value)? loadedVehicles,
+    TResult? Function(_ActiveShip value)? activeShip,
+    TResult? Function(_Reload value)? reload,
+    TResult? Function(_HttpError value)? httpError,
+    TResult? Function(_Error value)? error,
+  }) {
+    return loadedCommoditiesDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingCommoditiesRanking value)?
+        loadingCommoditiesRanking,
+    TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
+    TResult Function(_LoadingCommodities value)? loadingCommodities,
+    TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
+    TResult Function(_LoadingVehicles value)? loadingVehicles,
+    TResult Function(_LoadedVehicles value)? loadedVehicles,
+    TResult Function(_ActiveShip value)? activeShip,
+    TResult Function(_Reload value)? reload,
+    TResult Function(_HttpError value)? httpError,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loadedCommoditiesDetails != null) {
+      return loadedCommoditiesDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadedCommoditiesDetails implements AppState {
+  const factory _LoadedCommoditiesDetails(
+      final List<ScwCommodityDetail> details) = _$LoadedCommoditiesDetailsImpl;
+
+  List<ScwCommodityDetail> get details;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadedCommoditiesDetailsImplCopyWith<_$LoadedCommoditiesDetailsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1979,6 +2813,9 @@ class __$$LoadingVehiclesImplCopyWithImpl<$Res>
   __$$LoadingVehiclesImplCopyWithImpl(
       _$LoadingVehiclesImpl _value, $Res Function(_$LoadingVehiclesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2005,14 +2842,16 @@ class _$LoadingVehiclesImpl implements _LoadingVehicles {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -2028,13 +2867,15 @@ class _$LoadingVehiclesImpl implements _LoadingVehicles {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -2050,12 +2891,14 @@ class _$LoadingVehiclesImpl implements _LoadingVehicles {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -2080,6 +2923,10 @@ class _$LoadingVehiclesImpl implements _LoadingVehicles {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -2100,6 +2947,10 @@ class _$LoadingVehiclesImpl implements _LoadingVehicles {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -2119,6 +2970,9 @@ class _$LoadingVehiclesImpl implements _LoadingVehicles {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -2144,7 +2998,7 @@ abstract class _$$LoadedVehiclesImplCopyWith<$Res> {
           $Res Function(_$LoadedVehiclesImpl) then) =
       __$$LoadedVehiclesImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles});
+  $Res call({UexVehiclesModel uexVehicles, SCWVehicle scwVehicles});
 
   $UexVehiclesModelCopyWith<$Res> get uexVehicles;
 }
@@ -2157,6 +3011,8 @@ class __$$LoadedVehiclesImplCopyWithImpl<$Res>
       _$LoadedVehiclesImpl _value, $Res Function(_$LoadedVehiclesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2171,10 +3027,12 @@ class __$$LoadedVehiclesImplCopyWithImpl<$Res>
       null == scwVehicles
           ? _value.scwVehicles
           : scwVehicles // ignore: cast_nullable_to_non_nullable
-              as SCWVehicleModel,
+              as SCWVehicle,
     ));
   }
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UexVehiclesModelCopyWith<$Res> get uexVehicles {
@@ -2192,7 +3050,7 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
   @override
   final UexVehiclesModel uexVehicles;
   @override
-  final SCWVehicleModel scwVehicles;
+  final SCWVehicle scwVehicles;
 
   @override
   String toString() {
@@ -2213,7 +3071,9 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
   @override
   int get hashCode => Object.hash(runtimeType, uexVehicles, scwVehicles);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadedVehiclesImplCopyWith<_$LoadedVehiclesImpl> get copyWith =>
@@ -2225,14 +3085,16 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -2248,13 +3110,15 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -2270,12 +3134,14 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -2300,6 +3166,10 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -2320,6 +3190,10 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -2339,6 +3213,9 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -2355,12 +3232,16 @@ class _$LoadedVehiclesImpl implements _LoadedVehicles {
 }
 
 abstract class _LoadedVehicles implements AppState {
-  const factory _LoadedVehicles(final UexVehiclesModel uexVehicles,
-      final SCWVehicleModel scwVehicles) = _$LoadedVehiclesImpl;
+  const factory _LoadedVehicles(
+          final UexVehiclesModel uexVehicles, final SCWVehicle scwVehicles) =
+      _$LoadedVehiclesImpl;
 
   UexVehiclesModel get uexVehicles;
-  SCWVehicleModel get scwVehicles;
-  @JsonKey(ignore: true)
+  SCWVehicle get scwVehicles;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedVehiclesImplCopyWith<_$LoadedVehiclesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2384,6 +3265,8 @@ class __$$ActiveShipImplCopyWithImpl<$Res>
       _$ActiveShipImpl _value, $Res Function(_$ActiveShipImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2397,6 +3280,8 @@ class __$$ActiveShipImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UexVehicleDataCopyWith<$Res> get ship {
@@ -2430,7 +3315,9 @@ class _$ActiveShipImpl implements _ActiveShip {
   @override
   int get hashCode => Object.hash(runtimeType, ship);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActiveShipImplCopyWith<_$ActiveShipImpl> get copyWith =>
@@ -2441,14 +3328,16 @@ class _$ActiveShipImpl implements _ActiveShip {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -2464,13 +3353,15 @@ class _$ActiveShipImpl implements _ActiveShip {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -2486,12 +3377,14 @@ class _$ActiveShipImpl implements _ActiveShip {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -2516,6 +3409,10 @@ class _$ActiveShipImpl implements _ActiveShip {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -2536,6 +3433,10 @@ class _$ActiveShipImpl implements _ActiveShip {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -2555,6 +3456,9 @@ class _$ActiveShipImpl implements _ActiveShip {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -2574,7 +3478,10 @@ abstract class _ActiveShip implements AppState {
   const factory _ActiveShip(final UexVehicleData ship) = _$ActiveShipImpl;
 
   UexVehicleData get ship;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActiveShipImplCopyWith<_$ActiveShipImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2593,6 +3500,9 @@ class __$$ReloadImplCopyWithImpl<$Res>
   __$$ReloadImplCopyWithImpl(
       _$ReloadImpl _value, $Res Function(_$ReloadImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2619,14 +3529,16 @@ class _$ReloadImpl implements _Reload {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -2642,13 +3554,15 @@ class _$ReloadImpl implements _Reload {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -2664,12 +3578,14 @@ class _$ReloadImpl implements _Reload {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -2694,6 +3610,10 @@ class _$ReloadImpl implements _Reload {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -2714,6 +3634,10 @@ class _$ReloadImpl implements _Reload {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -2733,6 +3657,9 @@ class _$ReloadImpl implements _Reload {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -2769,6 +3696,8 @@ class __$$HttpErrorImplCopyWithImpl<$Res>
       _$HttpErrorImpl _value, $Res Function(_$HttpErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2822,7 +3751,9 @@ class _$HttpErrorImpl implements _HttpError {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(e), message, stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HttpErrorImplCopyWith<_$HttpErrorImpl> get copyWith =>
@@ -2833,14 +3764,16 @@ class _$HttpErrorImpl implements _HttpError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -2856,13 +3789,15 @@ class _$HttpErrorImpl implements _HttpError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -2878,12 +3813,14 @@ class _$HttpErrorImpl implements _HttpError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -2908,6 +3845,10 @@ class _$HttpErrorImpl implements _HttpError {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -2928,6 +3869,10 @@ class _$HttpErrorImpl implements _HttpError {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -2947,6 +3892,9 @@ class _$HttpErrorImpl implements _HttpError {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -2969,7 +3917,10 @@ abstract class _HttpError implements AppState {
   Object get e;
   String? get message;
   StackTrace? get stackTrace;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HttpErrorImplCopyWith<_$HttpErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2991,6 +3942,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3036,7 +3989,9 @@ class _$ErrorImpl implements _Error {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -3047,14 +4002,16 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadingCommoditiesRanking,
-    required TResult Function(UEXCommoditiesModel commoditiesRanking)
+    required TResult Function(UEXCommodity commoditiesRanking)
         loadedCommoditiesRanking,
     required TResult Function() loadingCommodities,
-    required TResult Function(UEXCommoditiesModel commodities)
-        loadedCommodities,
+    required TResult Function(UEXCommodity commodities) loadedCommodities,
+    required TResult Function() loadingCommoditiesDetails,
+    required TResult Function(List<ScwCommodityDetail> details)
+        loadedCommoditiesDetails,
     required TResult Function() loadingVehicles,
     required TResult Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)
+            UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)
         loadedVehicles,
     required TResult Function(UexVehicleData ship) activeShip,
     required TResult Function() reload,
@@ -3070,13 +4027,15 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingCommoditiesRanking,
-    TResult? Function(UEXCommoditiesModel commoditiesRanking)?
+    TResult? Function(UEXCommodity commoditiesRanking)?
         loadedCommoditiesRanking,
     TResult? Function()? loadingCommodities,
-    TResult? Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult? Function(UEXCommodity commodities)? loadedCommodities,
+    TResult? Function()? loadingCommoditiesDetails,
+    TResult? Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult? Function()? loadingVehicles,
-    TResult? Function(
-            UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult? Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult? Function(UexVehicleData ship)? activeShip,
     TResult? Function()? reload,
@@ -3092,12 +4051,14 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingCommoditiesRanking,
-    TResult Function(UEXCommoditiesModel commoditiesRanking)?
-        loadedCommoditiesRanking,
+    TResult Function(UEXCommodity commoditiesRanking)? loadedCommoditiesRanking,
     TResult Function()? loadingCommodities,
-    TResult Function(UEXCommoditiesModel commodities)? loadedCommodities,
+    TResult Function(UEXCommodity commodities)? loadedCommodities,
+    TResult Function()? loadingCommoditiesDetails,
+    TResult Function(List<ScwCommodityDetail> details)?
+        loadedCommoditiesDetails,
     TResult Function()? loadingVehicles,
-    TResult Function(UexVehiclesModel uexVehicles, SCWVehicleModel scwVehicles)?
+    TResult Function(UexVehiclesModel uexVehicles, SCWVehicle scwVehicles)?
         loadedVehicles,
     TResult Function(UexVehicleData ship)? activeShip,
     TResult Function()? reload,
@@ -3122,6 +4083,10 @@ class _$ErrorImpl implements _Error {
         loadedCommoditiesRanking,
     required TResult Function(_LoadingCommodities value) loadingCommodities,
     required TResult Function(_LoadedCommodities value) loadedCommodities,
+    required TResult Function(_LoadingCommoditiesDetails value)
+        loadingCommoditiesDetails,
+    required TResult Function(_LoadedCommoditiesDetails value)
+        loadedCommoditiesDetails,
     required TResult Function(_LoadingVehicles value) loadingVehicles,
     required TResult Function(_LoadedVehicles value) loadedVehicles,
     required TResult Function(_ActiveShip value) activeShip,
@@ -3142,6 +4107,10 @@ class _$ErrorImpl implements _Error {
         loadedCommoditiesRanking,
     TResult? Function(_LoadingCommodities value)? loadingCommodities,
     TResult? Function(_LoadedCommodities value)? loadedCommodities,
+    TResult? Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult? Function(_LoadedCommoditiesDetails value)?
+        loadedCommoditiesDetails,
     TResult? Function(_LoadingVehicles value)? loadingVehicles,
     TResult? Function(_LoadedVehicles value)? loadedVehicles,
     TResult? Function(_ActiveShip value)? activeShip,
@@ -3161,6 +4130,9 @@ class _$ErrorImpl implements _Error {
     TResult Function(_LoadedCommoditiesRanking value)? loadedCommoditiesRanking,
     TResult Function(_LoadingCommodities value)? loadingCommodities,
     TResult Function(_LoadedCommodities value)? loadedCommodities,
+    TResult Function(_LoadingCommoditiesDetails value)?
+        loadingCommoditiesDetails,
+    TResult Function(_LoadedCommoditiesDetails value)? loadedCommoditiesDetails,
     TResult Function(_LoadingVehicles value)? loadingVehicles,
     TResult Function(_LoadedVehicles value)? loadedVehicles,
     TResult Function(_ActiveShip value)? activeShip,
@@ -3182,7 +4154,10 @@ abstract class _Error implements AppState {
 
   Object get error;
   StackTrace get stackTrace;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

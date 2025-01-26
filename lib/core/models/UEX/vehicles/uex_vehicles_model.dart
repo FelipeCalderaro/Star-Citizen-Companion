@@ -1,8 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:overlay_test/core/models/UEX/models.dart';
-
+import 'package:overlay_test/core/models/abstracts.dart';
 import 'package:overlay_test/core/serializers/int_to_bool.dart';
 import 'package:overlay_test/core/serializers/string_to_json_object.dart';
 
@@ -10,7 +9,7 @@ part 'uex_vehicles_model.freezed.dart';
 part 'uex_vehicles_model.g.dart';
 
 @freezed
-class UexVehiclesModel extends UEXVehicleModel with _$UexVehiclesModel {
+class UexVehiclesModel extends UEXVehicle with _$UexVehiclesModel {
   const factory UexVehiclesModel({
     @JsonKey(name: "status") required String status,
     @JsonKey(name: "http_code") required int httpCode,

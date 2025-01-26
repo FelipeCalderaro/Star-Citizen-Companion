@@ -6,16 +6,16 @@ import 'package:overlay_test/core/models/UEX/vehicles/uex_vehicles_model.dart';
 import 'package:overlay_test/core/repositories/StarCitizenWiki/scw_vehicles_datasource.dart';
 import 'package:overlay_test/core/utils/vehicle_utils.dart';
 
+part 'vehicle_bloc.freezed.dart';
 part 'vehicle_event.dart';
 part 'vehicle_state.dart';
-part 'vehicle_bloc.freezed.dart';
 
 class VehicleBloc extends Bloc<VehicleEvent, VehicleState> {
   VehicleBloc() : super(const VehicleState.waitingShipSelection()) {
     on<_FetchVechicleDetails>(_onFetchVechicleDetails);
     on<_WaitShipSelection>(_onWaitShipSelection);
   }
-  final SCWVehiclesDatasource _scwVechicleDatasource = SCWVehiclesDatasource();
+  final ScwVehiclesDatasource _scwVechicleDatasource = ScwVehiclesDatasource();
 
   ScwVehicleDetailsModel? scwVehicleDetailsModel;
   UexVehicleData? uexVehicleData;

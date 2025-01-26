@@ -30,7 +30,7 @@ _$UexCommodityDataImpl _$$UexCommodityDataImplFromJson(
       id: (json['id'] as num).toInt(),
       idParent: (json['id_parent'] as num).toInt(),
       name: json['name'] as String,
-      code: json['code'] as String,
+      code: json['code'] as String?,
       kind: json['kind'] as String,
       priceBuy: (json['price_buy'] as num).toDouble(),
       priceSell: (json['price_sell'] as num).toDouble(),

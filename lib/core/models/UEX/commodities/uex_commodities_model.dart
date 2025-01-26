@@ -1,15 +1,14 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:overlay_test/core/models/UEX/models.dart';
+import 'package:overlay_test/core/models/abstracts.dart';
 import 'package:overlay_test/core/serializers/int_to_bool.dart';
 
 part 'uex_commodities_model.freezed.dart';
 part 'uex_commodities_model.g.dart';
 
 @freezed
-class UexCommoditiesModel extends UEXCommoditiesModel
-    with _$UexCommoditiesModel {
+class UexCommoditiesModel extends UEXCommodity with _$UexCommoditiesModel {
   const factory UexCommoditiesModel({
     @JsonKey(name: "status") required String status,
     @JsonKey(name: "http_code") required int httpCode,
@@ -26,7 +25,7 @@ class UexCommodityData with _$UexCommodityData {
     @JsonKey(name: "id") required int id,
     @JsonKey(name: "id_parent") required int idParent,
     @JsonKey(name: "name") required String name,
-    @JsonKey(name: "code") required String code,
+    @JsonKey(name: "code") String? code,
     @JsonKey(name: "kind") required String kind,
     @JsonKey(name: "price_buy") required double priceBuy,
     @JsonKey(name: "price_sell") required double priceSell,
@@ -48,7 +47,7 @@ class UexCommodityData with _$UexCommodityData {
     @IntToBoolConverter()
     required bool isTemporary,
     @JsonKey(name: "is_illegal") @IntToBoolConverter() required bool isIllegal,
-    @JsonKey(name: "wiki") required String? wiki,
+    @JsonKey(name: "wiki") String? wiki,
     @JsonKey(name: "date_added") required int dateAdded,
     @JsonKey(name: "date_modified") required int dateModified,
   }) = _UexCommodityData;

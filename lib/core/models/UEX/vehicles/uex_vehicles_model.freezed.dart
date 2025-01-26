@@ -27,8 +27,12 @@ mixin _$UexVehiclesModel {
   @JsonKey(name: "data")
   List<UexVehicleData> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this UexVehiclesModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexVehiclesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexVehiclesModelCopyWith<UexVehiclesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$UexVehiclesModelCopyWithImpl<$Res, $Val extends UexVehiclesModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexVehiclesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -101,6 +107,8 @@ class __$$UexVehiclesModelImplCopyWithImpl<$Res>
       $Res Function(_$UexVehiclesModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexVehiclesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -168,12 +176,14 @@ class _$UexVehiclesModelImpl implements _UexVehiclesModel {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status, httpCode,
       const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexVehiclesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexVehiclesModelImplCopyWith<_$UexVehiclesModelImpl> get copyWith =>
@@ -207,8 +217,11 @@ abstract class _UexVehiclesModel implements UexVehiclesModel {
   @override
   @JsonKey(name: "data")
   List<UexVehicleData> get data;
+
+  /// Create a copy of UexVehiclesModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexVehiclesModelImplCopyWith<_$UexVehiclesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -345,8 +358,12 @@ mixin _$UexVehicleData {
   @JsonKey(name: "company_name")
   String get companyName => throw _privateConstructorUsedError;
 
+  /// Serializes this UexVehicleData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexVehicleData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexVehicleDataCopyWith<UexVehicleData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -429,6 +446,8 @@ class _$UexVehicleDataCopyWithImpl<$Res, $Val extends UexVehicleData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexVehicleData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -751,6 +770,8 @@ class __$$UexVehicleDataImplCopyWithImpl<$Res>
       _$UexVehicleDataImpl _value, $Res Function(_$UexVehicleDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexVehicleData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1376,7 +1397,7 @@ class _$UexVehicleDataImpl implements _UexVehicleData {
                 other.companyName == companyName));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1429,7 +1450,9 @@ class _$UexVehicleDataImpl implements _UexVehicleData {
         companyName
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexVehicleData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexVehicleDataImplCopyWith<_$UexVehicleDataImpl> get copyWith =>
@@ -1729,8 +1752,11 @@ abstract class _UexVehicleData implements UexVehicleData {
   @override
   @JsonKey(name: "company_name")
   String get companyName;
+
+  /// Create a copy of UexVehicleData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexVehicleDataImplCopyWith<_$UexVehicleDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

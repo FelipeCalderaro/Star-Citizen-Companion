@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:overlay_test/core/extensions/on_double.dart';
+import 'package:overlay_test/core/extensions/on_int.dart';
+import 'package:overlay_test/core/extensions/on_string.dart';
 import 'package:overlay_test/ui/commodities/routes/cubit/commodities_routes_cubit.dart';
 import 'package:overlay_test/ui/theme/app_theme.dart';
 import 'package:overlay_test/ui/widgets/app_bar.dart';
@@ -18,7 +21,7 @@ class CommoditiesRoutesPage extends StatelessWidget {
       builder: (context, state) => Scaffold(
         appBar: SccAppBar(
           context: context,
-          title: 'Commodities Routes',
+          username: 'Commodities Routes',
         ),
         body: state.maybeWhen(
           orElse: () => const AppLoadingState(),

@@ -8,18 +8,23 @@ class AppState with _$AppState {
   const factory AppState.loadingCommoditiesRanking() =
       _LoadingCommoditiesRanking;
   const factory AppState.loadedCommoditiesRanking(
-    UEXCommoditiesModel commoditiesRanking,
+    UEXCommodity commoditiesRanking,
   ) = _LoadedCommoditiesRanking;
 
   const factory AppState.loadingCommodities() = _LoadingCommodities;
   const factory AppState.loadedCommodities(
-    UEXCommoditiesModel commodities,
+    UEXCommodity commodities,
   ) = _LoadedCommodities;
+  const factory AppState.loadingCommoditiesDetails() =
+      _LoadingCommoditiesDetails;
+  const factory AppState.loadedCommoditiesDetails(
+    List<ScwCommodityDetail> details,
+  ) = _LoadedCommoditiesDetails;
   //
   const factory AppState.loadingVehicles() = _LoadingVehicles;
   const factory AppState.loadedVehicles(
     UexVehiclesModel uexVehicles,
-    SCWVehicleModel scwVehicles,
+    SCWVehicle scwVehicles,
   ) = _LoadedVehicles;
   //
   // App Management

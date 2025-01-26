@@ -1,11 +1,12 @@
+import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_history_model.dart';
 import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_model.dart';
 import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_ranking_model.dart';
 import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_routes_model.dart';
-import 'package:overlay_test/core/repositories/UEX/commodities.dart';
+import 'package:overlay_test/core/repositories/commodities.dart';
 import 'package:overlay_test/core/services/scc_backend_http_service.dart';
 import 'package:overlay_test/core/utils/http_response_status_checker.dart';
 
-class UexCommoditiesDatasource extends SCCBackendHttpService
+class UexCommoditiesDatasource extends StarCitizenCompanionBackendHttpService
     implements UEXCommodities {
   @override
   Future<UexCommoditiesRankingModel> getCommoditiesRanking() async {
@@ -51,6 +52,27 @@ class UexCommoditiesDatasource extends SCCBackendHttpService
       throw Exception('Failed to load routes');
     } else {
       return UexCommoditiesRoutesModel.fromJson(response.data);
+    }
+  }
+
+  @override
+  Future<UexCommoditiesHistoryModel> getCommodityHistory(
+    int terminalId,
+    int commodityId,
+  ) async {
+    final response = await client.get(
+      '/uex/commodities_prices_history',
+      queryParameters: {
+        "id_terminal": terminalId,
+        "id_commodity": commodityId,
+      },
+    );
+    if (httpStatusCode(response.statusCode)) {
+      throw Exception(
+        'Failed to load UEX Commodity history. [${response.statusCode}] ${response.statusMessage} - ${response.data}',
+      );
+    } else {
+      return UexCommoditiesHistoryModel.fromJson(response.data);
     }
   }
 }

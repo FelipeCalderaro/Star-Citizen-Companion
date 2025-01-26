@@ -67,7 +67,7 @@ class VehicleDetails extends StatelessWidget {
                 if (scwVehicleDetailsModel
                         .data.shops.firstOrNull?.items.firstOrNull !=
                     null)
-                  "${scwVehicleDetailsModel.data.shops.first.items.first.basePrice.asHumanReadableCurrency} (In-Game)",
+                  "${scwVehicleDetailsModel.data.shops.first.items.first.basePrice?.asHumanReadableCurrency} (In-Game)",
               ],
             ),
           ],
@@ -76,7 +76,7 @@ class VehicleDetails extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 32.0),
           width: 700,
           child: Text(
-            scwVehicleDetailsModel.data.description,
+            scwVehicleDetailsModel.data.description?.enEn ?? "",
             style: AppTextStyles.body,
           ),
         )

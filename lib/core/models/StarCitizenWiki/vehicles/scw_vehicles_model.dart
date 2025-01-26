@@ -1,13 +1,13 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:overlay_test/core/models/StarCitizenWiki/models.dart';
+import 'package:overlay_test/core/models/abstracts.dart';
 
 part 'scw_vehicles_model.freezed.dart';
 part 'scw_vehicles_model.g.dart';
 
 @freezed
-class ScwVehiclesModel extends SCWVehicleModel with _$ScwVehiclesModel {
+class ScwVehiclesModel extends SCWVehicle with _$ScwVehiclesModel {
   const factory ScwVehiclesModel({
     @JsonKey(name: "data") required List<ScwVehicleData> data,
     @JsonKey(name: "links") required Links links,

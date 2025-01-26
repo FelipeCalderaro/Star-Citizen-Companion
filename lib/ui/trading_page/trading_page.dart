@@ -25,7 +25,7 @@ class TradingPage extends StatelessWidget {
     return Scaffold(
       appBar: SccAppBar(
         context: context,
-        title: "Trading",
+        username: "Trading",
       ),
       extendBodyBehindAppBar: true,
       body: CustomScrollView(

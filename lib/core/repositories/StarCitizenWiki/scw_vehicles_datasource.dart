@@ -1,12 +1,14 @@
-import 'package:overlay_test/core/models/StarCitizenWiki/models.dart';
+import 'dart:developer';
+
 import 'package:overlay_test/core/models/StarCitizenWiki/vehicles/scw_vehicle_details_model.dart';
 import 'package:overlay_test/core/models/StarCitizenWiki/vehicles/scw_vehicles_model.dart';
-import 'package:overlay_test/core/repositories/StarCitizenWiki/vehicles.dart';
+import 'package:overlay_test/core/models/abstracts.dart';
+import 'package:overlay_test/core/repositories/vehicles.dart';
 import 'package:overlay_test/core/services/scw_http_service.dart';
 import 'package:overlay_test/core/utils/http_response_status_checker.dart';
 
-class SCWVehiclesDatasource extends SCWHttpService
-    implements SCWVehicles<SCWVehicleModel> {
+class ScwVehiclesDatasource extends SCWHttpService
+    implements SCWVehicles<SCWVehicle> {
   @override
   Future<ScwVehiclesModel> fetchVehicles({int limit = 300}) async {
     final response = await client.get(
@@ -33,6 +35,7 @@ class SCWVehiclesDatasource extends SCWHttpService
         'Failed to load SCW Vehicles. [${response.statusCode}] ${response.statusMessage} - ${response.data}',
       );
     } else {
+      inspect(ScwVehicleDetailsModel.fromJson(response.data));
       return ScwVehicleDetailsModel.fromJson(response.data);
     }
   }

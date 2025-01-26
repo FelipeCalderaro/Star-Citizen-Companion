@@ -1,19 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:overlay_test/core/app_bloc/app_bloc.dart';
-import 'package:overlay_test/core/enums/hero_tags.dart';
-import 'package:overlay_test/core/extensions/on_color.dart';
-import 'package:overlay_test/core/management/window_control.dart';
+import 'package:overlay_test/core/constants/spacing.dart';
+import 'package:overlay_test/core/extensions/on_uex_commodities_ranking.dart';
+import 'package:overlay_test/core/models/StarCitizenWiki/commodities/scw_commodities_detail.dart';
+import 'package:overlay_test/core/models/UEX/commodities/uex_commodities_ranking_model.dart';
 import 'package:overlay_test/core/services/service_locator.dart';
-import 'package:overlay_test/ui/home/widgets/vehicle_display.dart';
-import 'package:overlay_test/ui/theme/app_theme.dart';
-import 'package:overlay_test/ui/trading_page/trading_page.dart';
 import 'package:overlay_test/ui/vehicle/bloc/vehicle_bloc.dart';
-import 'package:overlay_test/ui/vehicle/vehicle_details.dart';
 import 'package:overlay_test/ui/widgets/app_bar.dart';
-import 'package:overlay_test/ui/widgets/app_loading_state.dart';
+import 'package:overlay_test/ui/widgets/bar_meter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,115 +26,192 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: SccAppBar(
-        context: context,
-        title: "Star Citizen Companion",
-        showBackButton: false,
-        showDraggable: false,
-        showToggleOverlay: false,
-      ),
-      floatingActionButton: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (showTradeButton)
-            FloatingActionButton.extended(
-              heroTag: HeroTag.tradingButton,
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TradingPage(
-                    imageUrl:
-                        vehicleBloc.uexVehicleData?.urlPhotos?.firstOrNull ??
-                            "",
-                    scwVehicleDetailsData:
-                        vehicleBloc.scwVehicleDetailsModel!.data,
-                    uexVehicleData: vehicleBloc.uexVehicleData!,
+    return BlocConsumer<AppBloc, AppState>(
+      bloc: appBloc,
+      listener: (context, state) {},
+      builder: (context, appBlocState) => Scaffold(
+        extendBody: true,
+        appBar: SccAppBar(
+          context: context,
+          username: "PrometeusVolk",
+          showBackButton: false,
+          showDraggable: false,
+          showToggleOverlay: false,
+        ),
+        floatingActionButton: const Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [],
+        ),
+        body: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.x010),
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: 600,
+                  width: 750,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Spacing.x012),
+                    color: Colors.blueGrey,
+                  ),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Top Ranking commodities",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                      if (appBloc.uexCommoditiesRanking != null)
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          children: List.generate(
+                            appBloc.uexCommoditiesRanking?.data
+                                    .take(3)
+                                    .length ??
+                                10,
+                            (index) => CommodityInfoDisplay(
+                              data: appBloc.uexCommoditiesRanking!.data[index],
+                              details: appBloc.scwCommodityDetails,
+                            ),
+                          ),
+                        )
+                    ],
                   ),
                 ),
-              ),
-              icon: const Icon(Icons.table_chart_outlined),
-              label: const Text("Trade"),
-              backgroundColor:
-                  Colors.deepPurpleAccent.adjustColorBrightness(.3),
+                Container()
+              ],
             )
-                .animate()
-                .slideX(
-                  begin: 1.5,
-                  end: 0,
-                  curve: Curves.decelerate,
-                  duration: 500.ms,
-                )
-                .fadeIn(duration: 1.seconds),
-          if (appBloc.selectedShip != null) const SizedBox(width: 10),
-          FloatingActionButton.extended(
-            heroTag: HeroTag.toggleOverlayButton,
-            backgroundColor: AppColors.primary,
-            onPressed: () async => await WindowControl.instance.toggleOverlay(),
-            icon: const Icon(
-              Icons.airplay_rounded,
-              color: AppColors.white,
-            ),
-            label: const Text(
-              "Overlay Mode",
-              style: TextStyle(
-                color: AppColors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CustomScrollView(
-          controller: scrollController,
-          slivers: [
-            SliverToBoxAdapter(
-              child: Text(
-                "Welcome, which ship are we flying today?",
-                style: AppTextStyles.h1,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
-            if (appBloc.uexVehicles != null)
-              VehiclesDisplayHome(
-                vehicles: appBloc.uexVehicles!,
-                height: 400,
-              ),
-            const SliverToBoxAdapter(child: SizedBox(height: 30)),
-            BlocConsumer<VehicleBloc, VehicleState>(
-              bloc: vehicleBloc,
-              listener: (context, state) => state.maybeWhen(
-                orElse: () => setState(
-                  () => showTradeButton = false,
-                ),
-                loadedDetails: (_) => setState(
-                  () => showTradeButton = true,
-                ),
-              ),
-              builder: (context, state) => state.maybeWhen(
-                orElse: () => SliverToBoxAdapter(
-                  child: Container(),
-                ),
-                noShipDetailsFound: () => const SliverToBoxAdapter(
-                  child: Center(
-                    child: Text("No ship details found"),
-                  ),
-                ),
-                loadingDetails: () => const SliverToBoxAdapter(
-                  child: AppLoadingState(),
-                ),
-                loadedDetails: (details) => SliverToBoxAdapter(
-                  child: VehicleDetails(
-                    uexVehicleData: appBloc.selectedShip!,
-                    scwVehicleDetailsModel: details,
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CommodityInfoDisplay extends StatelessWidget {
+  const CommodityInfoDisplay({
+    super.key,
+    required this.data,
+    required this.details,
+    this.height = 150,
+    this.width = 180,
+  });
+  final double height;
+  final double width;
+  final UexCommodityRankData data;
+  final List<ScwCommodityDetail> details;
+
+  ScwCommodityDetail? get detail => data.getDetail(details);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: Spacing.x010,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(Spacing.x006),
+                child: SizedBox(
+                  height: height,
+                  width: width,
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: data.getDetail(details)?.image ?? "",
+                  ),
+                ),
+              ),
+              Container(
+                height: height,
+                width: width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Spacing.x006),
+                  gradient: const LinearGradient(
+                    stops: [0, 0.4, 1],
+                    colors: [
+                      Colors.transparent,
+                      Colors.transparent,
+                      Colors.black87,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: Spacing.x006,
+                left: Spacing.x006,
+                child: Text(
+                  data.name.split(" ").take(2).join(" "),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            width: width,
+            child: Text(
+              detail?.description ?? "",
+            ),
+          ),
+
+          Text(data.investment.toString()),
+          BarMeter(
+            value: .3,
+            horizontal: true,
+            foregroundColor: Colors.cyan,
+          ),
+          Text(data.profitability.toString()),
+          Text(data.priceSellMax.toString()),
+          Text(data.priceBuyMin.toString()),
+          Text(data.profitabilityRelativePercentage.toString()),
+          Text(data.caxScore.toString()),
+          Text(data.priceSellAvg.toString()),
+          BarMeter(
+            value: data.profitabilityRelativePercentage / 100,
+            horizontal: true,
+            foregroundColor: Colors.amber,
+          ),
+
+          // SizedBox(
+          //   width: width,
+          //   child: RichText(
+          //     text: TextSpan(
+          //       style: const TextStyle(color: Colors.black),
+          //       text: "Info:\n",
+          //       children: [
+          //         TextSpan(
+          //           text: "Container size: ",
+          //           children: [
+          //             TextSpan(
+          //               text: "${detail?.occupancy}\n",
+          //             ),
+          //           ],
+          //         ),
+          //         TextSpan(
+          //           text: "Base Price: ",
+          //           children: [
+          //             TextSpan(
+          //               text: "${detail?.basePrice}\n",
+          //             ),
+          //           ],
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+        ],
       ),
     );
   }

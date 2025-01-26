@@ -1,30 +1,25 @@
+import json
 from fastapi import APIRouter, Response, status, Request
 from fastapi.responses import JSONResponse
-
+from decouple import config
 import requests
 import httpx
 
-from constants import BASE_URL, UEX_SERVER_DNS
+from constants import UEX_URL, UEX_SERVER_DNS, DEFAULT_RESPONSES
 
 router = APIRouter(
     prefix="/uex",
     tags=["uex"],
-    responses={
-        404: {"description": "Not found"},
-        500: {"description": "Internal Server Error"},
-        422: {"description": "Validation Error"},
-        401: {"description": "Unauthorized"},
-        403: {"description": "Forbidden"},
-    },
+    responses=DEFAULT_RESPONSES,
 )
 
 
 @router.get("/health")
 async def proxy(request: Request):
     response = requests.get(
-        "https://uexcorp.space/api/2.0/commodities",
+        f"{UEX_URL}/commodities",
         headers={
-            "Authorization": "Bearer 0229e01379c84fb465f3de2070f514c9bf41586d",
+            "Authorization": f"Bearer {config('UEX_TOKEN')}",
         },
     )
     return JSONResponse(
@@ -35,7 +30,7 @@ async def proxy(request: Request):
 
 @router.get("/{path:path}")
 async def proxy(path: str, request: Request):
-    url = f"{BASE_URL}/{path}"
+    url = f"{UEX_URL}/{path}"
     headers = dict(request.headers)
     headers["host"] = UEX_SERVER_DNS
     if "authorization" in headers:
@@ -50,8 +45,19 @@ async def proxy(path: str, request: Request):
 
     # Check the content type of the response and handle accordingly
     content_type = response.headers.get("content-type")
-    if content_type and "application/json" in content_type:
+    if content_type and "application/json" in content_type and response.text[0] != "g":
         return JSONResponse(status_code=response.status_code, content=response.json())
+    elif response.text[0] == "g" and "application/json" in content_type:
+        return JSONResponse(
+            status_code=response.status_code,
+            content=json.loads(
+                response.text.replace(
+                    "g{",
+                    "{",
+                    1,
+                )
+            ),
+        )
     else:
         return Response(
             content=response.content,

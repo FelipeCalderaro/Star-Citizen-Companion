@@ -9,7 +9,7 @@ import hotkey_manager_macos
 import macos_window_utils
 import path_provider_foundation
 import screen_retriever
-import sqflite
+import sqflite_darwin
 import window_manager
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {

@@ -27,8 +27,12 @@ mixin _$UexCommoditiesModel {
   @JsonKey(name: "data")
   List<UexCommodityData> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this UexCommoditiesModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexCommoditiesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexCommoditiesModelCopyWith<UexCommoditiesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$UexCommoditiesModelCopyWithImpl<$Res, $Val extends UexCommoditiesModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexCommoditiesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -101,6 +107,8 @@ class __$$UexCommoditiesModelImplCopyWithImpl<$Res>
       $Res Function(_$UexCommoditiesModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexCommoditiesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -168,12 +176,14 @@ class _$UexCommoditiesModelImpl implements _UexCommoditiesModel {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status, httpCode,
       const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexCommoditiesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexCommoditiesModelImplCopyWith<_$UexCommoditiesModelImpl> get copyWith =>
@@ -207,8 +217,11 @@ abstract class _UexCommoditiesModel implements UexCommoditiesModel {
   @override
   @JsonKey(name: "data")
   List<UexCommodityData> get data;
+
+  /// Create a copy of UexCommoditiesModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexCommoditiesModelImplCopyWith<_$UexCommoditiesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -226,7 +239,7 @@ mixin _$UexCommodityData {
   @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "code")
-  String get code => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
   @JsonKey(name: "kind")
   String get kind => throw _privateConstructorUsedError;
   @JsonKey(name: "price_buy")
@@ -270,8 +283,12 @@ mixin _$UexCommodityData {
   @JsonKey(name: "date_modified")
   int get dateModified => throw _privateConstructorUsedError;
 
+  /// Serializes this UexCommodityData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UexCommodityData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UexCommodityDataCopyWith<UexCommodityData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -286,7 +303,7 @@ abstract class $UexCommodityDataCopyWith<$Res> {
       {@JsonKey(name: "id") int id,
       @JsonKey(name: "id_parent") int idParent,
       @JsonKey(name: "name") String name,
-      @JsonKey(name: "code") String code,
+      @JsonKey(name: "code") String? code,
       @JsonKey(name: "kind") String kind,
       @JsonKey(name: "price_buy") double priceBuy,
       @JsonKey(name: "price_sell") double priceSell,
@@ -315,13 +332,15 @@ class _$UexCommodityDataCopyWithImpl<$Res, $Val extends UexCommodityData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UexCommodityData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
     Object? idParent = null,
     Object? name = null,
-    Object? code = null,
+    Object? code = freezed,
     Object? kind = null,
     Object? priceBuy = null,
     Object? priceSell = null,
@@ -352,10 +371,10 @@ class _$UexCommodityDataCopyWithImpl<$Res, $Val extends UexCommodityData>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      code: null == code
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       kind: null == kind
           ? _value.kind
           : kind // ignore: cast_nullable_to_non_nullable
@@ -436,7 +455,7 @@ abstract class _$$UexCommodityDataImplCopyWith<$Res>
       {@JsonKey(name: "id") int id,
       @JsonKey(name: "id_parent") int idParent,
       @JsonKey(name: "name") String name,
-      @JsonKey(name: "code") String code,
+      @JsonKey(name: "code") String? code,
       @JsonKey(name: "kind") String kind,
       @JsonKey(name: "price_buy") double priceBuy,
       @JsonKey(name: "price_sell") double priceSell,
@@ -463,13 +482,15 @@ class __$$UexCommodityDataImplCopyWithImpl<$Res>
       $Res Function(_$UexCommodityDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UexCommodityData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
     Object? idParent = null,
     Object? name = null,
-    Object? code = null,
+    Object? code = freezed,
     Object? kind = null,
     Object? priceBuy = null,
     Object? priceSell = null,
@@ -500,10 +521,10 @@ class __$$UexCommodityDataImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      code: null == code
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       kind: null == kind
           ? _value.kind
           : kind // ignore: cast_nullable_to_non_nullable
@@ -579,7 +600,7 @@ class _$UexCommodityDataImpl implements _UexCommodityData {
       {@JsonKey(name: "id") required this.id,
       @JsonKey(name: "id_parent") required this.idParent,
       @JsonKey(name: "name") required this.name,
-      @JsonKey(name: "code") required this.code,
+      @JsonKey(name: "code") this.code,
       @JsonKey(name: "kind") required this.kind,
       @JsonKey(name: "price_buy") required this.priceBuy,
       @JsonKey(name: "price_sell") required this.priceSell,
@@ -611,7 +632,7 @@ class _$UexCommodityDataImpl implements _UexCommodityData {
       @JsonKey(name: "is_illegal")
       @IntToBoolConverter()
       required this.isIllegal,
-      @JsonKey(name: "wiki") required this.wiki,
+      @JsonKey(name: "wiki") this.wiki,
       @JsonKey(name: "date_added") required this.dateAdded,
       @JsonKey(name: "date_modified") required this.dateModified});
 
@@ -629,7 +650,7 @@ class _$UexCommodityDataImpl implements _UexCommodityData {
   final String name;
   @override
   @JsonKey(name: "code")
-  final String code;
+  final String? code;
   @override
   @JsonKey(name: "kind")
   final String kind;
@@ -735,7 +756,7 @@ class _$UexCommodityDataImpl implements _UexCommodityData {
                 other.dateModified == dateModified));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -761,7 +782,9 @@ class _$UexCommodityDataImpl implements _UexCommodityData {
         dateModified
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UexCommodityData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UexCommodityDataImplCopyWith<_$UexCommodityDataImpl> get copyWith =>
@@ -781,7 +804,7 @@ abstract class _UexCommodityData implements UexCommodityData {
       {@JsonKey(name: "id") required final int id,
       @JsonKey(name: "id_parent") required final int idParent,
       @JsonKey(name: "name") required final String name,
-      @JsonKey(name: "code") required final String code,
+      @JsonKey(name: "code") final String? code,
       @JsonKey(name: "kind") required final String kind,
       @JsonKey(name: "price_buy") required final double priceBuy,
       @JsonKey(name: "price_sell") required final double priceSell,
@@ -813,7 +836,7 @@ abstract class _UexCommodityData implements UexCommodityData {
       @JsonKey(name: "is_illegal")
       @IntToBoolConverter()
       required final bool isIllegal,
-      @JsonKey(name: "wiki") required final String? wiki,
+      @JsonKey(name: "wiki") final String? wiki,
       @JsonKey(name: "date_added") required final int dateAdded,
       @JsonKey(name: "date_modified")
       required final int dateModified}) = _$UexCommodityDataImpl;
@@ -832,7 +855,7 @@ abstract class _UexCommodityData implements UexCommodityData {
   String get name;
   @override
   @JsonKey(name: "code")
-  String get code;
+  String? get code;
   @override
   @JsonKey(name: "kind")
   String get kind;
@@ -891,8 +914,11 @@ abstract class _UexCommodityData implements UexCommodityData {
   @override
   @JsonKey(name: "date_modified")
   int get dateModified;
+
+  /// Create a copy of UexCommodityData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UexCommodityDataImplCopyWith<_$UexCommodityDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

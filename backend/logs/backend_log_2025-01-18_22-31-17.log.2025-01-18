@@ -1,0 +1,13 @@
+[2025-01-18 22:31:17] [INFO] app - HotkeysService initialized
+[2025-01-18 23:36:07] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:36:17] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:36:20] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:37:13] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:37:15] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:43:23] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:43:25] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:46:35] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:47:32] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:50:31] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:51:25] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities "HTTP/1.1 200 OK"
+[2025-01-18 23:56:36] [INFO] httpx - HTTP Request: GET https://uexcorp.space/api/2.0/commodities_prices_history?id_terminal=12&id_commodity=62 "HTTP/1.1 200 OK"

@@ -1,15 +1,14 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'package:overlay_test/core/models/UEX/models.dart';
+import 'package:overlay_test/core/models/abstracts.dart';
 import 'package:overlay_test/core/serializers/int_to_bool.dart';
 
 part 'uex_commodities_routes_model.freezed.dart';
 part 'uex_commodities_routes_model.g.dart';
 
 @freezed
-class UexCommoditiesRoutesModel extends UEXCommoditiesModel
+class UexCommoditiesRoutesModel extends UEXCommodity
     with _$UexCommoditiesRoutesModel {
   const factory UexCommoditiesRoutesModel({
     @JsonKey(name: "status") required String status,

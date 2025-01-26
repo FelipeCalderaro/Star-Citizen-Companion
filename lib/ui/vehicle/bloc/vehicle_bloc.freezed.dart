@@ -84,6 +84,9 @@ class _$VehicleEventCopyWithImpl<$Res, $Val extends VehicleEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -214,6 +220,9 @@ class __$$WaitShipSelectionImplCopyWithImpl<$Res>
   __$$WaitShipSelectionImplCopyWithImpl(_$WaitShipSelectionImpl _value,
       $Res Function(_$WaitShipSelectionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -334,6 +343,8 @@ class __$$FetchVechicleDetailsImplCopyWithImpl<$Res>
       $Res Function(_$FetchVechicleDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -352,6 +363,8 @@ class __$$FetchVechicleDetailsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UexVehicleDataCopyWith<$Res> get selectedShip {
@@ -360,6 +373,8 @@ class __$$FetchVechicleDetailsImplCopyWithImpl<$Res>
     });
   }
 
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ScwVehiclesModelCopyWith<$Res> get scwVehiclesModel {
@@ -398,7 +413,9 @@ class _$FetchVechicleDetailsImpl implements _FetchVechicleDetails {
   @override
   int get hashCode => Object.hash(runtimeType, selectedShip, scwVehiclesModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchVechicleDetailsImplCopyWith<_$FetchVechicleDetailsImpl>
@@ -487,7 +504,10 @@ abstract class _FetchVechicleDetails implements VehicleEvent {
 
   UexVehicleData get selectedShip;
   ScwVehiclesModel get scwVehiclesModel;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VehicleEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchVechicleDetailsImplCopyWith<_$FetchVechicleDetailsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -562,6 +582,9 @@ class _$VehicleStateCopyWithImpl<$Res, $Val extends VehicleState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -578,6 +601,9 @@ class __$$WaitingShipSelectionImplCopyWithImpl<$Res>
   __$$WaitingShipSelectionImplCopyWithImpl(_$WaitingShipSelectionImpl _value,
       $Res Function(_$WaitingShipSelectionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -693,6 +719,9 @@ class __$$NoShipDetailsFoundImplCopyWithImpl<$Res>
   __$$NoShipDetailsFoundImplCopyWithImpl(_$NoShipDetailsFoundImpl _value,
       $Res Function(_$NoShipDetailsFoundImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -807,6 +836,9 @@ class __$$LoadingDetailsImplCopyWithImpl<$Res>
   __$$LoadingDetailsImplCopyWithImpl(
       _$LoadingDetailsImpl _value, $Res Function(_$LoadingDetailsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -926,6 +958,8 @@ class __$$LoadedDetailsImplCopyWithImpl<$Res>
       _$LoadedDetailsImpl _value, $Res Function(_$LoadedDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -939,6 +973,8 @@ class __$$LoadedDetailsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ScwVehicleDetailsModelCopyWith<$Res> get details {
@@ -972,7 +1008,9 @@ class _$LoadedDetailsImpl implements _LoadedDetails {
   @override
   int get hashCode => Object.hash(runtimeType, details);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadedDetailsImplCopyWith<_$LoadedDetailsImpl> get copyWith =>
@@ -1058,7 +1096,10 @@ abstract class _LoadedDetails implements VehicleState {
       _$LoadedDetailsImpl;
 
   ScwVehicleDetailsModel get details;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VehicleState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedDetailsImplCopyWith<_$LoadedDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

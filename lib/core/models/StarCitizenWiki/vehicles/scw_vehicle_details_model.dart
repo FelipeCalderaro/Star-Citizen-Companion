@@ -1,16 +1,14 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:overlay_test/core/models/StarCitizenWiki/models.dart';
+import 'package:overlay_test/core/models/abstracts.dart';
+
 part 'scw_vehicle_details_model.freezed.dart';
 part 'scw_vehicle_details_model.g.dart';
 
 @freezed
-class ScwVehicleDetailsModel extends SCWVehicleModel
-    with _$ScwVehicleDetailsModel {
+class ScwVehicleDetailsModel extends SCWVehicle with _$ScwVehicleDetailsModel {
   const factory ScwVehicleDetailsModel({
     @JsonKey(name: "data") required ScwVehicleDetailsData data,
-    @JsonKey(name: "meta") required Meta meta,
+    @JsonKey(name: "meta") Meta? meta,
   }) = _ScwVehicleDetailsModel;
 
   factory ScwVehicleDetailsModel.fromJson(Map<String, dynamic> json) =>
@@ -20,45 +18,45 @@ class ScwVehicleDetailsModel extends SCWVehicleModel
 @freezed
 class ScwVehicleDetailsData with _$ScwVehicleDetailsData {
   const factory ScwVehicleDetailsData({
-    @JsonKey(name: "uuid") String? uuid,
+    @JsonKey(name: "uuid") required String uuid,
     @JsonKey(name: "name") required String name,
     @JsonKey(name: "slug") required String slug,
     @JsonKey(name: "class_name") String? className,
     @JsonKey(name: "sizes") required Sizes sizes,
-    @JsonKey(name: "emission") required Emission emission,
-    @JsonKey(name: "mass") required int mass,
-    @JsonKey(name: "cargo_capacity") required int cargoCapacity,
-    @JsonKey(name: "vehicle_inventory") required double vehicleInventory,
-    @JsonKey(name: "personal_inventory") required int personalInventory,
-    @JsonKey(name: "crew") required Crew crew,
-    @JsonKey(name: "health") required int health,
-    @JsonKey(name: "shield_hp") int? shieldHp,
+    @JsonKey(name: "emission") Emission? emission,
+    @JsonKey(name: "mass") num? mass,
+    @JsonKey(name: "cargo_capacity") int? cargoCapacity,
+    @JsonKey(name: "vehicle_inventory") num? vehicleInventory,
+    @JsonKey(name: "personal_inventory") num? personalInventory,
+    @JsonKey(name: "crew") Crew? crew,
+    @JsonKey(name: "health") num? health,
+    @JsonKey(name: "shield_hp") num? shieldHp,
     @JsonKey(name: "speed") required Speed speed,
     @JsonKey(name: "fuel") required Fuel fuel,
     @JsonKey(name: "quantum") Quantum? quantum,
-    @JsonKey(name: "agility") required Agility agility,
+    @JsonKey(name: "agility") Agility? agility,
     @JsonKey(name: "armor") Armor? armor,
-    @JsonKey(name: "foci") required List<String> foci,
+    @JsonKey(name: "foci") required List<dynamic> foci,
     @JsonKey(name: "type") required String type,
-    @JsonKey(name: "description") required String description,
-    @JsonKey(name: "size_class") required int sizeClass,
-    @JsonKey(name: "manufacturer") required DataManufacturer manufacturer,
-    @JsonKey(name: "insurance") required Insurance insurance,
+    @JsonKey(name: "description") dynamic description,
+    @JsonKey(name: "size_class") int? sizeClass,
+    @JsonKey(name: "manufacturer") DataManufacturer? manufacturer,
+    @JsonKey(name: "insurance") Insurance? insurance,
     @JsonKey(name: "hardpoints") required List<Hardpoint> hardpoints,
     @JsonKey(name: "shops") required List<Shop> shops,
     @JsonKey(name: "parts") required List<Part> parts,
-    @JsonKey(name: "updated_at") required DateTime updatedAt,
-    @JsonKey(name: "version") required String version,
-    @JsonKey(name: "id") required int id,
-    @JsonKey(name: "chassis_id") required int chassisId,
-    @JsonKey(name: "production_status") required String productionStatus,
-    @JsonKey(name: "production_note") required String productionNote,
-    @JsonKey(name: "size") required String size,
+    @JsonKey(name: "updated_at") DateTime? updatedAt,
+    @JsonKey(name: "version") String? version,
+    @JsonKey(name: "id") int? id,
+    @JsonKey(name: "chassis_id") int? chassisId,
+    @JsonKey(name: "production_status") Description? productionStatus,
+    @JsonKey(name: "production_note") Description? productionNote,
+    @JsonKey(name: "size") Description? size,
     @JsonKey(name: "msrp") int? msrp,
-    @JsonKey(name: "pledge_url") required String pledgeUrl,
-    @JsonKey(name: "components") required List<Component> components,
-    @JsonKey(name: "loaner") required List<Loaner> loaner,
-    @JsonKey(name: "skus") required List<Skus> skus,
+    @JsonKey(name: "pledge_url") String? pledgeUrl,
+    @JsonKey(name: "components") List<Component>? components,
+    @JsonKey(name: "loaner") List<Loaner>? loaner,
+    @JsonKey(name: "skus") List<Skus>? skus,
   }) = _ScwVehicleDetailsData;
 
   factory ScwVehicleDetailsData.fromJson(Map<String, dynamic> json) =>
@@ -68,10 +66,10 @@ class ScwVehicleDetailsData with _$ScwVehicleDetailsData {
 @freezed
 class Agility with _$Agility {
   const factory Agility({
-    @JsonKey(name: "pitch") required int pitch,
-    @JsonKey(name: "yaw") required double yaw,
-    @JsonKey(name: "roll") required int roll,
-    @JsonKey(name: "acceleration") required Acceleration acceleration,
+    @JsonKey(name: "pitch") int? pitch,
+    @JsonKey(name: "yaw") int? yaw,
+    @JsonKey(name: "roll") int? roll,
+    @JsonKey(name: "acceleration") Acceleration? acceleration,
   }) = _Agility;
 
   factory Agility.fromJson(Map<String, dynamic> json) =>
@@ -81,14 +79,14 @@ class Agility with _$Agility {
 @freezed
 class Acceleration with _$Acceleration {
   const factory Acceleration({
-    @JsonKey(name: "main") required double main,
-    @JsonKey(name: "retro") required double retro,
-    @JsonKey(name: "vtol") required double vtol,
-    @JsonKey(name: "maneuvering") required double maneuvering,
-    @JsonKey(name: "main_g") required double mainG,
-    @JsonKey(name: "retro_g") required double retroG,
-    @JsonKey(name: "vtol_g") required double vtolG,
-    @JsonKey(name: "maneuvering_g") required double maneuveringG,
+    @JsonKey(name: "main") double? main,
+    @JsonKey(name: "retro") double? retro,
+    @JsonKey(name: "vtol") int? vtol,
+    @JsonKey(name: "maneuvering") double? maneuvering,
+    @JsonKey(name: "main_g") double? mainG,
+    @JsonKey(name: "retro_g") double? retroG,
+    @JsonKey(name: "vtol_g") int? vtolG,
+    @JsonKey(name: "maneuvering_g") double? maneuveringG,
   }) = _Acceleration;
 
   factory Acceleration.fromJson(Map<String, dynamic> json) =>
@@ -98,15 +96,15 @@ class Acceleration with _$Acceleration {
 @freezed
 class Armor with _$Armor {
   const factory Armor({
-    @JsonKey(name: "signal_infrared") required int signalInfrared,
-    @JsonKey(name: "signal_electromagnetic") required int signalElectromagnetic,
-    @JsonKey(name: "signal_cross_section") required int signalCrossSection,
-    @JsonKey(name: "damage_physical") required double damagePhysical,
-    @JsonKey(name: "damage_energy") required int damageEnergy,
-    @JsonKey(name: "damage_distortion") required int damageDistortion,
-    @JsonKey(name: "damage_thermal") required int damageThermal,
-    @JsonKey(name: "damage_biochemical") required int damageBiochemical,
-    @JsonKey(name: "damage_stun") required int damageStun,
+    @JsonKey(name: "signal_infrared") int? signalInfrared,
+    @JsonKey(name: "signal_electromagnetic") int? signalElectromagnetic,
+    @JsonKey(name: "signal_cross_section") int? signalCrossSection,
+    @JsonKey(name: "damage_physical") double? damagePhysical,
+    @JsonKey(name: "damage_energy") int? damageEnergy,
+    @JsonKey(name: "damage_distortion") int? damageDistortion,
+    @JsonKey(name: "damage_thermal") int? damageThermal,
+    @JsonKey(name: "damage_biochemical") int? damageBiochemical,
+    @JsonKey(name: "damage_stun") int? damageStun,
   }) = _Armor;
 
   factory Armor.fromJson(Map<String, dynamic> json) => _$ArmorFromJson(json);
@@ -115,16 +113,16 @@ class Armor with _$Armor {
 @freezed
 class Component with _$Component {
   const factory Component({
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "mounts") required int mounts,
-    @JsonKey(name: "component_size") required String componentSize,
-    @JsonKey(name: "category") required String category,
-    @JsonKey(name: "size") required String size,
-    @JsonKey(name: "details") required String details,
-    @JsonKey(name: "quantity") required int quantity,
-    @JsonKey(name: "manufacturer") required String manufacturer,
-    @JsonKey(name: "component_class") required String componentClass,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "mounts") int? mounts,
+    @JsonKey(name: "component_size") String? componentSize,
+    @JsonKey(name: "category") String? category,
+    @JsonKey(name: "size") String? size,
+    @JsonKey(name: "details") String? details,
+    @JsonKey(name: "quantity") int? quantity,
+    @JsonKey(name: "manufacturer") String? manufacturer,
+    @JsonKey(name: "component_class") String? componentClass,
   }) = _Component;
 
   factory Component.fromJson(Map<String, dynamic> json) =>
@@ -134,21 +132,33 @@ class Component with _$Component {
 @freezed
 class Crew with _$Crew {
   const factory Crew({
-    @JsonKey(name: "min") required int min,
-    @JsonKey(name: "max") required dynamic max,
-    @JsonKey(name: "weapon") required int weapon,
-    @JsonKey(name: "operation") required dynamic operation,
+    @JsonKey(name: "min") int? min,
+    @JsonKey(name: "max") dynamic max,
+    @JsonKey(name: "weapon") int? weapon,
+    @JsonKey(name: "operation") dynamic operation,
   }) = _Crew;
 
   factory Crew.fromJson(Map<String, dynamic> json) => _$CrewFromJson(json);
 }
 
 @freezed
+class Description with _$Description {
+  const factory Description({
+    @JsonKey(name: "en_EN") String? enEn,
+    @JsonKey(name: "de_DE") String? deDe,
+    @JsonKey(name: "zh_CN") String? zhCn,
+  }) = _Description;
+
+  factory Description.fromJson(Map<String, dynamic> json) =>
+      _$DescriptionFromJson(json);
+}
+
+@freezed
 class Emission with _$Emission {
   const factory Emission({
-    @JsonKey(name: "ir") required int ir,
-    @JsonKey(name: "em_idle") required int emIdle,
-    @JsonKey(name: "em_max") required int emMax,
+    @JsonKey(name: "ir") int? ir,
+    @JsonKey(name: "em_idle") int? emIdle,
+    @JsonKey(name: "em_max") int? emMax,
   }) = _Emission;
 
   factory Emission.fromJson(Map<String, dynamic> json) =>
@@ -158,9 +168,9 @@ class Emission with _$Emission {
 @freezed
 class Fuel with _$Fuel {
   const factory Fuel({
-    @JsonKey(name: "capacity") required int capacity,
-    @JsonKey(name: "intake_rate") required int intakeRate,
-    @JsonKey(name: "usage") required Usage usage,
+    @JsonKey(name: "capacity") int? capacity,
+    @JsonKey(name: "intake_rate") int? intakeRate,
+    @JsonKey(name: "usage") Usage? usage,
   }) = _Fuel;
 
   factory Fuel.fromJson(Map<String, dynamic> json) => _$FuelFromJson(json);
@@ -169,10 +179,10 @@ class Fuel with _$Fuel {
 @freezed
 class Usage with _$Usage {
   const factory Usage({
-    @JsonKey(name: "main") required int main,
-    @JsonKey(name: "maneuvering") required int maneuvering,
-    @JsonKey(name: "retro") required int retro,
-    @JsonKey(name: "vtol") required int vtol,
+    @JsonKey(name: "main") int? main,
+    @JsonKey(name: "maneuvering") int? maneuvering,
+    @JsonKey(name: "retro") int? retro,
+    @JsonKey(name: "vtol") int? vtol,
   }) = _Usage;
 
   factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
@@ -181,14 +191,14 @@ class Usage with _$Usage {
 @freezed
 class Hardpoint with _$Hardpoint {
   const factory Hardpoint({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "position") required String? position,
-    @JsonKey(name: "min_size") required int? minSize,
-    @JsonKey(name: "max_size") required int? maxSize,
-    @JsonKey(name: "class_name") required String? className,
-    @JsonKey(name: "health") required int? health,
-    @JsonKey(name: "type") required String? type,
-    @JsonKey(name: "sub_type") required String? subType,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "position") String? position,
+    @JsonKey(name: "min_size") int? minSize,
+    @JsonKey(name: "max_size") int? maxSize,
+    @JsonKey(name: "class_name") String? className,
+    @JsonKey(name: "health") int? health,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_type") String? subType,
     @JsonKey(name: "item") HardpointItem? item,
     @JsonKey(name: "children") List<HardpointChild>? children,
   }) = _Hardpoint;
@@ -200,16 +210,16 @@ class Hardpoint with _$Hardpoint {
 @freezed
 class HardpointChild with _$HardpointChild {
   const factory HardpointChild({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "position") required String? position,
-    @JsonKey(name: "min_size") required int? minSize,
-    @JsonKey(name: "max_size") required int? maxSize,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "position") String? position,
+    @JsonKey(name: "min_size") dynamic minSize,
+    @JsonKey(name: "max_size") dynamic maxSize,
     @JsonKey(name: "class_name") String? className,
-    @JsonKey(name: "health") required int? health,
-    @JsonKey(name: "type") required String? type,
-    @JsonKey(name: "sub_type") required String? subType,
+    @JsonKey(name: "health") int? health,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_type") String? subType,
     @JsonKey(name: "item") FluffyItem? item,
-    @JsonKey(name: "children") List<ChildChild>? children,
+    @JsonKey(name: "children") List<PurpleChild>? children,
   }) = _HardpointChild;
 
   factory HardpointChild.fromJson(Map<String, dynamic> json) =>
@@ -217,41 +227,40 @@ class HardpointChild with _$HardpointChild {
 }
 
 @freezed
-class ChildChild with _$ChildChild {
-  const factory ChildChild({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "position") required dynamic position,
-    @JsonKey(name: "min_size") required dynamic minSize,
-    @JsonKey(name: "max_size") required dynamic maxSize,
+class PurpleChild with _$PurpleChild {
+  const factory PurpleChild({
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "position") dynamic position,
+    @JsonKey(name: "min_size") dynamic minSize,
+    @JsonKey(name: "max_size") dynamic maxSize,
     @JsonKey(name: "class_name") String? className,
-    @JsonKey(name: "health") required int health,
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_type") required String subType,
-    @JsonKey(name: "item") required PurpleItem item,
-  }) = _ChildChild;
+    @JsonKey(name: "health") int? health,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_type") String? subType,
+    @JsonKey(name: "item") PurpleItem? item,
+  }) = _PurpleChild;
 
-  factory ChildChild.fromJson(Map<String, dynamic> json) =>
-      _$ChildChildFromJson(json);
+  factory PurpleChild.fromJson(Map<String, dynamic> json) =>
+      _$PurpleChildFromJson(json);
 }
 
 @freezed
 class PurpleItem with _$PurpleItem {
   const factory PurpleItem({
     @JsonKey(name: "uuid") String? uuid,
-    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "name") String? name,
     @JsonKey(name: "class_name") String? className,
-    @JsonKey(name: "link") required String link,
-    @JsonKey(name: "size") required int size,
-    @JsonKey(name: "mass") required int mass,
-    @JsonKey(name: "grade") required dynamic grade,
-    @JsonKey(name: "class") required dynamic itemClass,
-    @JsonKey(name: "manufacturer") required ItemManufacturer manufacturer,
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_type") required String subType,
-    @JsonKey(name: "vehicle_weapon") CounterMeasure? vehicleWeapon,
-    @JsonKey(name: "ports") required List<Port> ports,
-    @JsonKey(name: "updated_at") required DateTime updatedAt,
-    @JsonKey(name: "version") required String version,
+    @JsonKey(name: "link") String? link,
+    @JsonKey(name: "size") int? size,
+    @JsonKey(name: "mass") int? mass,
+    @JsonKey(name: "grade") dynamic grade,
+    @JsonKey(name: "class") dynamic itemClass,
+    @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_type") String? subType,
+    @JsonKey(name: "vehicle_weapon") PurpleVehicleWeapon? vehicleWeapon,
+    @JsonKey(name: "updated_at") DateTime? updatedAt,
+    @JsonKey(name: "version") String? version,
   }) = _PurpleItem;
 
   factory PurpleItem.fromJson(Map<String, dynamic> json) =>
@@ -261,9 +270,9 @@ class PurpleItem with _$PurpleItem {
 @freezed
 class ItemManufacturer with _$ItemManufacturer {
   const factory ItemManufacturer({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "code") required String code,
-    @JsonKey(name: "link") required String link,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "code") String? code,
+    @JsonKey(name: "link") String? link,
   }) = _ItemManufacturer;
 
   factory ItemManufacturer.fromJson(Map<String, dynamic> json) =>
@@ -271,102 +280,45 @@ class ItemManufacturer with _$ItemManufacturer {
 }
 
 @freezed
-class Port with _$Port {
-  const factory Port({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "display_name") required String displayName,
-    @JsonKey(name: "position") required String position,
-    @JsonKey(name: "sizes") required PriceRange sizes,
-    @JsonKey(name: "compatible_types")
-    required List<CompatibleType> compatibleTypes,
-    @JsonKey(name: "tags") required List<String> tags,
-    @JsonKey(name: "required_tags") required List<String> requiredTags,
-    @JsonKey(name: "equipped_item") required EquippedItem? equippedItem,
-  }) = _Port;
+class PurpleVehicleWeapon with _$PurpleVehicleWeapon {
+  const factory PurpleVehicleWeapon({
+    @JsonKey(name: "class") dynamic vehicleWeaponClass,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "capacity") int? capacity,
+    @JsonKey(name: "range") int? range,
+    @JsonKey(name: "damage_per_shot") double? damagePerShot,
+    @JsonKey(name: "modes") List<VehicleWeaponMode>? modes,
+    @JsonKey(name: "damages") List<VehicleWeaponDamage>? damages,
+    @JsonKey(name: "regeneration") PurpleRegeneration? regeneration,
+    @JsonKey(name: "ammunition") VehicleWeaponAmmunition? ammunition,
+  }) = _PurpleVehicleWeapon;
 
-  factory Port.fromJson(Map<String, dynamic> json) => _$PortFromJson(json);
+  factory PurpleVehicleWeapon.fromJson(Map<String, dynamic> json) =>
+      _$PurpleVehicleWeaponFromJson(json);
 }
 
 @freezed
-class CompatibleType with _$CompatibleType {
-  const factory CompatibleType({
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_types") required List<String> subTypes,
-  }) = _CompatibleType;
-
-  factory CompatibleType.fromJson(Map<String, dynamic> json) =>
-      _$CompatibleTypeFromJson(json);
-}
-
-@freezed
-class EquippedItem with _$EquippedItem {
-  const factory EquippedItem({
+class VehicleWeaponAmmunition with _$VehicleWeaponAmmunition {
+  const factory VehicleWeaponAmmunition({
     @JsonKey(name: "uuid") String? uuid,
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_type") required String subType,
-    @JsonKey(name: "is_base_variant") required bool isBaseVariant,
-    @JsonKey(name: "manufacturer") required ItemManufacturer manufacturer,
-    @JsonKey(name: "link") required String link,
-    @JsonKey(name: "updated_at") required DateTime updatedAt,
-    @JsonKey(name: "version") required String version,
-  }) = _EquippedItem;
+    @JsonKey(name: "size") int? size,
+    @JsonKey(name: "lifetime") double? lifetime,
+    @JsonKey(name: "speed") int? speed,
+    @JsonKey(name: "range") int? range,
+    @JsonKey(name: "piercability") PurplePiercability? piercability,
+    @JsonKey(name: "damage_falloffs") DamageFalloffs? damageFalloffs,
+  }) = _VehicleWeaponAmmunition;
 
-  factory EquippedItem.fromJson(Map<String, dynamic> json) =>
-      _$EquippedItemFromJson(json);
-}
-
-@freezed
-class PriceRange with _$PriceRange {
-  const factory PriceRange({
-    @JsonKey(name: "min") required int min,
-    @JsonKey(name: "max") required int max,
-  }) = _PriceRange;
-
-  factory PriceRange.fromJson(Map<String, dynamic> json) =>
-      _$PriceRangeFromJson(json);
-}
-
-@freezed
-class CounterMeasure with _$CounterMeasure {
-  const factory CounterMeasure({
-    @JsonKey(name: "class") required dynamic counterMeasureClass,
-    @JsonKey(name: "type") required String? type,
-    @JsonKey(name: "capacity") required int capacity,
-    @JsonKey(name: "range") required int range,
-    @JsonKey(name: "damage_per_shot") required double damagePerShot,
-    @JsonKey(name: "modes") required List<CounterMeasureMode> modes,
-    @JsonKey(name: "damages") required List<Damage> damages,
-    @JsonKey(name: "regeneration") required Regeneration? regeneration,
-    @JsonKey(name: "ammunition") required Ammunition ammunition,
-  }) = _CounterMeasure;
-
-  factory CounterMeasure.fromJson(Map<String, dynamic> json) =>
-      _$CounterMeasureFromJson(json);
-}
-
-@freezed
-class Ammunition with _$Ammunition {
-  const factory Ammunition({
-    @JsonKey(name: "uuid") String? uuid,
-    @JsonKey(name: "size") required int size,
-    @JsonKey(name: "lifetime") required double lifetime,
-    @JsonKey(name: "speed") required int speed,
-    @JsonKey(name: "range") required int range,
-    @JsonKey(name: "piercability") required Piercability piercability,
-    @JsonKey(name: "damage_falloffs") required DamageFalloffs damageFalloffs,
-  }) = _Ammunition;
-
-  factory Ammunition.fromJson(Map<String, dynamic> json) =>
-      _$AmmunitionFromJson(json);
+  factory VehicleWeaponAmmunition.fromJson(Map<String, dynamic> json) =>
+      _$VehicleWeaponAmmunitionFromJson(json);
 }
 
 @freezed
 class DamageFalloffs with _$DamageFalloffs {
   const factory DamageFalloffs({
-    @JsonKey(name: "min_distance") required MinDamage minDistance,
-    @JsonKey(name: "per_meter") required MinDamage perMeter,
-    @JsonKey(name: "min_damage") required MinDamage minDamage,
+    @JsonKey(name: "min_distance") MinDamage? minDistance,
+    @JsonKey(name: "per_meter") MinDamage? perMeter,
+    @JsonKey(name: "min_damage") MinDamage? minDamage,
   }) = _DamageFalloffs;
 
   factory DamageFalloffs.fromJson(Map<String, dynamic> json) =>
@@ -376,12 +328,12 @@ class DamageFalloffs with _$DamageFalloffs {
 @freezed
 class MinDamage with _$MinDamage {
   const factory MinDamage({
-    @JsonKey(name: "physical") required int physical,
-    @JsonKey(name: "energy") required int energy,
-    @JsonKey(name: "distortion") required int distortion,
-    @JsonKey(name: "thermal") required int thermal,
-    @JsonKey(name: "biochemical") required int biochemical,
-    @JsonKey(name: "stun") required int stun,
+    @JsonKey(name: "physical") int? physical,
+    @JsonKey(name: "energy") int? energy,
+    @JsonKey(name: "distortion") int? distortion,
+    @JsonKey(name: "thermal") int? thermal,
+    @JsonKey(name: "biochemical") int? biochemical,
+    @JsonKey(name: "stun") int? stun,
   }) = _MinDamage;
 
   factory MinDamage.fromJson(Map<String, dynamic> json) =>
@@ -389,82 +341,80 @@ class MinDamage with _$MinDamage {
 }
 
 @freezed
-class Piercability with _$Piercability {
-  const factory Piercability({
-    @JsonKey(name: "damage_falloff_level_1") required int damageFalloffLevel1,
-    @JsonKey(name: "damage_falloff_level_2") required int damageFalloffLevel2,
-    @JsonKey(name: "damage_falloff_level_3") required int damageFalloffLevel3,
-    @JsonKey(name: "max_penetration_thickness")
-    required double maxPenetrationThickness,
-  }) = _Piercability;
+class PurplePiercability with _$PurplePiercability {
+  const factory PurplePiercability({
+    @JsonKey(name: "damage_falloff_level_1") int? damageFalloffLevel1,
+    @JsonKey(name: "damage_falloff_level_2") int? damageFalloffLevel2,
+    @JsonKey(name: "damage_falloff_level_3") int? damageFalloffLevel3,
+    @JsonKey(name: "max_penetration_thickness") double? maxPenetrationThickness,
+  }) = _PurplePiercability;
 
-  factory Piercability.fromJson(Map<String, dynamic> json) =>
-      _$PiercabilityFromJson(json);
+  factory PurplePiercability.fromJson(Map<String, dynamic> json) =>
+      _$PurplePiercabilityFromJson(json);
 }
 
 @freezed
-class Damage with _$Damage {
-  const factory Damage({
-    @JsonKey(name: "type") required String? type,
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "damage") required double damage,
-  }) = _Damage;
+class VehicleWeaponDamage with _$VehicleWeaponDamage {
+  const factory VehicleWeaponDamage({
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "damage") double? damage,
+  }) = _VehicleWeaponDamage;
 
-  factory Damage.fromJson(Map<String, dynamic> json) => _$DamageFromJson(json);
+  factory VehicleWeaponDamage.fromJson(Map<String, dynamic> json) =>
+      _$VehicleWeaponDamageFromJson(json);
 }
 
 @freezed
-class CounterMeasureMode with _$CounterMeasureMode {
-  const factory CounterMeasureMode({
-    @JsonKey(name: "mode") required String mode,
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "rpm") required int rpm,
-    @JsonKey(name: "ammo_per_shot") required int ammoPerShot,
-    @JsonKey(name: "pellets_per_shot") required int pelletsPerShot,
-    @JsonKey(name: "damage_per_second") required double damagePerSecond,
-  }) = _CounterMeasureMode;
+class VehicleWeaponMode with _$VehicleWeaponMode {
+  const factory VehicleWeaponMode({
+    @JsonKey(name: "mode") String? mode,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "rpm") int? rpm,
+    @JsonKey(name: "ammo_per_shot") int? ammoPerShot,
+    @JsonKey(name: "pellets_per_shot") int? pelletsPerShot,
+    @JsonKey(name: "damage_per_second") double? damagePerSecond,
+  }) = _VehicleWeaponMode;
 
-  factory CounterMeasureMode.fromJson(Map<String, dynamic> json) =>
-      _$CounterMeasureModeFromJson(json);
+  factory VehicleWeaponMode.fromJson(Map<String, dynamic> json) =>
+      _$VehicleWeaponModeFromJson(json);
 }
 
 @freezed
-class Regeneration with _$Regeneration {
-  const factory Regeneration({
-    @JsonKey(name: "requested_regen_per_sec") required int requestedRegenPerSec,
-    @JsonKey(name: "requested_ammo_load") required int requestedAmmoLoad,
-    @JsonKey(name: "cooldown") required double cooldown,
-    @JsonKey(name: "cost_per_bullet") required double costPerBullet,
-  }) = _Regeneration;
+class PurpleRegeneration with _$PurpleRegeneration {
+  const factory PurpleRegeneration({
+    @JsonKey(name: "requested_regen_per_sec") int? requestedRegenPerSec,
+    @JsonKey(name: "requested_ammo_load") int? requestedAmmoLoad,
+    @JsonKey(name: "cooldown") double? cooldown,
+    @JsonKey(name: "cost_per_bullet") double? costPerBullet,
+  }) = _PurpleRegeneration;
 
-  factory Regeneration.fromJson(Map<String, dynamic> json) =>
-      _$RegenerationFromJson(json);
+  factory PurpleRegeneration.fromJson(Map<String, dynamic> json) =>
+      _$PurpleRegenerationFromJson(json);
 }
 
 @freezed
 class FluffyItem with _$FluffyItem {
   const factory FluffyItem({
     @JsonKey(name: "uuid") String? uuid,
-    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "name") String? name,
     @JsonKey(name: "class_name") String? className,
-    @JsonKey(name: "link") required String link,
-    @JsonKey(name: "size") required int size,
-    @JsonKey(name: "mass") required int mass,
-    @JsonKey(name: "grade") required dynamic grade,
-    @JsonKey(name: "class") required dynamic itemClass,
-    @JsonKey(name: "manufacturer") required ItemManufacturer manufacturer,
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_type") required String subType,
-    @JsonKey(name: "vehicle_weapon") CounterMeasure? vehicleWeapon,
-    @JsonKey(name: "ports") required List<Port> ports,
-    @JsonKey(name: "updated_at") required DateTime updatedAt,
-    @JsonKey(name: "version") required String version,
+    @JsonKey(name: "link") String? link,
+    @JsonKey(name: "size") int? size,
+    @JsonKey(name: "mass") int? mass,
+    @JsonKey(name: "grade") dynamic grade,
+    @JsonKey(name: "class") dynamic itemClass,
+    @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_type") String? subType,
+    @JsonKey(name: "vehicle_weapon") FluffyVehicleWeapon? vehicleWeapon,
+    @JsonKey(name: "updated_at") DateTime? updatedAt,
+    @JsonKey(name: "version") String? version,
     @JsonKey(name: "max_mounts") int? maxMounts,
     @JsonKey(name: "min_size") int? minSize,
     @JsonKey(name: "max_size") int? maxSize,
+    @JsonKey(name: "ports") List<Port>? ports,
     @JsonKey(name: "missile") Missile? missile,
-    @JsonKey(name: "inventory") Inventory? inventory,
-    @JsonKey(name: "tractor_beam") TractorBeam? tractorBeam,
   }) = _FluffyItem;
 
   factory FluffyItem.fromJson(Map<String, dynamic> json) =>
@@ -472,37 +422,21 @@ class FluffyItem with _$FluffyItem {
 }
 
 @freezed
-class Inventory with _$Inventory {
-  const factory Inventory({
-    @JsonKey(name: "width") required double width,
-    @JsonKey(name: "height") required double height,
-    @JsonKey(name: "length") required double length,
-    @JsonKey(name: "dimension") required double dimension,
-    @JsonKey(name: "scu") required double scu,
-    @JsonKey(name: "scu_converted") required double scuConverted,
-    @JsonKey(name: "unit") required String unit,
-  }) = _Inventory;
-
-  factory Inventory.fromJson(Map<String, dynamic> json) =>
-      _$InventoryFromJson(json);
-}
-
-@freezed
 class Missile with _$Missile {
   const factory Missile({
-    @JsonKey(name: "cluster_size") required int clusterSize,
-    @JsonKey(name: "signal_type") required String signalType,
-    @JsonKey(name: "lock_time") required double lockTime,
-    @JsonKey(name: "lock_range_max") required int lockRangeMax,
-    @JsonKey(name: "lock_range_min") required int lockRangeMin,
-    @JsonKey(name: "lock_angle") required int lockAngle,
-    @JsonKey(name: "tracking_signal_min") required double trackingSignalMin,
-    @JsonKey(name: "speed") required int speed,
-    @JsonKey(name: "fuel_tank_size") required int fuelTankSize,
-    @JsonKey(name: "explosion_radius_min") required int explosionRadiusMin,
-    @JsonKey(name: "explosion_radius_max") required int explosionRadiusMax,
-    @JsonKey(name: "damage_total") required double damageTotal,
-    @JsonKey(name: "damages") required List<Damage> damages,
+    @JsonKey(name: "cluster_size") int? clusterSize,
+    @JsonKey(name: "signal_type") String? signalType,
+    @JsonKey(name: "lock_time") int? lockTime,
+    @JsonKey(name: "lock_range_max") int? lockRangeMax,
+    @JsonKey(name: "lock_range_min") int? lockRangeMin,
+    @JsonKey(name: "lock_angle") int? lockAngle,
+    @JsonKey(name: "tracking_signal_min") int? trackingSignalMin,
+    @JsonKey(name: "speed") double? speed,
+    @JsonKey(name: "fuel_tank_size") int? fuelTankSize,
+    @JsonKey(name: "explosion_radius_min") int? explosionRadiusMin,
+    @JsonKey(name: "explosion_radius_max") int? explosionRadiusMax,
+    @JsonKey(name: "damage_total") double? damageTotal,
+    @JsonKey(name: "damages") List<MissileDamage>? damages,
   }) = _Missile;
 
   factory Missile.fromJson(Map<String, dynamic> json) =>
@@ -510,48 +444,108 @@ class Missile with _$Missile {
 }
 
 @freezed
-class TractorBeam with _$TractorBeam {
-  const factory TractorBeam({
-    @JsonKey(name: "min_force") required int minForce,
-    @JsonKey(name: "max_force") required int maxForce,
-    @JsonKey(name: "min_distance") required int minDistance,
-    @JsonKey(name: "max_distance") required int maxDistance,
-    @JsonKey(name: "full_strength_distance") required int fullStrengthDistance,
-    @JsonKey(name: "max_angle") required int maxAngle,
-    @JsonKey(name: "max_volume") required int maxVolume,
-    @JsonKey(name: "volume_force_coefficient")
-    required double volumeForceCoefficient,
-    @JsonKey(name: "tether_break_time") required double tetherBreakTime,
-    @JsonKey(name: "safe_range_value_factor")
-    required double safeRangeValueFactor,
-  }) = _TractorBeam;
+class MissileDamage with _$MissileDamage {
+  const factory MissileDamage({
+    @JsonKey(name: "type") dynamic type,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "damage") double? damage,
+  }) = _MissileDamage;
 
-  factory TractorBeam.fromJson(Map<String, dynamic> json) =>
-      _$TractorBeamFromJson(json);
+  factory MissileDamage.fromJson(Map<String, dynamic> json) =>
+      _$MissileDamageFromJson(json);
+}
+
+@freezed
+class Port with _$Port {
+  const factory Port({
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "display_name") String? displayName,
+    @JsonKey(name: "position") String? position,
+    @JsonKey(name: "sizes") PriceRange? sizes,
+    @JsonKey(name: "compatible_types") List<CompatibleType>? compatibleTypes,
+    @JsonKey(name: "tags") List<dynamic>? tags,
+    @JsonKey(name: "required_tags") List<dynamic>? requiredTags,
+    @JsonKey(name: "equipped_item") dynamic equippedItem,
+  }) = _Port;
+
+  factory Port.fromJson(Map<String, dynamic> json) => _$PortFromJson(json);
+}
+
+@freezed
+class CompatibleType with _$CompatibleType {
+  const factory CompatibleType({
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_types") List<String>? subTypes,
+  }) = _CompatibleType;
+
+  factory CompatibleType.fromJson(Map<String, dynamic> json) =>
+      _$CompatibleTypeFromJson(json);
+}
+
+@freezed
+class PriceRange with _$PriceRange {
+  const factory PriceRange({
+    @JsonKey(name: "min") int? min,
+    @JsonKey(name: "max") int? max,
+  }) = _PriceRange;
+
+  factory PriceRange.fromJson(Map<String, dynamic> json) =>
+      _$PriceRangeFromJson(json);
+}
+
+@freezed
+class FluffyVehicleWeapon with _$FluffyVehicleWeapon {
+  const factory FluffyVehicleWeapon({
+    @JsonKey(name: "class") dynamic vehicleWeaponClass,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "capacity") int? capacity,
+    @JsonKey(name: "range") int? range,
+    @JsonKey(name: "damage_per_shot") double? damagePerShot,
+    @JsonKey(name: "modes") List<VehicleWeaponMode>? modes,
+    @JsonKey(name: "damages") List<VehicleWeaponDamage>? damages,
+    @JsonKey(name: "regeneration") FluffyRegeneration? regeneration,
+    @JsonKey(name: "ammunition") VehicleWeaponAmmunition? ammunition,
+  }) = _FluffyVehicleWeapon;
+
+  factory FluffyVehicleWeapon.fromJson(Map<String, dynamic> json) =>
+      _$FluffyVehicleWeaponFromJson(json);
+}
+
+@freezed
+class FluffyRegeneration with _$FluffyRegeneration {
+  const factory FluffyRegeneration({
+    @JsonKey(name: "requested_regen_per_sec") int? requestedRegenPerSec,
+    @JsonKey(name: "requested_ammo_load") int? requestedAmmoLoad,
+    @JsonKey(name: "cooldown") double? cooldown,
+    @JsonKey(name: "cost_per_bullet") int? costPerBullet,
+  }) = _FluffyRegeneration;
+
+  factory FluffyRegeneration.fromJson(Map<String, dynamic> json) =>
+      _$FluffyRegenerationFromJson(json);
 }
 
 @freezed
 class HardpointItem with _$HardpointItem {
   const factory HardpointItem({
     @JsonKey(name: "uuid") String? uuid,
-    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "name") String? name,
     @JsonKey(name: "class_name") String? className,
-    @JsonKey(name: "link") required String link,
-    @JsonKey(name: "size") required int size,
-    @JsonKey(name: "mass") required int mass,
-    @JsonKey(name: "grade") required String? grade,
-    @JsonKey(name: "class") required String? itemClass,
-    @JsonKey(name: "manufacturer") required ItemManufacturer manufacturer,
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_type") required String subType,
+    @JsonKey(name: "link") String? link,
+    @JsonKey(name: "size") int? size,
+    @JsonKey(name: "mass") int? mass,
+    @JsonKey(name: "grade") String? grade,
+    @JsonKey(name: "class") String? itemClass,
+    @JsonKey(name: "manufacturer") ItemManufacturer? manufacturer,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "sub_type") String? subType,
     @JsonKey(name: "emp") Armor? emp,
-    @JsonKey(name: "ports") required List<Port> ports,
-    @JsonKey(name: "updated_at") required DateTime updatedAt,
-    @JsonKey(name: "version") required String version,
+    @JsonKey(name: "updated_at") DateTime? updatedAt,
+    @JsonKey(name: "version") String? version,
     @JsonKey(name: "inventory") Inventory? inventory,
     @JsonKey(name: "max_mounts") int? maxMounts,
     @JsonKey(name: "min_size") int? minSize,
     @JsonKey(name: "max_size") int? maxSize,
+    @JsonKey(name: "ports") List<Port>? ports,
     @JsonKey(name: "counter_measure") CounterMeasure? counterMeasure,
     @JsonKey(name: "self_destruct") SelfDestruct? selfDestruct,
     @JsonKey(name: "flight_controller") FlightController? flightController,
@@ -572,23 +566,84 @@ class HardpointItem with _$HardpointItem {
 @freezed
 class Cooler with _$Cooler {
   const factory Cooler({
-    @JsonKey(name: "cooling_rate") required int coolingRate,
-    @JsonKey(name: "suppression_ir_factor") required double suppressionIrFactor,
-    @JsonKey(name: "suppression_heat_factor")
-    required double suppressionHeatFactor,
+    @JsonKey(name: "cooling_rate") int? coolingRate,
+    @JsonKey(name: "suppression_ir_factor") double? suppressionIrFactor,
+    @JsonKey(name: "suppression_heat_factor") double? suppressionHeatFactor,
   }) = _Cooler;
 
   factory Cooler.fromJson(Map<String, dynamic> json) => _$CoolerFromJson(json);
 }
 
 @freezed
+class CounterMeasure with _$CounterMeasure {
+  const factory CounterMeasure({
+    @JsonKey(name: "class") dynamic counterMeasureClass,
+    @JsonKey(name: "type") dynamic type,
+    @JsonKey(name: "capacity") int? capacity,
+    @JsonKey(name: "range") int? range,
+    @JsonKey(name: "damage_per_shot") int? damagePerShot,
+    @JsonKey(name: "modes") List<CounterMeasureMode>? modes,
+    @JsonKey(name: "damages") List<dynamic>? damages,
+    @JsonKey(name: "regeneration") dynamic regeneration,
+    @JsonKey(name: "ammunition") CounterMeasureAmmunition? ammunition,
+  }) = _CounterMeasure;
+
+  factory CounterMeasure.fromJson(Map<String, dynamic> json) =>
+      _$CounterMeasureFromJson(json);
+}
+
+@freezed
+class CounterMeasureAmmunition with _$CounterMeasureAmmunition {
+  const factory CounterMeasureAmmunition({
+    @JsonKey(name: "uuid") String? uuid,
+    @JsonKey(name: "size") int? size,
+    @JsonKey(name: "lifetime") double? lifetime,
+    @JsonKey(name: "speed") int? speed,
+    @JsonKey(name: "range") int? range,
+    @JsonKey(name: "piercability") FluffyPiercability? piercability,
+    @JsonKey(name: "damage_falloffs") DamageFalloffs? damageFalloffs,
+  }) = _CounterMeasureAmmunition;
+
+  factory CounterMeasureAmmunition.fromJson(Map<String, dynamic> json) =>
+      _$CounterMeasureAmmunitionFromJson(json);
+}
+
+@freezed
+class FluffyPiercability with _$FluffyPiercability {
+  const factory FluffyPiercability({
+    @JsonKey(name: "damage_falloff_level_1") int? damageFalloffLevel1,
+    @JsonKey(name: "damage_falloff_level_2") int? damageFalloffLevel2,
+    @JsonKey(name: "damage_falloff_level_3") int? damageFalloffLevel3,
+    @JsonKey(name: "max_penetration_thickness") int? maxPenetrationThickness,
+  }) = _FluffyPiercability;
+
+  factory FluffyPiercability.fromJson(Map<String, dynamic> json) =>
+      _$FluffyPiercabilityFromJson(json);
+}
+
+@freezed
+class CounterMeasureMode with _$CounterMeasureMode {
+  const factory CounterMeasureMode({
+    @JsonKey(name: "mode") String? mode,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "rpm") int? rpm,
+    @JsonKey(name: "ammo_per_shot") int? ammoPerShot,
+    @JsonKey(name: "pellets_per_shot") int? pelletsPerShot,
+    @JsonKey(name: "damage_per_second") int? damagePerSecond,
+  }) = _CounterMeasureMode;
+
+  factory CounterMeasureMode.fromJson(Map<String, dynamic> json) =>
+      _$CounterMeasureModeFromJson(json);
+}
+
+@freezed
 class FlightController with _$FlightController {
   const factory FlightController({
-    @JsonKey(name: "scm_speed") required int scmSpeed,
-    @JsonKey(name: "max_speed") required int maxSpeed,
-    @JsonKey(name: "pitch") required int pitch,
-    @JsonKey(name: "yaw") required double yaw,
-    @JsonKey(name: "roll") required int roll,
+    @JsonKey(name: "scm_speed") int? scmSpeed,
+    @JsonKey(name: "max_speed") int? maxSpeed,
+    @JsonKey(name: "pitch") int? pitch,
+    @JsonKey(name: "yaw") int? yaw,
+    @JsonKey(name: "roll") int? roll,
   }) = _FlightController;
 
   factory FlightController.fromJson(Map<String, dynamic> json) =>
@@ -598,8 +653,8 @@ class FlightController with _$FlightController {
 @freezed
 class FuelIntake with _$FuelIntake {
   const factory FuelIntake({
-    @JsonKey(name: "fuel_push_rate") required int fuelPushRate,
-    @JsonKey(name: "minimum_rate") required double minimumRate,
+    @JsonKey(name: "fuel_push_rate") int? fuelPushRate,
+    @JsonKey(name: "minimum_rate") double? minimumRate,
   }) = _FuelIntake;
 
   factory FuelIntake.fromJson(Map<String, dynamic> json) =>
@@ -609,9 +664,9 @@ class FuelIntake with _$FuelIntake {
 @freezed
 class FuelTank with _$FuelTank {
   const factory FuelTank({
-    @JsonKey(name: "fill_rate") required int fillRate,
-    @JsonKey(name: "drain_rate") required int drainRate,
-    @JsonKey(name: "capacity") required int capacity,
+    @JsonKey(name: "fill_rate") int? fillRate,
+    @JsonKey(name: "drain_rate") int? drainRate,
+    @JsonKey(name: "capacity") int? capacity,
   }) = _FuelTank;
 
   factory FuelTank.fromJson(Map<String, dynamic> json) =>
@@ -619,9 +674,25 @@ class FuelTank with _$FuelTank {
 }
 
 @freezed
+class Inventory with _$Inventory {
+  const factory Inventory({
+    @JsonKey(name: "width") int? width,
+    @JsonKey(name: "height") double? height,
+    @JsonKey(name: "length") double? length,
+    @JsonKey(name: "dimension") double? dimension,
+    @JsonKey(name: "scu") double? scu,
+    @JsonKey(name: "scu_converted") double? scuConverted,
+    @JsonKey(name: "unit") String? unit,
+  }) = _Inventory;
+
+  factory Inventory.fromJson(Map<String, dynamic> json) =>
+      _$InventoryFromJson(json);
+}
+
+@freezed
 class PowerPlant with _$PowerPlant {
   const factory PowerPlant({
-    @JsonKey(name: "power_output") required double powerOutput,
+    @JsonKey(name: "power_output") double? powerOutput,
   }) = _PowerPlant;
 
   factory PowerPlant.fromJson(Map<String, dynamic> json) =>
@@ -631,13 +702,11 @@ class PowerPlant with _$PowerPlant {
 @freezed
 class QuantumDrive with _$QuantumDrive {
   const factory QuantumDrive({
-    @JsonKey(name: "quantum_fuel_requirement")
-    required double quantumFuelRequirement,
-    @JsonKey(name: "jump_range") required String jumpRange,
-    @JsonKey(name: "disconnect_range") required int disconnectRange,
-    @JsonKey(name: "thermal_energy_draw")
-    required ThermalEnergyDraw thermalEnergyDraw,
-    @JsonKey(name: "modes") required List<QuantumDriveMode> modes,
+    @JsonKey(name: "quantum_fuel_requirement") double? quantumFuelRequirement,
+    @JsonKey(name: "jump_range") String? jumpRange,
+    @JsonKey(name: "disconnect_range") int? disconnectRange,
+    @JsonKey(name: "thermal_energy_draw") ThermalEnergyDraw? thermalEnergyDraw,
+    @JsonKey(name: "modes") List<QuantumDriveMode>? modes,
   }) = _QuantumDrive;
 
   factory QuantumDrive.fromJson(Map<String, dynamic> json) =>
@@ -647,24 +716,23 @@ class QuantumDrive with _$QuantumDrive {
 @freezed
 class QuantumDriveMode with _$QuantumDriveMode {
   const factory QuantumDriveMode({
-    @JsonKey(name: "type") required String type,
-    @JsonKey(name: "drive_speed") required int driveSpeed,
-    @JsonKey(name: "cooldown_time") required double cooldownTime,
-    @JsonKey(name: "stage_one_accel_rate") required int stageOneAccelRate,
-    @JsonKey(name: "stage_two_accel_rate") required int stageTwoAccelRate,
-    @JsonKey(name: "engage_speed") required int engageSpeed,
-    @JsonKey(name: "interdiction_effect_time")
-    required int interdictionEffectTime,
-    @JsonKey(name: "calibration_rate") required int calibrationRate,
+    @JsonKey(name: "type") String? type,
+    @JsonKey(name: "drive_speed") int? driveSpeed,
+    @JsonKey(name: "cooldown_time") double? cooldownTime,
+    @JsonKey(name: "stage_one_accel_rate") int? stageOneAccelRate,
+    @JsonKey(name: "stage_two_accel_rate") int? stageTwoAccelRate,
+    @JsonKey(name: "engage_speed") int? engageSpeed,
+    @JsonKey(name: "interdiction_effect_time") int? interdictionEffectTime,
+    @JsonKey(name: "calibration_rate") int? calibrationRate,
     @JsonKey(name: "min_calibration_requirement")
-    required int minCalibrationRequirement,
+    int? minCalibrationRequirement,
     @JsonKey(name: "max_calibration_requirement")
-    required int maxCalibrationRequirement,
+    int? maxCalibrationRequirement,
     @JsonKey(name: "calibration_process_angle_limit")
-    required int calibrationProcessAngleLimit,
+    int? calibrationProcessAngleLimit,
     @JsonKey(name: "calibration_warning_angle_limit")
-    required int calibrationWarningAngleLimit,
-    @JsonKey(name: "spool_up_time") required int spoolUpTime,
+    int? calibrationWarningAngleLimit,
+    @JsonKey(name: "spool_up_time") int? spoolUpTime,
   }) = _QuantumDriveMode;
 
   factory QuantumDriveMode.fromJson(Map<String, dynamic> json) =>
@@ -674,11 +742,11 @@ class QuantumDriveMode with _$QuantumDriveMode {
 @freezed
 class ThermalEnergyDraw with _$ThermalEnergyDraw {
   const factory ThermalEnergyDraw({
-    @JsonKey(name: "pre_ramp_up") required int preRampUp,
-    @JsonKey(name: "ramp_up") required int rampUp,
-    @JsonKey(name: "in_flight") required int inFlight,
-    @JsonKey(name: "ramp_down") required int rampDown,
-    @JsonKey(name: "post_ramp_down") required int postRampDown,
+    @JsonKey(name: "pre_ramp_up") int? preRampUp,
+    @JsonKey(name: "ramp_up") int? rampUp,
+    @JsonKey(name: "in_flight") int? inFlight,
+    @JsonKey(name: "ramp_down") int? rampDown,
+    @JsonKey(name: "post_ramp_down") int? postRampDown,
   }) = _ThermalEnergyDraw;
 
   factory ThermalEnergyDraw.fromJson(Map<String, dynamic> json) =>
@@ -688,12 +756,12 @@ class ThermalEnergyDraw with _$ThermalEnergyDraw {
 @freezed
 class SelfDestruct with _$SelfDestruct {
   const factory SelfDestruct({
-    @JsonKey(name: "damage") required int damage,
-    @JsonKey(name: "radius") required int radius,
-    @JsonKey(name: "min_radius") required int minRadius,
-    @JsonKey(name: "phys_radius") required int physRadius,
-    @JsonKey(name: "min_phys_radius") required int minPhysRadius,
-    @JsonKey(name: "time") required int time,
+    @JsonKey(name: "damage") int? damage,
+    @JsonKey(name: "radius") int? radius,
+    @JsonKey(name: "min_radius") int? minRadius,
+    @JsonKey(name: "phys_radius") int? physRadius,
+    @JsonKey(name: "min_phys_radius") int? minPhysRadius,
+    @JsonKey(name: "time") int? time,
   }) = _SelfDestruct;
 
   factory SelfDestruct.fromJson(Map<String, dynamic> json) =>
@@ -703,12 +771,12 @@ class SelfDestruct with _$SelfDestruct {
 @freezed
 class Shield with _$Shield {
   const factory Shield({
-    @JsonKey(name: "max_shield_health") required int maxShieldHealth,
-    @JsonKey(name: "max_shield_regen") required int maxShieldRegen,
-    @JsonKey(name: "decay_ratio") required double decayRatio,
-    @JsonKey(name: "regen_delay") required RegenDelay regenDelay,
-    @JsonKey(name: "max_reallocation") required int maxReallocation,
-    @JsonKey(name: "reallocation_rate") required int reallocationRate,
+    @JsonKey(name: "max_shield_health") int? maxShieldHealth,
+    @JsonKey(name: "max_shield_regen") int? maxShieldRegen,
+    @JsonKey(name: "decay_ratio") double? decayRatio,
+    @JsonKey(name: "regen_delay") RegenDelay? regenDelay,
+    @JsonKey(name: "max_reallocation") int? maxReallocation,
+    @JsonKey(name: "reallocation_rate") int? reallocationRate,
   }) = _Shield;
 
   factory Shield.fromJson(Map<String, dynamic> json) => _$ShieldFromJson(json);
@@ -717,8 +785,8 @@ class Shield with _$Shield {
 @freezed
 class RegenDelay with _$RegenDelay {
   const factory RegenDelay({
-    @JsonKey(name: "downed") required int downed,
-    @JsonKey(name: "damage") required int damage,
+    @JsonKey(name: "downed") int? downed,
+    @JsonKey(name: "damage") int? damage,
   }) = _RegenDelay;
 
   factory RegenDelay.fromJson(Map<String, dynamic> json) =>
@@ -728,12 +796,11 @@ class RegenDelay with _$RegenDelay {
 @freezed
 class Thruster with _$Thruster {
   const factory Thruster({
-    @JsonKey(name: "thrust_capacity") required int thrustCapacity,
+    @JsonKey(name: "thrust_capacity") int? thrustCapacity,
     @JsonKey(name: "min_health_thrust_multiplier")
-    required double minHealthThrustMultiplier,
-    @JsonKey(name: "fuel_burn_per_10k_newton")
-    required double fuelBurnPer10KNewton,
-    @JsonKey(name: "type") required String type,
+    double? minHealthThrustMultiplier,
+    @JsonKey(name: "fuel_burn_per_10k_newton") double? fuelBurnPer10KNewton,
+    @JsonKey(name: "type") String? type,
   }) = _Thruster;
 
   factory Thruster.fromJson(Map<String, dynamic> json) =>
@@ -743,9 +810,9 @@ class Thruster with _$Thruster {
 @freezed
 class Insurance with _$Insurance {
   const factory Insurance({
-    @JsonKey(name: "claim_time") required double claimTime,
-    @JsonKey(name: "expedite_time") required double expediteTime,
-    @JsonKey(name: "expedite_cost") required int expediteCost,
+    @JsonKey(name: "claim_time") double? claimTime,
+    @JsonKey(name: "expedite_time") double? expediteTime,
+    @JsonKey(name: "expedite_cost") int? expediteCost,
   }) = _Insurance;
 
   factory Insurance.fromJson(Map<String, dynamic> json) =>
@@ -755,9 +822,9 @@ class Insurance with _$Insurance {
 @freezed
 class Loaner with _$Loaner {
   const factory Loaner({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "link") required String link,
-    @JsonKey(name: "version") required String version,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "link") String? link,
+    @JsonKey(name: "version") String? version,
   }) = _Loaner;
 
   factory Loaner.fromJson(Map<String, dynamic> json) => _$LoanerFromJson(json);
@@ -766,8 +833,8 @@ class Loaner with _$Loaner {
 @freezed
 class DataManufacturer with _$DataManufacturer {
   const factory DataManufacturer({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "code") required String code,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "code") String? code,
   }) = _DataManufacturer;
 
   factory DataManufacturer.fromJson(Map<String, dynamic> json) =>
@@ -777,22 +844,48 @@ class DataManufacturer with _$DataManufacturer {
 @freezed
 class Part with _$Part {
   const factory Part({
-    @JsonKey(name: "name") required String name,
-    @JsonKey(name: "display_name") required String displayName,
-    @JsonKey(name: "damage_max") required int damageMax,
-    @JsonKey(name: "children") required List<Part> children,
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "display_name") String? displayName,
+    @JsonKey(name: "damage_max") int? damageMax,
+    @JsonKey(name: "children") List<PartChild>? children,
   }) = _Part;
 
   factory Part.fromJson(Map<String, dynamic> json) => _$PartFromJson(json);
 }
 
 @freezed
+class PartChild with _$PartChild {
+  const factory PartChild({
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "display_name") String? displayName,
+    @JsonKey(name: "damage_max") int? damageMax,
+    @JsonKey(name: "children") List<FluffyChild>? children,
+  }) = _PartChild;
+
+  factory PartChild.fromJson(Map<String, dynamic> json) =>
+      _$PartChildFromJson(json);
+}
+
+@freezed
+class FluffyChild with _$FluffyChild {
+  const factory FluffyChild({
+    @JsonKey(name: "name") String? name,
+    @JsonKey(name: "display_name") String? displayName,
+    @JsonKey(name: "damage_max") int? damageMax,
+    @JsonKey(name: "children") List<dynamic>? children,
+  }) = _FluffyChild;
+
+  factory FluffyChild.fromJson(Map<String, dynamic> json) =>
+      _$FluffyChildFromJson(json);
+}
+
+@freezed
 class Quantum with _$Quantum {
   const factory Quantum({
-    @JsonKey(name: "quantum_speed") required int quantumSpeed,
-    @JsonKey(name: "quantum_spool_time") required int quantumSpoolTime,
-    @JsonKey(name: "quantum_fuel_capacity") required int quantumFuelCapacity,
-    @JsonKey(name: "quantum_range") required double quantumRange,
+    @JsonKey(name: "quantum_speed") int? quantumSpeed,
+    @JsonKey(name: "quantum_spool_time") int? quantumSpoolTime,
+    @JsonKey(name: "quantum_fuel_capacity") int? quantumFuelCapacity,
+    @JsonKey(name: "quantum_range") double? quantumRange,
   }) = _Quantum;
 
   factory Quantum.fromJson(Map<String, dynamic> json) =>
@@ -802,13 +895,13 @@ class Quantum with _$Quantum {
 @freezed
 class Shop with _$Shop {
   const factory Shop({
-    @JsonKey(name: "uuid") String? uuid,
+    @JsonKey(name: "uuid") required String uuid,
     @JsonKey(name: "name_raw") required String nameRaw,
     @JsonKey(name: "name") required String name,
-    @JsonKey(name: "position") required String position,
-    @JsonKey(name: "profit_margin") required int profitMargin,
-    @JsonKey(name: "link") required String link,
-    @JsonKey(name: "version") required String version,
+    @JsonKey(name: "position") String? position,
+    @JsonKey(name: "profit_margin") int? profitMargin,
+    @JsonKey(name: "link") String? link,
+    @JsonKey(name: "version") String? version,
     @JsonKey(name: "items") required List<ItemElement> items,
   }) = _Shop;
 
@@ -818,28 +911,26 @@ class Shop with _$Shop {
 @freezed
 class ItemElement with _$ItemElement {
   const factory ItemElement({
-    @JsonKey(name: "uuid") String? uuid,
+    @JsonKey(name: "uuid") required String uuid,
     @JsonKey(name: "name") required String name,
     @JsonKey(name: "type") required String type,
-    @JsonKey(name: "sub_type") required String subType,
-    @JsonKey(name: "base_price") required int basePrice,
-    @JsonKey(name: "price_calculated") required int priceCalculated,
-    @JsonKey(name: "price_range") required PriceRange priceRange,
-    @JsonKey(name: "base_price_offset") required int basePriceOffset,
-    @JsonKey(name: "max_discount") required int maxDiscount,
-    @JsonKey(name: "max_premium") required int maxPremium,
-    @JsonKey(name: "inventory") required int inventory,
-    @JsonKey(name: "optimal_inventory") required int optimalInventory,
-    @JsonKey(name: "max_inventory") required int maxInventory,
-    @JsonKey(name: "auto_restock") required bool autoRestock,
-    @JsonKey(name: "auto_consume") required bool autoConsume,
-    @JsonKey(name: "refresh_rate") required int refreshRate,
-    @JsonKey(name: "buyable") required bool buyable,
-    @JsonKey(name: "sellable") required bool sellable,
-    @JsonKey(name: "rentable") required bool rentable,
-    @JsonKey(name: "version") required String version,
-    @JsonKey(name: "rental_price_days") RentalPDays? rentalPriceDays,
-    @JsonKey(name: "rental_percent_days") RentalPDays? rentalPercentDays,
+    @JsonKey(name: "sub_type") String? subType,
+    @JsonKey(name: "base_price") int? basePrice,
+    @JsonKey(name: "price_calculated") int? priceCalculated,
+    @JsonKey(name: "price_range") PriceRange? priceRange,
+    @JsonKey(name: "base_price_offset") int? basePriceOffset,
+    @JsonKey(name: "max_discount") int? maxDiscount,
+    @JsonKey(name: "max_premium") int? maxPremium,
+    @JsonKey(name: "inventory") int? inventory,
+    @JsonKey(name: "optimal_inventory") int? optimalInventory,
+    @JsonKey(name: "max_inventory") int? maxInventory,
+    @JsonKey(name: "auto_restock") bool? autoRestock,
+    @JsonKey(name: "auto_consume") bool? autoConsume,
+    @JsonKey(name: "refresh_rate") int? refreshRate,
+    @JsonKey(name: "buyable") bool? buyable,
+    @JsonKey(name: "sellable") bool? sellable,
+    @JsonKey(name: "rentable") bool? rentable,
+    @JsonKey(name: "version") String? version,
   }) = _ItemElement;
 
   factory ItemElement.fromJson(Map<String, dynamic> json) =>
@@ -847,24 +938,11 @@ class ItemElement with _$ItemElement {
 }
 
 @freezed
-class RentalPDays with _$RentalPDays {
-  const factory RentalPDays({
-    @JsonKey(name: "duration_1") required int duration1,
-    @JsonKey(name: "duration_3") required double duration3,
-    @JsonKey(name: "duration_7") required double duration7,
-    @JsonKey(name: "duration_30") required double duration30,
-  }) = _RentalPDays;
-
-  factory RentalPDays.fromJson(Map<String, dynamic> json) =>
-      _$RentalPDaysFromJson(json);
-}
-
-@freezed
 class Sizes with _$Sizes {
   const factory Sizes({
-    @JsonKey(name: "length") required double length,
-    @JsonKey(name: "beam") required double beam,
-    @JsonKey(name: "height") required double height,
+    @JsonKey(name: "length") int? length,
+    @JsonKey(name: "beam") int? beam,
+    @JsonKey(name: "height") int? height,
   }) = _Sizes;
 
   factory Sizes.fromJson(Map<String, dynamic> json) => _$SizesFromJson(json);
@@ -873,10 +951,10 @@ class Sizes with _$Sizes {
 @freezed
 class Skus with _$Skus {
   const factory Skus({
-    @JsonKey(name: "title") required String title,
-    @JsonKey(name: "price") required int price,
-    @JsonKey(name: "available") required int available,
-    @JsonKey(name: "imported_at") required DateTime importedAt,
+    @JsonKey(name: "title") String? title,
+    @JsonKey(name: "price") int? price,
+    @JsonKey(name: "available") int? available,
+    @JsonKey(name: "imported_at") DateTime? importedAt,
   }) = _Skus;
 
   factory Skus.fromJson(Map<String, dynamic> json) => _$SkusFromJson(json);
@@ -885,12 +963,12 @@ class Skus with _$Skus {
 @freezed
 class Speed with _$Speed {
   const factory Speed({
-    @JsonKey(name: "scm") required int scm,
-    @JsonKey(name: "max") required int max,
-    @JsonKey(name: "zero_to_scm") required double zeroToScm,
-    @JsonKey(name: "zero_to_max") required double zeroToMax,
-    @JsonKey(name: "scm_to_zero") required double scmToZero,
-    @JsonKey(name: "max_to_zero") required double maxToZero,
+    @JsonKey(name: "scm") required double scm,
+    @JsonKey(name: "max") required double max,
+    @JsonKey(name: "zero_to_scm") double? zeroToScm,
+    @JsonKey(name: "zero_to_max") double? zeroToMax,
+    @JsonKey(name: "scm_to_zero") double? scmToZero,
+    @JsonKey(name: "max_to_zero") double? maxToZero,
   }) = _Speed;
 
   factory Speed.fromJson(Map<String, dynamic> json) => _$SpeedFromJson(json);
@@ -899,8 +977,8 @@ class Speed with _$Speed {
 @freezed
 class Meta with _$Meta {
   const factory Meta({
-    @JsonKey(name: "processed_at") required DateTime processedAt,
-    @JsonKey(name: "valid_relations") required List<String> validRelations,
+    @JsonKey(name: "processed_at") DateTime? processedAt,
+    @JsonKey(name: "valid_relations") List<String>? validRelations,
   }) = _Meta;
 
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
